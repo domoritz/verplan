@@ -17,6 +17,9 @@ $document =& JFactory::getDocument();
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
 $document->addStylesheet('components/com_verplan/includes/general.css');
 
+//Javascript
+$document->addScript('components/com_verplan/includes/js/hide_admin.js');
+
 ?>
 
 <h1>Vertretungsplan</h1>
@@ -45,40 +48,43 @@ $document->addStylesheet('components/com_verplan/includes/general.css');
 
 </form>
 
-<?php 
-	//get settings
-	$settings = $this->settings;
-?>
+<h3 id="options_header">Optionen (click)</h3>
 
-<form name="settings" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
-	<h3>Optionen</h3>
+<div id="admin_settings_div">
+	<?php 
+		//get settings
+		$settings = $this->settings;
+	?>
 	
-	<table class="admin_table">
-		<tbody>
-			<tr>
-				<td class="key"><label for="intitle">maximale Dateigröße (not supported yet)</label></td>
-				<td><!-- maximale Dateigröße --> <input size="40" type="text"
-					name="max_file_size" value="<?php echo $settings['max_file_size'];?>" /></td>
-			</tr>
-			<tr>
-				<td class="key"><label for="intitle">erlaubte Dateitypen</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
-					name="allowed_filetypes" value="<?php echo $settings['allowed_filetypes'];?>" /></td>
-			</tr>
-		</tbody>
-	</table>
-	<input type="submit" name="settings" class="settingsbutton" value="Speichern" />
+	<form name="settings" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
+		
+		<table class="admin_table">
+			<tbody>
+				<tr>
+					<td class="key"><label for="intitle">maximale Dateigröße (not supported yet)</label></td>
+					<td><!-- maximale Dateigröße --> <input size="40" type="text"
+						name="max_file_size" value="<?php echo $settings['max_file_size'];?>" /></td>
+				</tr>
+				<tr>
+					<td class="key"><label for="intitle">erlaubte Dateitypen</label></td>
+					<td><!-- Dateityp --> <input size="40" type="text"
+						name="allowed_filetypes" value="<?php echo $settings['allowed_filetypes'];?>" /></td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="submit" name="settings" class="settingsbutton" value="Speichern" />
+		
+		<!-- sollen unwichtige fehler ignoriert werden? --> 
+		<input type="hidden" name="ignore" value="false" /> 
 	
-	<!-- sollen unwichtige fehler ignoriert werden? --> 
-	<input type="hidden" name="ignore" value="false" /> 
-
-	<!-- damit die Komponente wieder aufgerufen wird --> 
-	<input type="hidden" name="option" value="com_verplan" /> 
-	<!-- task laden (in verplanControllrsave_settings -->
-	<input type="hidden" name="task" value="save_settings" /> 
-	<input type="hidden" name="boxchecked" value="0" /> 
-	<!-- richtiger Controller --> 
-	<input type="hidden" name="controller" value="save_settings" /> 
-	<!-- die user ID (unnötig) -->
-	<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
-</form>
+		<!-- damit die Komponente wieder aufgerufen wird --> 
+		<input type="hidden" name="option" value="com_verplan" /> 
+		<!-- task laden (in verplanControllrsave_settings -->
+		<input type="hidden" name="task" value="save_settings" /> 
+		<input type="hidden" name="boxchecked" value="0" /> 
+		<!-- richtiger Controller --> 
+		<input type="hidden" name="controller" value="save_settings" /> 
+		<!-- die user ID (unnötig) -->
+		<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
+	</form>
+</div>
