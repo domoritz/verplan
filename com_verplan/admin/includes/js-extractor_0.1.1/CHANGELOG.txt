@@ -1,0 +1,5 @@
+0.1.1
+- Fixed: Extracting attribites in hierarchy returns empty strings
+
+0.1.0
+- First release
