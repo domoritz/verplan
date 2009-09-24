@@ -1,6 +1,6 @@
 <?php
 /**
- * @version $Id$
+ * @version $id$
  * @package    verplan
  * @subpackage _ECR_SUBPACKAGE_
  * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
