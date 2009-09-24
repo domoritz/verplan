@@ -1,0 +1,49 @@
+/**
+ * @version $Id$
+ * @package    verplan
+ * @subpackage _ECR_SUBPACKAGE_
+ * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
+ * @author     Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @author     Created on 14-Sep-2009
+ */ /**/
+.uploadbutton {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+/*Admintabelle*/
+.admin_table td {
+	padding: 3px;
+}
+
+.admin_table td.key {
+	background-color: #F6F6F6;
+	border-bottom: 1px solid #E9E9E9;
+	border-right: 1px solid #E9E9E9;
+	color: #666666;
+	font-weight: bold;
+	text-align: right;
+	padding-right: 10px;
+}
+
+/*plus and minus*/
+.expander {
+	padding-left: 16px;
+	cursor: pointer;
+}
+
+.plus {
+	background: transparent url(../images/plus_m.png) no-repeat scroll 0px 2px;
+}
+
+.plus:hover{
+	background: transparent url(../images/plus_m_h.png) no-repeat scroll 0px 2px;
+}
+
+.minus {
+	background: transparent url(../images/minus_m.png) no-repeat scroll 0 2px;
+}
+
+.minus:hover {
+	background: transparent url(../images/minus_m_h.png) no-repeat scroll 0 2px;
+}

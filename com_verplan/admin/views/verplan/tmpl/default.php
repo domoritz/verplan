@@ -15,7 +15,8 @@ $document =& JFactory::getDocument();
 
 //jQuery support
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
-$document->addStylesheet('components/com_verplan/includes/general.css');
+$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
+$document->addStylesheet('components/com_verplan/includes/css/general.css');
 
 //Javascript
 $document->addScript('components/com_verplan/includes/js/hide_admin.js');
@@ -48,7 +49,9 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 
 </form>
 
-<h3 id="options_header">Optionen (click)</h3>
+<br><br>
+
+<h3 id="options_header" class="expander plus">Optionen</h3>
 
 <div id="admin_settings_div">
 	<?php 
