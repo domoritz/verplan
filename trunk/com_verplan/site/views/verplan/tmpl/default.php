@@ -11,9 +11,11 @@
 //-- No direct access
 defined('_JEXEC') or die('=;)');
 
-//jQuery hinzufügen
 $document =& JFactory::getDocument();
+
+//jQuery hinzufügen
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
+$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 //testscript
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquerytest.js');
 ?>
