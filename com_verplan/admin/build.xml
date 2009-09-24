@@ -44,11 +44,6 @@
     	<fileset dir="${src_site}" id="sitefiles">
         	<include name="**" />
     	</fileset>
-    	
-    	<!-- Fileset for all site files -->        
-    	<fileset dir="${target}" id="build">
-        	<include name="**" />
-    	</fileset>
         
         <!-- copy_all Target -->
     	<target name="copy_site" description="copy all files target">              
@@ -73,11 +68,7 @@
         	<copy todir="${target}/admin/uploads">
             	<fileset refid="admin_uploads" />
         	</copy>
-        	
-        	<copy todir="/build/${project}">
-            	<fileset refid="build" />
-        	</copy>
-    	</target>   
+    	</target>
     	
     	
     	<target name="dist" depends="copy_admin,copy_site">
