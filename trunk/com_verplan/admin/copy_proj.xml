@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Verplan" default="copy" basedir=".">
+        <property name="src"   value="."/>
+        <property name="version"   value="0.0.10"/>
+        <property name="project" value="com_verplan" />
+        <property name="package" value="com_verplan_${version}" />        
+        <property name="target"  value="/build/${project}" />
+        <property name="src_site"  value="../../../components/${project}/"/>        
+    	
+        <!-- Fileset for all site files -->        
+    	<fileset dir="${src_site}" id="site">
+        	<include name="**" />
+    	</fileset>
+    	
+    	<!-- Fileset for all site files -->        
+    	<fileset dir="${src}" id="admin">
+        	<include name="**" />
+    	</fileset>
+        
+        <!-- copy_all Target -->
+    	<target name="copy" description="copy all files target">              
+        	<echo message="Copying files to target project...(site)" />
+        	<copy todir="${target}/site">
+            	<fileset refid="site" />
+        	</copy>
+        	
+        	<echo message="Copying files to target project...(admin)" />
+        	<copy todir="${target}/admin">
+            	<fileset refid="admin" />
+        	</copy>
+    	</target>    		
+        
+</project>
