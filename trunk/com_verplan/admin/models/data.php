@@ -30,9 +30,6 @@ class VerplanModelData extends JModel
 	function __construct()
 	{
 		parent::__construct();
-
-		$data = JRequest::getVar('table',0,'','array');
-		$this->store((string)$data);
 	}
 
 	/**
@@ -44,8 +41,21 @@ class VerplanModelData extends JModel
 	function store($data)
 	{	
 		//debug
-		print_r($data);
+		//print_r($data);
+		
+		//datenbankfunktionen
+		$db =& JFactory::getDBO();
 
 		return true;
+	}
+	
+	/**
+	 * 
+	 * @return anzahl der neuen tabellenkoepfe
+	 */
+	function heads($tablehead){
+		
+		$new = 0;
+		return $new;
 	}
 }
