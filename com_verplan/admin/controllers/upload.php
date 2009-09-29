@@ -73,7 +73,10 @@ class VerplanControllerUpload extends verplanController
 					//Redirect to a page of your choice
 					if (strtolower(JFile::getExt($filename)) == "htm" || strtolower(JFile::getExt($filename)) == "html"){
 						$this->parse_file_to_array($dest);
-						//$this->setRedirect( 'index.php?option=com_verplan&controller=upload&task=parse_file_to_array&file='.$dest);
+						//Erfolg melden
+						//zu bebuggzwecken kannm man dies auskommentieren und kann sich dann den ablauf ansehen
+						$msg = 'Parsen und Einstellen erfolgreich';
+						//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 					} else {
 						$msg = 'Upload erfolgreich, Redirect auf die Datei und nicht die richtige Datenbankanzeige';
 						$this->setRedirect( 'index.php?option=com_verplan', $msg );
@@ -81,13 +84,15 @@ class VerplanControllerUpload extends verplanController
 				} else {
 					//Redirect and throw an error message
 					$msg = "Upload nicht erfolgreich, Fehler beim Hochladen";
-					$this->setRedirect( 'index.php?option=com_verplan', $msg );
+					JError::raiseWarning(0,$msg);
+					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 			} else {
 				//Redirect and throw an error message
 				$filesize_settings = $settings['max_file_size'];
 				$msg = "Upload nicht erfolgreich, Datei ist zu groß ($filesize > $filesize_settings)";
-				$this->setRedirect( 'index.php?option=com_verplan', $msg );
+				JError::raiseWarning(0,$msg);
+				//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 			}
 
 		} else {
@@ -95,7 +100,8 @@ class VerplanControllerUpload extends verplanController
 			$filetype = strtolower(JFile::getExt($filename));
 			$allowed_filetypes_string = implode(",",$allowed_filetypes);
 			$msg = "Upload nicht erfolgreich, falscher Dateityp ($filetype), erlaubt sind: $allowed_filetypes_string";
-			$this->setRedirect( 'index.php?option=com_verplan', $msg );
+			JError::raiseWarning(0,$msg);
+			//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 		}
 	}
 
@@ -272,15 +278,11 @@ class VerplanControllerUpload extends verplanController
 			 * das array enthält alle daten, des planes inklusive des datums und des standes
 			 */
 			$model = $this->getModel('data');
-			$model->store($data);	
+			$model->store($data);
 
 			//debug
 			echo "</pre>";
-			
-			//Erfolg melden
-			//zu bebuggzwecken kannm man dies auskommentieren und kann sich dann den ablauf ansehen
-			//$msg = 'Parsen und Einstellen erfolgreich';
-			//$this->setRedirect( 'index.php?option=com_verplan', $msg );
+
 
 		} else {
 			$msg = "Datei eingestellt, ohne DB";
