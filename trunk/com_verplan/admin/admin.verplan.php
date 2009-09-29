@@ -1,11 +1,13 @@
 <?php
 /**
- * @version $id$
- * @package    verplan
- * @subpackage _ECR_SUBPACKAGE_
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
- * @author     Dominik Moritz {@link http://www.dmoritz.bplaced.net}
- * @author     Created on 06-Sep-2009
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 06-Sep-2009
+ * 
+ * @package		verplan
  * 
  * Model: 		Daten
  * View: 		Ansicht

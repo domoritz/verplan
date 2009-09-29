@@ -1,11 +1,13 @@
 <?php
 /**
- * @version $Id$
- * @package    verplan
- * @subpackage _ECR_SUBPACKAGE_
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
- * @author     Dominik Moritz {@link http://www.dmoritz.bplaced.net}
- * @author     Created on 14-Sep-2009
+ * 
+ * 
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author		Created on 14-Sep-2009
  */
 
 //-- No direct access
@@ -51,16 +53,6 @@ class verplanModelverplan extends JModel
 		}
 		
 		return $settingsarray;
-	}// function
-	
-	/**
-	 * speichert array des planes in der datenbank ab,
-	 * bei erfolg wird true zurueck gegeben
-	 * @return boolean
-	 */
-	function plan_to_database() {
-		
-		return true;
 	}// function
 	
 }// class
