@@ -27,6 +27,10 @@
     	<fileset dir="${src}/controllers" id="admin_controllers">
         	<include name="**" />
     	</fileset>
+    	<!-- Fileset for tables admin folders -->        
+    	<fileset dir="${src}/tables" id="admin_tables">
+        	<include name="**" />
+    	</fileset>
     	<!-- Fileset for include admin folders -->        
     	<fileset dir="${src}/models" id="admin_models">
         	<include name="**" />
@@ -58,6 +62,9 @@
         	</copy>
         	<copy todir="${target}/admin/controllers">
             	<fileset refid="admin_controllers" />
+        	</copy>
+        	<copy todir="${target}/admin/tables">
+            	<fileset refid="admin_tables" />
         	</copy>
         	<copy todir="${target}/admin/models">
             	<fileset refid="admin_models" />
