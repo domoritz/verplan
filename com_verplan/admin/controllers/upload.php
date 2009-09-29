@@ -1,30 +1,25 @@
 <?php
 /**
  *
- * @version $Id$
- * @package    verplan
- * @subpackage _ECR_SUBPACKAGE_
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
- * @author     Dominik Moritz {@link http://www.dmoritz.bplaced.net}
- * @author     Created on 15-Sep-2009
- *
- *
- * Hello Controller for Hello World Component
- *
- * @package    Joomla.Tutorials
- * @subpackage Components
- * @link http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_4
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
  * @license		GNU/GPL
+ * @author      Created on 15-Sep-2009
+
  */
 
 // No direct access
-//defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die( 'Restricted access' );
 
 /**
  * verplan Upload Controller
  *
+ * @package    verplan
+ * @subpackage controller
  */
-class verplanControllerUpload extends verplanController
+class VerplanControllerUpload extends verplanController
 {
 	/**
 	 * constructor (registers additional tasks to methods)
@@ -144,18 +139,13 @@ class verplanControllerUpload extends verplanController
 		if (true OR strpos($inhalt, "gp-Untis")) {
 			//debug
 			echo "<pre>";
-			/*
-			 //string sollte nur mit "guten" umbruechen sein
-			 //also aus \r\n nur \n machen, ads vereinfacht alles
-			 $zeichen = "\n";
-			 $inhalt = str_replace("\r\n", $zeichen, $inhalt);
-			 //keine probleme mit ' und "
-			 $inhalt = str_replace("'", '"', $inhalt);
-			 */
-
 
 			//extractor, parser
-			//extractor einbinden
+			/* 
+			 * extractor einbinden
+			 * der extractor und parser ist ein externes programm, welches sich in 
+			 * admin/includes/js-extractor_0.1.1 befindet
+			 */
 			require_once("components/com_verplan/includes/js-extractor_0.1.1/library/JS/Extractor.php");
 			//neue instanz des Extractors
 			$extractor = new JS_Extractor($inhalt);
@@ -164,6 +154,9 @@ class verplanControllerUpload extends verplanController
 
 			/*STAND*/
 
+			/*
+			 * alternative Lösungen
+			 */
 			//0. stand aus tabellenzelle
 			//$data = $table->extract(array(".//tr", "th|td"));
 			//$standstring = $data['2']['4'];
@@ -171,9 +164,14 @@ class verplanControllerUpload extends verplanController
 			//1. stand mit dom über nummer der zelle
 			//$td = $extractor->query("//td");
 			//$standstring = $td->item(12)->nodeValue;
+			/*
+			 * ende alternative Lösungen
+			 */
+			
 
 			// 2. stand ueber regulaeren ausdruck
-			/* regulaerer ausdruck: Stand: dann zeichen dann Uhrzeit mit :, 
+			/* 
+			 * regulaerer ausdruck: Stand: dann zeichen dann Uhrzeit mit :, 
 			 * U=ungreedy
 			 * */
 			$pattern = '/Stand:.*:[0-5][0-9]/U';
@@ -202,7 +200,7 @@ class verplanControllerUpload extends verplanController
 			//strip "Stand:"
 			$standstring = substr($standstring,0);
 
-			//Datumsformat parsen
+			//Datumsformat parsen !!ACHTUNG, benoetigt >= PHP 5.3!!
 			$stand_array = date_parse_from_format("d.m.Y H:i", $standstring);
 			//print_r($stand_array);
 			//array in unix timestamp wandeln
@@ -236,19 +234,7 @@ class verplanControllerUpload extends verplanController
 			$format="Date: %A %d.%m.%Y %H:%M";
 			$strf=strftime($format,$date);
 			echo "$strf <br>";
-
-
-
-			/*
-			 $search = array("sonntag","montag","dienstag","mittwoch","donnerstag","freitag","samstag");
-			 $replace = array("0","1","2","3","4","5","6");
-			 $date = str_replace( $search, $replace, strtolower( $date ) );
-			 echo $date;
-
-			 $datedate = date_parse_from_format("j.n.Y w", $date);
-			 print_r($datedate);
-			 echo date("l dS of F Y h:i:s A",$datedate);
-			 */
+			
 
 			/*TABELLE*/
 			//alle tabellen und trennt dann nach tr oder td
@@ -260,13 +246,41 @@ class verplanControllerUpload extends verplanController
 			$data = $table->extract(array(".//tr", "th|td"));
 
 			//debug
-			print_r($data);
+			//print_r($data);
+			
+			//zaehlt die anzahl der spalten (count von subarray), hier nicht verwendet
+			//$columns = count($data[0]);
+			
+			//array zum uebergeben vorbereiten (datum und stand anhaengen)
+			//tabellenkopf
+			$data[0][] = "Datum";
+			$data[0][] = "Stand";
+			//tabellenzellen
+			for ($i = 1; $i < count($data); $i++) {
+				$data[$i][] = $date;
+				$data[$i][] = $stand;
+			}
+						
+			//debug
+			//print_r($data);
+			
+			
+			/*
+			 * an dieser stelle wird das model data aufgerufen und die methode
+			 * store mit dem array des vertretungsplanes als uebergabewert aufgerufen
+			 * 
+			 * das array enthält alle daten, des planes inklusive des datums und des standes
+			 */
+			$model = $this->getModel('data');
+			$model->store($data);	
 
 			//debug
 			echo "</pre>";
-
-			$msg = 'Parsen und Einstellen erfolgreich';
-			//$this->setRedirect( 'index.php?option=com_verplan', print_r($data) );
+			
+			//Erfolg melden
+			//zu bebuggzwecken kannm man dies auskommentieren und kann sich dann den ablauf ansehen
+			//$msg = 'Parsen und Einstellen erfolgreich';
+			//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 
 		} else {
 			$msg = "Datei eingestellt, ohne DB";
