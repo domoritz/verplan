@@ -43,6 +43,9 @@ class VerplanModelData extends JModel
 		//debug
 		print_r($data);
 		
+		//$row =& $this->getTable();
+		//print_r($row);
+		
 		//datenbankfunktionen
 		$db =& JFactory::getDBO();
 

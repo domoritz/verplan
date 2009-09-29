@@ -25,6 +25,7 @@
             <folder>assets</folder>
             <folder>includes</folder>
             <folder>models</folder>
+            <folder>tables</folder>
             <folder>views</folder>
             <folder>controllers</folder>
             <folder>uploads</folder>
