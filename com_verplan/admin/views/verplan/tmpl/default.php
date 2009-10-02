@@ -62,12 +62,12 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 		$settings = $this->settings;
 	?>
 	
-	<form name="settings" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
+	<form name="settings" method="get" enctype="multipart/form-data" action="index.php?option=com_verplan">
 		
 		<table class="admin_table">
 			<tbody>
 				<tr>
-					<td class="key"><label for="intitle">maximale Dateigröße (not supported yet)</label></td>
+					<td class="key"><label for="intitle">maximale Dateigröße (read only)</label></td>
 					<td><!-- maximale Dateigröße --> <input size="40" type="text"
 						name="max_file_size" value="<?php echo $settings['max_file_size'];?>" /></td>
 				</tr>
@@ -79,6 +79,9 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 			</tbody>
 		</table>
 		<input type="submit" name="settings" class="settingsbutton" value="Speichern" />
+		
+		<!-- anzeige ohne template (praktisch für ajax) -->
+		<!--<input type="hidden" name="tmpl" value="component" />-->
 		
 		<!-- sollen unwichtige fehler ignoriert werden? --> 
 		<input type="hidden" name="ignore" value="false" /> 
@@ -115,3 +118,11 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 		<li>PHP >= 5.3.0</li>
 	</ul>
 </div>
+
+<?php 
+/*
+//anzeige ohne template (praktisch für ajax)
+$mainframe =& JFactory::getApplication('site'); 
+$mainframe->close();
+*/
+?>
