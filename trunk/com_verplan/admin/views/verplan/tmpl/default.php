@@ -1,11 +1,11 @@
 <?php
 /**
- * @version $Id$
- * @package    verplan
- * @subpackage _ECR_SUBPACKAGE_
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
- * @author     Dominik Moritz {@link http://www.dmoritz.bplaced.net}
- * @author     Created on 14-Sep-2009
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 14-Sep-2009
  */
 
 //-- No direct access
@@ -17,6 +17,9 @@ $document =& JFactory::getDocument();
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
+
+//no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
+$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
 
 //Javascript
 $document->addScript('components/com_verplan/includes/js/hide_admin.js');
