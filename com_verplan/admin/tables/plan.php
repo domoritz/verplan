@@ -27,10 +27,6 @@ class TablePlan extends JTable
 	 */
 	var $id = null;
 
-	/**
-	 * @var string
-	 */
-	var $greeting = null;
 
 	/**
 	 * Constructor
@@ -38,6 +34,6 @@ class TablePlan extends JTable
 	 * @param object Database connector object
 	 */
 	function TableHello(& $db) {
-		parent::__construct('#__plan', 'id', $db);
+		parent::__construct('#__com_verplan_plan', $db);
 	}
 }
