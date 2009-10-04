@@ -18,7 +18,7 @@ jimport( 'joomla.application.component.view');
  *
  * @package    verplan
  */
-class verplanViewverplan extends JView
+class verplanViewVerplan extends JView
 {
 	function display($tpl = null)
 	{
@@ -34,7 +34,8 @@ class verplanViewverplan extends JView
 		$this->assignRef('description', $description);
 		
 		//lade Settings
-		$settings = $model->getSettings();
+		$newmodel = JModel::getInstance('Settings', 'VerplanModel');
+		$settings =& $newmodel->get('Settings');
 		$this->assignRef('settings', $settings);
 		
 
