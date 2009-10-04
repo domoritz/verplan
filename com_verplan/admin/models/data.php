@@ -39,26 +39,89 @@ class VerplanModelData extends JModel
 	 * @return	boolean	True on success
 	 */
 	function store($data)
-	{	
+	{
 		//debug
-		print_r($data);
+		//print_r($data);
+
+		$this->heads($data);
 		
+		for ($i = 1; $i < count($data); $i++) {
+			print_r($data[$i]);
+			
+		}
+		
+
 		//$row =& $this->getTable();
 		//print_r($row);
-		
+
 		//datenbankfunktionen
-		$db =& JFactory::getDBO();
 
 		return true;
 	}
-	
+
 	/**
-	 * 
+	 * methode zum vervollstaendigen der tabellekoepfe der
+	 * plantabelle und der spaltentabellen
+	 *
 	 * @return anzahl der neuen tabellenkoepfe
 	 */
-	function heads($tablehead){
-		
-		$new = 0;
-		return $new;
+	function heads($data){
+		//datenbankfunktionen
+		global $db;
+		$db =& JFactory::getDBO();
+
+		/*SPALTENTABELLE*/
+		//laedt die namen der spalten
+		$query = 'SELECT name FROM #__com_verplan_columns ORDER BY `id`';
+		$db->setQuery( $query );
+		$columns_names = $db->loadResultArray();
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
+
+		//debug
+		//print_r($columns_names);
+
+		//jede spalte (als zeile) wird ueberprueft und gegebenenfalls hinzugefuegt
+		foreach ($data[0] AS $column_name) {
+			if (!in_array($column_name,$columns_names)) {
+				$query = 'INSERT INTO `#__com_verplan_columns` (`name`) VALUES(\''.$column_name.'\');';
+				$db->setQuery($query);
+				$db->query();
+				if ($db->getErrorNum()) {
+					$msg = $db->getErrorMsg();
+					JError::raiseWarning(0,$msg);
+				}
+			}
+		}
+
+		/*PLANTABELLE*/
+		//laedt die namen der spalten
+		$query = 'SHOW COLUMNS FROM #__com_verplan_plan';
+		$db->setQuery( $query );
+		$columns_names = $db->loadResultArray();
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
+
+		//debug
+		//print_r($columns_names);
+
+		//jede spalte wird ueberprueft und gegebenenfalls hinzugefuegt
+		foreach ($data[0] AS $column_name) {
+			if (!in_array($column_name,$columns_names)) {
+				$query = 'ALTER TABLE `jos_com_verplan_plan` ADD `'.$column_name.'` TEXT NULL';
+				$db->setQuery($query);
+				$db->query();
+				if ($db->getErrorNum()) {
+					$msg = $db->getErrorMsg();
+					JError::raiseWarning(0,$msg);
+				}
+			}
+		}		
+
+		return true;
 	}
 }

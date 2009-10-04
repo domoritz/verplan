@@ -259,7 +259,7 @@ class VerplanControllerUpload extends verplanController
 			
 			//array zum uebergeben vorbereiten (datum und stand anhaengen)
 			//tabellenkopf
-			$data[0][] = "Datum";
+			$data[0][] = "Geltungsdatum";
 			$data[0][] = "Stand";
 			//tabellenzellen
 			for ($i = 1; $i < count($data); $i++) {

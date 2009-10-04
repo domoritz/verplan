@@ -24,17 +24,18 @@ DROP TABLE IF EXISTS `#__com_verplan_plan`;
 CREATE TABLE `#__com_verplan_plan` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
 `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'creation time',
-`date` TIMESTAMP NOT NULL,
+`geltungsdatum` TIMESTAMP NOT NULL,
 `stand` TIMESTAMP NOT NULL
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
 
 
-DROP TABLE IF EXISTS `#__com_verplan_head`;
+DROP TABLE IF EXISTS `#__com_verplan_columns`;
 
-CREATE TABLE `#__com_verplan_head` (
+CREATE TABLE `#__com_verplan_columns` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `name` TEXT NOT NULL ,
-`show` BOOL NOT NULL DEFAULT '0',
-`sort_order` INT NOT NULL ,
-`alternative_name` INT NOT NULL
+`order_number` INT NOT NULL DEFAULT '9999',
+`show` BOOL NULL DEFAULT '0',
+`sort_order` INT NULL ,
+`alternative_name` TEXT NULL
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
