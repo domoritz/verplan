@@ -45,8 +45,8 @@ class VerplanControllerUpload extends verplanController
 		//lade Settings
 		$model =& $this->getModel();
 		$settings = $model->getSettings();
-		
-		//falls fehler ignoriert werden sollen
+
+		//falls fehler in den regulaeren ausdruecken ignoriert werden sollen
 		$ignore = JRequest::getVar('ignore',false);
 
 		//get filetype information
@@ -73,10 +73,13 @@ class VerplanControllerUpload extends verplanController
 					//Redirect to a page of your choice
 					if (strtolower(JFile::getExt($filename)) == "htm" || strtolower(JFile::getExt($filename)) == "html"){
 						$this->parse_file_to_array($dest);
-						//Erfolg melden
-						//zu bebuggzwecken kannm man dies auskommentieren und kann sich dann den ablauf ansehen
-						$msg = 'Parsen und Einstellen erfolgreich';
-						//$this->setRedirect( 'index.php?option=com_verplan', $msg );
+						//falls es keine fehler gab
+						if (!JERROR::getError()) {
+							//Erfolg melden
+							//zu bebuggzwecken kannm man dies auskommentieren und kann sich dann den ablauf ansehen
+							$msg = 'Parsen und Einstellen erfolgreich';
+							$this->setRedirect( 'index.php?option=com_verplan', $msg );
+						}
 					} else {
 						$msg = 'Upload erfolgreich, Redirect auf die Datei und nicht die richtige Datenbankanzeige';
 						$this->setRedirect( 'index.php?option=com_verplan', $msg );
@@ -107,7 +110,7 @@ class VerplanControllerUpload extends verplanController
 
 	/**
 	 * gibt den String zwischen $start und $end zurueck
-	 * 
+	 *
 	 * @param $string
 	 * @param $start
 	 * @param $end
@@ -125,7 +128,7 @@ class VerplanControllerUpload extends verplanController
 	/**
 	 * wandelt die datei in ein array um (parsen) und übergibt das array an die methode zum speichern
 	 * bei fehlern werden meldungen ausgegeben
-	 * 
+	 *
 	 * @param $filename
 	 * @return array
 	 */
@@ -147,11 +150,11 @@ class VerplanControllerUpload extends verplanController
 			echo "<pre>";
 
 			//extractor, parser
-			/* 
-			 * extractor einbinden
-			 * der extractor und parser ist ein externes programm, welches sich in 
-			 * admin/includes/js-extractor_0.1.1 befindet
-			 */
+			/*
+			* extractor einbinden
+			* der extractor und parser ist ein externes programm, welches sich in
+			* admin/includes/js-extractor_0.1.1 befindet
+			*/
 			require_once("components/com_verplan/includes/js-extractor_0.1.1/library/JS/Extractor.php");
 			//neue instanz des Extractors
 			$extractor = new JS_Extractor($inhalt);
@@ -171,15 +174,15 @@ class VerplanControllerUpload extends verplanController
 			//$td = $extractor->query("//td");
 			//$standstring = $td->item(12)->nodeValue;
 			/*
-			 * ende alternative Lösungen
-			 */
-			
+			* ende alternative Lösungen
+			*/
+				
 
 			// 2. stand ueber regulaeren ausdruck
-			/* 
-			 * regulaerer ausdruck: Stand: dann zeichen dann Uhrzeit mit :, 
-			 * U=ungreedy
-			 * */
+			/*
+			* regulaerer ausdruck: Stand: dann zeichen dann Uhrzeit mit :,
+			* U=ungreedy
+			* */
 			$pattern = '/Stand:.*:[0-5][0-9]/U';
 			if(preg_match_all($pattern,$inhalt,$matches)){
 				//falls es mehr als zwei treffer gibt, sollte es eine fehlermeldung geben
@@ -215,7 +218,7 @@ class VerplanControllerUpload extends verplanController
 			//debug
 			setlocale(LC_TIME, "de_DE");
 			$format="Stand: %A %d.%m.%Y %H:%M";
-			$strf=strftime($format,$stand);			
+			$strf=strftime($format,$stand);
 			echo "$strf <br>";
 			//echo $standstring;
 
@@ -240,49 +243,56 @@ class VerplanControllerUpload extends verplanController
 			$format="Date: %A %d.%m.%Y %H:%M";
 			$strf=strftime($format,$date);
 			echo "$strf <br>";
-			
+				
 
 			/*TABELLE*/
 			//alle tabellen und trennt dann nach tr oder td
-			
+				
 			//$table = $body->query("//table")->item(2);
 			//$data = $table->extract(array(".//tr", "th|td"));
-			
+				
 			$table = $extractor->query("//table[@class='mon_list']")->item(0);
 			$data = $table->extract(array(".//tr", "th|td"));
 
 			//debug
 			//print_r($data);
-			
+				
 			//zaehlt die anzahl der spalten (count von subarray), hier nicht verwendet
 			//$columns = count($data[0]);
-			
+				
 			//array zum uebergeben vorbereiten (datum und stand anhaengen)
 			//tabellenkopf
 			$data[0][] = "Geltungsdatum";
 			$data[0][] = "Stand";
+				
+			/*
+			 * umwandeln der timestamps in mysql timestamps
+			 * kann einfach entfernt werden, dann wird nicht umgewandelt
+			 */
+			$date = date( 'Y-m-d H:i:s', $date );
+			$stand = date( 'Y-m-d H:i:s', $stand );
+				
 			//tabellenzellen
 			for ($i = 1; $i < count($data); $i++) {
 				$data[$i][] = $date;
 				$data[$i][] = $stand;
 			}
-						
+
 			//debug
 			//print_r($data);
-			
-			
+				
+				
 			/*
 			 * an dieser stelle wird das model data aufgerufen und die methode
 			 * store mit dem array des vertretungsplanes als uebergabewert aufgerufen
-			 * 
+			 *
 			 * das array enthält alle daten, des planes inklusive des datums und des standes
 			 */
 			$model = $this->getModel('data');
-			$model->store($data);
+			$model->store($data);				
 
 			//debug
 			echo "</pre>";
-
 
 		} else {
 			$msg = "Datei eingestellt, ohne DB";

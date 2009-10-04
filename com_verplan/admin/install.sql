@@ -7,7 +7,6 @@ CREATE TABLE `#__com_verplan_settings` (
 `editable` BOOL NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
- 
 INSERT INTO `#__com_verplan_settings` (
 `id` ,
 `key` ,
@@ -24,9 +23,10 @@ DROP TABLE IF EXISTS `#__com_verplan_plan`;
 CREATE TABLE `#__com_verplan_plan` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
 `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'creation time',
-`geltungsdatum` TIMESTAMP NOT NULL,
-`stand` TIMESTAMP NOT NULL
+`Geltungsdatum` TIMESTAMP NOT NULL,
+`Stand` TIMESTAMP NOT NULL
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
+
 
 
 DROP TABLE IF EXISTS `#__com_verplan_columns`;
@@ -37,5 +37,15 @@ CREATE TABLE `#__com_verplan_columns` (
 `order_number` INT NOT NULL DEFAULT '9999',
 `show` BOOL NULL DEFAULT '0',
 `sort_order` INT NULL ,
-`alternative_name` TEXT NULL
+`alternative_name` TEXT NULL,
+`editable` BOOL NOT NULL DEFAULT '1'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
+
+INSERT INTO `#__com_verplan_columns` (
+`name` ,
+`order_number` ,
+`show` ,
+`alternative_name`,
+`editable`
+)
+VALUES ('Geltungsdatum','0','1','Datum','1'),('Stand','0','1','Stand','1');
