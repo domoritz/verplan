@@ -44,17 +44,47 @@ class VerplanModelData extends JModel
 		//print_r($data);
 
 		$this->heads($data);
-		
+
+		//datenbankfunktionen
+		global $db;
+		$db =& JFactory::getDBO();
+
 		for ($i = 1; $i < count($data); $i++) {
-			print_r($data[$i]);
+			//print_r($data[$i]);
+			$query = 'INSERT INTO `#__com_verplan_plan` ('."\n";
+			//fuegt die spalten ein, in die eingefuegt wird
+			foreach ($data[0] AS $column_name){
+				$query.="`$column_name`,";
+			}
 			
+			//entfernt das letzte komma, damit die sql syntay valide ist
+			$query = substr($query, 0, -1); 
+			$query.=") VALUES (\n";
+				
+			//die daten
+			foreach ($data[$i] AS $column_name){
+				$query.="'$column_name',";
+			}
+			
+			//entfernt das letzte komma, damit die sql syntay valide ist
+			$query = substr($query, 0, -1); 
+			$query.=");";
+				
+			//debug
+			//echo $query."\n";
+
+			//fuehrt befehl aus
+			$db->setQuery($query);
+			$db->query();
+			if ($db->getErrorNum()) {
+				$msg = $db->getErrorMsg();
+				JError::raiseWarning(0,$msg);
+			}
 		}
-		
+
 
 		//$row =& $this->getTable();
 		//print_r($row);
-
-		//datenbankfunktionen
 
 		return true;
 	}
@@ -75,7 +105,9 @@ class VerplanModelData extends JModel
 		$query = 'SELECT name FROM #__com_verplan_columns ORDER BY `id`';
 		$db->setQuery( $query );
 		$columns_names = $db->loadResultArray();
+		//bei fehlern
 		if ($db->getErrorNum()) {
+			//errornachricht
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
@@ -120,7 +152,7 @@ class VerplanModelData extends JModel
 					JError::raiseWarning(0,$msg);
 				}
 			}
-		}		
+		}
 
 		return true;
 	}
