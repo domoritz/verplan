@@ -76,7 +76,7 @@ class VerplanControllerUpload extends verplanController
 						//falls es keine fehler gab
 						if (!JERROR::getError()) {
 							//Erfolg melden
-							//zu bebuggzwecken kannm man dies auskommentieren und kann sich dann den ablauf ansehen
+							//zu bebuggzwecken kann man dies auskommentieren und kann sich dann den ablauf ansehen
 							$msg = 'Parsen und Einstellen erfolgreich';
 							$this->setRedirect( 'index.php?option=com_verplan', $msg );
 						}
