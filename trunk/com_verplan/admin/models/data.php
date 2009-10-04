@@ -82,10 +82,6 @@ class VerplanModelData extends JModel
 			}
 		}
 
-
-		//$row =& $this->getTable();
-		//print_r($row);
-
 		return true;
 	}
 

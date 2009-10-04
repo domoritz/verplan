@@ -31,28 +31,4 @@ class verplanModelverplan extends JModel
 		return 'Bitte gehe auf die <a target="_blank" href="../index.php?option=com_verplan" target="_blank">Frontpage</a>.';
 	}// function
 	
-	/**
-	 * gibt ein assoziatives array mit allen einstellungen in der form
-	 * key=>value zurueck
-	 * @return array
-	 */
-	function getSettings(){		
-		$db =& JFactory::getDBO();
- 
-		//zweidimensionales array laden
-	    $query = 'SELECT * FROM `#__com_verplan_settings`';
-	    $db->setQuery( $query );
-	    $extended_settingsarray = $db->loadObjectList ();
-	    
-	    //array in eindimensionales umwandeln
-	    $settingsarray = array();
-		foreach ($extended_settingsarray as $row) {
-			$key=$row->key;
-			$value=$row->value;
-			$settingsarray[$key] = $value;
-		}
-		
-		return $settingsarray;
-	}// function
-	
 }// class

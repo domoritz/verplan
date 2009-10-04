@@ -27,7 +27,7 @@ class verplanController extends JController
 	 * @access    public
 	 */
 	function display()
-	{
+	{		
 		parent::display();
 	}
 

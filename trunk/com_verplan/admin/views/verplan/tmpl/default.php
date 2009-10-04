@@ -39,6 +39,12 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 	
 	<input size="40" type="file" id="file" name="file" />
 	<input type="submit" name="upload" class="uploadbutton" value="Einstellen" />
+	
+	<!-- anzeige ohne template (praktisch für ajax) -->
+	<!--<input type="hidden" name="tmpl" value="component" />-->
+		
+	<!-- sollen fehler in den regulaeren ausdruechen ignoriert werden? (empfohlen) --> 
+	<input type="hidden" name="ignore" value="true" /> 
 
 	<!-- damit die Komponente wieder aufgerufen wird --> 
 	<input type="hidden" name="option" value="com_verplan" /> 
@@ -79,20 +85,14 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 			</tbody>
 		</table>
 		<input type="submit" name="settings" class="settingsbutton" value="Speichern" />
-		
-		<!-- anzeige ohne template (praktisch für ajax) -->
-		<!--<input type="hidden" name="tmpl" value="component" />-->
-		
-		<!-- sollen fehler in den regulaeren ausdruechen ignoriert werden? (empfohlen) --> 
-		<input type="hidden" name="ignore" value="true" /> 
 	
 		<!-- damit die Komponente wieder aufgerufen wird --> 
 		<input type="hidden" name="option" value="com_verplan" /> 
 		<!-- task laden (in verplanControllrsave_settings -->
-		<input type="hidden" name="task" value="save_settings" /> 
+		<input type="hidden" name="task" value="SetSettings" /> 
 		<input type="hidden" name="boxchecked" value="0" /> 
-		<!-- richtiger Controller --> 
-		<input type="hidden" name="controller" value="save_settings" /> 
+		<!-- richtiger Controller -->
+		<input type="hidden" name="controller" value="SetSettings" /> 
 		<!-- die user ID (unnötig) -->
 		<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
 	</form>
