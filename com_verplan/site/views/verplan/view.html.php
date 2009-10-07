@@ -31,13 +31,6 @@ class verplanViewverplan extends JView
 		
 		$this->assignRef( 'greeting_model', $greeting_model );
 		$this->assignRef( 'greeting_view', $greeting_view );
-		
-		$verplanmodel = $model->getVerplan(date,stand);
-		$this->assignRef( 'verplan', $verplanmodel);
-		
-		//array laden
-		$arraymodel = $model->getArray();
-		$this->assignRef( 'array', $arraymodel);
 
 		parent::display($tpl);
 	}// function

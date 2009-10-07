@@ -29,7 +29,7 @@ class verplanViewVerplan extends JView
 		$link = $model->getLinkFrontpage();
 		$this->assignRef('link', $link);
 		
-		//Link zu Frontpage laden
+		//Beschreibung
 		$description = $model->getDescription();
 		$this->assignRef('description', $description);
 		

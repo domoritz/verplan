@@ -29,20 +29,4 @@ class verplanModelverplan extends JModel
 	{
 		return 'Hello World (model) !';
 	}// function
-
-	function getArray()
-	{
-		$array = array(0,2,5,4,3,7,3,5,4);
-		return $array;
-	}// function
-
-	function getVerplan($date,$stand){
-		$db =& JFactory::getDBO();
- 		
-		$where = 'date = '.$date.'and stand='.$stand;
-	   	$query = 'SELECT greeting FROM #__verplan WHERE '.$where;
-	   	$db->setQuery( $query );
-	   	$array = $db->loadResult();
-	   	return $array;
-	}
 }// class

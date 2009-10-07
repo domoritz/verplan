@@ -1,5 +1,5 @@
-$(document).ready(function(){
-	$('#test').click(function(){
-		$(this).hide('slow');
+jQuery(document).ready(function(){
+	jQuery('#test').click(function(){
+		jQuery(this).hide('slow');
 	});
 });
