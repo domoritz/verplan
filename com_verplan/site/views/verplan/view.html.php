@@ -37,6 +37,9 @@ class verplanViewverplan extends JView
 		$both = $datamodel->getDatesAndStands();
 		$this->assignRef( 'datesAndStands', $both);
 		
+		//debug
+		//print_r($dates);
+		
 		parent::display($tpl);
 	}// function
 }// class

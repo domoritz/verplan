@@ -53,13 +53,18 @@ class VerplanModelData extends JModel
 			 * 0 = DESC nach oben hin 
 			 * 1 = ASC nach oben hin
 			 */
-			sort($stands,1);
+			if (is_array($stands)) {
+				sort($stands,1);
+				//weist den stand zu
+				$stand = $stands[0];
+			} else {
+				$stand = $stands;
+			}			
 			
 			//debug
 			//print_r($stands);
 			
-			//weist den stand zu
-			$stand = $stands[0];
+			
 		}
 
 		/*

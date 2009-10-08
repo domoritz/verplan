@@ -20,6 +20,8 @@ $arr = $this->verplanarray;
 
 //array anzeigen
 echo "<pre>";
+echo JRequest::getVar('date')."\n";
+echo JRequest::getVar('stand')."\n";
 print_r($arr);
 echo "</pre>";
 ?>
