@@ -43,8 +43,8 @@ class VerplanControllerUpload extends verplanController
 		$file = JRequest::getVar('file', null, 'files', 'array');
 
 		//lade Settings
-		$model =& $this->getModel();
-		$settings = $model->getSettings();
+		$settingsmodel = JModel::getInstance('Settings', 'VerplanModel');
+		$settings = $settingsmodel->getSettings();
 
 		//falls fehler in den regulaeren ausdruecken ignoriert werden sollen
 		$ignore = JRequest::getVar('ignore',false);
@@ -176,7 +176,7 @@ class VerplanControllerUpload extends verplanController
 			/*
 			* ende alternative Lösungen
 			*/
-				
+
 
 			// 2. stand ueber regulaeren ausdruck
 			/*
@@ -243,35 +243,44 @@ class VerplanControllerUpload extends verplanController
 			$format="Date: %A %d.%m.%Y %H:%M";
 			$strf=strftime($format,$date);
 			echo "$strf <br>";
-				
+
 
 			/*TABELLE*/
 			//alle tabellen und trennt dann nach tr oder td
-				
+
 			//$table = $body->query("//table")->item(2);
 			//$data = $table->extract(array(".//tr", "th|td"));
-				
+
 			$table = $extractor->query("//table[@class='mon_list']")->item(0);
 			$data = $table->extract(array(".//tr", "th|td"));
 
 			//debug
 			//print_r($data);
-				
+
 			//zaehlt die anzahl der spalten (count von subarray), hier nicht verwendet
 			//$columns = count($data[0]);
-				
+
 			//array zum uebergeben vorbereiten (datum und stand anhaengen)
 			//tabellenkopf
 			$data[0][] = "Geltungsdatum";
 			$data[0][] = "Stand";
-				
+
 			/*
 			 * umwandeln der timestamps in mysql timestamps
 			 * kann einfach entfernt werden, dann wird nicht umgewandelt
+			 *
+			 * Timestamps
+			 *
+			 * PHP -> MySQL
+			 * $date = date( 'Y-m-d H:i:s', $date );
+			 *
+			 * MySQL -> PHP
+			 * $date = strtotime($date);
+			 *
 			 */
 			$date = date( 'Y-m-d H:i:s', $date );
 			$stand = date( 'Y-m-d H:i:s', $stand );
-				
+
 			//tabellenzellen
 			for ($i = 1; $i < count($data); $i++) {
 				$data[$i][] = $date;
@@ -280,8 +289,8 @@ class VerplanControllerUpload extends verplanController
 
 			//debug
 			//print_r($data);
-				
-				
+
+
 			/*
 			 * an dieser stelle wird das model data aufgerufen und die methode
 			 * store mit dem array des vertretungsplanes als uebergabewert aufgerufen
@@ -289,7 +298,7 @@ class VerplanControllerUpload extends verplanController
 			 * das array enthält alle daten, des planes inklusive des datums und des standes
 			 */
 			$model = $this->getModel('data');
-			$model->store($data);				
+			$model->store($data);
 
 			//debug
 			echo "</pre>";
