@@ -23,15 +23,20 @@ class verplanViewverplan extends JView
 {
 	function display($tpl = null)
 	{
-		//Model laden
+		//Standardmodel laden
 		$model =& $this->getModel();
 		
-		$greeting_model = $model->getGreeting();
-		$greeting_view = 'Hello World (view) !';
+		//alle stände und geltungsdaten als arrays
+		$datamodel = JModel::getInstance('Data', 'VerplanModel');
+		$stands = $datamodel->getUniques('Stand');
+		$dates = $datamodel->getUniques('Geltungsdatum');
+		$this->assignRef( 'stands', $stands);
+		$this->assignRef( 'dates', $dates);
 		
-		$this->assignRef( 'greeting_model', $greeting_model );
-		$this->assignRef( 'greeting_view', $greeting_view );
-
+		$datamodel = JModel::getInstance('Data', 'VerplanModel');
+		$both = $datamodel->getDatesAndStands();
+		$this->assignRef( 'datesAndStands', $both);
+		
 		parent::display($tpl);
 	}// function
 }// class

@@ -19,9 +19,9 @@ jimport( 'joomla.application.component.view');
  * @package    verplan
  */
 
-class verplanViewverplan extends JView
+class verplanViewVerplan extends JView
 {
-	function display($tpl = json)
+	function display($tpl = "array")
 	{
 		//Model laden
 		$model =& $this->getModel();
@@ -29,21 +29,6 @@ class verplanViewverplan extends JView
 		
 		$date = JRequest::getVar('date');
 		$stand = JRequest::getVar('stand');
-		
-		//debug
-		//echo "date: ".$date;
-		//echo "stand: ".$stand;
-
-		/*
-		 * Timestamps
-		 * 
-		 * PHP -> MySQL
-		 * $date = date( 'Y-m-d H:i:s', $date );
-		 * 
-		 * MySQL -> PHP
-		 * $date = strtotime($date);
-		 * 
-		 */
 		
 		//verplanarray laden und an template übergeben
 		$datamodel = JModel::getInstance('Data', 'VerplanModel');

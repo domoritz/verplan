@@ -64,6 +64,6 @@ class VerplanModelSettings extends JModel
 	 * @return	boolean	True on success
 	 */
 	function setSettings(){
-	
+		return true;
 	}
 }
