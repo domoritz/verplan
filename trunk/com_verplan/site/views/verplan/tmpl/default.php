@@ -28,24 +28,25 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 ?>
 
 <!-- -->
-<form
-	name="upload" method="post" enctype="multipart/form-data"
-	action="index.php?option=com_verplan">
+<form name="upload" method="post" enctype="multipart/form-data"	action="">
 	
 	Geltungsdatum
 	<br>
-	<select size="1" id="date" name="date" class="select">
+	<select size="1" id="select_date" name="date">
 		<?php 
 		$dates = $this->dates;
 		foreach ($dates as $key => $value) {
 			
 			//morgiges datum autom auswählen
 			$timestamp = strtotime($value[Geltungsdatum]);
-			if ($timestamp = time()) {
+			if ($timestamp_now = time()) {
 				$selected = "selected";
 			}
 			
-			echo '<option value="'.$value[Geltungsdatum].'" $selected="'.$selected.'">';	
+			//datums value, die zeit ist egal
+			$date_value = date( 'Y-m-d', $timestamp);
+			
+			echo '<option value="'.$date_value.'" $selected="'.$selected.'">';	
 			
 			/*
 			 * richtiges datumsformat
@@ -58,8 +59,8 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 			 */						
 			setlocale(LC_TIME, "de_DE");		
 			$format="<b>%A</b> %d.%m.%Y";
-			$date = strftime($format,$timestamp);		
-			echo $date;
+			$label= strftime($format,$timestamp);		
+			echo $label;
 			echo '</option>';
 		}	
 		?>
@@ -68,7 +69,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 	<!-- nur den neuesten stand --> 
 	<input type="hidden" name="stand" value="newest" /> 
 	
-	<input type="submit" name="submit" class="submitbutton" value="Anzeigen" />
+	<!-- <input type="submit" name="submit" class="submitbutton" value="Anzeigen" />-->
 
 	<!-- anzeige ohne template (praktisch für ajax) --> 
 	<!--<input type="hidden" name="tmpl" value="component" />-->
@@ -85,4 +86,4 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 	<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
 </form>
 
-<table></table>
+<div id="ajaxtable">text</div>
