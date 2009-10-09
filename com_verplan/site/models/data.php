@@ -34,13 +34,21 @@ class VerplanModelData extends JModel
 
 	/**
 	 * methode, zum laden des planes aus der datenbank
-	 * in ein assoziatives array
+	 * in ein assoziatives array der form
+	 * 
+	 * Array
+	 * (
+	 * 		[cols] => Array ()
+	 * 		[rows] => Array ()
+	 * )
 	 *
 	 * @access	public
 	 * @return	boolean	True on success
 	 */
 	function getVerplanarray($date,$stand){
 		$db =& JFactory::getDBO();
+
+		$array = array(cols=>null,rows=>null);
 
 		//falls nur der neueste stand zurückgegeben werden soll
 		if ($stand == "newest") {
@@ -50,7 +58,7 @@ class VerplanModelData extends JModel
 			$stands = $stands[$date];
 			/*
 			 * sortiert
-			 * 0 = DESC nach oben hin 
+			 * 0 = DESC nach oben hin
 			 * 1 = ASC nach oben hin
 			 */
 			if (is_array($stands)) {
@@ -59,30 +67,35 @@ class VerplanModelData extends JModel
 				$stand = $stands[0];
 			} else {
 				$stand = $stands;
-			}			
-			
+			}
 			//debug
 			//print_r($stands);
-			
-			
 		}
 
 		/*
 		 * lädt die passenden daten als assoziatives array aus der datenbank
 		 * % ist ein platzhalter für beliebige zeichen. dadurch ist es möglich,
-		 *   z.b. alle daten von 2009 zu bekommen
+		 * z.b. alle daten von 2009 zu bekommen
 		 * bei fehlern wird eine meldung ausgegeben
 		 *
 		 */
 		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND Stand LIKE '.$db->quote($stand."%");
 		$db->setQuery($query);
-		$array = $db->loadAssocList();
+		$array[rows] = $db->loadAssocList();
 		if ($db->getErrorNum()) {
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
 		//debug
 		//echo $query;
+
+		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_columns');
+		$db->setQuery($query);
+		$array[cols] = $db->loadAssocList();
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
 
 		//debug
 		//print_r($array);
