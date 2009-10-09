@@ -3,9 +3,9 @@ jQuery(document).ready(function(){
 	loadJsonTable(false);
 	
 	function loadJsonTable(effects) {
-//jQuery('#ajaxtable').load("index.php?option=com_verplan&view=verplan&format=js&date=2009-09-24");
+		//jQuery('#ajaxtable').load("index.php?option=com_verplan&view=verplan&format=js&date=2009-09-24");
 		
-		jQuery('#ajaxtable').append('<span id="load">LOADING...</span>');  
+		jQuery('#ajaxtable').append('<span id="load"></span>');  
 		jQuery('#load').fadeIn('normal');
 		
 		var speed = 1000;

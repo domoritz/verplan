@@ -36,8 +36,8 @@ CREATE TABLE `#__com_verplan_columns` (
 `name` TEXT NOT NULL ,
 `order_number` INT NOT NULL DEFAULT '9999',
 `show` BOOL NULL DEFAULT '0',
-`sort_order` INT NULL ,
-`alternative_name` TEXT NULL,
+`type` INT NULL COMMENT 'wie soll sortiert werden',
+`label` TEXT NULL COMMENT 'alternativer name',
 `editable` BOOL NOT NULL DEFAULT '1'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
 

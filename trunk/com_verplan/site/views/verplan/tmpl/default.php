@@ -21,17 +21,18 @@ $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-u
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
-$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
+//$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
 
 //scripts
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/data-Tables-1.5/media/js/jQuery.dataTables.js');
+
 ?>
 
 <!-- -->
 <form name="upload" method="post" enctype="multipart/form-data"	action="">
-	
-	Geltungsdatum
-	<br>
+
+	<div id="selectrahmen">
+	<label for="select_date"></label>  
 	<select size="1" id="select_date" name="date">
 		<?php 
 		$dates = $this->dates;
@@ -65,6 +66,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 		}	
 		?>
 	</select>
+	</div>
 	
 	<!-- nur den neuesten stand --> 
 	<input type="hidden" name="stand" value="newest" /> 
@@ -86,4 +88,4 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 	<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
 </form>
 
-<div id="ajaxtable">text</div>
+<div id="ajaxtable"></div>
