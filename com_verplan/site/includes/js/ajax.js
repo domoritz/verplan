@@ -19,7 +19,23 @@ jQuery(document).ready(function(){
 		
 		function loadContent() {  
 			var date = jQuery('#select_date').val();
-			jQuery('#ajaxtable').load('index.php?option=com_verplan&view=verplan&format=js&date='+date+'&stand=newest','',showNewContent());
+			jQuery.getJSON('index.php?option=com_verplan&view=verplan&format=js&date='+date+'&stand=newest', function(json){
+				var table = '';
+				//alert("JSON Data: " + json.data[0].id);
+				table += '<table style="width:80%; border:1px;"><thead>';
+				jQuery.each(json.colnames, function() {
+					table+= '<th>';
+					table+=this;
+					table+= '<th>';
+				});
+				
+				table+='</thead></table>';
+				jQuery('#ajaxtable').html(table);
+				showNewContent();
+				  
+			});
+
+			//jQuery('#ajaxtable').load('index.php?option=com_verplan&view=verplan&format=js&date='+date+'&stand=newest','',showNewContent());
 			/*jQuery.ajax({
 				type: "GET",
 				url: "index.php",

@@ -39,7 +39,8 @@ class VerplanModelData extends JModel
 	 * Array
 	 * (
 	 * 		[cols] => Array ()
-	 * 		[rows] => Array ()
+	 * 		[colnames] => Array()
+	 * 		[data] => Array ()
 	 * )
 	 *
 	 * @access	public
@@ -48,7 +49,85 @@ class VerplanModelData extends JModel
 	function getVerplanarray($date,$stand){
 		$db =& JFactory::getDBO();
 
-		$array = array(cols=>null,rows=>null);
+		$array = array();
+
+		//falls nur der neueste stand zurückgegeben werden soll
+		if ($stand == "newest") {
+			//holt sich das array mit daten und ständen
+			$stands = $this->getDatesAndStands();
+			//nimmt nur das passende subarray
+			$stands = $stands[$date];
+			/*
+			 * sortiert
+			 * 0 = DESC nach oben hin
+			 * 1 = ASC nach oben hin
+			 */
+			if (is_array($stands)) {
+				sort($stands,1);
+				//weist den stand zu
+				$stand = $stands[0];
+			} else {
+				$stand = $stands;
+			}
+			//debug
+			//print_r($stands);
+		}
+
+		/*
+		 * lädt die passenden daten als assoziatives array aus der datenbank
+		 * % ist ein platzhalter für beliebige zeichen. dadurch ist es möglich,
+		 * z.b. alle daten von 2009 zu bekommen
+		 * bei fehlern wird eine meldung ausgegeben
+		 *
+		 */
+		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND Stand LIKE '.$db->quote($stand."%");
+		$db->setQuery($query);		
+		$assozArray = $db->loadAssocList();
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
+		foreach ($assozArray[0] as $key => $value) {
+			$array[colnames][] = $key;
+		}
+		$array[data]=$assozArray;
+		
+		
+		//debug
+		//echo $query;
+
+		//lädt die spalten
+		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_columns');
+		$db->setQuery($query);
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
+		$array[cols] = $db->loadAssocList();
+
+		//debug
+		//print_r($array);
+
+		//testarray zum debuggen
+		//$array = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
+
+		/* gibt den vertretungsplan als array zurueck
+		 * (nur die zeilen mit passendem datum und stand)
+		 */
+		return $array;
+	}
+	
+/**
+	 * methode, zum laden des planes aus der datenbank
+	 * in ein array für das dataTable plugin
+	 *
+	 * @access	public
+	 * @return	boolean	True on success
+	 */
+	function getVerplanarrayForDataTable($date,$stand){
+		$db =& JFactory::getDBO();
+
+		$array = array();
 
 		//falls nur der neueste stand zurückgegeben werden soll
 		if ($stand == "newest") {
@@ -81,7 +160,7 @@ class VerplanModelData extends JModel
 		 */
 		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND Stand LIKE '.$db->quote($stand."%");
 		$db->setQuery($query);
-		$array[rows] = $db->loadAssocList();
+		$assoz_array = $db->loadAssocList();
 		if ($db->getErrorNum()) {
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
@@ -89,16 +168,16 @@ class VerplanModelData extends JModel
 		//debug
 		//echo $query;
 
-		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_columns');
-		$db->setQuery($query);
-		$array[cols] = $db->loadAssocList();
-		if ($db->getErrorNum()) {
-			$msg = $db->getErrorMsg();
-			JError::raiseWarning(0,$msg);
+		//nicht assoziativ
+		$i = 0;
+		$o = 0;
+		foreach ($assoz_array as $subarray){
+			foreach ($subarray as $value) {
+				$array[aaData][$i][$o] = $value;
+				$o++;
+			}
+			$i++;
 		}
-
-		//debug
-		//print_r($array);
 
 		//testarray zum debuggen
 		//$array = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);

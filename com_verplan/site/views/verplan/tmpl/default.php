@@ -21,11 +21,14 @@ $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-u
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
-//$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
+$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
 
 //scripts
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/data-Tables-1.5/media/js/jQuery.dataTables.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
 
+//$document->addScript('http://www.google.com/jsapi');
+//$document->addScript($this->baseurl.'/components/com_verplan/includes/js/googletable.js');
+//$document->addCustomTag( "<script type=\"text/javascript\">google.load('visualization', '1', {packages: ['table']});</script>" );
 ?>
 
 <!-- -->
