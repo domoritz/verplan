@@ -17,6 +17,8 @@ $document =& JFactory::getDocument();
  * css
  */
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
+$document->addStylesheet('components/com_verplan/includes/css/table.css');
+$document->addStylesheet('components/com_verplan/includes/css/jquery.kiketable.colsizable.css');
 
 
 /*
@@ -33,12 +35,14 @@ $document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noC
 //eigene scripts
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.table.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/hide_options.js');
 
 //plugins
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.tablesorter.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.tablesorter.min.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.columnfilters.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.colorize-2.0.0.js');
-
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.kiketable.colsizable-1.1.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.event.drag-1.4.js');
 
 
 //$document->addScript('http://www.google.com/jsapi');
@@ -94,7 +98,10 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	<input type="hidden" name="stand" value="latest" /> 
 	<input type="hidden" name="options" value="" />
 	
-	<!-- <input type="submit" name="submit" class="submitbutton" value="Anzeigen" />-->
+	<noscript>
+	<input type="submit" name="submit" class="submitbutton" value="Anzeigen" />
+	</noscript>
+	
 
 	<!-- damit die Komponente wieder aufgerufen wird --> 
 	<input type="hidden" name="option" value="com_verplan" /> 
@@ -105,6 +112,11 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	<!-- die user ID --> 
 	<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
 </form>
+
+<h4 id="options_header" class="expander plus">Optionen</h4>
+<div id="options_div">
+	text
+</div>
 
 <noscript>
 	<div class="corner-all error">

@@ -41,6 +41,25 @@ function table_init(){
 		caseSensitive:false
 	});
 	
+	/*
+	 * resizer
+	 * breite der spalten anpassen
+	 * http://plugins.jquery.com/project/kiketable_colsizable
+	 */
+	jQuery("#jquerytable").kiketable_colsizable({
+		dragMove : true,
+		dragProxy : "area",
+		dragOpacity: 0.3,
+		fixWidth: true
+	});
+	
+	
+	
+	/*
+	 * jQuery column manager für options
+	 * http://plugins.jquery.com/project/columnmanager
+	 */
+	
 }
 
 /**

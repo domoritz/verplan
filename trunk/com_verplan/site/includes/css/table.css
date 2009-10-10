@@ -1,0 +1,110 @@
+/**
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 10-Okt-2009
+ */
+
+/*tabelle*/
+#jquerytable {
+	width: 100%;
+	border-style:solid;
+	border-width:1px;
+	border-color:#C6C3C6;
+	border-collapse:collapse;
+}
+
+/*thead*/
+#jquerytable th {
+	border-style:solid;
+	border-width:1px;
+	border-color:#C6C3C6;
+	padding:2px 1px;
+}
+
+#jquerytable th {
+	/*background-image: url(../images/small.png);*/     
+	cursor: pointer; 
+	font-weight: bold; 
+	background-repeat: no-repeat; 
+	background-position: center left;
+	background: #DFDFDF url(../images/small.png) repeat-x scroll left center;
+	background-color: #DFDFDF;
+	padding-left: 20px; 
+	margin-left: -1px; 
+	text-shadow:1px -1px 0px rgba(255, 255, 255, 0.8);
+} 
+
+#jquerytable th.headerSortUp { 
+	background-image: url(../images/small_asc.png);
+} 
+
+#jquerytable th.headerSortDown { 
+	background-image: url(../images/small_desc.png); 
+}
+
+#jquerytable td {
+	border-style:solid;
+	border-width:1px;
+	border-color:#C6C3C6;
+	padding:0px;
+}
+
+.filterColumns td {
+	padding:2px!important;
+	align:center;		
+}
+
+._filterText{			
+	opacity:1;
+	padding:2px;
+	height:auto;
+	vertical-align:middle;
+	width:90%;
+	
+	-moz-border-radius:3px;
+	-webkit-border-radius: 3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#BBBBBB;
+	color:#464646;
+}
+
+._filterText:hover {
+	border-color:#666666;
+	color:#000000;
+}
+
+/*tbody*/
+#jquerytable tbody td {
+	border-style:solid;
+	border-width:1px;
+	border-color:#C6C3C6;
+	padding:2px 1px;
+}
+
+#jquerytable tbody {
+	display: table-row-group;
+}
+
+
+#jquerytable tr.odd { 
+	background-color:#fff;
+}
+
+#jquerytable tr.even { 
+	background-color:#EEEEEE; 
+}
+
+#jquerytable tr.hover { 
+	/*background-color:#6D6D6D;*/
+	background:#6D6D6D url(../images/darkgray-grad.png) repeat-x scroll left center;
+	color: white;
+	text-shadow:#222 0px -1px 1px;
+}
+
+#jquerytable tr.marked { 
+	background-color:#FFCC33; 
+}
