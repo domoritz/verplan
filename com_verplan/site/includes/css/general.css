@@ -6,6 +6,24 @@
  * @license		GNU/GPL
  * @author      Created on 07-Sep-2009
  */
+.corner-all {
+	-moz-border-radius-bottomleft: 4px;
+	-moz-border-radius-bottomright: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	-webkit-border-radius: 4px;
+}
+
+.error {
+	padding: 6px 6px;
+	margin-top:20px; 
+	border : 1px solid #cd0a0a;
+	background: #fef1ec url(images/ui-bg_highlight-soft_95_fef1ec_1x100.png)
+		50% top repeat-x;
+	color: #cd0a0a;
+	border: 1px solid #cd0a0a;
+}
+
 #select_date {
 	border-color: #eee;
 	border-style: solid;
@@ -33,17 +51,11 @@
 
 #selectrahmen {
 	padding: 6px;
-	-moz-border-radius-bottomleft: 4px;
-	-moz-border-radius-bottomright: 4px;
-	-moz-border-radius-topleft: 4px;
-	-moz-border-radius-topright: 4px;
-	-webkit-border-radius: 4px;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #BBBBBB;
 	color: #464646;
 	background-color: #ddd;
-	width: 100%;
 }
 
 #selectrahmen:hover {
@@ -74,24 +86,104 @@
 		center;
 }
 
-#ajaxtable {
+#ajaxdiv {
 	padding-top: 2em;
 	width: 100%;
 }
 
-#ajaxtable_table {
+/*tabelle*/
+#jquerytable {
 	width: 100%;
-	border: 1px solid;
+	border-style:solid;
+	border-width:1px;
+	border-color:#C6C3C6;
+	border-collapse:collapse;
 }
 
-#ajaxtable_table thead th{
-	border: 1px solid;
+/*thead*/
+#jquerytable th {
+	border-style:solid;
+	border-width:1px;
+	border-color:#C6C3C6;
+	padding:2px 1px;
 }
 
-#ajaxtable_table tbody td{
-	border: 1px solid;
+#jquerytable th {
+	/*background-image: url(../images/small.png);*/     
+	cursor: pointer; 
+	font-weight: bold; 
+	background-repeat: no-repeat; 
+	background-position: center left;
+	background: #DFDFDF url(../images/small.png) repeat-x scroll left center;
+	background-color: #DFDFDF;
+	padding-left: 20px; 
+	margin-left: -1px; 
+	text-shadow:0 1px 0 rgba(255, 255, 255, 0.8);
+} 
+
+#jquerytable th.headerSortUp { 
+	background-image: url(../images/small_asc.png);
+} 
+
+#jquerytable th.headerSortDown { 
+	background-image: url(../images/small_desc.png); 
 }
 
-#ajaxtable_table tbody{
+#jquerytable td {
+	border-style:solid;
+	border-width:1px;
+	border-color:#C6C3C6;
+	padding:0px;
+}
+
+._filterText{			
+	opacity:1;
+	padding:2px;
+	height:auto;
+	vertical-align:middle;
+	margin:2px 2px;
+	
+	-moz-border-radius:3px;
+	-webkit-border-radius: 3px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#BBBBBB;
+	color:#464646;
+}
+
+._filterText:hover {
+	border-color:#666666;
+	color:#000000;
+}
+
+/*tbody*/
+#jquerytable tbody td {
+	border-style:solid;
+	border-width:1px;
+	border-color:#C6C3C6;
+	padding:2px 1px;
+}
+
+#jquerytable tbody {
 	display: table-row-group;
+}
+
+
+#jquerytable tr.odd { 
+	background-color:#fff;
+}
+
+#jquerytable tr.even { 
+	background-color:#EEEEEE; 
+}
+
+#jquerytable tr.hover { 
+	/*background-color:#6D6D6D;*/
+	background:#6D6D6D url(../images/darkgray-grad.png) repeat-x scroll left center;
+	color: white;
+	text-shadow:#000 1px -1px 1px;
+}
+
+#jquerytable tr.marked { 
+	background-color:#FFCC33; 
 }
