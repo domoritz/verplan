@@ -35,18 +35,17 @@ class VerplanModelData extends JModel
 	/**
 	 * methode, zum laden des planes aus der datenbank
 	 * in ein assoziatives array der form
-	 * 
+	 *
 	 * Array
 	 * (
 	 * 		[cols] => Array ()
-	 * 		[colnames] => Array()
-	 * 		[data] => Array ()
+	 * 		[rows] => Array ()
 	 * )
 	 *
 	 * @access	public
 	 * @return	boolean	True on success
 	 */
-	function getVerplanarray($date,$stand){
+	function getVerplanarray($date,$stand,$options){
 		$db =& JFactory::getDBO();
 
 		$array = array();
@@ -81,18 +80,12 @@ class VerplanModelData extends JModel
 		 *
 		 */
 		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND Stand LIKE '.$db->quote($stand."%");
-		$db->setQuery($query);		
-		$assozArray = $db->loadAssocList();
+		$db->setQuery($query);
+		$assozArray_rows = $db->loadAssocList();
 		if ($db->getErrorNum()) {
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
-		foreach ($assozArray[0] as $key => $value) {
-			$array[colnames][] = $key;
-		}
-		$array[data]=$assozArray;
-		
-		
 		//debug
 		//echo $query;
 
@@ -103,7 +96,41 @@ class VerplanModelData extends JModel
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
-		$array[cols] = $db->loadAssocList();
+		$assozArray_cols = $db->loadAssocList();
+
+		/*OPTIONS*/
+		switch ($options) {
+			case all:
+				$array[cols] = $assozArray_cols;
+				$array[rows] = $assozArray_rows;
+				break;
+					
+			default:
+				//falls die Spalte angezeigt werden soll, wird sie hinzugefügt
+				for ($i = 0; $i < count($assozArray_cols); $i++) {
+					if ($assozArray_cols[$i][show] == 1) {
+						$array[cols][] = $assozArray_cols[$i];
+					}
+				}
+				/*
+				 * falls die Spalte angezeigt werden soll,
+				 * wird sie in der zeile hinzugefügt
+				 */
+				//durch alle reihen
+				for($i = 0; $i < count($assozArray_rows); $i++) {
+					//durch alle spalten
+					for ($o = 0; $o < count($assozArray_rows[$i]); $o++) {
+						//falls es angezeigt werden darf
+						if ($assozArray_cols[$o][show] == 1) {
+							//bezeichung der spalte
+							$name = $assozArray_cols[$o][name];
+							//anhängen
+							$array[rows][$i][$name] = $assozArray_rows [$i][$name];
+						}
+					}
+				}
+				break;
+		}
 
 		//debug
 		//print_r($array);
@@ -116,8 +143,8 @@ class VerplanModelData extends JModel
 		 */
 		return $array;
 	}
-	
-/**
+
+	/**
 	 * methode, zum laden des planes aus der datenbank
 	 * in ein array für das dataTable plugin
 	 *

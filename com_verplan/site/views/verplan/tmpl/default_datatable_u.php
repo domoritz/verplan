@@ -19,16 +19,17 @@ $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-u
 
 //css
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
+$document->addStylesheet('components/com_verplan/includes/dataTables-1.5/media/css/demo_page.css');
+$document->addStylesheet('components/com_verplan/includes/dataTables-1.5/media/css/demo_table_jui.css');
+$document->addStylesheet('components/com_verplan/includes/dataTables-1.5/media/css/demo_table.css');
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
-$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
+//$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
 
 //scripts
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/dataTables-1.5/media/js/jQuery.dataTables.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/dataTables_ajax.js');
 
-//$document->addScript('http://www.google.com/jsapi');
-//$document->addScript($this->baseurl.'/components/com_verplan/includes/js/googletable.js');
-//$document->addCustomTag( "<script type=\"text/javascript\">google.load('visualization', '1', {packages: ['table']});</script>" );
 ?>
 
 <!-- -->
@@ -69,9 +70,6 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 		}	
 		?>
 	</select>
-	<div id="load_platzhalter">
-	<div id="loading"></div>
-	</div>
 	</div>
 	
 	<!-- nur den neuesten stand --> 
@@ -95,35 +93,36 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 </form>
 
 <div id="ajaxtable">
-<table id="ajaxtable_table">
-	<colgroup>
-<?php 
-$array = $this->verplanArray;
-$anzahl = count($array[cols]);
-for ($i = 0; $i < $anzahl; $i++) {
-	echo "<col/>";
-}
-?>
-	</colgroup>
+
+<div id="dynamic">
+<table id="example" class="display" cellspacing="0" cellpadding="0"
+	border="0">
 	<thead>
 		<tr>
-<?php 
-for ($i = 0; $i < $anzahl; $i++) {
-	echo "<th>";
-	echo $array[cols][$i][name];
-	echo "</th>";
-}
-?>
+			<th width="20%">Rendering engine</th>
+			<th width="25%">Browser</th>
+			<th width="25%">Platform(s)</th>
+			<th width="15%">Engine version</th>
+			<th width="15%">CSS grade</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-<?php 
-for ($i = 0; $i < $anzahl; $i++) {
-	echo "<td></td>";
-}
-?>
-		</tr>
 	</tbody>
+	<tfoot>
+		<tr>
+			<th><input class="search_init" type="text" value="Search engines"
+				name="search_engine" /></th>
+			<th><input class="search_init" type="text" value="Search browsers"
+				name="search_browser" /></th>
+			<th><input class="search_init" type="text" value="Search platforms"
+				name="search_platform" /></th>
+			<th><input class="search_init" type="text" value="Search versions"
+				name="search_version" /></th>
+			<th><input class="search_init" type="text" value="Search grades"
+				name="search_grade" /></th>
+		</tr>
+	</tfoot>
 </table>
+</div>
+
 </div>
