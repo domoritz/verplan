@@ -1,26 +1,40 @@
 jQuery(document).ready(function(){
 
+	jQuery.fn.pause = function (n) {
+		return this.queue(function () {
+			var el = this;
+			setTimeout(function () {
+				return jQuery(el).dequeue();
+			}, n);
+		});
+	};
+
 	loadJsonTable(false);
+
+	jQuery('#select_date').change(function(){
+		loadJsonTable(true);
+
+	});
 
 	function loadJsonTable(effects) {
 		//jQuery('#ajaxtable').load("index.php?option=com_verplan&view=verplan&format=js&date=2009-09-24");
 
-		jQuery('#ajaxtable').append('<span id="load"></span>');  
-		jQuery('#load').fadeIn('normal');
-
-		jQuery("div#loading").ajaxStart(function(){
-			jQuery(this).show();
-		});		
-		jQuery("div#loading").ajaxComplete(function(){
-			jQuery(this).fadeOut('slow');
-		});
-
+//		jQuery("div#loading").ajaxStart(function(){
+//			jQuery(this).fadeIn('fast');
+//		}).ajaxComplete(function(){
+//			//hideLoader();
+//		});
 
 		var speed = 1000;
 
-		if (effects) {					
-			jQuery('#ajaxtable tbody').toggle('blind',speed, loadContent());
+		if (effects) {
+			jQuery('div#loading').fadeIn('fast');
+			jQuery('#ajaxtable tbody').toggle('blind',speed).queue(function(){
+				loadContent();
+				jQuery(this).dequeue();
+			});
 		} else {
+			jQuery('div#loading').fadeIn('fast');
 			loadContent();	
 		}
 
@@ -54,45 +68,24 @@ jQuery(document).ready(function(){
 				showNewContent();
 
 			});
-
-			//jQuery('#ajaxtable').load('index.php?option=com_verplan&view=verplan&format=js&date='+date+'&stand=newest','',showNewContent());
-			/*jQuery.ajax({
-				type: "GET",
-				url: "index.php",
-				data: "?option=com_verplan&view=verplan&format=js&date=2009-09-24",
-				success: function(html){
-					jQuery('#ajaxtable').html(html);
-					showNewContent();
-					alert( "Data Saved: ");
-				}
-			});*/
-			//alert( "date: "+date);
 		}  
 		function showNewContent() {  
-			//jQuery('#ajaxtable').show('normal',hideLoader());
 			if (effects) {
-				jQuery('#ajaxtable tbody').toggle('blind',speed,hideLoader());
+				jQuery('#ajaxtable tbody').toggle('blind',speed).queue(function(){
+					hideLoader();
+					jQuery(this).dequeue();
+				});			
 			} else {
-				hideLoader();
+				jQuery('#ajaxtable tbody').queue(function(){
+					hideLoader();
+					jQuery(this).dequeue();
+				});			
 			}
 
 		}  
 		function hideLoader() {  
-			jQuery('#load').fadeOut('slow');  
+			jQuery('div#loading').pause(500).fadeOut(1000);
 		}  
 
-		/*jQuery.ajax({
-			type: "GET",
-			url: "index.php",
-			data: "?option=com_verplan&view=verplan&format=js&date=2009-09-24",
-			success: function(html){
-				jQuery('#ajaxtable').html(html);
-				alert( "Data Saved: ");
-			}
-		});*/
 	}
-	jQuery('#select_date').change(function(){
-		loadJsonTable(true);
-
-	});
 });

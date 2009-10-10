@@ -43,6 +43,7 @@
 	border-color: #BBBBBB;
 	color: #464646;
 	background-color: #ddd;
+	width: 100%;
 }
 
 #selectrahmen:hover {
@@ -58,7 +59,7 @@
 }
 
 #load_platzhalter {
-	width: 32px;
+	width: 64px;
 	height: 32px;
 	float: right;
 	position: relative;
@@ -67,15 +68,22 @@
 
 #loading {
 	display: none;
-	background: red url(../images/ajaxloader.gif);
+	width: 64px;
+	height: 32px;
+	background: transparent url(../images/ajax-loader-3d.gif) no-repeat 50%
+		center;
 }
 
 #ajaxtable {
 	padding-top: 2em;
-	max-width: 100%;
+	width: 100%;
 }
 
 #ajaxtable_table {
-	width: 80%;
+	width: 100%;
 	border: 1px solid;
+}
+
+#ajaxtable_table tbody:hover {
+	height:0px;
 }
