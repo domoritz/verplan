@@ -1,3 +1,12 @@
+/**
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 08-Okt-2009
+ */
+
 jQuery(document).ready(function(){
 
 	jQuery.fn.pause = function (n) {
@@ -56,11 +65,13 @@ jQuery(document).ready(function(){
 				jQuery.each(json.rows, function() {
 					table+= '<tr>';
 					jQuery.each(this, function() {
-						table+= '<td>';
-						table+=this;
-						table+= '<td>';
+						if (this != "") {
+							table+= '<td>';
+							table+=this;
+							table+= '</td>';
+						}						
 					});
-					table+= '<tr>';
+					table+= '</tr>';
 				});
 
 				//table+='</table>';
