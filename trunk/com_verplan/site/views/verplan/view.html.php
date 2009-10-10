@@ -37,7 +37,7 @@ class verplanViewverplan extends JView
 		$both = $datamodel->getDatesAndStands();
 		$this->assignRef( 'datesAndStands', $both);
 		
-		$array = $datamodel->getVerplanarray(2009,newest);
+		$array = $datamodel->getVerplanarray('2009','newest','none');
 		$this->assignRef( 'verplanArray', $array);
 		
 		//debug

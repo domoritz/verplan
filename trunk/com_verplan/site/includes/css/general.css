@@ -57,14 +57,17 @@
 	border: none;
 }
 
-#load {
-	display: none;
-	position: relative;
-	right: 10px;
-	top: 10px;
-	background: url(../images/ajaxloader.gif);
+#load_platzhalter {
 	width: 32px;
 	height: 32px;
+	float: right;
+	position: relative;
+	right: 0;
+}
+
+#loading {
+	display: none;
+	background: red url(../images/ajaxloader.gif);
 }
 
 #ajaxtable {
@@ -72,15 +75,7 @@
 	max-width: 100%;
 }
 
-.google-visualization-table-table {
-	font-size: xx-small;
-}
-
-.google-visualization-table-table,.google-visualization-table-
-				table {
-	font-size: xx-small;
-}
-
-.google-visualization-table-table * {
-	font-size: xx-small;
+#ajaxtable_table {
+	width: 80%;
+	border: 1px solid;
 }
