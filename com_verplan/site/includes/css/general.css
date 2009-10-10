@@ -84,6 +84,14 @@
 	border: 1px solid;
 }
 
-#ajaxtable_table tbody:hover {
-	height:0px;
+#ajaxtable_table thead th{
+	border: 1px solid;
+}
+
+#ajaxtable_table tbody td{
+	border: 1px solid;
+}
+
+#ajaxtable_table tbody{
+	display: table-row-group;
 }

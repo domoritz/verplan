@@ -97,32 +97,32 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 <div id="ajaxtable">
 <table id="ajaxtable_table">
 	<colgroup>
-<?php 
-$array = $this->verplanArray;
-$anzahl = count($array[cols]);
-for ($i = 0; $i < $anzahl; $i++) {
-	echo "<col/>";
-}
-?>
+	<?php
+	$array = $this->verplanArray;
+	$anzahl = count($array[cols]);
+	for ($i = 0; $i < $anzahl; $i++) {
+		echo "<col/>";
+	}
+	?>
 	</colgroup>
 	<thead>
 		<tr>
-<?php 
-for ($i = 0; $i < $anzahl; $i++) {
-	echo "<th>";
-	echo $array[cols][$i][name];
-	echo "</th>";
-}
-?>
+		<?php
+		for ($i = 0; $i < $anzahl; $i++) {
+			echo "<th>";
+			echo $array[cols][$i][name];
+			echo "</th>";
+		}
+		?>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-<?php 
-for ($i = 0; $i < $anzahl; $i++) {
-	echo "<td></td>";
-}
-?>
+		<?php
+		for ($i = 0; $i < $anzahl; $i++) {
+			echo "<td></td>";
+		}
+		?>
 		</tr>
 	</tbody>
 </table>
