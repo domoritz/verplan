@@ -8,7 +8,7 @@
  */
 
 jQuery(document).ready(function(){
-
+	//neue funktion zur zeitverzögerung
 	jQuery.fn.pause = function (n) {
 		return this.queue(function () {
 			var el = this;
@@ -18,30 +18,35 @@ jQuery(document).ready(function(){
 		});
 	};
 
+	//laden ganz amanfang
 	loadJsonTable(false);
+	
+	//tabelle am anfang mit plugins
+	table_init();
 
+	//falls sich im select etwas ändert
 	jQuery('#select_date').change(function(){
 		loadJsonTable(true);
-
 	});
 
+	/**
+	 * funktion, die tbody mit JSON daten neu lädt
+	 * und dabei ein paar effekte anzeigt
+	 */
 	function loadJsonTable(effects) {
-		//jQuery('#ajaxtable').load("index.php?option=com_verplan&view=verplan&format=js&date=2009-09-24");
-
-//		jQuery("div#loading").ajaxStart(function(){
-//			jQuery(this).fadeIn('fast');
-//		}).ajaxComplete(function(){
-//			//hideLoader();
-//		});
-
+		//geschwindigkeit der ein und ausblendeffekte
 		var speed = 1000;
 
 		if (effects) {
 			jQuery('div#loading').fadeIn('fast');
-			jQuery('#ajaxtable tbody').toggle('blind',speed).queue(function(){
+			
+			jQuery('#jquerytable tbody').
+			hide('blind',speed).
+			queue(function(){
 				loadContent();
 				jQuery(this).dequeue();
 			});
+			
 		} else {
 			jQuery('div#loading').fadeIn('fast');
 			loadContent();	
@@ -50,7 +55,9 @@ jQuery(document).ready(function(){
 
 		function loadContent() {  
 			var date = jQuery('#select_date').val();
-			jQuery.getJSON('index.php?option=com_verplan&view=verplan&format=js&date='+date+'&stand=newest', function(json){
+			var stand = jQuery('#verplan_form [name=stand]').val();
+			var options = jQuery('#verplan_form [name=options]').val();
+			jQuery.getJSON('index.php?option=com_verplan&view=verplan&format=js&date='+date+'&stand='+stand+'&options='+options, function(json){
 				var table = '';
 				//alert("JSON Data: " + json.data[0].id);
 				/*table += '<table style="width:80%; border:1px solid;"><thead>';
@@ -75,19 +82,24 @@ jQuery(document).ready(function(){
 				});
 
 				//table+='</table>';
-				jQuery('#ajaxtable tbody').html(table);
+				jQuery('#jquerytable tbody').html(table);
+				table_update();
 				showNewContent();
 
 			});
 		}  
-		function showNewContent() {  
+		function showNewContent() {
 			if (effects) {
-				jQuery('#ajaxtable tbody').toggle('blind',speed).queue(function(){
+				
+				jQuery('#jquerytable tbody').
+				show('blind',speed).
+				queue(function(){
 					hideLoader();
 					jQuery(this).dequeue();
-				});			
+				});	
+				
 			} else {
-				jQuery('#ajaxtable tbody').queue(function(){
+				jQuery('#jquerytable tbody').queue(function(){
 					hideLoader();
 					jQuery(this).dequeue();
 				});			

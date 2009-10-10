@@ -51,7 +51,7 @@ class VerplanModelData extends JModel
 		$array = array();
 
 		//falls nur der neueste stand zurückgegeben werden soll
-		if ($stand == "newest") {
+		if ($stand == "latest") {
 			//holt sich das array mit daten und ständen
 			$stands = $this->getDatesAndStands();
 			//nimmt nur das passende subarray

@@ -23,6 +23,11 @@ class verplanViewverplan extends JView
 {
 	function display($tpl = null)
 	{
+		//ohne Model
+		$nojs = '<p><strong>Achtung:</strong><br>Bitte aktiviere JavaScript um den vollen Funktionsumfang nutzen zu können! </p>';
+		$this->assignRef('nojs',$nojs);
+		
+		
 		//Standardmodel laden
 		$model =& $this->getModel();
 		
