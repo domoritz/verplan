@@ -27,9 +27,34 @@ class verplanViewverplan extends JView
 		$nojs = '<p><strong>Achtung:</strong><br>Bitte aktiviere JavaScript um den vollen Funktionsumfang nutzen zu können! </p>';
 		$this->assignRef('nojs',$nojs);
 		
+		//variablen, falls js deaktiviert
+		$date = JRequest::getVar('date','none');
+		$stand = JRequest::getVar('stand','latest');
+		$options = JRequest::getVar('options');
+		
+		//debug
+		//echo "date: ".$date;
+		//echo "stand: ".$stand;
+
+		/*
+		 * Timestamps
+		 * 
+		 * PHP -> MySQL
+		 * $date = date( 'Y-m-d H:i:s', $date );
+		 * 
+		 * MySQL -> PHP
+		 * $date = strtotime($date);
+		 * 
+		 */
+		
 		
 		//Standardmodel laden
 		$model =& $this->getModel();
+		
+		//stand und datum und options aus get
+		$this->assignRef( 'date', $date);
+		$this->assignRef( 'stand', $stand);
+		$this->assignRef( 'options', $options);
 		
 		//alle stände und geltungsdaten als arrays
 		$datamodel = JModel::getInstance('Data', 'VerplanModel');
@@ -38,11 +63,13 @@ class verplanViewverplan extends JView
 		$this->assignRef( 'stands', $stands);
 		$this->assignRef( 'dates', $dates);
 		
+		//array mit daten und zugeordneten ständen
 		$datamodel = JModel::getInstance('Data', 'VerplanModel');
 		$both = $datamodel->getDatesAndStands();
 		$this->assignRef( 'datesAndStands', $both);
 		
-		$array = $datamodel->getVerplanarray('2009','newest','none');
+		//array des vertretungsplanes und der spalten
+		$array = $datamodel->getVerplanarray($date,$stand,$options);
 		$this->assignRef( 'verplanArray', $array);
 		
 		//debug

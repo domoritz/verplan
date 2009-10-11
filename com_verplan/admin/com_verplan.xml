@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <install type="component" version="1.5.0">
     <name>verplan</name>
-    <version>0.0.17</version>
+    <version>0.0.18</version>
     <description>Komponente zum Einstellen des Vertretungsplanes auf die Website des MCG (http://www.marie-curie-gymnasium-dallgow.de/).</description>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
     <author>Dominik Moritz</author>
