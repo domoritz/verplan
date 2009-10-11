@@ -52,25 +52,42 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 ?>
 
 <!-- -->
-<form id="verplan_form" name="upload" method="post" enctype="multipart/form-data"	action="">
+<form id="verplan_form" name="upload" method="get" enctype="multipart/form-data"	action="index.php">
 
 	<div id="selectrahmen" class="corner-all">
 	<label for="select_date"></label>  
 	<select size="1" id="select_date" name="date">
-		<?php 
+		<?php
 		$dates = $this->dates;
 		foreach ($dates as $key => $value) {
 			
-			//morgiges datum autom auswählen
+			//timestamp des geltungsdatums
 			$timestamp = strtotime($value[Geltungsdatum]);
-			if ($timestamp_now = time()) {
-				$selected = "selected";
-			}
 			
 			//datums value, die zeit ist egal
 			$date_value = date( 'Y-m-d', $timestamp);
 			
-			echo '<option value="'.$date_value.'" $selected="'.$selected.'">';	
+			$selected = false;
+			
+			/*
+			 * falls nicht ein datum über dei url gewählt wurde, soll 
+			 * das datum des folgetages angezeigt werden
+			 */
+			if ($this->date == 'none'){
+				//morgiges datum autom auswählen
+				$date_of_timestamp = mktime(0, 0, 0, date("m",$timestamp)  , date("d",$timestamp), date("Y",$timestamp));
+				$now = time();
+				$tomorrow  = mktime(0, 0, 0, date("m",$now)  , date("d",$now)+1, date("Y",$now));
+				//wenn das geltungsdatum morgen ist
+				$selected = ($tomorrow == $date_of_timestamp);
+			} elseif ($date_value == $this->date){
+				//falls das ausgewählte datum der url mit dem geltungsdatum übereinstimmt
+				$selected = true;
+			}
+			
+			echo '<option value="'.$date_value.'"';
+			//php Ternary Operator
+			print ($selected ? ' selected="selected" id="selected">' : '>');	
 			
 			/*
 			 * richtiges datumsformat
@@ -89,25 +106,34 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		}	
 		?>
 	</select>
+	
+	<!-- Indikator -->
 	<div id="load_platzhalter">
-	<div id="loading"></div>
+		<div id="loading"></div>
 	</div>
+	
+	</div>
+	
+	<!-- schwebendes loading div -->
+	<div id="loading_schweben" class="corner-bottom">
+	Loading...
 	</div>
 	
 	<!-- nur den neuesten stand --> 
-	<input type="hidden" name="stand" value="latest" /> 
-	<input type="hidden" name="options" value="" />
+	<input type="hidden" name="stand" value="<?php print $this->stand;?>" /> 
+	<input type="hidden" name="options" value="<?php echo $this->options;?>" />
 	
 	<noscript>
-	<input type="submit" name="submit" class="submitbutton" value="Anzeigen" />
+		<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen -->
+		<input type="submit" name="submit" class="submitbutton" value="Anzeigen" />
 	</noscript>
 	
 
 	<!-- damit die Komponente wieder aufgerufen wird --> 
 	<input type="hidden" name="option" value="com_verplan" /> 
 	<input type="hidden" name="task" value="" />
-	<input type="hidden" name="format" value="js" /> 
-	<input type="hidden" name="boxchecked" value="0" /> 
+	<!-- <input type="hidden" name="format" value="js" /> -->
+	<input type="hidden" name="Itemid" value="<?php echo JRequest::getVar('Itemid');?>" /> 
 	<input type="hidden" name="controller" value="" /> 
 	<!-- die user ID --> 
 	<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
@@ -127,7 +153,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 <div id="ajaxdiv">
 <table id="jquerytable" class="display">
 	<colgroup>
-	<?php
+		<?php
 	$array = $this->verplanArray;
 	$anzahl = count($array[cols]);
 	for ($i = 0; $i < $anzahl; $i++) {
@@ -137,7 +163,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	</colgroup>
 	<thead>
 		<tr>
-		<?php
+			<?php
 		for ($i = 0; $i < $anzahl; $i++) {
 			echo "<th>";
 			echo $array[cols][$i][name];
@@ -147,13 +173,19 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-		<?php
-		for ($i = 0; $i < $anzahl; $i++) {
-			echo "<td></td>";
+	<?php
+	if (!empty($array[rows])){
+		foreach ($array[rows] as $row) {
+			echo "<tr>";
+			foreach ($row as $value) {
+				echo "<td>";
+				echo $value;
+				echo "</td>";
+			}
+			echo "</tr>";
 		}
-		?>
-		</tr>
+	}
+	?>
 	</tbody>
 </table>
 </div>

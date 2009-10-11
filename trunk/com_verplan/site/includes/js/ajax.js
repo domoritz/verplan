@@ -54,9 +54,12 @@ jQuery(document).ready(function(){
 
 
 		function loadContent() {  
+			//get alle daten auf dem formular
 			var date = jQuery('#select_date').val();
 			var stand = jQuery('#verplan_form [name=stand]').val();
 			var options = jQuery('#verplan_form [name=options]').val();
+			
+			
 			jQuery.getJSON('index.php?option=com_verplan&view=verplan&format=js&date='+date+'&stand='+stand+'&options='+options, function(json){
 				var table = '';
 				//alert("JSON Data: " + json.data[0].id);
