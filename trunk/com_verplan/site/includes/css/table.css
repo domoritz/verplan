@@ -98,13 +98,13 @@
 	background-color:#EEEEEE; 
 }
 
-#jquerytable tr.hover { 
-	/*background-color:#6D6D6D;*/
-	background:#6D6D6D url(../images/darkgray-grad.png) repeat-x scroll left center;
-	color: white;
-	text-shadow:#222 0px -1px 1px;
-}
-
 #jquerytable tr.marked { 
 	background-color:#FFCC33; 
+}
+
+#jquerytable tr.hover { 
+	/*background-color:#6D6D6D;*/
+	background:#6D6D6D url(../images/darkgray-grad.png) repeat-x scroll left center !important;
+	color: white;
+	text-shadow:#222 0px -1px 1px;
 }
