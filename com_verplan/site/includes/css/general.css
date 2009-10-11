@@ -23,8 +23,10 @@
 
 .error {
 	padding: 6px 6px;
-	margin-top: 20px; border : 1px solid #cd0a0a;
-	background: #fef1ec url(images/ui-bg_highlight-soft_95_fef1ec_1x100.png) 50% top repeat-x;
+	margin-top: 20px;
+	margin-bottom: 20px; 
+	border : 1px solid #cd0a0a;
+	background: #fef1ec;
 	color: #cd0a0a;
 	border: 1px solid #cd0a0a;
 	border: 1px solid #cd0a0a
@@ -106,16 +108,15 @@
 .expander {
 	padding-left: 16px;
 	cursor: pointer;
+	font-size:1em;
 }
 
 .plus {
-	background: transparent url(../images/plus_m.png) no-repeat scroll 0px
-		2px;
+	background: transparent url(../images/plus_m.png) no-repeat scroll 0px 2px;
 }
 
 .plus:hover {
-	background: transparent url(../images/plus_m_h.png) no-repeat scroll 0px
-		2px;
+	background: transparent url(../images/plus_m_h.png) no-repeat scroll 0px 2px;
 }
 
 .minus {
@@ -126,16 +127,17 @@
 	background: transparent url(../images/minus_m_h.png) no-repeat scroll 0	2px;
 }
 
-.options_header {
+#options_header {
 	margin-top:0.5em;
-	padding-left: 60px;
+	margin-left: 10px;
 }
 
-.options_div {
-	margin-left: 6px;
+#options_div {
+	margin-left: 10px;
+	padding-bottom: 10px;
 }
 
 #ajaxdiv {
-	padding-top: 0.8em;
+	margin-top: 0em;
 	width: 100%;
 }

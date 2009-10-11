@@ -48,9 +48,12 @@ function table_init(){
 	 */
 	jQuery("#jquerytable").kiketable_colsizable({
 		dragMove : true,
-		dragProxy : "area",
+		dragProxy : "line",
 		dragOpacity: 0.3,
-		fixWidth: true
+		fixWidth: true,
+		minWidth: 40,
+		title: 'Spaltenbreite verändern',
+		onLoad: function(){}
 	});
 	
 	

@@ -18,7 +18,7 @@ jQuery(document).ready(function(){
 		});
 	};
 
-	//laden ganz amanfang
+	//laden ganz am anfang
 	loadJsonTable(false);
 	
 	//tabelle am anfang mit plugins
@@ -41,7 +41,8 @@ jQuery(document).ready(function(){
 			jQuery('div#loading').fadeIn('fast');
 			
 			jQuery('#jquerytable tbody').
-			hide('blind',speed).
+			fadeOut(speed).
+			//hide('blind',speed).
 			queue(function(){
 				loadContent();
 				jQuery(this).dequeue();
@@ -95,7 +96,8 @@ jQuery(document).ready(function(){
 			if (effects) {
 				
 				jQuery('#jquerytable tbody').
-				show('blind',speed).
+				fadeIn(speed).
+				//show('blind',speed).
 				queue(function(){
 					hideLoader();
 					jQuery(this).dequeue();

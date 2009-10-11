@@ -26,7 +26,9 @@ $document->addStylesheet('components/com_verplan/includes/css/jquery.kiketable.c
  */
 
 //jQuery hinzufügen
-$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
+//$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
+//$document->addScript($this->baseurl.'/components/com_verplan/includes/js//jquery-1.3.2_patched.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js//jquery-1.3.2.min.js');
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
@@ -107,6 +109,11 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		?>
 	</select>
 	
+	<noscript>
+		<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen -->
+		<input type="submit" name="submit" class="submitbutton" value="Anzeigen" />
+	</noscript>
+	
 	<!-- Indikator -->
 	<div id="load_platzhalter">
 		<div id="loading"></div>
@@ -121,13 +128,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	
 	<!-- nur den neuesten stand --> 
 	<input type="hidden" name="stand" value="<?php print $this->stand;?>" /> 
-	<input type="hidden" name="options" value="<?php echo $this->options;?>" />
-	
-	<noscript>
-		<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen -->
-		<input type="submit" name="submit" class="submitbutton" value="Anzeigen" />
-	</noscript>
-	
+	<input type="hidden" name="options" value="<?php echo $this->options;?>" />	
 
 	<!-- damit die Komponente wieder aufgerufen wird --> 
 	<input type="hidden" name="option" value="com_verplan" /> 
@@ -141,7 +142,9 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 
 <h4 id="options_header" class="expander plus">Optionen</h4>
 <div id="options_div">
-	text
+	<p>text</p>
+	<p>text</p>
+	<p>text</p>
 </div>
 
 <noscript>
@@ -163,7 +166,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	</colgroup>
 	<thead>
 		<tr>
-			<?php
+		<?php
 		for ($i = 0; $i < $anzahl; $i++) {
 			echo "<th>";
 			echo $array[cols][$i][name];
@@ -184,6 +187,13 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 			}
 			echo "</tr>";
 		}
+	} else {
+		//leere zellen, da es sonst fehler mit den plugins geben könnte
+		echo "<tr>";
+		for ($i = 0; $i < $anzahl; $i++) {
+			echo "<td></td>";
+		}
+		echo "</tr>";
 	}
 	?>
 	</tbody>
