@@ -56,7 +56,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 <!-- -->
 <form id="verplan_form" name="upload" method="get" enctype="multipart/form-data"	action="index.php">
 
-	<div id="selectrahmen" class="corner-all">
+	<div id="selectrahmen" class="corner-all borders full_width">
 	<label for="select_date"></label>  
 	<select size="1" id="select_date" name="date">
 		<?php
@@ -138,22 +138,23 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	<input type="hidden" name="controller" value="" /> 
 	<!-- die user ID --> 
 	<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
+	
+	
+	<h4 id="options_header" class="expander plus">Optionen</h4>
+	<div id="options_div">
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
+	</div>
 </form>
 
-<h4 id="options_header" class="expander plus">Optionen</h4>
-<div id="options_div">
-	<p>text</p>
-	<p>text</p>
-	<p>text</p>
-</div>
-
 <noscript>
-	<div class="corner-all error">
+	<div class="corner-all error full_width">
 	<?php echo $this->nojs;?>	
 	</div>
 </noscript>
 
-<div id="ajaxdiv">
+<div id="ajaxdiv" class="corner-all-small borders full_width">
 <table id="jquerytable" class="display">
 	<colgroup>
 		<?php
@@ -169,7 +170,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		<?php
 		for ($i = 0; $i < $anzahl; $i++) {
 			echo "<th>";
-			echo $array[cols][$i][name];
+			print empty($array[cols][$i][label])? $array[cols][$i][name]: $array[cols][$i][label];
 			echo "</th>";
 		}
 		?>
