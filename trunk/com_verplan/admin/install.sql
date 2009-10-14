@@ -45,8 +45,7 @@ INSERT INTO `#__com_verplan_columns` (
 `name` ,
 `order_number` ,
 `show` ,
-`type` ,
-`alternative_name`,
+`label`,
 `editable`
 )
 VALUES ('id','0','1','ID','1'),('timestamp','0','0','Timestamp','1'),('Geltungsdatum','0','1','Datum','1'),('Stand','0','1','Stand','1');

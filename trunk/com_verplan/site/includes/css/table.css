@@ -9,11 +9,11 @@
 
 /*tabelle*/
 #jquerytable {
-	width: 100%;
 	border-style:solid;
 	border-width:1px;
 	border-color:#C6C3C6;
 	border-collapse:collapse;
+	background-color: #fff;
 }
 
 /*thead*/
@@ -28,10 +28,7 @@
 	/*background-image: url(../images/small.png);*/     
 	cursor: pointer; 
 	font-weight: bold; 
-	background-repeat: no-repeat; 
-	background-position: center left;
 	background: #DFDFDF url(../images/small.png) repeat-x scroll left center;
-	background-color: #DFDFDF;
 	padding-left: 20px; 
 	margin-left: -1px; 
 	text-shadow:1px -1px 0px rgba(255, 255, 255, 0.8);
@@ -89,6 +86,11 @@
 	display: table-row-group;
 }
 
+#jquerytable tbody tr td {
+	border-top: none;
+	border-bottom: none;
+}
+
 
 #jquerytable tr.odd { 
 	background-color:#fff;
@@ -103,8 +105,8 @@
 }
 
 #jquerytable tr.hover { 
-	/*background-color:#6D6D6D;*/
-	background:#6D6D6D url(../images/darkgray-grad.png) repeat-x scroll left center !important;
+	background-color:#6D6C68;
+	/*background:#6D6C68 url(../images/darkgray-grad.png) repeat-x scroll left center !important;*/
 	color: white;
 	text-shadow:#222 0px -1px 1px;
 }
