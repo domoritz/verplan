@@ -27,14 +27,108 @@ defined('_JEXEC') or die('=;)');
 ?>
 
 <?php
+header('Content-type: application/json');
+?>
+
+<?php
 //holt das array
 $arr = $this->verplanarray;
 
-//debug
-//echo "<pre>";
-//print_r($arr);
-//echo "</pre>";
+//lesbares json
+$json = json_encode($arr);
+echo jsonReadable($json);
 
-//wandelt das assoziative array in json um
-echo json_encode($arr);
+//wandelt das assoziative array direkt in json um (min)
+//echo json_encode($arr);
+
+
+
+/*
+ * besser lesbares json
+ * http://de.php.net/manual/en/function.json-encode.php
+ */
+function jsonReadable($json, $html=false) {
+    $tab = "\t";
+    $new_json = "";
+    $indent_level = 0;
+    $in_string = false;
+   
+    if ($html) {
+        $tab = "&nbsp;&nbsp;&nbsp;";
+        $newline = "<br/>";
+    } else {
+        $tab = "\t";
+        $newline = "\n";
+    } 
+
+    $json_obj = json_decode($json);
+
+    if($json_obj === false)
+        return false;
+
+    $json = json_encode($json_obj);
+    $len = strlen($json);
+
+    for($c = 0; $c < $len; $c++)
+    {
+        $char = $json[$c];
+        switch($char)
+        {
+            case '{':
+            case '[':
+                if(!$in_string)
+                {
+                    $new_json .= $char . $newline . str_repeat($tab, $indent_level+1);
+                    $indent_level++;
+                }
+                else
+                {
+                    $new_json .= $char;
+                }
+                break;
+            case '}':
+            case ']':
+                if(!$in_string)
+                {
+                    $indent_level--;
+                    $new_json .= $newline . str_repeat($tab, $indent_level) . $char;
+                }
+                else
+                {
+                    $new_json .= $char;
+                }
+                break;
+            case ',':
+                if(!$in_string)
+                {
+                    $new_json .= ",". $newline . str_repeat($tab, $indent_level);
+                }
+                else
+                {
+                    $new_json .= $char;
+                }
+                break;
+            case ':':
+                if(!$in_string)
+                {
+                    $new_json .= ": ";
+                }
+                else
+                {
+                    $new_json .= $char;
+                }
+                break;
+            case '"':
+                if($c > 0 && $json[$c-1] != '\\')
+                {
+                    $in_string = !$in_string;
+                }
+            default:
+                $new_json .= $char;
+                break;                   
+        }
+    }
+
+    return $new_json;
+}
 ?>
