@@ -19,7 +19,7 @@ jQuery(document).ready(function(){
 	};
 
 	//laden ganz am anfang
-	loadJsonTable(false);
+	//loadJsonTable(false);
 	
 	//tabelle am anfang mit plugins
 	table_init();

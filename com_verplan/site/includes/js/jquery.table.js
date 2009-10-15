@@ -9,10 +9,55 @@ function table_init(){
 	 * tablesorter plugin
 	 * http://tablesorter.com/docs/
 	 */
+	
+	/*
+	 * add parser through the tablesorter addParser method 
+	 * neuer parser für klassen, da sie sonst nicht richtig sortiert werden
+	 * hilfe: http://www.javascriptkit.com/javatutors/re.shtml
+	 */ 
+    jQuery.tablesorter.addParser({ 
+        // set a unique id 
+        id: 'klasse', 
+        is: function(s) {
+    		//prüft mittels eines reguläres ausdrucks, ob der string eine klasse ist
+    	
+    	    //entfernt leerzeichen am anfang und ende
+    		s = jQuery.trim(s);
+    		var reg = new RegExp("^[0-9]{0,2}( )*[a-z]{0,1}$", "i");
+	    	//alert(is!=-1);
+	    	//return false so this parser is not auto detected 
+            return s.search(reg)!=-1;
+        }, 
+        format: function(s) { 
+            // format your data for normalization
+        	
+        	//entfernt leerzeichen am anfang und ende
+        	s = jQuery.trim(s);
+        	s = s.toLowerCase();
+        	var replace = "";
+        	//array mit alles buchstaben
+        	var array = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
+        	//alle buchstaben werden durch zahlen mit führenden nullen ersetzt
+        	for ( var int = 0; int < array.length; int++) {
+        		if (int >= 10){
+        			replace = int;
+        		} else {
+        			replace = "0" + int;
+        		}
+        		s = s.replace(RegExp(array[int], "g"),replace);
+			}
+        	//alert(s);
+            return s;
+        }, 
+        // set type, either numeric or text 
+        type: 'numeric' 
+    });           
+    
+    //plugin
 	jQuery('#jquerytable').tablesorter({
 		dateFormat:'de',
 		decimal: ',',
-		debug:false,
+		debug:true,
 		sortMultiSortKey:'ctrlKey',
 		textExtraction:'complex',
 		//zebra
