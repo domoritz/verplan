@@ -30,7 +30,15 @@ class verplanViewverplan extends JView
 		//variablen, falls js deaktiviert
 		$date = JRequest::getVar('date','none');
 		$stand = JRequest::getVar('stand','latest');
-		$options = JRequest::getVar('options');
+		$options = JRequest::getVar('options',',min');
+		$format = JRequest::getVar('format','html');
+		
+		/*
+		 * verschiedene optionen möglich
+		 * 0. : optionen für das model 
+		 * 1. : optionen für den view
+		 */
+		$optionsarray = explode(',',$options);
 		
 		//debug
 		//echo "date: ".$date;
@@ -69,8 +77,10 @@ class verplanViewverplan extends JView
 		$this->assignRef( 'datesAndStands', $both);
 		
 		//array des vertretungsplanes und der spalten
-		$array = $datamodel->getVerplanarray($date,$stand,$options);
+		$array = $datamodel->getVerplanarray($date,$stand,$optionsarray[0]);
 		$this->assignRef( 'verplanArray', $array);
+		
+		$this->assignRef( 'format', $format);
 		
 		//debug
 		//print_r($dates);

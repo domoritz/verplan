@@ -38,6 +38,7 @@ $document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noC
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.table.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/hide_options.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.tooltips.js');
 
 //plugins
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.tablesorter.min.js');
@@ -45,6 +46,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.colorize-2.0.0.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.kiketable.colsizable-1.1.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.event.drag-1.4.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.qtip-1.0.0-rc3.min.js');
 
 
 //$document->addScript('http://www.google.com/jsapi');
@@ -54,9 +56,9 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 ?>
 
 <!-- -->
-<form id="verplan_form" name="upload" method="get" enctype="multipart/form-data"	action="index.php">
+<form id="verplan_form" class="full_width" name="upload" method="get" enctype="multipart/form-data"	action="index.php">
 
-	<div id="selectrahmen" class="corner-all borders full_width">
+	<div id="selectrahmen" class="corner-all borders">
 	<label for="select_date"></label>  
 	<select size="1" id="select_date" name="date">
 		<?php
@@ -124,32 +126,34 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	<!-- schwebendes loading div -->
 	<div id="loading_schweben" class="corner-bottom">
 	Loading...
-	</div>
-	
-	<!-- nur den neuesten stand --> 
-	<input type="hidden" name="stand" value="<?php print $this->stand;?>" /> 
-	<input type="hidden" name="options" value="<?php echo $this->options;?>" />	
-
-	<!-- damit die Komponente wieder aufgerufen wird --> 
-	<input type="hidden" name="option" value="com_verplan" /> 
-	<input type="hidden" name="task" value="" />
-	<!-- <input type="hidden" name="format" value="js" /> -->
-	<input type="hidden" name="Itemid" value="<?php echo JRequest::getVar('Itemid');?>" /> 
-	<input type="hidden" name="controller" value="" /> 
-	<!-- die user ID --> 
-	<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
-	
+	</div>	
 	
 	<h4 id="options_header" class="expander plus">Optionen</h4>
 	<div id="options_div">
-		<p>text</p>
-		<p>text</p>
-		<p>text</p>
+		<!-- nur den neuesten stand --> 
+		<span>Stand</span>
+		<input type="text" name="stand" value="<?php print $this->stand;?>" /><br>
+		<span>Options [model,view]</span>
+		<!-- view optionen nur für ajax interessant -->
+		<input type="text" name="options" value="<?php echo $this->options;?>" /><br>
+		<!-- format wird nuir angezeigt, wenn  -->
+		<noscript>
+			<span>Format</span>
+			<input type="text" name="format" value="<?php echo $this->format;?>" /><br>
+	    </noscript>
+	    
+		<!-- damit die Komponente wieder aufgerufen wird --> 
+		<input type="hidden" name="option" value="com_verplan" /> 
+		<input type="hidden" name="task" value="" />		
+		<input type="hidden" name="Itemid" value="<?php echo JRequest::getVar('Itemid');?>" /> 
+		<input type="hidden" name="controller" value="" /> 
+		<!-- die user ID --> 
+		<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
 	</div>
 </form>
 
-<noscript>
-	<div class="corner-all error full_width">
+<noscript class="full_width">
+	<div class="corner-all error_message">
 	<?php echo $this->nojs;?>	
 	</div>
 </noscript>

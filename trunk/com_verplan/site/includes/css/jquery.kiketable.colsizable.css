@@ -1,6 +1,6 @@
 .kiketable-colsizable{
-	table-layout: fixed; 
-	width : 100%;
+	/*table-layout: fixed; 
+	width : 100%;*/
 	}
 .kiketable-colsizable td,
 .kiketable-colsizable th{

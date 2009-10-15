@@ -13,7 +13,8 @@ function table_init(){
 	/*
 	 * add parser through the tablesorter addParser method 
 	 * neuer parser für klassen, da sie sonst nicht richtig sortiert werden
-	 * hilfe: http://www.javascriptkit.com/javatutors/re.shtml
+	 * hilfe: 	http://tablesorter.com/docs/example-parsers.html
+	 * 			http://www.javascriptkit.com/javatutors/re.shtml
 	 */ 
     jQuery.tablesorter.addParser({ 
         // set a unique id 
@@ -57,7 +58,7 @@ function table_init(){
 	jQuery('#jquerytable').tablesorter({
 		dateFormat:'de',
 		decimal: ',',
-		debug:true,
+		debug:false,
 		sortMultiSortKey:'ctrlKey',
 		textExtraction:'complex',
 		//zebra
