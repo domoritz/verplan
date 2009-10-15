@@ -31,9 +31,12 @@ class verplanViewverplan extends JView
 		$stand = JRequest::getVar('stand');
 		$options = JRequest::getVar('options');
 		
-		//debug
-		//echo "date: ".$date;
-		//echo "stand: ".$stand;
+		/*
+		 * verschiedene optionen möglich
+		 * 0. : optionen für das model 
+		 * 1. : optionen für den view
+		 */
+		$optionsarray = explode(',',$options);
 
 		/*
 		 * Timestamps
@@ -46,9 +49,14 @@ class verplanViewverplan extends JView
 		 * 
 		 */
 		
+		//stand und datum aus get options für view
+		$this->assignRef( 'date', $date);
+		$this->assignRef( 'stand', $stand);
+		$this->assignRef( 'options', $optionsarray[1]);
+		
 		//verplanarray laden und an template übergeben
 		$datamodel = JModel::getInstance('Data', 'VerplanModel');
-		$array = $datamodel->getVerplanarray($date,$stand,$options);
+		$array = $datamodel->getVerplanarray($date,$stand,$optionsarray[0]);
 		$this->assignRef( 'verplanarray', $array);
 		
 		//laedt das template json, welches dann den vertretungsplan als json anzeigt

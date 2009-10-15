@@ -104,6 +104,10 @@ class VerplanModelData extends JModel
 				$array[cols] = $assozArray_cols;
 				$array[rows] = $assozArray_rows;
 				break;
+				
+			case none:
+				$array[cols] = $assozArray_cols;
+				break;
 					
 			default:
 				//falls die Spalte angezeigt werden soll, wird sie hinzugefügt

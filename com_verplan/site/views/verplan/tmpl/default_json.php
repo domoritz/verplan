@@ -27,19 +27,38 @@ defined('_JEXEC') or die('=;)');
 ?>
 
 <?php
-header('Content-type: application/json');
+//header('Content-type: application/json');
 ?>
 
 <?php
 //holt das array
 $arr = $this->verplanarray;
+$options = $this->options;
 
-//lesbares json
-$json = json_encode($arr);
-echo jsonReadable($json);
+switch ($options) {
+	
+	case arr:
+		//array direkt
+		print_r($arr);
+		break;
 
-//wandelt das assoziative array direkt in json um (min)
-//echo json_encode($arr);
+	case html:
+		//lesbares json mit html
+		$json = json_encode($arr);
+		echo jsonReadable($json,true);
+		break;
+
+	case min:
+		//wandelt das assoziative array direkt in json um
+		echo json_encode($arr);
+		break;
+
+	default:
+		//lesbares json
+		$json = json_encode($arr);
+		echo jsonReadable($json,false);
+		break;
+}
 
 
 
@@ -47,7 +66,7 @@ echo jsonReadable($json);
  * besser lesbares json
  * http://de.php.net/manual/en/function.json-encode.php
  */
-function jsonReadable($json, $html=false) {
+function jsonReadable($json, $html) {
     $tab = "\t";
     $new_json = "";
     $indent_level = 0;
