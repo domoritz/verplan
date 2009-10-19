@@ -19,10 +19,9 @@
     </files>
     
     <administration>
-        <menu img="themes" link="option=com_verplan">verplan</menu>
+    	<menu img="components/com_verplan/includes/images/icon_database.png">Verplan</menu>
         
         <files folder="admin">
-            <folder>assets</folder>
             <folder>includes</folder>
             <folder>models</folder>
             <folder>tables</folder>
