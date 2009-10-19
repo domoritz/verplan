@@ -111,7 +111,10 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 	<p>Verwendete Bibliotheken/Programme/Grafiken</p>
 	<ul>
 		<li><a href="http://jquery.com/">jQuery</a></li>
+		<li><a href="http://plugins.jquery.com/">diverse jQuery Plugins</a></li>
 		<li><a href="http://jacksleight.com/old/code">JS Extractor</a></li>
+		<li><a href="http://www.oxygen-icons.org/">Icons aus dem Oxygen Package</a></li>
+		<li><a href="http://www.preloaders.net">Ajax Indikatoren</a></li>
 	</ul>
 	<p>Systemvoraussetzungen</p>
 	<ul>

@@ -15,7 +15,6 @@
             <copy file="${src}/install.php" todir="${target}/admin"/>
             <copy file="${src}/install.sql" todir="${target}/admin"/>
             <copy file="${src}/uninstall.sql" todir="${target}/admin"/>
-            <copy file="${src}/assets/images/easy-joomla-favicon.ico" todir="${target}/admin/assets/images"/>
             <copy file="${src}/com_verplan.xml" todir="${target}"/>
     	</target>
     	  
