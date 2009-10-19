@@ -38,7 +38,7 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 <form name="upload" method="post" enctype="multipart/form-data"	action="index.php?option=com_verplan">
 	
 	<input size="40" type="file" id="file" name="file" />
-	<input type="submit" name="upload" class="uploadbutton" value="Einstellen" />
+	<input type="submit" name="upload" class="uploadbutton" value="Abschicken" />
 	
 	<!-- anzeige ohne template (praktisch für ajax) -->
 	<!--<input type="hidden" name="tmpl" value="component" />-->
@@ -60,7 +60,7 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 
 <br><br>
 
-<h3 id="options_header" class="expander plus">Optionen</h3>
+<h3 id="options_header" class="expander plus">Optionen/Einstellungen</h3>
 
 <div id="admin_settings_div">
 	<?php 
