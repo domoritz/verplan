@@ -32,7 +32,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js//jquery
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
-$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
+$document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 
 //eigene scripts
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
