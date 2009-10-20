@@ -22,9 +22,7 @@ DROP TABLE IF EXISTS `#__com_verplan_plan`;
 
 CREATE TABLE `#__com_verplan_plan` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
-`timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'creation time',
-`Geltungsdatum` TIMESTAMP NOT NULL,
-`Stand` TIMESTAMP NOT NULL
+`id_upload` INT NOT NULL COMMENT 'primary key of uploads table'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
 
 
