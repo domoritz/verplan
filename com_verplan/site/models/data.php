@@ -43,19 +43,21 @@ class VerplanModelData extends JModel
 	 * )
 	 *
 	 * @access	public
-	 * @return	boolean	True on success
+	 * @return	array
 	 */
 	function getVerplanarray($date,$stand,$options){
 		$db =& JFactory::getDBO();
 
+		//leeres array
 		$array = array();
+		
+		//holt sich das array mit daten und ständen
+		$dates_stands = $this->getDatesAndStands();
 
 		//falls nur der neueste stand zurückgegeben werden soll
-		if ($stand == "latest") {
-			//holt sich das array mit daten und ständen
-			$stands = $this->getDatesAndStands();
+		if ($stand == "latest") {			
 			//nimmt nur das passende subarray
-			$stands = $stands[$date];
+			$stands = $dates_stands[$date];
 			/*
 			 * sortiert
 			 * 0 = DESC nach oben hin
@@ -71,25 +73,79 @@ class VerplanModelData extends JModel
 			//debug
 			//print_r($stands);
 		}
-
+		
 		/*
-		 * lädt die passenden daten als assoziatives array aus der datenbank
+		 * übersetzt datum und stand in id, wobei die 
+		 * daten aus der datenbank kommen müssen, weil
+		 * der platzhalter % möglich sein soll
+		 * 
 		 * % ist ein platzhalter für beliebige zeichen. dadurch ist es möglich,
 		 * z.b. alle daten von 2009 zu bekommen
 		 * bei fehlern wird eine meldung ausgegeben
-		 *
+		 * 
+		 * sonst könnte man einfach das nehmen:
+		 * $id = $dates_stands[$date][$stand];
 		 */
-		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND Stand LIKE '.$db->quote($stand."%");
+		$query = 'SELECT '.$db->nameQuote('id').' 
+				FROM '.$db->nameQuote('#__com_verplan_uploads').' 
+				WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND Stand LIKE '.$db->quote($stand."%");
+		$db->setQuery($query);
+		$ids = $db->loadResultArray();
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
+		
+		//debug
+//		echo "query für ids";
+//		echo $query;
+//		print_r($ids);
+		
+
+		/*
+		 * lädt die passenden daten als assoziatives array aus der datenbank, dabei werden
+		 * nur die entsprechenden zeilen mit den richtigen ids gezeigt
+		 */
+		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE';
+		//ids in string
+		foreach($ids as $key => $id) {
+    		$in.=",".$id; 
+		}													//0, da sonst probeleme mit leer
+		$query .= $db->nameQuote('id_upload').' IN (0'.substr($in,0).")";
+		
 		$db->setQuery($query);
 		$assozArray_rows = $db->loadAssocList();
 		if ($db->getErrorNum()) {
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
+		
+		//ids ersetzten mit stand und geltungsdatum
+		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_uploads').' WHERE 1';
+		$db->setQuery($query);
+		//array der tabelle uploads, in als zuordung
+		$dateAndStandArray = $db->loadAssocList('id');
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
+		
 		//debug
-		//echo $query;
+		//print_r($dateAndStandArray);
+		
+		for ($i = 0; $i < count($assozArray_rows); $i++) {
+			//id_upload aus der zeile suchen
+			$id_upload = $assozArray_rows[$i]['id_upload'];
+			$assozArray_rows[$i]['Geltungsdatum']=$dateAndStandArray[$id_upload]['Geltungsdatum'];
+			$assozArray_rows[$i]['Stand']=$dateAndStandArray[$id_upload]['Stand'];
+		}
+		
+		//debug
+//		print_r($assozArray_rows);
+		
 
-		//lädt die spalten
+
+		//lädt die spalten, aus der tabelle columns
 		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_columns');
 		$db->setQuery($query);
 		if ($db->getErrorNum()) {
@@ -97,6 +153,7 @@ class VerplanModelData extends JModel
 			JError::raiseWarning(0,$msg);
 		}
 		$assozArray_cols = $db->loadAssocList();
+		
 
 		/*OPTIONS*/
 		switch ($options) {
@@ -239,6 +296,9 @@ class VerplanModelData extends JModel
 	/**
 	 * array mit geltungstagen und ständen,
 	 * wobei immer die stände den daten zugeordnet werden
+	 * 
+	 * diese daten werden aus der tabelle uploads geholt
+	 * 
 	 * @return array
 	 */
 	function getDatesAndStands(){
@@ -273,10 +333,10 @@ class VerplanModelData extends JModel
 		}
 
 		//debug
-		echo "dates and stands";
-		echo "<pre>";
-		print_r($array);
-		echo "<pre>";
+//		echo "dates and stands";
+//		echo "<pre>";
+//		print_r($array);
+//		echo "<pre>";
 
 		return $array;
 	}
