@@ -31,9 +31,26 @@ class VerplanModelData extends JModel
 	{
 		parent::__construct();
 	}
+	
+	/**
+	 * methode, die die tabelle uploads berschreibt
+	 * hierin befinden sich die daten:
+	 * stand, geltungsdatum, (dtaen/datei)typ, 
+	 * url zur hochgeladenen datei und ein timestamp
+	 * 
+	 * in die plantabelle kommen dann nur noch die ids
+	 * 
+	 * @param $data
+	 * @return id für den stand, das geltungsdatum und den timestamp
+	 */
+	function log_in_uploads($data){
+		$id = 0;
+		return $id;
+	}
 
 	/**
 	 * methode, zum speichern des planes in die datenbank
+	 * es werden nur die plandaten gespeichert
 	 *
 	 * @access	public
 	 * @return	boolean	True on success
@@ -49,37 +66,44 @@ class VerplanModelData extends JModel
 		global $db;
 		$db =& JFactory::getDBO();
 
+		/*
+		 * läuft durch alle zeilen durch und schreibt jede einzeln
+		 */
+		$query = 'INSERT INTO '.$db->nameQuote('#__com_verplan_plan');
+		$query .= " (";
+		//fuegt die spalten ein, in die eingefuegt wird
+		foreach ($data[0] AS $column_name){
+			$query.=$db->nameQuote($column_name).",";
+		}
+		//entfernt das letzte komma, damit die sql syntax valide ist
+		$query = substr($query, 0, -1);
+		$query.=")\n VALUES";
 		for ($i = 1; $i < count($data); $i++) {
-			//print_r($data[$i]);
-			$query = 'INSERT INTO `#__com_verplan_plan` ('."\n";
-			//fuegt die spalten ein, in die eingefuegt wird
-			foreach ($data[0] AS $column_name){
-				$query.="`$column_name`,";
-			}
-			
-			//entfernt das letzte komma, damit die sql syntay valide ist
-			$query = substr($query, 0, -1); 
-			$query.=") VALUES (\n";
-				
+			print_r($data[$i]);
+			$query.="\n(";
+
 			//die daten
 			foreach ($data[$i] AS $column_name){
-				$query.="'$column_name',";
+				$query.= $db->quote($column_name).",";
 			}
-			
-			//entfernt das letzte komma, damit die sql syntay valide ist
-			$query = substr($query, 0, -1); 
-			$query.=");";
 				
-			//debug
-			//echo $query."\n";
+			//entfernt das letzte komma, damit die sql syntay valide ist
+			$query = substr($query, 0, -1);
+			$query.="),";
+		}
+		//entfernt das letzte komma, damit die sql syntay valide ist
+		$query = substr($query, 0, -1);
+		$query.=";";
 
-			//fuehrt befehl aus
-			$db->setQuery($query);
-			$db->query();
-			if ($db->getErrorNum()) {
-				$msg = $db->getErrorMsg();
-				JError::raiseWarning(0,$msg);
-			}
+		//debug
+		echo $query."\n";
+
+		//fuehrt befehl aus
+		$db->setQuery($query);
+		$db->query();
+		if ($db->getErrorNum()) {
+		$msg = $db->getErrorMsg();
+		JError::raiseWarning(0,$msg);
 		}
 
 		return true;
