@@ -43,7 +43,7 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 	<!-- anzeige ohne template (praktisch für ajax) -->
 	<!--<input type="hidden" name="tmpl" value="component" />-->
 		
-	<!-- sollen fehler in den regulaeren ausdruechen ignoriert werden? (empfohlen) --> 
+	<!-- sollen fehler in den regulaeren ausdrücken ignoriert werden? (empfohlen) --> 
 	<input type="hidden" name="ignore" value="true" /> 
 
 	<!-- damit die Komponente wieder aufgerufen wird --> 
