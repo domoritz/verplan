@@ -66,7 +66,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		foreach ($dates as $key => $value) {
 			
 			//timestamp des geltungsdatums
-			$timestamp = strtotime($value[Geltungsdatum]);
+			$timestamp = strtotime($value);
 			
 			//datums value, die zeit ist egal
 			$date_value = date( 'Y-m-d', $timestamp);

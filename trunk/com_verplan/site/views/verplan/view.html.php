@@ -26,65 +26,77 @@ class verplanViewverplan extends JView
 		//ohne Model
 		$nojs = '<p><strong>Achtung:</strong><br>Bitte aktiviere JavaScript um den vollen Funktionsumfang nutzen zu können! </p>';
 		$this->assignRef('nojs',$nojs);
-		
+
 		//variablen, falls js deaktiviert
 		$date = JRequest::getVar('date','none');
 		$stand = JRequest::getVar('stand','latest');
 		$options = JRequest::getVar('options',',min');
 		$format = JRequest::getVar('format','html');
-		
+
 		/*
 		 * verschiedene optionen möglich
-		 * 0. : optionen für das model 
+		 * 0. : optionen für das model
 		 * 1. : optionen für den view
 		 */
 		$optionsarray = explode(',',$options);
-		
+
 		//debug
 		//echo "date: ".$date;
 		//echo "stand: ".$stand;
 
 		/*
 		 * Timestamps
-		 * 
+		 *
 		 * PHP -> MySQL
 		 * $date = date( 'Y-m-d H:i:s', $date );
-		 * 
+		 *
 		 * MySQL -> PHP
 		 * $date = strtotime($date);
-		 * 
+		 *
 		 */
-		
-		
+
+
 		//Standardmodel laden
 		$model =& $this->getModel();
-		
+
 		//stand und datum und options aus get
 		$this->assignRef( 'date', $date);
 		$this->assignRef( 'stand', $stand);
 		$this->assignRef( 'options', $options);
-		
-		//alle stände und geltungsdaten als arrays
+
+		//alle geltungsdaten als array
 		$datamodel = JModel::getInstance('Data', 'VerplanModel');
-		$stands = $datamodel->getUniques('Stand');
-		$dates = $datamodel->getUniques('Geltungsdatum');
-		$this->assignRef( 'stands', $stands);
-		$this->assignRef( 'dates', $dates);
+		$datesandstands = $datamodel->getDatesAndStands();
+		foreach ($datesandstands as $key => $value) {
+			$dates[] = $key;
+		}
 		
+		//jeden wert nur einmal
+		array_unique($dates);
+		//array sortieren
+		rsort($dates);		
+		
+		//debug
+//		echo "<pre>";
+//		print_r($dates);
+//		echo "</pre>";
+		
+		$this->assignRef( 'dates', $dates);
+
 		//array mit daten und zugeordneten ständen
 		$datamodel = JModel::getInstance('Data', 'VerplanModel');
-		$both = $datamodel->getDatesAndStands();
-		$this->assignRef( 'datesAndStands', $both);
-		
+		//$both = $datamodel->getDatesAndStands();
+		//$this->assignRef( 'datesAndStands', $both);
+
 		//array des vertretungsplanes und der spalten
 		$array = $datamodel->getVerplanarray($date,$stand,$optionsarray[0]);
 		$this->assignRef( 'verplanArray', $array);
-		
+
 		$this->assignRef( 'format', $format);
-		
+
 		//debug
 		//print_r($dates);
-		
+
 		parent::display($tpl);
 	}// function
 }// class
