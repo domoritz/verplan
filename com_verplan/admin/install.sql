@@ -49,3 +49,15 @@ INSERT INTO `#__com_verplan_columns` (
 `editable`
 )
 VALUES ('id','0','1','ID','1'),('timestamp','0','0','Timestamp','1'),('Geltungsdatum','0','1','Datum','1'),('Stand','0','1','Stand','1');
+
+
+DROP TABLE IF EXISTS `#__com_verplan_uploads`;
+
+CREATE TABLE `#__com_verplan_uploads` (
+`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+`timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+`Geltungsdatum` TIMESTAMP NOT NULL ,
+`Stand` TIMESTAMP NULL ,
+`type` TEXT NOT NULL ,
+`url` TEXT NULL
+) ENGINE = MYISAM ;
