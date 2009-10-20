@@ -31,20 +31,65 @@ class VerplanModelData extends JModel
 	{
 		parent::__construct();
 	}
-	
+
 	/**
 	 * methode, die die tabelle uploads berschreibt
 	 * hierin befinden sich die daten:
-	 * stand, geltungsdatum, (dtaen/datei)typ, 
+	 * stand, geltungsdatum, (dtaen/datei)typ,
 	 * url zur hochgeladenen datei und ein timestamp
-	 * 
+	 *
 	 * in die plantabelle kommen dann nur noch die ids
-	 * 
+	 *
 	 * @param $data
 	 * @return id für den stand, das geltungsdatum und den timestamp
 	 */
 	function log_in_uploads($data){
-		$id = 0;
+		//debug
+		//print_r($data);
+
+		//datenbankfunktionen
+		$db =& JFactory::getDBO();
+
+
+		$query = 'INSERT INTO '.$db->nameQuote('#__com_verplan_uploads');
+		$query .= '(';
+		foreach ($data as $key => $value) {
+			$query .= $db->nameQuote($key).",";
+		}
+		//entfernt das letzte komma, damit die sql syntax valide ist
+		$query = substr($query, 0, -1);
+		$query .= ')';
+
+
+		$query .= "\nVALUES (";
+		foreach ($data as $key => $value) {
+			$query .= $db->quote($value).",";
+		}
+		//entfernt das letzte komma, damit die sql syntax valide ist
+		$query = substr($query, 0, -1);
+		$query .= ');';
+
+		//debug
+		//echo $query;
+
+		$db->setQuery($query);
+		$db->query();
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
+
+		$query = "
+		  SELECT ".$db->nameQuote('id')."
+		    FROM ".$db->nameQuote('#__com_verplan_uploads')."
+		    ORDER BY ".$db->nameQuote('id')." DESC LIMIT 0,1
+		  ";
+		$db->setQuery($query);
+		$id = $db->loadResult();
+		
+		//debug
+		//echo $id;
+
 		return $id;
 	}
 
@@ -63,7 +108,6 @@ class VerplanModelData extends JModel
 		$this->heads($data);
 
 		//datenbankfunktionen
-		global $db;
 		$db =& JFactory::getDBO();
 
 		/*
@@ -86,7 +130,7 @@ class VerplanModelData extends JModel
 			foreach ($data[$i] AS $column_name){
 				$query.= $db->quote($column_name).",";
 			}
-				
+
 			//entfernt das letzte komma, damit die sql syntay valide ist
 			$query = substr($query, 0, -1);
 			$query.="),";
@@ -102,8 +146,8 @@ class VerplanModelData extends JModel
 		$db->setQuery($query);
 		$db->query();
 		if ($db->getErrorNum()) {
-		$msg = $db->getErrorMsg();
-		JError::raiseWarning(0,$msg);
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
 		}
 
 		return true;
@@ -117,7 +161,6 @@ class VerplanModelData extends JModel
 	 */
 	function heads($data){
 		//datenbankfunktionen
-		global $db;
 		$db =& JFactory::getDBO();
 
 		/*SPALTENTABELLE*/
