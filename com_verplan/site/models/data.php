@@ -71,7 +71,7 @@ class VerplanModelData extends JModel
 				$stand = $stands;
 			}
 			//debug
-			//print_r($stands);
+			print_r($stands);
 		}
 		
 		/*
@@ -88,7 +88,7 @@ class VerplanModelData extends JModel
 		 */
 		$query = 'SELECT '.$db->nameQuote('id').' 
 				FROM '.$db->nameQuote('#__com_verplan_uploads').' 
-				WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND Stand LIKE '.$db->quote($stand."%");
+				WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND `Stand` LIKE'.$db->quote($stand."%");
 		$db->setQuery($query);
 		$ids = $db->loadResultArray();
 		if ($db->getErrorNum()) {
