@@ -245,7 +245,7 @@ class VerplanModelData extends JModel
 		$db =& JFactory::getDBO();
 
 		//erste ebene laden /daten
-		$query = 'SELECT DISTINCT '.$db->nameQuote('Geltungsdatum').' FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE 1';
+		$query = 'SELECT DISTINCT '.$db->nameQuote('Geltungsdatum').' FROM '.$db->nameQuote('#__com_verplan_uploads').' WHERE 1';
 		$db->setQuery($query);
 		$datearray = $db->loadResultArray();
 		if ($db->getErrorNum()) {
@@ -256,7 +256,7 @@ class VerplanModelData extends JModel
 		//zweite ebene laden /stände
 		for($i = 0; $i < count($datearray); $i++) {
 			$query = 'SELECT DISTINCT '.$db->nameQuote('Stand').'
-						FROM '.$db->nameQuote('#__com_verplan_plan').' 
+						FROM '.$db->nameQuote('#__com_verplan_uploads').' 
 						WHERE '.$db->nameQuote('Geltungsdatum').' LIKE '.$db->quote($datearray[$i]);
 			$db->setQuery($query);
 			$subarray = $db->loadResultArray();
@@ -273,9 +273,10 @@ class VerplanModelData extends JModel
 		}
 
 		//debug
-		//echo "<pre>";
-		//print_r($array);
-		//echo "<pre>";
+		echo "dates and stands";
+		echo "<pre>";
+		print_r($array);
+		echo "<pre>";
 
 		return $array;
 	}

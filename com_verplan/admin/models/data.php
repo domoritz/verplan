@@ -79,6 +79,7 @@ class VerplanModelData extends JModel
 			JError::raiseWarning(0,$msg);
 		}
 
+		//holt die neueste id
 		$query = "
 		  SELECT ".$db->nameQuote('id')."
 		    FROM ".$db->nameQuote('#__com_verplan_uploads')."
@@ -86,6 +87,10 @@ class VerplanModelData extends JModel
 		  ";
 		$db->setQuery($query);
 		$id = $db->loadResult();
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
 		
 		//debug
 		//echo $id;
