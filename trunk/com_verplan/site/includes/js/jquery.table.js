@@ -94,7 +94,7 @@ function table_init(){
 	 */
 	jQuery("#jquerytable").kiketable_colsizable({
 		dragMove : true,
-		dragProxy : "line",
+		dragProxy : "area",
 		dragOpacity: 0.3,
 		fixWidth: true,
 		minWidth: 40,

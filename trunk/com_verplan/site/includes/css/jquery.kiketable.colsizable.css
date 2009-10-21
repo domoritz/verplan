@@ -33,7 +33,7 @@ html > body .kiketable-colsizable-handler{
 	position: absolute;
 	width: 2px;
 	cursor: e-resize;
-	background-color: red;  /* value safe to change */
+	background-color: #red;  /* value safe to change */
 	}
 .kiketable-colsizable-dragArea{
 	position: absolute;
