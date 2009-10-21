@@ -9,9 +9,9 @@
 jQuery(document).ready(function(){
 	//versteckt optionen
 	jQuery('#options_div').hide('');
-	jQuery('#options_header').click(function() {
+	jQuery('#expander_options').click(function() {
 		//wechsel des icons
 		jQuery('#options_div').toggle('blind','normal');
-		jQuery(this).toggleClass('plus').toggleClass('minus');
+		jQuery('#icon_options').toggleClass('ui-icon-circle-plus').toggleClass('ui-icon-circle-minus');
 	});
 });
