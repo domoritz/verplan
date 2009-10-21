@@ -6,40 +6,6 @@
  * @license		GNU/GPL
  * @author      Created on 07-Sep-2009
  */
-.corner-all {
-	-moz-border-radius-bottomleft: 4px;
-	-moz-border-radius-bottomright: 4px;
-	-moz-border-radius-topleft: 4px;
-	-moz-border-radius-topright: 4px;
-	-webkit-border-radius: 4px;
-}
-
-.corner-all-small {
-	-moz-border-radius-bottomleft: 2px;
-	-moz-border-radius-bottomright: 2px;
-	-moz-border-radius-topleft: 2px;
-	-moz-border-radius-topright: 2px;
-	-webkit-border-radius: 2px;
-}
-
-.corner-bottom {
-	-moz-border-radius-bottomleft: 4px;
-	-moz-border-radius-bottomright: 4px;
-	-webkit-border-radius-bottomleft: 4px;
-	-webkit-border-radius-bottomright: 4px;
-}
-
-.borders {
-	border-style: solid;
-	border-width: 1px;
-	border-color: #bbb;
-	color: #333;
-	background-color: #eee;
-}
-
-.borders:hover {
-	border-color: #999;
-}
 
 .full_width {
 	width: 100%;
@@ -67,43 +33,6 @@
 	cursor: text;
 }
 
-.error_message {
-	padding: 6px 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	border: 1px solid #CC0000;
-	background: #CC0000;
-	color: #fff;
-	border: 1px solid #cd0a0a;
-}
-
-#select_date {
-	border-color: #eee;
-	border-style: solid;
-	border-width: 1px;
-	color: #444444;
-	margin: 0.35em 0;
-	outline-color: #aaa;
-	outline-style: solid;
-	outline-width: 1px;
-	padding: 0.23em 0em;
-	margin: 0.2em 0.2em;
-	width: 60%;
-	min-width: 300px;
-	outline-style: solid;
-	border-style: solid
-}
-
-#select_date:focus {
-	color: #000;
-	border-color: #ccc;
-	border-style: solid;
-	border-width: 1px;
-	outline-color: #333;
-	outline-style: solid;
-	outline-width: 1px;
-}
-
 #selectrahmen {
 	padding: 6px;
 }
@@ -112,69 +41,23 @@
 	
 }
 
-#select_date option {
-	font-size: 14px;
-	font-weight: normal;
-	color: #000;
-	outline: none;
-	border: none;
-}
-
 #load_platzhalter {
 	width: 64px;
 	height: 32px;
 	float: right;
-	position: relative;
-	right: 0;
 }
 
 #loading {
 	display: none;
 	width: 64px;
 	height: 32px;
-	background: transparent url(../images/ajax-loader-3d.gif) no-repeat 50%
-		center;
+	background: transparent url(../images/ajax-loader-3d.gif) no-repeat 50%	center;
 }
 
-#loading_schweben {
-	position: fixed;
-	top: 0px;
-	width: 200px;
-	height: 2.5em;
-	background: #277AD8;
-	color: #fff;
-	align: center;
-	display: none;
-}
 
-/*plus and minus*/
-.expander {
-	padding-left: 16px;
+#expander_options {
 	cursor: pointer;
 	font-size: 1em;
-}
-
-.plus {
-	background: transparent url(../images/plus_m.png) no-repeat scroll 0px
-		2px;
-}
-
-.plus:hover {
-	background: transparent url(../images/plus_m_h.png) no-repeat scroll 0px
-		2px;
-}
-
-.minus {
-	background: transparent url(../images/minus_m.png) no-repeat scroll 0
-		2px;
-}
-
-.minus:hover {
-	background: transparent url(../images/minus_m_h.png) no-repeat scroll 0
-		2px;
-}
-
-#options_header {
 	margin-top: 0.5em;
 	margin-left: 10px;
 }

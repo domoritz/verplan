@@ -61,8 +61,11 @@ function table_init(){
 		debug:false,
 		sortMultiSortKey:'ctrlKey',
 		textExtraction:'complex',
+		cssDesc: 'ui-state-active headerSortDown',
+		cssAsc: 'ui-state-active headerSortUp',
 		//zebra
-		widgets: ['zebra']
+		widgets: ['zebra'],
+		widgetZebra: {css: ["even","odd"]}
 	});	
 
     /*
@@ -133,8 +136,8 @@ function table_update() {
 		bgColor: 'none',
 		hover: 'row', 
 		click: 'row', 
-		hiliteClass: 'marked', 
-		hoverClass: 'hover'
+		hiliteClass: 'ui-state-active', 
+		hoverClass: 'ui-state-hover'
 	});
 	
 	/*
@@ -146,7 +149,7 @@ function table_update() {
 	 * highlight effect für tr
 	 */
 	jQuery("#jquerytable tbody tr").click(function(){
-		jQuery(this).effect('highlight','slow');
+		jQuery(this).effect('highlight','normal');
 	});	
 	/**/
 }

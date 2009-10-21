@@ -19,7 +19,8 @@ $document =& JFactory::getDocument();
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
 $document->addStylesheet('components/com_verplan/includes/css/table.css');
 $document->addStylesheet('components/com_verplan/includes/css/jquery.kiketable.colsizable.css');
-
+$document->addStylesheet('components/com_verplan/includes/css/ui.selectmenu.css');
+$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
 
 /*
  * scripts
@@ -31,6 +32,7 @@ $document->addStylesheet('components/com_verplan/includes/css/jquery.kiketable.c
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js//jquery-1.3.2.min.js');
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 
+
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
 $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 
@@ -39,6 +41,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.table.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/hide_options.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.tooltips.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ui.js');
 
 //plugins
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.tablesorter.min.js');
@@ -47,7 +50,8 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.kiketable.colsizable-1.1.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.event.drag-1.4.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.qtip-1.0.0-rc3.min.js');
-
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/ui.selectmenu.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/themeswitchertool.js');
 
 //$document->addScript('http://www.google.com/jsapi');
 //$document->addScript($this->baseurl.'/components/com_verplan/includes/js/googletable.js');
@@ -58,8 +62,8 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 <!-- -->
 <form id="verplan_form" class="full_width" name="upload" method="get" enctype="multipart/form-data"	action="index.php">
 
-	<div id="selectrahmen" class="corner-all borders">
-	<label for="select_date"></label>  
+	<div id="selectrahmen" class="ui-state-default ui-corner-all">
+	<label for="select_date"></label> 
 	<select size="1" id="select_date" name="date">
 		<?php
 		$dates = $this->dates;
@@ -111,24 +115,23 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		?>
 	</select>
 	
+	<!-- Indikator -->
+	<span id="load_platzhalter">
+		<span id="loading"></span>
+	</span>
+	
 	<noscript>
 		<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen -->
 		<input type="submit" name="submit" class="submitbutton" value="Anzeigen" />
 	</noscript>
 	
-	<!-- Indikator -->
-	<div id="load_platzhalter">
-		<div id="loading"></div>
 	</div>
+
 	
+	<div id="expander_options" class="">
+	<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
+	<h4 id="options_header">Optionen</h4>
 	</div>
-	
-	<!-- schwebendes loading div -->
-	<div id="loading_schweben" class="corner-bottom">
-	Loading...
-	</div>	
-	
-	<h4 id="options_header" class="expander plus">Optionen</h4>
 	<div id="options_div">
 		<!-- nur den neuesten stand --> 
 		<span>Stand</span>
@@ -153,13 +156,20 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 </form>
 
 <noscript class="full_width">
-	<div class="corner-all error_message">
-	<?php echo $this->nojs;?>	
+
+<div class="ui-widget">
+	<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
+		<p>
+		<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span>
+			<?php echo $this->nojs;?> 
+		</p>
 	</div>
+</div>
+	
 </noscript>
 
-<div id="ajaxdiv" class="corner-all-small borders full_width">
-<table id="jquerytable" class="display">
+<div id="ajaxdiv" class="ui-widget-content ui-corner-all">
+<table id="jquerytable" class="display ">
 	<colgroup>
 		<?php
 	$array = $this->verplanArray;
@@ -169,18 +179,19 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	}
 	?>
 	</colgroup>
-	<thead>
-		<tr>
+	<thead class="ui-state-default">
+		<tr class="ui-widget-header">
 		<?php
 		foreach ($array[cols] as $colname => $subarray) {
 			echo "<th>";
+			echo '<span class="ui-icon ui-icon-carat-2-n-s" style="float:right"></span>';
 			print empty($subarray[label])? $subarray[name]: $subarray[label];
 			echo "</th>";
 		}
 		?>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="ui-widget">
 	<?php
 	if (!empty($array[rows])){
 		foreach ($array[rows] as $row) {
