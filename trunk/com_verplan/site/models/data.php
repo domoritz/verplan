@@ -75,47 +75,25 @@ class VerplanModelData extends JModel
 		}
 
 		/*
-		 * übersetzt datum und stand in id, wobei die
-		 * daten aus der datenbank kommen müssen, weil
-		 * der platzhalter % möglich sein soll
-		 *
+		 * lädt die daten der zeilen als assoziatives array aus der datenbank, 
+		 * dabei werden nur die zeilen geladen, in denen der richtige stand und
+		 * das richtige datum sind. das wird erreicht, indem die tabellen uploads und
+		 * plan in beziehung gesetzt werden. datum und stand werden sehr liberal beahndelt.
+		 * so heißt "2009-02", dass alle stände aus dem februar 2009 geladen werden
+		 * 
+		 * 
 		 * % ist ein platzhalter für beliebige zeichen. dadurch ist es möglich,
 		 * z.b. alle daten von 2009 zu bekommen
 		 * bei fehlern wird eine meldung ausgegeben
-		 *
-		 * sonst könnte man einfach das nehmen:
-		 * $id = $dates_stands[$date][$stand];
+		 * 
 		 */
-		$query = 'SELECT '.$db->nameQuote('id').'
-				FROM '.$db->nameQuote('#__com_verplan_uploads').' 
-				WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND `Stand` LIKE'.$db->quote($stand."%");
-		$db->setQuery($query);
-		$ids = $db->loadResultArray();
-		if ($db->getErrorNum()) {
-			$msg = $db->getErrorMsg();
-			JError::raiseWarning(0,$msg);
-		}
-
-		/*debug
-		echo "query für ids";
-		echo $query;
-		var_dump($assozArray_ids);
-		//*/
-
-		/*
-		 * lädt die passenden daten als assoziatives array aus der datenbank, dabei werden
-		 * nur die entsprechenden zeilen mit den richtigen ids gezeigt
-		 */
-		//ids in string
-		foreach($ids as $key => $id) {
-			$in.=",".$id;
-		}
 		//(0,*) da sonst probeleme mit leerem ids array
 		$query = 'SELECT uploads.*, plan.* 
 					FROM '.$db->nameQuote('#__com_verplan_plan').' AS plan,
 						'.$db->nameQuote('#__com_verplan_uploads').' AS uploads
-					WHERE plan.id_upload IN (0'.substr($in,0).') 
-						AND plan.id_upload = uploads.id';
+					WHERE plan.id_upload = uploads.id 
+						AND uploads.`Geltungsdatum` LIKE '.$db->quote($date."%").' 
+						AND uploads.`Stand` LIKE'.$db->quote($stand."%");
 																
 		$db->setQuery($query);
 		$assozArray_rows = $db->loadAssocList();
@@ -123,6 +101,11 @@ class VerplanModelData extends JModel
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
+		
+		/*
+		 * zub debuggen einfach einmal // vor die zeile mit 
+		 * debug setzten -> kommentar wird aufgehoben
+		 */
 
 		/*debug
 		echo "query für rows";
