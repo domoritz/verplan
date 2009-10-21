@@ -120,7 +120,7 @@ class VerplanModelData extends JModel
 			JError::raiseWarning(0,$msg);
 		}
 		
-		//ids ersetzten mit stand und geltungsdatum
+		//stand und geltungsdatum hinzufügen
 		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_uploads').' WHERE 1';
 		$db->setQuery($query);
 		//array der tabelle uploads, in als zuordung
@@ -152,7 +152,7 @@ class VerplanModelData extends JModel
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
-		$assozArray_cols = $db->loadAssocList();
+		$assozArray_cols = $db->loadAssocList('name');
 		
 
 		/*OPTIONS*/
@@ -167,16 +167,36 @@ class VerplanModelData extends JModel
 				break;
 					
 			default:
+				//nur bestimmte spalten sollen angezeigt werden
+				
+				//erzeugt ein array mit den spaltennamen, die richtig sind
+				$richtigeSpaltenArray = array();
+				foreach ($assozArray_cols as $key => $subarray) {
+					if ($subarray[show] == 1) {
+						$richtigeSpaltenArray[] = $subarray[name];
+					}
+				}
+				
+				//sort($richtigeSpaltenArray);
+				
+				foreach ($richtigeSpaltenArray as $key => $colname) {
+					$array[cols][$colname] = $assozArray_cols[$colname];
+					for ($i = 0; $i < count($assozArray_rows); $i++) {
+						$array[rows][$i][$colname] = $assozArray_rows[$i][$colname];
+					}					
+				}
+				
+				/*
 				//falls die Spalte angezeigt werden soll, wird sie hinzugefügt
 				for ($i = 0; $i < count($assozArray_cols); $i++) {
 					if ($assozArray_cols[$i][show] == 1) {
 						$array[cols][] = $assozArray_cols[$i];
 					}
 				}
-				/*
-				 * falls die Spalte angezeigt werden soll,
-				 * wird sie in der zeile hinzugefügt
-				 */
+				
+				//falls die Spalte angezeigt werden soll,
+				//wird sie in der zeile hinzugefügt
+				 
 				//durch alle reihen
 				for($i = 0; $i < count($assozArray_rows); $i++) {
 					//durch alle spalten
@@ -189,7 +209,7 @@ class VerplanModelData extends JModel
 							$array[rows][$i][$name] = $assozArray_rows [$i][$name];
 						}
 					}
-				}
+				}*/
 				break;
 		}
 
