@@ -189,14 +189,14 @@ class VerplanControllerUpload extends verplanController
 				if($matches[1] && !$ignore){
 					//debug
 					foreach ($matches as $y => $match) {
-						print_r($match);
+						var_dump($match);
 					}
 					$msg = "Fehler beim Parsen (stand, regexp, zu viele entsprechungen, line: ".__LINE__.")";
 					$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				} else {
 					foreach ($matches as $y => $match) {
 						//debug
-						//print_r($match);
+						//var_dump($match);
 						$standstring = $match[0];
 					}
 
@@ -211,7 +211,7 @@ class VerplanControllerUpload extends verplanController
 
 			//Datumsformat parsen !!ACHTUNG, benoetigt >= PHP 5.3!!
 			$stand_array = date_parse_from_format("d.m.Y H:i", $standstring);
-			//print_r($stand_array);
+			//var_dump($stand_array);
 			//array in unix timestamp wandeln
 			$stand = mktime($stand_array[hour],$stand_array[minute],$stand_array[second],$stand_array[month],$stand_array[day],$stand_array[year]);
 
@@ -234,7 +234,7 @@ class VerplanControllerUpload extends verplanController
 
 			//Datumsformat parsen
 			$date_array = date_parse_from_format("j.n.Y w", $datestring);
-			//print_r($date_array);
+			//var_dump($date_array);
 			//array in unix timestamp wandeln
 			$date = mktime($date_array[hour],$date_array[minute],$date_array[second],$date_array[month],$date_array[day],$date_array[year]);
 
@@ -255,7 +255,7 @@ class VerplanControllerUpload extends verplanController
 			$data = $table->extract(array(".//tr", "th|td"));
 
 			//debug
-			//print_r($data);
+			//var_dump($data);
 
 			//zaehlt die anzahl der spalten (count von subarray), hier nicht verwendet
 			//$columns = count($data[0]);
@@ -303,7 +303,7 @@ class VerplanControllerUpload extends verplanController
 			}
 
 			//debug
-			//print_r($data);
+			//var_dump($data);
 
 
 			/*

@@ -71,7 +71,7 @@ class VerplanModelData extends JModel
 				$stand = $stands;
 			}
 			//debug
-			print_r($stands);
+			//var_dump($stands);
 		}
 
 		/*
@@ -99,7 +99,7 @@ class VerplanModelData extends JModel
 		//debug
 		//		echo "query für ids";
 		//		echo $query;
-		//		print_r($ids);
+		//		var_dump($ids);
 
 
 		/*
@@ -131,7 +131,7 @@ class VerplanModelData extends JModel
 		}
 
 		//debug
-		//print_r($dateAndStandArray);
+		//var_dump($dateAndStandArray);
 
 		for ($i = 0; $i < count($assozArray_rows); $i++) {
 			//id_upload aus der zeile suchen
@@ -141,7 +141,7 @@ class VerplanModelData extends JModel
 		}
 
 		//debug
-		//print_r($assozArray_rows);
+		//var_dump($assozArray_rows);
 
 
 
@@ -254,7 +254,7 @@ class VerplanModelData extends JModel
 		}
 
 		//debug
-		//print_r($array);
+		//var_dump($array);
 
 		//testarray zum debuggen
 		//$array = array ('a'=>1,'b'=>2,'c'=>3,'d'=>4,'e'=>5);
@@ -296,7 +296,7 @@ class VerplanModelData extends JModel
 				$stand = $stands;
 			}
 			//debug
-			//print_r($stands);
+			//var_dump($stands);
 		}
 
 		/*
@@ -395,7 +395,7 @@ class VerplanModelData extends JModel
 		//debug
 		//		echo "dates and stands";
 		//		echo "<pre>";
-		//		print_r($array);
+		//		var_dump($array);
 		//		echo "<pre>";
 
 		return $array;
