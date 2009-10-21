@@ -78,7 +78,7 @@ class verplanViewverplan extends JView
 		
 		//debug
 //		echo "<pre>";
-//		print_r($dates);
+//		var_dump($dates);
 //		echo "</pre>";
 		
 		$this->assignRef( 'dates', $dates);
@@ -95,7 +95,7 @@ class verplanViewverplan extends JView
 		$this->assignRef( 'format', $format);
 
 		//debug
-		//print_r($dates);
+		//var_dump($dates);
 
 		parent::display($tpl);
 	}// function

@@ -45,7 +45,7 @@ class VerplanModelData extends JModel
 	 */
 	function log_in_uploads($data){
 		//debug
-		//print_r($data);
+		//var_dump($data);
 
 		//datenbankfunktionen
 		$db =& JFactory::getDBO();
@@ -108,7 +108,7 @@ class VerplanModelData extends JModel
 	function store($data)
 	{
 		//debug
-		//print_r($data);
+		//var_dump($data);
 
 		$this->heads($data);
 
@@ -128,7 +128,7 @@ class VerplanModelData extends JModel
 		$query = substr($query, 0, -1);
 		$query.=")\n VALUES";
 		for ($i = 1; $i < count($data); $i++) {
-			print_r($data[$i]);
+			var_dump($data[$i]);
 			$query.="\n(";
 
 			//die daten
@@ -181,7 +181,7 @@ class VerplanModelData extends JModel
 		}
 
 		//debug
-		//print_r($columns_names);
+		//var_dump($columns_names);
 
 		//jede spalte (als zeile) wird ueberprueft und gegebenenfalls hinzugefuegt
 		foreach ($data[0] AS $column_name) {
@@ -207,7 +207,7 @@ class VerplanModelData extends JModel
 		}
 
 		//debug
-		//print_r($columns_names);
+		//var_dump($columns_names);
 
 		//jede spalte wird ueberprueft und gegebenenfalls hinzugefuegt
 		foreach ($data[0] AS $column_name) {
