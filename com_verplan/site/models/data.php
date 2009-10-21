@@ -50,12 +50,12 @@ class VerplanModelData extends JModel
 
 		//leeres array
 		$array = array();
-		
+
 		//holt sich das array mit daten und ständen
 		$dates_stands = $this->getDatesAndStands();
 
 		//falls nur der neueste stand zurückgegeben werden soll
-		if ($stand == "latest") {			
+		if ($stand == "latest") {
 			//nimmt nur das passende subarray
 			$stands = $dates_stands[$date];
 			/*
@@ -73,20 +73,20 @@ class VerplanModelData extends JModel
 			//debug
 			print_r($stands);
 		}
-		
+
 		/*
-		 * übersetzt datum und stand in id, wobei die 
+		 * übersetzt datum und stand in id, wobei die
 		 * daten aus der datenbank kommen müssen, weil
 		 * der platzhalter % möglich sein soll
-		 * 
+		 *
 		 * % ist ein platzhalter für beliebige zeichen. dadurch ist es möglich,
 		 * z.b. alle daten von 2009 zu bekommen
 		 * bei fehlern wird eine meldung ausgegeben
-		 * 
+		 *
 		 * sonst könnte man einfach das nehmen:
 		 * $id = $dates_stands[$date][$stand];
 		 */
-		$query = 'SELECT '.$db->nameQuote('id').' 
+		$query = 'SELECT '.$db->nameQuote('id').'
 				FROM '.$db->nameQuote('#__com_verplan_uploads').' 
 				WHERE Geltungsdatum LIKE '.$db->quote($date."%").' AND `Stand` LIKE'.$db->quote($stand."%");
 		$db->setQuery($query);
@@ -95,12 +95,12 @@ class VerplanModelData extends JModel
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
-		
+
 		//debug
-//		echo "query für ids";
-//		echo $query;
-//		print_r($ids);
-		
+		//		echo "query für ids";
+		//		echo $query;
+		//		print_r($ids);
+
 
 		/*
 		 * lädt die passenden daten als assoziatives array aus der datenbank, dabei werden
@@ -109,17 +109,17 @@ class VerplanModelData extends JModel
 		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE';
 		//ids in string
 		foreach($ids as $key => $id) {
-    		$in.=",".$id; 
+			$in.=",".$id;
 		}													//0, da sonst probeleme mit leer
 		$query .= $db->nameQuote('id_upload').' IN (0'.substr($in,0).")";
-		
+
 		$db->setQuery($query);
 		$assozArray_rows = $db->loadAssocList();
 		if ($db->getErrorNum()) {
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
-		
+
 		//stand und geltungsdatum hinzufügen
 		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_uploads').' WHERE 1';
 		$db->setQuery($query);
@@ -129,20 +129,20 @@ class VerplanModelData extends JModel
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
-		
+
 		//debug
 		//print_r($dateAndStandArray);
-		
+
 		for ($i = 0; $i < count($assozArray_rows); $i++) {
 			//id_upload aus der zeile suchen
 			$id_upload = $assozArray_rows[$i]['id_upload'];
 			$assozArray_rows[$i]['Geltungsdatum']=$dateAndStandArray[$id_upload]['Geltungsdatum'];
 			$assozArray_rows[$i]['Stand']=$dateAndStandArray[$id_upload]['Stand'];
 		}
-		
+
 		//debug
-//		print_r($assozArray_rows);
-		
+		//print_r($assozArray_rows);
+
 
 
 		//lädt die spalten, aus der tabelle columns
@@ -153,7 +153,72 @@ class VerplanModelData extends JModel
 			JError::raiseWarning(0,$msg);
 		}
 		$assozArray_cols = $db->loadAssocList('name');
-		
+
+//		/*SORT*/
+//		/*
+//		 * sortieren - eigene lösung
+//		 * http://php.net/manual/en/array.sorting.php
+//		 *
+//		 * ksort - nach value
+//		 * asort - nach key
+//		 * mit r - umgedreht
+//		 */
+//		//dreht das array, nur sort und key
+//		$sortarray = array();
+//		foreach ($assozArray_cols as $key => $subarray) {
+//			$sortarray[$subarray[sort]][$subarray[id]]=$subarray[name];
+//		}
+//		//sortiert das äußere array (nach sort)
+//		arsort($sortarray);
+//		//sortiert die inneren arrays (nach id)
+//		foreach ($sortarray as $key => $subarray) {
+//			krsort($subarray);
+//			$sortarray[$key] = $subarray;
+//			/*
+//			 * $sortarray[$key] = krsort($subarray);
+//			 * ist falsch, da ksort true or false zurück gibt
+//			 */
+//		}
+//		//debug
+//		//var_dump($sortarray);
+//
+//		//nun wird das assozarray2 in der entsprechenden reihenfolge wieder aufgebaut
+//		foreach ($sortarray as $key => $subarray) {
+//			foreach ($subarray as $key => $value) {
+//				$assozArray_cols2[$value] = $assozArray_cols[$value];
+//			}
+//		}
+//
+//		//var_dump($assozArray_cols2);
+//
+//		//und letztendlich wird dass array mit dem sortierten überschrieben
+//		$assozArray_cols = $assozArray_cols2;
+
+		/*SORT*/
+		/*
+		 * sortieren - schnelle/einfache lösung
+		 * http://php.net/manual/en/array.sorting.php
+		 * 
+		 * http://www.php.net/manual/en/function.array-multisort.php
+		 * example 3
+		 */
+		$sort = array();
+		$id = array();
+		foreach ($assozArray_cols as $key => $row) {
+			$sort[$key] = $row['sort'];
+			$id[$key] = $row['id'];
+		}
+		//sortiert nach mehreren spalten
+		array_multisort($sort, SORT_ASC, $id, SORT_ASC, $assozArray_cols);
+		//debug
+		/*
+		var_dump($sort);
+		echo "==================";
+		var_dump($id);
+		echo "==================";
+		var_dump($assozArray_cols);
+		echo "==================";
+		*/
 
 		/*OPTIONS*/
 		switch ($options) {
@@ -161,14 +226,13 @@ class VerplanModelData extends JModel
 				$array[cols] = $assozArray_cols;
 				$array[rows] = $assozArray_rows;
 				break;
-				
+
 			case none:
 				$array[cols] = $assozArray_cols;
 				break;
 					
 			default:
 				//nur bestimmte spalten sollen angezeigt werden
-				
 				//erzeugt ein array mit den spaltennamen, die richtig sind
 				$richtigeSpaltenArray = array();
 				foreach ($assozArray_cols as $key => $subarray) {
@@ -176,40 +240,16 @@ class VerplanModelData extends JModel
 						$richtigeSpaltenArray[] = $subarray[name];
 					}
 				}
-				
+
 				//sort($richtigeSpaltenArray);
-				
+
+				//läuft durch alle spalten durch
 				foreach ($richtigeSpaltenArray as $key => $colname) {
 					$array[cols][$colname] = $assozArray_cols[$colname];
 					for ($i = 0; $i < count($assozArray_rows); $i++) {
 						$array[rows][$i][$colname] = $assozArray_rows[$i][$colname];
-					}					
-				}
-				
-				/*
-				//falls die Spalte angezeigt werden soll, wird sie hinzugefügt
-				for ($i = 0; $i < count($assozArray_cols); $i++) {
-					if ($assozArray_cols[$i][show] == 1) {
-						$array[cols][] = $assozArray_cols[$i];
 					}
 				}
-				
-				//falls die Spalte angezeigt werden soll,
-				//wird sie in der zeile hinzugefügt
-				 
-				//durch alle reihen
-				for($i = 0; $i < count($assozArray_rows); $i++) {
-					//durch alle spalten
-					for ($o = 0; $o < count($assozArray_rows[$i]); $o++) {
-						//falls es angezeigt werden darf
-						if ($assozArray_cols[$o][show] == 1) {
-							//bezeichung der spalte
-							$name = $assozArray_cols[$o][name];
-							//anhängen
-							$array[rows][$i][$name] = $assozArray_rows [$i][$name];
-						}
-					}
-				}*/
 				break;
 		}
 
@@ -316,9 +356,9 @@ class VerplanModelData extends JModel
 	/**
 	 * array mit geltungstagen und ständen,
 	 * wobei immer die stände den daten zugeordnet werden
-	 * 
+	 *
 	 * diese daten werden aus der tabelle uploads geholt
-	 * 
+	 *
 	 * @return array
 	 */
 	function getDatesAndStands(){
@@ -353,10 +393,10 @@ class VerplanModelData extends JModel
 		}
 
 		//debug
-//		echo "dates and stands";
-//		echo "<pre>";
-//		print_r($array);
-//		echo "<pre>";
+		//		echo "dates and stands";
+		//		echo "<pre>";
+		//		print_r($array);
+		//		echo "<pre>";
 
 		return $array;
 	}
