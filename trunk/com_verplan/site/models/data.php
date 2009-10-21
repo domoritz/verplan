@@ -154,46 +154,6 @@ class VerplanModelData extends JModel
 		}
 		$assozArray_cols = $db->loadAssocList('name');
 
-//		/*SORT*/
-//		/*
-//		 * sortieren - eigene lösung
-//		 * http://php.net/manual/en/array.sorting.php
-//		 *
-//		 * ksort - nach value
-//		 * asort - nach key
-//		 * mit r - umgedreht
-//		 */
-//		//dreht das array, nur sort und key
-//		$sortarray = array();
-//		foreach ($assozArray_cols as $key => $subarray) {
-//			$sortarray[$subarray[sort]][$subarray[id]]=$subarray[name];
-//		}
-//		//sortiert das äußere array (nach sort)
-//		arsort($sortarray);
-//		//sortiert die inneren arrays (nach id)
-//		foreach ($sortarray as $key => $subarray) {
-//			krsort($subarray);
-//			$sortarray[$key] = $subarray;
-//			/*
-//			 * $sortarray[$key] = krsort($subarray);
-//			 * ist falsch, da ksort true or false zurück gibt
-//			 */
-//		}
-//		//debug
-//		//var_dump($sortarray);
-//
-//		//nun wird das assozarray2 in der entsprechenden reihenfolge wieder aufgebaut
-//		foreach ($sortarray as $key => $subarray) {
-//			foreach ($subarray as $key => $value) {
-//				$assozArray_cols2[$value] = $assozArray_cols[$value];
-//			}
-//		}
-//
-//		//var_dump($assozArray_cols2);
-//
-//		//und letztendlich wird dass array mit dem sortierten überschrieben
-//		$assozArray_cols = $assozArray_cols2;
-
 		/*SORT*/
 		/*
 		 * sortieren - schnelle/einfache lösung
