@@ -172,9 +172,9 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	<thead>
 		<tr>
 		<?php
-		for ($i = 0; $i < $anzahl; $i++) {
+		foreach ($array[cols] as $colname => $subarray) {
 			echo "<th>";
-			print empty($array[cols][$i][label])? $array[cols][$i][name]: $array[cols][$i][label];
+			print empty($subarray[label])? $subarray[name]: $subarray[label];
 			echo "</th>";
 		}
 		?>
