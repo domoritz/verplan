@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS `#__com_verplan_columns`;
 CREATE TABLE `#__com_verplan_columns` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `name` TEXT NOT NULL ,
-`order_number` INT NOT NULL DEFAULT '9999',
+`sort` INT NOT NULL DEFAULT '9999',
 `show` BOOL NULL DEFAULT '0',
 `type` TEXT NULL COMMENT 'wie soll sortiert werden',
 `label` TEXT NULL COMMENT 'alternativer name',
@@ -41,7 +41,7 @@ CREATE TABLE `#__com_verplan_columns` (
 
 INSERT INTO `#__com_verplan_columns` (
 `name` ,
-`order_number` ,
+`sort` ,
 `show` ,
 `label`,
 `editable`

@@ -39,9 +39,7 @@ switch ($options) {
 	
 	case arr:
 		//array direkt
-		echo "<pre>";
-		print_r($arr);
-		echo "</pre>";
+		var_dump($arr);
 		break;
 
 	case html:
