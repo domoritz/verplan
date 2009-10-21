@@ -96,23 +96,27 @@ class VerplanModelData extends JModel
 			JError::raiseWarning(0,$msg);
 		}
 
-		//debug
-		//		echo "query für ids";
-		//		echo $query;
-		//		var_dump($ids);
-
+		/*debug
+		echo "query für ids";
+		echo $query;
+		var_dump($assozArray_ids);
+		//*/
 
 		/*
 		 * lädt die passenden daten als assoziatives array aus der datenbank, dabei werden
 		 * nur die entsprechenden zeilen mit den richtigen ids gezeigt
 		 */
-		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE';
 		//ids in string
 		foreach($ids as $key => $id) {
 			$in.=",".$id;
-		}													//0, da sonst probeleme mit leer
-		$query .= $db->nameQuote('id_upload').' IN (0'.substr($in,0).")";
-
+		}
+		//(0,*) da sonst probeleme mit leerem ids array
+		$query = 'SELECT uploads.*, plan.* 
+					FROM '.$db->nameQuote('#__com_verplan_plan').' AS plan,
+						'.$db->nameQuote('#__com_verplan_uploads').' AS uploads
+					WHERE plan.id_upload IN (0'.substr($in,0).') 
+						AND plan.id_upload = uploads.id';
+																
 		$db->setQuery($query);
 		$assozArray_rows = $db->loadAssocList();
 		if ($db->getErrorNum()) {
@@ -120,28 +124,11 @@ class VerplanModelData extends JModel
 			JError::raiseWarning(0,$msg);
 		}
 
-		//stand und geltungsdatum hinzufügen
-		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_uploads').' WHERE 1';
-		$db->setQuery($query);
-		//array der tabelle uploads, in als zuordung
-		$dateAndStandArray = $db->loadAssocList('id');
-		if ($db->getErrorNum()) {
-			$msg = $db->getErrorMsg();
-			JError::raiseWarning(0,$msg);
-		}
-
-		//debug
-		//var_dump($dateAndStandArray);
-
-		for ($i = 0; $i < count($assozArray_rows); $i++) {
-			//id_upload aus der zeile suchen
-			$id_upload = $assozArray_rows[$i]['id_upload'];
-			$assozArray_rows[$i]['Geltungsdatum']=$dateAndStandArray[$id_upload]['Geltungsdatum'];
-			$assozArray_rows[$i]['Stand']=$dateAndStandArray[$id_upload]['Stand'];
-		}
-
-		//debug
-		//var_dump($assozArray_rows);
+		/*debug
+		echo "query für rows";
+		echo $query;
+		var_dump($assozArray_rows);
+		//*/
 
 
 
@@ -170,15 +157,15 @@ class VerplanModelData extends JModel
 		}
 		//sortiert nach mehreren spalten
 		array_multisort($sort, SORT_ASC, $id, SORT_ASC, $assozArray_cols);
-		//debug
-		/*
+		
+		/*debug		
 		var_dump($sort);
 		echo "==================";
 		var_dump($id);
 		echo "==================";
 		var_dump($assozArray_cols);
 		echo "==================";
-		*/
+		//*/
 
 		/*OPTIONS*/
 		switch ($options) {
