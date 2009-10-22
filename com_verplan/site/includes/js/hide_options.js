@@ -7,11 +7,18 @@
  * @author      Created on 2-Oct-2009
  */
 jQuery(document).ready(function(){
-	//versteckt optionen
-	jQuery('#options_div').hide('');
+	
+	/*
+	 * versteckt optionen (es wird das übergeordnete span versteckt, 
+	 * damit es keine probleme mit display gibt)
+	 */
+	jQuery('#hidden').hide('');
 	jQuery('#expander_options').click(function() {
 		//wechsel des icons
-		jQuery('#options_div').toggle('blind','normal');
+		jQuery('#hidden').toggle('blind',1000);
 		jQuery('#icon_options').toggleClass('ui-icon-circle-plus').toggleClass('ui-icon-circle-minus');
+		jQuery('#expander_options').toggleClass('ui-state-default');
+		jQuery('#expander_options').toggleClass('ui-state-active');
 	});
+	
 });

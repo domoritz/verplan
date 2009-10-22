@@ -57,7 +57,7 @@ jQuery(document).ready(function(){
 		var speed = 1000;
 
 		if (effects) {
-			jQuery('div#loading').fadeIn('fast');
+			jQuery('#loading').fadeIn('fast');
 			
 			jQuery('#jquerytable tbody').
 			fadeOut(speed).
@@ -131,7 +131,7 @@ jQuery(document).ready(function(){
 
 		}  
 		function hideLoader() {  
-			jQuery('div#loading').pause(500).fadeOut(1000);
+			jQuery('#loading').pause(500).fadeOut(1000);
 		}  
 
 	}

@@ -1,30 +1,38 @@
 jQuery(document).ready(function(){ 
-	jQuery('<div style="position: absolute; top: 20px; right: 10px;" />').appendTo('body').themeswitcher(); 
-	jQuery('#select_date').selectmenu({
-		style:'dropdown', 
-		menuWidth: 300
-	});
+	jQuery('#ui_themeswitcher').themeswitcher(); 
 	
 	/*
-	jQuery('.ui-icon').mouseenter(function(){
-		jQuery(this).toggleClass('ui-state-hover');
-	});
-	jQuery('.ui-icon').mouseleave(function(){
-		jQuery(this).toggleClass('ui-state-hover');
-	});*/
-	
-	jQuery('#jquerytable thead th').mouseenter(function(){
-		jQuery(this).toggleClass('ui-state-hover');
-	});
-	jQuery('#jquerytable thead th').mouseleave(function(){
-		jQuery(this).toggleClass('ui-state-hover');
+	 * selectmenu plugin
+	 * http://www.filamentgroup.com/lab/jquery_ui_selectmenu_an_aria_accessible_plugin_for_styling_a_html_select/
+	 */
+	jQuery('#select_date').selectmenu({
+		//style:'dropdown', 
+		//menuWidth: 300
 	});
 	
-	jQuery('#').mouseenter(function(){
-		jQuery(this).toggleClass('ui-state-hover');
+	jQuery('#jquerytable thead th').mouseover(function(){
+		jQuery(this).addClass('ui-state-hover');
 	});
-	jQuery('#').mouseleave(function(){
-		jQuery(this).toggleClass('ui-state-hover');
+	jQuery('#jquerytable thead th').mouseout(function(){
+		jQuery(this).removeClass('ui-state-hover');
+	});
+	
+	
+	jQuery('.filterColumns td').mouseover(function(){
+		jQuery(this).addClass('ui-state-hover');
+	});
+	jQuery('.filterColumns td').mouseout(function(){
+		jQuery(this).removeClass('ui-state-hover');
+	});
+	
+	
+	jQuery('#expander_options').mouseenter(function(){
+		jQuery(this).addClass('ui-state-hover');
+		jQuery(this).removeClass('ui-state-default');
+	});
+	jQuery('#expander_options').mouseleave(function(){
+		jQuery(this).removeClass('ui-state-hover');
+		jQuery(this).addClass('ui-state-default');
 	});
 	
 	

@@ -73,9 +73,9 @@ function table_init(){
      * assign the sortStart event 
      */
 	jQuery("#jquerytable").bind("sortStart",function() { 
-		jQuery('div#loading').fadeIn(200); 
+		jQuery('#loading').fadeIn(200); 
     }).bind("sortEnd",function() { 
-    	jQuery('div#loading').fadeOut(1000);
+    	jQuery('#loading').fadeOut(1000);
     }); 
 	
 	
@@ -130,6 +130,7 @@ function table_update() {
 	/*
 	 * colorize farben
 	 * http://plugins.jquery.com/project/Colorize
+	 * http://franca.exofire.net/jq/colorize
 	 */
 	jQuery('#jquerytable tbody').colorize({
 		altColor: 'none',
@@ -137,7 +138,8 @@ function table_update() {
 		hover: 'row', 
 		click: 'row', 
 		hiliteClass: 'ui-state-active', 
-		hoverClass: 'ui-state-hover'
+		hoverClass: 'ui-state-hover',
+		oneClick: false
 	});
 	
 	/*
@@ -145,11 +147,22 @@ function table_update() {
 	 */
 	jQuery('#jquerytable').trigger("update");
 	
+	
+	//neue funktion zur zeitverzögerung
+	jQuery.fn.pause = function (n) {
+		return this.queue(function () {
+			var el = this;
+			setTimeout(function () {
+				return jQuery(el).dequeue();
+			}, n);
+		});
+	};
+	
 	/*
 	 * highlight effect für tr
 	 */
 	jQuery("#jquerytable tbody tr").click(function(){
-		jQuery(this).effect('highlight','normal');
+		jQuery(this);
 	});	
 	/**/
 }

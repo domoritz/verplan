@@ -10,63 +10,77 @@
 .full_width {
 	width: 100%;
 	max-width: 100%;
-	margin: 0px;
-}
-
-#verplan_form input {
-	cursor: pointer;
-}
-
-#options_div span {
-	width: 200px;
-	display: block;
-	float: left;
-}
-
-#options_div input,#options_div select {
-	background: #FFFFFF url(../images/fieldbg.gif) repeat-x scroll center
-		top;
-	border-color: #7C7C7C #C3C3C3 #DDDDDD;
-	border-style: solid;
-	border-width: 1px;
-	height: 1.3em;
-	cursor: text;
 }
 
 #selectrahmen {
-	padding: 6px;
+	padding: 0.5em;
 }
 
-#selectrahmen:hover {
-	
+#verplan_form a, #verplan_form select {
+	cursor: pointer;
+	width: 300px;
+	padding: 0em;
+	margin: 0.2em;
+	font-size: 1.1em;
+	float: left;
+	vertical-align: middle;
 }
 
 #load_platzhalter {
 	width: 64px;
 	height: 32px;
 	float: right;
+	background-color: #fff;
 }
 
 #loading {
-	display: none;
 	width: 64px;
 	height: 32px;
-	background: transparent url(../images/ajax-loader-3d.gif) no-repeat 50%	center;
+	float:right;
+	background: transparent url(../images/ajax-loader-3d_26.gif) no-repeat 50%	center;
 }
 
+
+#options_div{
+	width: 80%;
+	float:right;
+	padding: 5px;
+	border-top: none;
+	height: 10em;
+	position: relative;
+	right: 1em;
+	display: block;
+}
+
+#options_div span{
+	float: left;
+	clear: both;
+	width: 200px;
+	margin-right: 10px;
+	text-align: right;
+	font-weight: bold;
+}
+
+#options_div input{
+	float: left;
+}
+
+.submitbutton {
+	clear: both; 
+	float: right;
+	margin-right: 30px;	
+}
 
 #expander_options {
+	float: right;
+	border-top: none;
+	height: 1.5em;
+	position: relative;
+	right: 3em;
+	padding: 2px 10px 2px 10px;
 	cursor: pointer;
-	font-size: 1em;
-	margin-top: 0.5em;
-	margin-left: 10px;
-}
-
-#options_div {
-	margin-left: 10px;
-	padding-bottom: 10px;
 }
 
 #ajaxdiv {
-	margin-top: 0em;
+	margin-top: 2em;
 }

@@ -60,89 +60,83 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 ?>
 
 <!-- -->
-<form id="verplan_form" class="full_width" name="upload" method="get" enctype="multipart/form-data"	action="index.php">
+<form id="verplan_form" class="full_width ui-helper-clearfix" name="upload" method="get" enctype="multipart/form-data"	action="index.php">
 
-	<div id="selectrahmen" class="ui-state-default ui-corner-all">
-	<label for="select_date"></label> 
-	<select size="1" id="select_date" name="date">
-		<?php
-		$dates = $this->dates;
-		foreach ($dates as $key => $value) {
-			
-			//timestamp des geltungsdatums
-			$timestamp = strtotime($value);
-			
-			//datums value, die zeit ist egal
-			$date_value = date( 'Y-m-d', $timestamp);
-			
-			$selected = false;
-			
-			/*
-			 * falls nicht ein datum über dei url gewählt wurde, soll 
-			 * das datum des folgetages angezeigt werden
-			 */
-			if ($this->date == 'none'){
-				//morgiges datum autom auswählen
-				$date_of_timestamp = mktime(0, 0, 0, date("m",$timestamp)  , date("d",$timestamp), date("Y",$timestamp));
-				$now = time();
-				$tomorrow  = mktime(0, 0, 0, date("m",$now)  , date("d",$now)+1, date("Y",$now));
-				//wenn das geltungsdatum morgen ist
-				$selected = ($tomorrow == $date_of_timestamp);
-			} elseif ($date_value == $this->date){
-				//falls das ausgewählte datum der url mit dem geltungsdatum übereinstimmt
-				$selected = true;
-			}
-			
-			echo '<option value="'.$date_value.'"';
-			//php Ternary Operator
-			print ($selected ? ' selected="selected" id="selected">' : '>');	
-			
-			/*
-			 * richtiges datumsformat
-			 * %A - wochentag
-			 * %d - tag
-			 * %m - monat
-			 * %Y - jahr, 4stellig
-			 * %H - stunde
-			 * %M - minute
-			 */						
-			setlocale(LC_TIME, "de_DE");		
-			$format="<b>%A</b> %d.%m.%Y";
-			$label= strftime($format,$timestamp);		
-			echo $label;
-			echo '</option>';
-		}	
-		?>
-	</select>
-	
-	<!-- Indikator -->
-	<span id="load_platzhalter">
-		<span id="loading"></span>
-	</span>
-	
-	<noscript>
-		<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen -->
-		<input type="submit" name="submit" class="submitbutton" value="Anzeigen" />
-	</noscript>
-	
-	</div>
+	<div id="selectrahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
+		<span class="ui-state-default" style="border: none;">
+		<label for="select_date"></label> 
+		<select size="1" id="select_date" name="date">
+			<?php
+			$dates = $this->dates;
+			foreach ($dates as $key => $value) {
+				
+				//timestamp des geltungsdatums
+				$timestamp = strtotime($value);
+				
+				//datums value, die zeit ist egal
+				$date_value = date( 'Y-m-d', $timestamp);
+				
+				$selected = false;
+				
+				/*
+				 * falls nicht ein datum über dei url gewählt wurde, soll 
+				 * das datum des folgetages angezeigt werden
+				 */
+				if ($this->date == 'none'){
+					//morgiges datum autom auswählen
+					$date_of_timestamp = mktime(0, 0, 0, date("m",$timestamp)  , date("d",$timestamp), date("Y",$timestamp));
+					$now = time();
+					$tomorrow  = mktime(0, 0, 0, date("m",$now)  , date("d",$now)+1, date("Y",$now));
+					//wenn das geltungsdatum morgen ist
+					$selected = ($tomorrow == $date_of_timestamp);
+				} elseif ($date_value == $this->date){
+					//falls das ausgewählte datum der url mit dem geltungsdatum übereinstimmt
+					$selected = true;
+				}
+				
+				echo '<option value="'.$date_value.'"';
+				//php Ternary Operator
+				print ($selected ? ' selected="selected" id="selected">' : '>');	
+				
+				/*
+				 * richtiges datumsformat
+				 * %A - wochentag
+				 * %d - tag
+				 * %m - monat
+				 * %Y - jahr, 4stellig
+				 * %H - stunde
+				 * %M - minute
+				 */						
+				setlocale(LC_TIME, "de_DE");		
+				$format="<b>%A</b> %d.%m.%Y";
+				$label= strftime($format,$timestamp);		
+				echo $label;
+				echo '</option>';
+			}	
+			?>
+		</select>
+		</span>
+		
+		<!-- Indikator alternativ für platzhalter: ui-widget-content-->
+		<span id="load_platzhalter" class="ui-corner-all">
+			<span id="loading">&nbsp;</span>
+		</span>	
 
 	
-	<div id="expander_options" class="">
-	<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
-	<h4 id="options_header">Optionen</h4>
 	</div>
-	<div id="options_div">
+	
+	<div id="hidden" style="overflow:hidden;">
+	<div id="options_div" class="ui-helper-clearfix ui-widget-content ui-corner-bl ui-corner-br">
 		<!-- nur den neuesten stand --> 
 		<span>Stand</span>
-		<input type="text" name="stand" value="<?php print $this->stand;?>" /><br>
+		<input type="text" name="stand" value="<?php print $this->stand;?>" />
 		<span>Options [model,view]</span>
 		<!-- view optionen nur für ajax interessant -->
-		<input type="text" name="options" value="<?php echo $this->options;?>" /><br>
+		<input type="text" name="options" value="<?php echo $this->options;?>" />
 		<!-- format wird nuir angezeigt, wenn  -->
 		<noscript>
 			<span>Format</span>
-			<input type="text" name="format" value="<?php echo $this->format;?>" /><br>
+			<input type="text" name="format" value="<?php echo $this->format;?>" />
 	    </noscript>
 	    
 		<!-- damit die Komponente wieder aufgerufen wird --> 
@@ -152,13 +146,28 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		<input type="hidden" name="controller" value="" /> 
 		<!-- die user ID --> 
 		<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
+		
+		<noscript>
+			<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen  -->
+			<input type="submit" name="submit" class="submitbutton ui-helper-clearfix" value="Anzeigen" />
+		</noscript>
+		
 	</div>
+	</div>
+
+	<div id="expander_options" class="ui-state-default ui-corner-bl ui-corner-br">
+				<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
+				Advanced
+	</div>
+	
 </form>
+
+
 
 <noscript class="full_width">
 
 <div class="ui-widget">
-	<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em;">
+	<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em;">
 		<p>
 		<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span>
 			<?php echo $this->nojs;?> 
@@ -168,8 +177,14 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	
 </noscript>
 
-<div id="ajaxdiv" class="ui-widget-content ui-corner-all">
-<table id="jquerytable" class="display ">
+
+
+<div id="ajaxdiv" class=" ">
+<div class="table_header ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix">
+	<div class="left">Vertretungsplan</div>
+	<div id="ui_themeswitcher"></div>
+</div>
+<table id="jquerytable" class="ui-widget full_width">
 	<colgroup>
 		<?php
 	$array = $this->verplanArray;
@@ -179,8 +194,8 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	}
 	?>
 	</colgroup>
-	<thead class="ui-state-default">
-		<tr class="ui-widget-header">
+	<thead class="ui-widget-header">
+		<tr class="ui-state-default">
 		<?php
 		foreach ($array[cols] as $colname => $subarray) {
 			echo "<th>";
@@ -191,7 +206,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		?>
 		</tr>
 	</thead>
-	<tbody class="ui-widget">
+	<tbody>
 	<?php
 	if (!empty($array[rows])){
 		foreach ($array[rows] as $row) {
@@ -214,4 +229,9 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	?>
 	</tbody>
 </table>
+
+<div class="table_footer ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+	Dominik Moritz, 2009
+</div>
+
 </div>
