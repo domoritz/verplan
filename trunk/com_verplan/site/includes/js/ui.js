@@ -10,6 +10,7 @@ jQuery(document).ready(function(){
 		//menuWidth: 300
 	});
 	
+	//mouseover für die einzelnen spaltenköpfe
 	jQuery('#jquerytable thead th').mouseover(function(){
 		jQuery(this).addClass('ui-state-hover');
 	});
@@ -17,7 +18,7 @@ jQuery(document).ready(function(){
 		jQuery(this).removeClass('ui-state-hover');
 	});
 	
-	
+	//mouseover für die einzelnen spaltenköpfe mit den filtern
 	jQuery('.filterColumns td').mouseover(function(){
 		jQuery(this).addClass('ui-state-hover');
 	});
@@ -25,7 +26,7 @@ jQuery(document).ready(function(){
 		jQuery(this).removeClass('ui-state-hover');
 	});
 	
-	
+	//mouseover für den expander für die optionen
 	jQuery('#expander_options').mouseenter(function(){
 		jQuery(this).addClass('ui-state-hover');
 		jQuery(this).removeClass('ui-state-default');
