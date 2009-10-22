@@ -67,8 +67,9 @@
 
 .submitbutton {
 	clear: both; 
-	float: right;
+	float: right !important;
 	margin-right: 30px;	
+	font-weight: bold;
 }
 
 #expander_options {

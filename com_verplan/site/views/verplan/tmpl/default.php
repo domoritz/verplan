@@ -149,7 +149,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		
 		<noscript>
 			<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen  -->
-			<input type="submit" name="submit" class="submitbutton ui-helper-clearfix" value="Anzeigen" />
+			<input type="submit" name="submit" class="submitbutton ui-helper-clearfix" value="Vertretungsplan anzeigen" />
 		</noscript>
 		
 	</div>
@@ -157,7 +157,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 
 	<div id="expander_options" class="ui-state-default ui-corner-bl ui-corner-br">
 				<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
-				Advanced
+				erweiterte Optionen
 	</div>
 	
 </form>
@@ -166,14 +166,14 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 
 <noscript class="full_width">
 
-<div class="ui-widget">
-	<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em;">
-		<p>
-		<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span>
-			<?php echo $this->nojs;?> 
-		</p>
+	<div class="ui-widget">
+		<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em;">
+			<p>
+			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span>
+				<?php echo $this->nojs;?> 
+			</p>
+		</div>
 	</div>
-</div>
 	
 </noscript>
 
