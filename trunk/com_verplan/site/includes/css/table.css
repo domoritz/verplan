@@ -10,10 +10,46 @@
 /*tabelle*/
 #jquerytable {
 	border-collapse:collapse;
-	margin: 5px;
+}
+
+.table_header {
+	padding: 5px;
+	font-size: 1em;
+}
+
+.table_header .left{
+	padding-top: 0.2em;
+	padding-left: 0.4em;
+	font-size: 1.2em;
+	border-bottom: 0px;
+}
+
+.table_footer {
+	padding: 5px;
+	font-size: 1em;
+}
+
+.left {
+	float: left;
+}
+
+#ui_themeswitcher {
+	float: right;
+	align: right;
+	width: 150px;
 }
 
 /*thead*/
+#jquerytable thead, #jquerytable thead th, #jquerytable thead td, #jquerytable thead div{
+	border-left: none;
+	border-right: none;
+}
+
+#jquerytable thead tr {
+	border-left: none;
+	border-right: none;
+}
+
 #jquerytable th {
 	padding-left: 4px;
 	cursor: pointer; 
@@ -37,10 +73,7 @@
 	background-position:-64px -16px;
 }
 
-#jquerytable td {
-	border-style:solid;
-	border-width:1px;
-	border-color:#C6C3C6;
+#jquerytable tbody td {
 	padding:0px;
 }
 
@@ -70,28 +103,14 @@
 }
 
 /*tbody*/
-#jquerytable tbody td {
-	border-style:solid;
-	border-width:1px;
-	border-color:#C6C3C6;
-	padding:2px 1px;
-}
-
 #jquerytable tbody {
 	display: table-row-group;
 }
 
-#jquerytable tbody tr td {
-	border-top: none;
-	border-bottom: none;
-	padding: 3px 3px;
-	color:#000;
-	text-decoration: none; 
-	outline: none; 
-	font-weight: normal;
-	border-bottom: 1px #aaa solid;
+#jquerytable tbody tr {
+	border-left: none;
+	border-right: none;
 }
-
 
 #jquerytable tr.odd { 
 	background-color: #eee;
@@ -103,6 +122,12 @@
 
 #jquerytable tr.marked { 
 	
+}
+
+#jquerytable tbody tr td {
+	padding: 3px 3px;
+	border-bottom: transparent 1px solid;
+	font-weight: normal;
 }
 
 #jquerytable tbody .ui-state-hover { 
