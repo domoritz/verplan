@@ -40,7 +40,12 @@
 }
 
 /*thead*/
-#jquerytable thead, #jquerytable thead th, #jquerytable thead td, #jquerytable thead div{
+#jquerytable thead, #jquerytable thead td, #jquerytable thead div{
+	border-left: none;
+	border-right: none;
+}
+
+#jquerytable thead th {
 	border-left: none;
 	border-right: none;
 }
@@ -51,7 +56,7 @@
 }
 
 #jquerytable th {
-	padding-left: 4px;
+	padding: 0 0 0 4px;
 	cursor: pointer; 
 }
 
