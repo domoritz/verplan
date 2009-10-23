@@ -73,6 +73,21 @@ class VerplanModelData extends JModel
 			//debug
 			//var_dump($stands);
 		}
+		
+		/*INFOS*/
+		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_uploads').'WHERE `Geltungsdatum` LIKE '.$db->quote($date."%");
+		$db->setQuery($query);
+		$infosarray = $db->loadAssocList();
+		if ($db->getErrorNum()) {
+			$msg = $db->getErrorMsg();
+			JError::raiseWarning(0,$msg);
+		}
+		
+		/*debug
+		echo "query für infos";
+		echo $query;
+		var_dump($infosarray);
+		//*/
 
 		/*
 		 * lädt die daten der zeilen als assoziatives array aus der datenbank, 
@@ -103,7 +118,7 @@ class VerplanModelData extends JModel
 		}
 		
 		/*
-		 * zub debuggen einfach einmal // vor die zeile mit 
+		 * zum debuggen einfach einmal // vor die zeile mit 
 		 * debug setzten -> kommentar wird aufgehoben
 		 */
 
@@ -153,15 +168,18 @@ class VerplanModelData extends JModel
 		/*OPTIONS*/
 		switch ($options) {
 			case all:
+				$array[infos] = $dates_stands[$date];
 				$array[cols] = $assozArray_cols;
 				$array[rows] = $assozArray_rows;
 				break;
 
 			case none:
+				$array[infos] = $infosarray;
 				$array[cols] = $assozArray_cols;
 				break;
 					
 			default:
+				$array[infos] = $dates_stands[$date];
 				//nur bestimmte spalten sollen angezeigt werden
 				//erzeugt ein array mit den spaltennamen, die richtig sind
 				$richtigeSpaltenArray = array();
