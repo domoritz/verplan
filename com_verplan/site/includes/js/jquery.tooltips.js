@@ -51,5 +51,54 @@ jQuery(document).ready(function() {
 			name: 'domstyle'
 		}
 	});
+	
+	jQuery('#expander_options').qtip( {
+		content : 'Erweiterte Einstellungen und Funktionen. z.B. Filter',
+		show : 'mouseover',
+		hide : 'mouseout',
+		position : {
+			corner : {
+				target : 'bottomMiddle',
+				tooltip : 'topLeft'
+			}
+		},
+		style : {
+			name: 'domstyle',
+			textAlign: 'left',
+			tip: 'topLeft'
+		}
+	});
+	
+	jQuery('#ui_themeswitcher').qtip( {
+		content : 'Wähle ein Design aus, das dir gefällt.',
+		show : 'mouseover',
+		hide : 'mouseout',
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle',
+			textAlign: 'left'
+		}
+	});
+	
+	jQuery('#jquerytable thead th').qtip( {
+		content : 'Sortiere nach dieser Spalte',
+		show : 'mouseover',
+		hide : 'mouseout',
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle',
+			textAlign: 'left'
+		}
+	});
 
 });
