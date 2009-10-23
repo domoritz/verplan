@@ -21,20 +21,6 @@ jQuery(document).ready(function() {
 	    name: 'dark' // Inherit the rest of the attributes from the preset dark style
 	};
 	
-	jQuery('#select_date').qtip( {
-		content : 'Geltungsdatum wählen',
-		show : 'mouseover',
-		hide : 'mouseout',
-		position : {
-			corner : {
-				target : 'topMiddle',
-				tooltip : 'bottomLeft'
-			}
-		},
-		style : {
-			name: 'domstyle'
-		}
-	});
 	
 	//jQuery('._filterText').qtip("disable");
 	jQuery('._filterText').qtip( {
@@ -52,6 +38,18 @@ jQuery(document).ready(function() {
 			textAlign: 'left'
 		}
 	});
-
+	
+	jQuery('#filter_input').qtip( {
+		content : 'Daten nach einer bestimmten Spalte filtern',
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle'
+		}
+	});
 
 });

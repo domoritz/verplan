@@ -21,8 +21,7 @@ jQuery(document).ready(function(){
 	//laden ganz am anfang
 	if (!gup('date')) {
 		loadJsonTable(false);
-	}
-	
+	}	
 	
 	//tabelle am anfang mit plugins
 	table_init();

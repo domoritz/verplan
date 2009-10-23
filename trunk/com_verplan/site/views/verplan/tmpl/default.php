@@ -37,15 +37,16 @@ $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-u
 $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 
 //eigene scripts
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.table.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/hide_options.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.tooltips.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/hide_options.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ui.js');
 
 //plugins
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.tablesorter.min.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.columnfilters.js');
+//$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.columnfilters.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.uitablefilter.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.colorize-2.0.0.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.kiketable.colsizable-1.1.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.event.drag-1.4.js');
@@ -152,6 +153,19 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 			<input type="submit" name="submit" class="submitbutton ui-helper-clearfix" value="Vertretungsplan anzeigen" />
 		</noscript>
 		
+		<span>Filter:</span>
+		<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
+		<select id="filter_this" style="width: 100px" name="filter_this">
+		<?php 
+		$array = $this->verplanArray;
+		foreach ($array[cols] as $key => $subarray) {
+			echo "<option>";
+			print empty($subarray[label])? $subarray[name]: $subarray[label];
+			echo "</option>";
+		}
+		?>
+		</select>
+		
 	</div>
 	</div>
 
@@ -178,6 +192,11 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 </noscript>
 
 
+<div id="hint_table" class="ui-widget" style="display: none;">
+	<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em;">
+	</div>
+</div>
+
 
 <div id="ajaxdiv" class=" ">
 <div class="table_header ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix">
@@ -198,7 +217,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		<tr class="ui-state-default">
 		<?php
 		foreach ($array[cols] as $colname => $subarray) {
-			echo "<th>";
+			echo "<th filter-type='ddl'>";
 			echo '<span class="ui-icon ui-icon-carat-2-n-s" style="float:right"></span>';
 			print empty($subarray[label])? $subarray[name]: $subarray[label];
 			echo "</th>";
