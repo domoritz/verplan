@@ -3,7 +3,6 @@
  * @return
  */
 function table_init(){
-	table_update();
 	
 	/*
 	 * tablesorter plugin
@@ -76,7 +75,33 @@ function table_init(){
 		jQuery('#loading').fadeIn(200); 
     }).bind("sortEnd",function() { 
     	jQuery('#loading').fadeOut(1000);
-    }); 
+    });
+
+	
+	/*
+	 * tablefilter
+	 * http://plugins.jquery.com/project/uiTableFilter
+	 */
+	var theTable = jQuery('#jquerytable');
+
+	jQuery("#filter_input").keyup(function() {
+		var filter_this = jQuery('#verplan_form [name=filter_this]').val();
+		//alert (filter_this);
+		jQuery.uiTableFilter( theTable, this.value, filter_this);
+		if (jQuery('#hint_table').css('display') != 'none') {
+			//hint ausblenden
+			jQuery('#hint_table').hide('blind', 'slow');
+		}
+	});
+	
+	jQuery('#verplan_form [name=filter_this]').change(function(){
+		jQuery("#filter_input").val('');
+		jQuery.uiTableFilter( theTable, '');
+		if (jQuery('#hint_table').css('display') != 'none') {
+			//hint ausblenden
+			jQuery('#hint_table').hide('blind', 'slow');
+		}
+	});
 	
 	
 	/*
@@ -84,18 +109,18 @@ function table_init(){
 	 * http://plugins.jquery.com/project/ColumnFilters
 	 * http://www.tomcoote.co.uk/jQueryColumnFilters.aspx
 	 */
-	jQuery('#jquerytable').columnFilters({
+	/*jQuery('#jquerytable').columnFilters({
 		alternateRowClassNames:['even','odd'],
 		underline:false,
 		caseSensitive:false
-	});
+	});*/
 	
 	/*
 	 * resizer
 	 * breite der spalten anpassen
 	 * http://plugins.jquery.com/project/kiketable_colsizable
 	 */
-	jQuery("#jquerytable").kiketable_colsizable({
+	/*jQuery("#jquerytable").kiketable_colsizable({
 		dragMove : true,
 		dragProxy : "area",
 		dragOpacity: 0.3,
@@ -103,7 +128,7 @@ function table_init(){
 		minWidth: 40,
 		title: 'Spaltenbreite verändern',
 		onLoad: function(){}
-	});
+	});*/
 	
 	
 	
@@ -112,6 +137,13 @@ function table_init(){
 	 * http://plugins.jquery.com/project/columnmanager
 	 */
 	
+	//hint bei click ausblenden
+	jQuery('#hint_table').click(function(){
+		jQuery(this).hide('blind', 'slow');
+	});
+	
+	table_update();
+	
 }
 
 /**
@@ -119,6 +151,12 @@ function table_init(){
  * @return
  */
 function table_update() {
+	
+	if (jQuery('#hint_table').css('display') != 'none') {
+		//hint ausblenden
+		jQuery('#hint_table').hide('blind', 'slow');
+	}
+	
 	/*
 	 * zebramuster
 	 */
@@ -158,9 +196,22 @@ function table_update() {
 		});
 	};
 	
+	//update filter
+	var theTable = jQuery('#jquerytable');
+	var filter_input = jQuery('#verplan_form [name=filter_input]').val();
+	var filter_this = jQuery('#verplan_form [name=filter_this]').val();
+	jQuery.uiTableFilter( theTable, filter_input, filter_this);
+	
+	//alert(filter_input != '');
+	
+	if (filter_input != '') {
+		show_hint('Achtung','Es werden Spalten ausgeblendet, weil ein Filter aktiv ist.');
+	}
+
+	
 	/*
 	 * highlight effect für tr
-	 */
+	 *
 	jQuery("#jquerytable tbody tr").click(function(){
 		jQuery(this);
 	});	
