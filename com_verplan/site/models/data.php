@@ -168,7 +168,7 @@ class VerplanModelData extends JModel
 		/*OPTIONS*/
 		switch ($options) {
 			case all:
-				$array[infos] = $dates_stands[$date];
+				$array[infos] = $infosarray;
 				$array[cols] = $assozArray_cols;
 				$array[rows] = $assozArray_rows;
 				break;
@@ -179,7 +179,7 @@ class VerplanModelData extends JModel
 				break;
 					
 			default:
-				$array[infos] = $dates_stands[$date];
+				$array[infos] = $infosarray;
 				//nur bestimmte spalten sollen angezeigt werden
 				//erzeugt ein array mit den spaltennamen, die richtig sind
 				$richtigeSpaltenArray = array();
