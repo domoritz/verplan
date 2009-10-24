@@ -90,23 +90,34 @@ jQuery(document).ready(function(){
 				});
 
 				table+='</thead><tbody>';*/
-
-				jQuery.each(json.rows, function() {
-					table+= '<tr>';
-					jQuery.each(this, function() {
-						if (this != "") {
-							table+= '<td>';
-							table+=this;
-							table+= '</td>';
-						}						
+				
+				if (json.infos[0].type == 'db') {
+					
+					jQuery.each(json.rows, function() {
+						table+= '<tr>';
+						jQuery.each(this, function() {
+							if (this != "") {
+								table+= '<td>';
+								table+=this;
+								table+= '</td>';
+							}						
+						});
+						table+= '</tr>';
 					});
-					table+= '</tr>';
-				});
+	
+					//table+='</table>';
+					jQuery('#jquerytable tbody').html(table);
+					table_update();
+					showNewContent();
+					
+				} else {
 
-				//table+='</table>';
-				jQuery('#jquerytable tbody').html(table);
-				table_update();
-				showNewContent();
+					jQuery('#no_db').html('<a href="'+json.infos[0].url+'">zum Vertretungsplan</a>');
+					effects = false;
+					jQuery('#no_db').show('blind',speed);
+					showNewContent();
+					
+				}
 
 			});
 		}  

@@ -249,6 +249,10 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	</tbody>
 </table>
 
+<div id="no_db" style="display: none;">
+	
+</div>
+
 <div class="table_footer ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
 	<span style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Component</a></span>
 	<span style="float: right;">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
