@@ -16,6 +16,10 @@ $document =& JFactory::getDocument();
 //jQuery support
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
+$document->addScript('http://jqueryui.com/ui/i18n/ui.datepicker-de.js');
+
+//stylesheets
+$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
@@ -23,6 +27,8 @@ $document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noC
 
 //Javascript
 $document->addScript('components/com_verplan/includes/js/hide_admin.js');
+$document->addScript('components/com_verplan/includes/js/jquery.datepicker.js');
+
 
 ?>
 
@@ -35,10 +41,33 @@ $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 <h2>Upload</h2>
 
 <!-- bitte auf post lassen, da es sonst probleme mit doppelten "option" werten gibt-->
-<form name="upload" method="post" enctype="multipart/form-data"	action="index.php?option=com_verplan">
+<form id="form_verplan" name="upload" method="post" enctype="multipart/form-data"	action="index.php?option=com_verplan">
 	
-	<input size="40" type="file" id="file" name="file" />
-	<input type="submit" name="upload" class="uploadbutton" value="Abschicken" />
+	<table class="admin_table">
+		<tbody>
+			<tr>
+				<td class="key"><label for="file">Datei</label></td>
+				<td>
+					<input size="40" type="file" id="file" name="file" class="inputbox" />
+				</td>
+			</tr>
+			<tr>
+				<td class="key"><label for="date">Geltungsdatum</label></td>
+				<td>
+					<input size="40" type="date" id="datepicker_date" name="date" class="inputbox" /><br>
+				</td>
+			</tr>
+			<tr>
+				<td class="key"><label for="stand">Stand</label></td>
+				<td>
+					<input size="40" type="stand" id="datepicker_stand" name="stand" class="inputbox" /><br>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<br>
+	<input type="submit" name="upload" class="uploadbutton" value="Abschicken" id="send" />
 	
 	<!-- anzeige ohne template (praktisch für ajax) -->
 	<!--<input type="hidden" name="tmpl" value="component" />-->
