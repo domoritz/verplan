@@ -93,7 +93,7 @@ class VerplanControllerSend extends verplanController
 					//Erfolg melden
 					//zu bebuggzwecken kann man dies auskommentieren und kann sich dann den ablauf ansehen
 					$msg = 'Senden und parsen erfolgreich';
-					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
+					$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 
 			} else {
