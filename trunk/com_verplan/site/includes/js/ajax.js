@@ -72,7 +72,7 @@ jQuery(document).ready(function(){
 		}
 
 
-		function loadContent() {  
+		function loadContent() {
 			//get alle daten auf dem formular
 			var date = jQuery('#select_date').val();
 			var stand = jQuery('#verplan_form [name=stand]').val();
@@ -88,10 +88,15 @@ jQuery(document).ready(function(){
 					table+=this.name;
 					table+= '<th>';
 				});
-
+	
 				table+='</thead><tbody>';*/
 				
 				if (json.infos[0].type == 'db') {
+					
+					//falls bisher der link zum plan angezeigt wurde
+					if (jQuery('#no_db').css('display') != 'none') {
+						jQuery('#no_db').hide('blind',speed);
+					}
 					
 					jQuery.each(json.rows, function() {
 						table+= '<tr>';
@@ -111,14 +116,14 @@ jQuery(document).ready(function(){
 					showNewContent();
 					
 				} else {
-
-					jQuery('#no_db').html('<a href="'+json.infos[0].url+'">zum Vertretungsplan</a>');
+	
+					jQuery('#no_db').html('<a href="'+json.infos[0].url+'">zum Vertretungsplan...</a>');
 					effects = false;
 					jQuery('#no_db').show('blind',speed);
 					showNewContent();
 					
 				}
-
+				
 			});
 		}  
 		function showNewContent() {

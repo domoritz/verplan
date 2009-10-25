@@ -82,6 +82,12 @@
 	cursor: pointer;
 }
 
+#no_db {
+	display: none;
+	font-size: x-large;
+	margin: 1em 1em;
+}
+
 #ajaxdiv {
 	margin-top: 2em;
 }
