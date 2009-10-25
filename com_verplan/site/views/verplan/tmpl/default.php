@@ -249,7 +249,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	</tbody>
 </table>
 
-<div id="no_db" style="display: none;">
+<div id="no_db">
 	
 </div>
 
