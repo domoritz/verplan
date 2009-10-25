@@ -71,7 +71,7 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 				<td class="key"><label for="stand">Stand</label></td>
 				<td>
 					<input size="40" type="text" id="datepicker_stand" name="stand" />
-					<input size="40" type="text" id="datepicker_stand_time" name="stand" />
+					<input size="40" type="text" id="datepicker_stand_time" name="stand_time" />
 				</td>
 				<!-- <td>
 					<input size="40" type="stand_time" id="datepicker_stand_time" name="stand" class="inputbox" /><br>
