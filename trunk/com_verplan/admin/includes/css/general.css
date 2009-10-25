@@ -16,6 +16,11 @@
 	margin-left: 5px;	
 }
 
+#datepicker_stand_time {
+	width: 40px;
+	margin-left: 10px;
+}
+
 /*Admintabelle*/
 .admin_table td {
 	padding: 3px;
