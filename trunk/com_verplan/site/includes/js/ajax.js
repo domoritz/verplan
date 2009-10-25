@@ -91,7 +91,10 @@ jQuery(document).ready(function(){
 	
 				table+='</thead><tbody>';*/
 				
-				if (json.infos[0].type == 'db') {
+				//holt aus dem array immer die neuesten infos (höchster wert)
+				var arr = json.infos;
+				var length = arr.length - 1;
+				if (json.infos[length].type == 'db') {
 					
 					//falls bisher der link zum plan angezeigt wurde
 					if (jQuery('#no_db').css('display') != 'none') {
@@ -117,7 +120,7 @@ jQuery(document).ready(function(){
 					
 				} else {
 	
-					jQuery('#no_db').html('<a href="'+json.infos[0].url+'">zum Vertretungsplan...</a>');
+					jQuery('#no_db').html('<a href="'+json.infos[length].url+'">zum Vertretungsplan...</a>');
 					effects = false;
 					jQuery('#no_db').show('blind',speed);
 					showNewContent();

@@ -48,7 +48,7 @@ class VerplanControllerSend extends verplanController
 		if (empty($file[name])) {
 			$msg = "keine Datei ausgewählt";
 			$this->setRedirect( 'index.php?option=com_verplan', $msg );
-		} else {				
+		} else {
 
 			// upload controller laden
 			$name = 'upload';
@@ -61,7 +61,7 @@ class VerplanControllerSend extends verplanController
 			$dest = $controller->execute('upload');
 
 			//debug
-			var_dump($dest);
+			//var_dump($dest);
 
 			//Dateiinhalt der plandatei aus temp laden
 			$FileHandle = fopen($dest, "r" ) ;
@@ -93,14 +93,40 @@ class VerplanControllerSend extends verplanController
 					//Erfolg melden
 					//zu bebuggzwecken kann man dies auskommentieren und kann sich dann den ablauf ansehen
 					$msg = 'Senden und parsen erfolgreich';
-					$this->setRedirect( 'index.php?option=com_verplan', $msg );
+					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 
 			} else {
-					
-				if (!JERROR::getError()) {
-					$msg = "Senden erfolgreich, ohne DB";
+				//var_dump(JURI::base(true));
+				$path = JURI::base(true)."/components/com_verplan/uploads/".JFile::makeSafe($file['name']);
+
+				//array mit den infos für die tabelle uploads
+				$upload_arr = array();
+				$upload_arr[Geltungsdatum] = JRequest::getVar('date', null); //geltungsdatum
+				$upload_arr[Stand] = JRequest::getVar('stand', null).' '.JRequest::getVar('stand_time', null);//stand
+				$upload_arr[type] = $file[type]; //typ
+				$upload_arr[url] = $path; //url zur hochgeladenen datei
+				
+				$stand_date = JRequest::getVar('stand', null);
+
+				if (empty($upload_arr[Geltungsdatum])) {
+					$msg = "Bitte Geltungsdatum angeben";
 					$this->setRedirect( 'index.php?option=com_verplan', $msg );
+				} elseif (empty($stand_date)) {
+					$msg = "Bitte Stand angeben";
+					$this->setRedirect( 'index.php?option=com_verplan', $msg );
+				} else {
+
+					//debug
+					//var_dump($upload_arr);
+
+					$model = $this->getModel('data');
+					$model->log_in_uploads($upload_arr);
+
+					if (!JERROR::getError()) {
+						$msg = "Senden erfolgreich, ohne DB";
+						$this->setRedirect( 'index.php?option=com_verplan', $msg );
+					}
 				}
 			}
 

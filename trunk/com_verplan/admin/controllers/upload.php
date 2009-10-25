@@ -253,7 +253,8 @@ class VerplanControllerUpload extends verplanController
 		$upload_arr[Geltungsdatum] = $date; //geltungsdatum
 		$upload_arr[Stand] = $stand; //stand
 		$upload_arr[type] = 'db'; //typ, hier datenbank
-		$upload_arr[url] = $file; //url zur hochgeladenen datei (hier parameter)
+		$path = JURI::base(true)."/components/com_verplan/uploads/".JFile::makeSafe($file['name']);
+		$upload_arr[url] = $path; //url zur hochgeladenen datei
 			
 			
 		/*
