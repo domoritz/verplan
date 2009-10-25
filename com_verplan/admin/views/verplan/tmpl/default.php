@@ -57,13 +57,16 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 		<tbody>
 			<tr>
 				<td class="key"><label for="file">Datei</label></td>
-				<td>
+				<td colspan="2">
 					<input size="40" type="file" id="file" name="file" class="inputbox" />
 				</td>
 			</tr>
 			<tr>
+				<th colspan="3"><br>Optional</th>
+			</tr>
+			<tr>
 				<td class="key"><label for="date">Geltungsdatum</label></td>
-				<td>
+				<td  colspan="2">
 					<input size="40" type="text" id="datepicker_date" name="date" class="inputbox" />
 				</td>
 			</tr>
