@@ -29,7 +29,7 @@ $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/th
 //jQuery hinzufügen
 //$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
 //$document->addScript($this->baseurl.'/components/com_verplan/includes/js//jquery-1.3.2_patched.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js//jquery-1.3.2.min.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery-1.3.2.min.js');
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 
 

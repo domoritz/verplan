@@ -6,9 +6,14 @@
  * @license		GNU/GPL
  * @author      Created on 14-Sep-2009
  */
+ 
 .uploadbutton {
 	font-weight: bold;
 	font-size: 1.2em;
+}
+
+.ui-datepicker-trigger {
+	margin-left: 5px;	
 }
 
 /*Admintabelle*/
