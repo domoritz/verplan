@@ -53,14 +53,8 @@ class VerplanControllerSettings extends verplanController
 		
 		$model = $this->getModel('settings');
 		$model->setSettings($arr_out);
-		echo "speichern";
-		return true;
+		
+		$msg = 'Einstellungen gespeichert';
+		$this->setRedirect( 'index.php?option=com_verplan', $msg );
 	}
-	
-	function test(){
-		echo 'controller settings';
-		$model = $this->getModel('settings');
-		$model->getSetting('max_file_size');
-	}
-
 }

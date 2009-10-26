@@ -28,14 +28,14 @@ class TableSettings extends JTable
 	var $id = null;
 	
 	/**
-	 * 
+	 * key
 	 *
 	 * @var string
 	 */
 	var $name = null;
 	
 	/**
-	 * 
+	 * wert der einstellung
 	 *
 	 * @var string
 	 */
