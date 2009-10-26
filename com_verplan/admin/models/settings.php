@@ -41,18 +41,22 @@ class VerplanModelSettings extends JModel
 		$db =& JFactory::getDBO();
 
 		//zweidimensionales array laden
-		$query = 'SELECT * FROM `#__com_verplan_settings`';
+		$query = 'SELECT name,value FROM `#__com_verplan_settings`';
 		$db->setQuery( $query );
-		$extended_settingsarray = $db->loadObjectList ();
-		 
-		//array in eindimensionales umwandeln
+		$settingsarray_ext = $db->loadAssocList('name');
+		
+		//debug
+		//var_dump($settingsarray_ext);
+		
 		$settingsarray = array();
-		foreach ($extended_settingsarray as $row) {
-			$key=$row->key;
-			$value=$row->value;
-			$settingsarray[$key] = $value;
+		
+		foreach ($settingsarray_ext as $key => $subarray) {
+			$settingsarray[$subarray[name]] = $subarray[value];
 		}
-
+		
+		//debug
+		//var_dump($settingsarray);
+			
 		return $settingsarray;
 	}// function
 
@@ -62,16 +66,13 @@ class VerplanModelSettings extends JModel
 	 * @return
 	 */
 	function getSetting($name){
-		
 		$table =& $this->getTable('settings');
-
 		$table->load($name);
-		
+
 		//debug
 		//var_dump($table);
-		
 		//var_dump($table->value);
-		
+
 		return ($table->value);
 
 
@@ -81,8 +82,11 @@ class VerplanModelSettings extends JModel
 	 *
 	 * @return
 	 */
-	function setSetting($name){
+	function setSetting($data){
 		$table =& $this->getTable();
+		if (!$table->save($data)){
+			JError::raiseWarning( 500, $table->getError() );
+		}
 
 	}// function
 
@@ -94,7 +98,7 @@ class VerplanModelSettings extends JModel
 	 * @return	boolean	True on success
 	 */
 	function setSettings($data){
-		var_dump($data);		
+		//var_dump($data);
 
 		foreach ($data as $id => $subarray) {
 			$table =& $this->getTable();
@@ -102,6 +106,8 @@ class VerplanModelSettings extends JModel
 				JError::raiseWarning( 500, $table->getError() );
 			}
 		}
+		
+		return true;
 
 	}
 }

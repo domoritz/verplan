@@ -35,7 +35,7 @@ class verplanViewVerplan extends JView
 		
 		//lade Settings
 		$newmodel = JModel::getInstance('Settings', 'VerplanModel');
-		$settings =& $newmodel->getSetting('max_file_size');
+		$settings =& $newmodel->getSettings();
 		$this->assignRef('settings', $settings);
 		
 
