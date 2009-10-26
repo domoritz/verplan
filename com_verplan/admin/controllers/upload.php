@@ -65,7 +65,12 @@ class VerplanControllerUpload extends verplanController
 
 		//Set up the source and destination of the file
 		$src = $file['tmp_name'];
-		$dest = JPATH_COMPONENT . DS . "uploads" . DS . $filename;
+		$upload_dir_comp = $settingsmodel->getSetting('upload_dir_comp');
+		//$upload_dir_comp = "uploads";
+		$dest = JPATH_COMPONENT . DS . $upload_dir_comp . DS . $filename;
+		
+		//bestimmungsort
+		$file[dest] = $dest;
 
 		//First check if the file has the right extension, we need jpg only
 		if ( in_array(strtolower(JFile::getExt($filename)),$allowed_filetypes) OR false) {
@@ -75,7 +80,7 @@ class VerplanControllerUpload extends verplanController
 					 * Erfolg melden, upload erfolgreich
 					 * es wird true an den controller sent zurückgegeben, welcher nun weiter verfährt
 					 */
-					return ($dest);
+					return ($file);
 				} else {
 					//Redirect and throw an error message
 					$msg = "Upload nicht erfolgreich, Fehler beim Hochladen";
@@ -125,14 +130,10 @@ class VerplanControllerUpload extends verplanController
 	 * @return array
 	 */
 	function parse_file_to_array($file) {
-		//falls keine datei angegeben ist und die methode z.b. ueber den task gestartet wurde
-		if (!$file){
-			$file = JRequest::getVar('file');
-		}
-
+		
 		//Dateiinhalt der plandatei laden
-		$FileHandle = fopen($file, "r" ) ;
-		$n = filesize($file) ;
+		$FileHandle = fopen($file[dest], "r" ) ;
+		$n = $file[size] ;
 		$inhalt = fread( $FileHandle , $n ) ;
 		fclose( $FileHandle ) ;
 
@@ -199,8 +200,10 @@ class VerplanControllerUpload extends verplanController
 		//strip "Stand:"
 		$standstring = substr($standstring,0);
 
-		//Datumsformat parsen !!ACHTUNG, benoetigt >= PHP 5.3!!
-		$stand_array = date_parse_from_format("d.m.Y H:i", $standstring);
+		//Datumsformat parsen !!ACHTUNG, benoetigt >= PHP 5.3!!		
+		$format = $settingsmodel->getSetting('format_stand');
+		//$format = "d.m.Y H:i";
+		$stand_array = date_parse_from_format($format, $standstring);
 		//var_dump($stand_array);
 		//array in unix timestamp wandeln
 		$stand = mktime($stand_array[hour],$stand_array[minute],$stand_array[second],$stand_array[month],$stand_array[day],$stand_array[year]);
@@ -219,11 +222,15 @@ class VerplanControllerUpload extends verplanController
 		 }*/
 
 		//laedt alle passenden div mit class und class="mon_title"
-		$div = $extractor->query("//div[@class='mon_title']");
+		$pattern = $settingsmodel->getSetting('pattern_date');
+		//$pattern = "//div[@class='mon_title']";
+		$div = $extractor->query($pattern);
 		$datestring = $div->item(0)->nodeValue;
 
 		//Datumsformat parsen
-		$date_array = date_parse_from_format("j.n.Y w", $datestring);
+		$format = $settingsmodel->getSetting('format_date');
+		//$format = "j.n.Y w";
+		$date_array = date_parse_from_format($format, $datestring);
 		//var_dump($date_array);
 		//array in unix timestamp wandeln
 		$date = mktime($date_array[hour],$date_array[minute],$date_array[second],$date_array[month],$date_array[day],$date_array[year]);
@@ -241,7 +248,9 @@ class VerplanControllerUpload extends verplanController
 		//$table = $body->query("//table")->item(2);
 		//$data = $table->extract(array(".//tr", "th|td"));
 
-		$table = $extractor->query("//table[@class='mon_list']")->item(0);
+		$pattern = $settingsmodel->getSetting('pattern_plan');
+		//$pattern = "//table[@class='mon_list']";
+		$table = $extractor->query($pattern)->item(0);
 		$data = $table->extract(array(".//tr", "th|td"));
 
 		//debug
@@ -252,14 +261,22 @@ class VerplanControllerUpload extends verplanController
 			
 		$date = date( 'Y-m-d H:i:s', $date );
 		$stand = date( 'Y-m-d H:i:s', $stand );
+		
+		$upload_dir = $settingsmodel->getSetting('upload_dir');
+		//$upload_dir = "/components/com_verplan/uploads/";
 			
 		//array für uploads tabelle
 		$upload_arr[Geltungsdatum] = $date; //geltungsdatum
 		$upload_arr[Stand] = $stand; //stand
 		$upload_arr[type] = 'db'; //typ, hier datenbank
-		$path = JURI::base(true)."/components/com_verplan/uploads/".JFile::makeSafe($file['name']);
+		$path = JURI::base(true).$upload_dir.JFile::makeSafe($file['name']);
 		$upload_arr[url] = $path; //url zur hochgeladenen datei
-			
+		
+		//debug
+		echo "===========";
+		var_dump($upload_arr);
+		echo "===========";
+		
 			
 		/*
 		 * hier wird das model aufgerufen und die tabelle mit den uploads wird beschrieben.

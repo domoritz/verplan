@@ -16,7 +16,15 @@ INSERT INTO `#__com_verplan_settings` (
 VALUES 
 (NULL , 'max_file_size', '2097152', '2097152'),
 (NULL , 'allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls', 'html,htm,gif,jpg,png,pdf,doc,odf,xls'),
-(NULL , 'pattern_stand', '/Stand:.*:[0-5][0-9]/U', '/Stand:.*:[0-5][0-9]/U');
+(NULL , 'pattern_stand', '/Stand:.*:[0-5][0-9]/U', '/Stand:.*:[0-5][0-9]/U'),
+(NULL , 'format_stand', 'd.m.Y H:i', 'd.m.Y H:i'),
+(NULL , 'pattern_date', '//div[@class=\'mon_title\']', '//div[@class=\'mon_title\']'),
+(NULL , 'format_date', 'j.n.Y w', 'j.n.Y w'),
+(NULL , 'pattern_plan', '//table[@class=\'mon_list\']', '//table[@class=\'mon_list\']'),
+(NULL , 'upload_dir_comp', 'uploads', 'uploads'),
+(NULL , 'upload_dir', '/components/com_verplan/uploads/', '/components/com_verplan/uploads/');
+
+
 
 
 
