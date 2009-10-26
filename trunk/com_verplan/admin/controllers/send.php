@@ -58,13 +58,13 @@ class VerplanControllerSend extends verplanController
 			$controller = new $controllerName();
 
 			//datei hochladen (methode upload in controller upload)
-			$dest = $controller->execute('upload');
+			$file = $controller->execute('upload');
 
 			//debug
-			//var_dump($dest);
+			var_dump($file);
 
 			//Dateiinhalt der plandatei aus temp laden
-			$FileHandle = fopen($dest, "r" ) ;
+			$FileHandle = fopen($file[dest], "r" ) ;
 			$n = $file[size];
 			$inhalt = fread( $FileHandle , $n ) ;
 			fclose( $FileHandle ) ;
@@ -73,7 +73,7 @@ class VerplanControllerSend extends verplanController
 			if (strpos($inhalt, "Untis")) {
 
 				//nun kann die datei geparst werden
-				$data = $controller->parse_file_to_array($dest);
+				$data = $controller->parse_file_to_array($file);
 
 				//debug
 				var_dump($data);
