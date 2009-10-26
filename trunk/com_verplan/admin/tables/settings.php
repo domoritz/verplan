@@ -32,7 +32,7 @@ class TableSettings extends JTable
 	 *
 	 * @var string
 	 */
-	var $key = null;
+	var $name = null;
 	
 	/**
 	 * 
@@ -55,6 +55,6 @@ class TableSettings extends JTable
 	 * @param object Database connector object
 	 */
 	function TableSettings(& $db) {
-		parent::__construct('#__com_verplan_settings', 'id', $db);
+		parent::__construct('#__com_verplan_settings', 'name', $db);
 	}
 }

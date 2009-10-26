@@ -30,7 +30,7 @@ class VerplanControllerSettings extends verplanController
 		parent::__construct();
 
 		// Register Extra tasks
-		$this->registerTask('SetSettings','SetSettings');
+		$this->registerTask('setSettings','setSettings');
 		$this->registerTask('test','test');
 	}
 
@@ -39,7 +39,28 @@ class VerplanControllerSettings extends verplanController
 	 * @return void
 	 */
 	function setSettings() {
+		//debug
+		var_dump(JRequest::get('settings'));	
 		
+		$arr_in = JRequest::get('settings');
+		
+		/*$db =& JFactory::getDBO();
+		$key = $db->nameQuote('key');
+		$arr_out[0][name] = 'max_file_size';
+		$arr_out[0][value] = $arr_in['max_file_size'];
+		
+		$arr_out[1]['key'] = 'allowed_filetypes';
+		$arr_out[1]['value'] = $arr_in['allowed_filetypes'];*/
+		
+		$i = 0;
+		foreach ($arr_in as $setting => $value) {
+			$arr_out[$i][name] = $setting;
+			$arr_out[$i][value] = $value;
+			$i++;
+		}
+		
+		$model = $this->getModel('settings');
+		$model->setSettings($arr_out);
 		echo "speichern";
 		return true;
 	}

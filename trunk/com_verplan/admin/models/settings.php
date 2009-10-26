@@ -44,7 +44,7 @@ class VerplanModelSettings extends JModel
 		$query = 'SELECT * FROM `#__com_verplan_settings`';
 		$db->setQuery( $query );
 		$extended_settingsarray = $db->loadObjectList ();
-	  
+		 
 		//array in eindimensionales umwandeln
 		$settingsarray = array();
 		foreach ($extended_settingsarray as $row) {
@@ -65,20 +65,20 @@ class VerplanModelSettings extends JModel
 		//JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'tables');
 		//$row =& JTable::getInstance('Settings', 'Table');
 		echo 'model settings';
-		$row =& $this->getTable('settings');
-		
-		var_dump(JRequest::get('settings'));
-		
-		$id = '0';
-		var_dump($row->load($id));
+		$table =& $this->getTable('settings');
 
-		/*	
-		if (!$row->bind( JRequest::get('settings') )) {
+		$table->load($name);
+		var_dump($table);
+
+
+
+		/*
+		 if (!$table->bind( JRequest::get('settings') )) {
 			return JError::raiseWarning( 500, $row->getError() );
-		}
-		if (!$row->store()) {
+			}
+			if (!$table->store()) {
 			JError::raiseError(500, $row->getError() );
-		}*/
+			}*/
 
 
 	}// function
@@ -88,24 +88,38 @@ class VerplanModelSettings extends JModel
 	 * @return
 	 */
 	function setSetting($name){
-		$row =& $this->getTable();
+		$table =& $this->getTable();
 
 	}// function
 
 
 	/**
-	 * methode, zum speichern des planes in die datenbank
+	 * methode, zum speichern des der einstellungen in die datenbank
 	 *
 	 * @access	public
 	 * @return	boolean	True on success
 	 */
-	function setSettings(){
-		
-		if (!$row->bind( JRequest::get('settings') )) {
-			return JError::raiseWarning( 500, $row->getError() );
+	function setSettings($data){
+		var_dump($data);		
+
+		foreach ($data as $id => $subarray) {
+			$table =& $this->getTable();
+			if (!$table->save($subarray)){
+				JError::raiseWarning( 500, $table->getError() );
+			}
+			//debug
+			//var_dump($table);
+			/*
+			$ignore = 'id';
+			if (!$table->bind($subarray,$ignore)) {
+				return JError::raiseWarning( 500, $table->getError() );
+			}
+			var_dump($table);
+
+			if (!$table->store()) {
+				JError::raiseError(500, $table->getError() );
+			}*/
 		}
-		if (!$row->store()) {
-			JError::raiseError(500, $row->getError() );
-		}
+
 	}
 }
