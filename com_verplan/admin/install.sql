@@ -4,17 +4,19 @@ CREATE TABLE `#__com_verplan_settings` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
 `name` TEXT NOT NULL COMMENT 'key',
 `value` TEXT NOT NULL COMMENT 'value',
-`editable` BOOL NOT NULL DEFAULT '1'
+`default` TEXT NOT NULL COMMENT 'default value'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `#__com_verplan_settings` (
 `id` ,
 `name` ,
 `value` ,
-`editable`
+`default` 
 )
-VALUES (NULL , 'max_file_size', '2097152', '1'),
-(NULL , 'allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls', '1');
+VALUES 
+(NULL , 'max_file_size', '2097152', '2097152'),
+(NULL , 'allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls', 'html,htm,gif,jpg,png,pdf,doc,odf,xls'),
+(NULL , 'pattern_stand', '/Stand:.*:[0-5][0-9]/U', '/Stand:.*:[0-5][0-9]/U');
 
 
 

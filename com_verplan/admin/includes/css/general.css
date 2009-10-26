@@ -36,6 +36,11 @@
 	padding-right: 10px;
 }
 
+.admin_table td.def_td {
+	color: #999;
+	font-size: smaller;
+}
+
 /*plus and minus*/
 .expander {
 	padding-left: 16px;
