@@ -62,23 +62,17 @@ class VerplanModelSettings extends JModel
 	 * @return
 	 */
 	function getSetting($name){
-		//JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'tables');
-		//$row =& JTable::getInstance('Settings', 'Table');
-		echo 'model settings';
+		
 		$table =& $this->getTable('settings');
 
 		$table->load($name);
-		var_dump($table);
-
-
-
-		/*
-		 if (!$table->bind( JRequest::get('settings') )) {
-			return JError::raiseWarning( 500, $row->getError() );
-			}
-			if (!$table->store()) {
-			JError::raiseError(500, $row->getError() );
-			}*/
+		
+		//debug
+		//var_dump($table);
+		
+		//var_dump($table->value);
+		
+		return ($table->value);
 
 
 	}// function
@@ -94,7 +88,7 @@ class VerplanModelSettings extends JModel
 
 
 	/**
-	 * methode, zum speichern des der einstellungen in die datenbank
+	 * methode, zum speichern der einstellungen in die datenbank
 	 *
 	 * @access	public
 	 * @return	boolean	True on success
@@ -107,18 +101,6 @@ class VerplanModelSettings extends JModel
 			if (!$table->save($subarray)){
 				JError::raiseWarning( 500, $table->getError() );
 			}
-			//debug
-			//var_dump($table);
-			/*
-			$ignore = 'id';
-			if (!$table->bind($subarray,$ignore)) {
-				return JError::raiseWarning( 500, $table->getError() );
-			}
-			var_dump($table);
-
-			if (!$table->store()) {
-				JError::raiseError(500, $table->getError() );
-			}*/
 		}
 
 	}
