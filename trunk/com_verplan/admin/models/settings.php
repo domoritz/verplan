@@ -31,31 +31,67 @@ class VerplanModelSettings extends JModel
 	{
 		parent::__construct();
 	}
-	
+
 	/**
 	 * gibt ein assoziatives array mit allen einstellungen in der form
 	 * key=>value zurueck
 	 * @return array
 	 */
-	function getSettings(){		
+	function getSettings(){
 		$db =& JFactory::getDBO();
- 
+
 		//zweidimensionales array laden
-	    $query = 'SELECT * FROM `#__com_verplan_settings`';
-	    $db->setQuery( $query );
-	    $extended_settingsarray = $db->loadObjectList ();
-	    
-	    //array in eindimensionales umwandeln
-	    $settingsarray = array();
+		$query = 'SELECT * FROM `#__com_verplan_settings`';
+		$db->setQuery( $query );
+		$extended_settingsarray = $db->loadObjectList ();
+	  
+		//array in eindimensionales umwandeln
+		$settingsarray = array();
 		foreach ($extended_settingsarray as $row) {
 			$key=$row->key;
 			$value=$row->value;
 			$settingsarray[$key] = $value;
 		}
-		
+
 		return $settingsarray;
 	}// function
-	
+
+
+	/**
+	 *
+	 * @return
+	 */
+	function getSetting($name){
+		//JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'tables');
+		//$row =& JTable::getInstance('Settings', 'Table');
+		echo 'model settings';
+		$row =& $this->getTable('settings');
+		
+		var_dump(JRequest::get('settings'));
+		
+		$id = '0';
+		var_dump($row->load($id));
+
+		/*	
+		if (!$row->bind( JRequest::get('settings') )) {
+			return JError::raiseWarning( 500, $row->getError() );
+		}
+		if (!$row->store()) {
+			JError::raiseError(500, $row->getError() );
+		}*/
+
+
+	}// function
+
+	/**
+	 *
+	 * @return
+	 */
+	function setSetting($name){
+		$row =& $this->getTable();
+
+	}// function
+
 
 	/**
 	 * methode, zum speichern des planes in die datenbank
@@ -64,6 +100,12 @@ class VerplanModelSettings extends JModel
 	 * @return	boolean	True on success
 	 */
 	function setSettings(){
-		return true;
+		
+		if (!$row->bind( JRequest::get('settings') )) {
+			return JError::raiseWarning( 500, $row->getError() );
+		}
+		if (!$row->store()) {
+			JError::raiseError(500, $row->getError() );
+		}
 	}
 }

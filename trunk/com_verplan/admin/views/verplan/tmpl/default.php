@@ -135,10 +135,10 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 		<!-- damit die Komponente wieder aufgerufen wird --> 
 		<input type="hidden" name="option" value="com_verplan" /> 
 		<!-- task laden (in verplanControllrsave_settings -->
-		<input type="hidden" name="task" value="SetSettings" /> 
+		<input type="hidden" name="task" value="test" /> 
 		<input type="hidden" name="boxchecked" value="0" /> 
 		<!-- richtiger Controller -->
-		<input type="hidden" name="controller" value="SetSettings" /> 
+		<input type="hidden" name="controller" value="settings" /> 
 		<!-- die user ID (unnötig) -->
 		<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
 	</form>
