@@ -34,25 +34,16 @@ class VerplanModelSettings extends JModel
 
 	/**
 	 * gibt ein assoziatives array mit allen einstellungen in der form
-	 * key=>value zurueck
+	 * key=> zurueck
 	 * @return array
 	 */
 	function getSettings(){
 		$db =& JFactory::getDBO();
 
 		//zweidimensionales array laden
-		$query = 'SELECT name,value FROM `#__com_verplan_settings`';
+		$query = 'SELECT `name`,`value`,`default` FROM `#__com_verplan_settings`';
 		$db->setQuery( $query );
-		$settingsarray_ext = $db->loadAssocList('name');
-		
-		//debug
-		//var_dump($settingsarray_ext);
-		
-		$settingsarray = array();
-		
-		foreach ($settingsarray_ext as $key => $subarray) {
-			$settingsarray[$subarray[name]] = $subarray[value];
-		}
+		$settingsarray = $db->loadAssocList('name');
 		
 		//debug
 		//var_dump($settingsarray);
