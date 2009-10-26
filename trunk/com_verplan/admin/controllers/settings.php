@@ -40,17 +40,9 @@ class VerplanControllerSettings extends verplanController
 	 */
 	function setSettings() {
 		//debug
-		var_dump(JRequest::get('settings'));	
+		//var_dump(JRequest::get('settings'));	
 		
 		$arr_in = JRequest::get('settings');
-		
-		/*$db =& JFactory::getDBO();
-		$key = $db->nameQuote('key');
-		$arr_out[0][name] = 'max_file_size';
-		$arr_out[0][value] = $arr_in['max_file_size'];
-		
-		$arr_out[1]['key'] = 'allowed_filetypes';
-		$arr_out[1]['value'] = $arr_in['allowed_filetypes'];*/
 		
 		$i = 0;
 		foreach ($arr_in as $setting => $value) {

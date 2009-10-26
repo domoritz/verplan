@@ -2,14 +2,14 @@ DROP TABLE IF EXISTS `#__com_verplan_settings`;
 
 CREATE TABLE `#__com_verplan_settings` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
-`key` TEXT NOT NULL COMMENT 'name of option',
+`name` TEXT NOT NULL COMMENT 'key',
 `value` TEXT NOT NULL COMMENT 'value',
 `editable` BOOL NOT NULL DEFAULT '1'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `#__com_verplan_settings` (
 `id` ,
-`key` ,
+`name` ,
 `value` ,
 `editable`
 )

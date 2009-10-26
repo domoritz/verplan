@@ -114,19 +114,19 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 		$settings = $this->settings;
 	?>
 	
-	<form name="settings" method="get" enctype="multipart/form-data" action="index.php?option=com_verplan">
+	<form name="settings" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
 		
 		<table class="admin_table">
 			<tbody>
 				<tr>
 					<td class="key"><label for="intitle">maximale Dateigröße (read only)</label></td>
 					<td><!-- maximale Dateigröße --> <input size="40" type="text"
-						name="max_file_size" value="<?php echo $settings['max_file_size'];?>" /></td>
+						name="max_file_size" value="<?php echo $settings;?>" /></td>
 				</tr>
 				<tr>
 					<td class="key"><label for="intitle">erlaubte Dateitypen</label></td>
 					<td><!-- Dateityp --> <input size="40" type="text"
-						name="allowed_filetypes" value="<?php echo $settings['allowed_filetypes'];?>" /></td>
+						name="allowed_filetypes" value="<?php echo $settings;?>" /></td>
 				</tr>
 			</tbody>
 		</table>
