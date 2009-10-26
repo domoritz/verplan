@@ -31,6 +31,7 @@ class VerplanControllerSettings extends verplanController
 
 		// Register Extra tasks
 		$this->registerTask('SetSettings','SetSettings');
+		$this->registerTask('test','test');
 	}
 
 	/**
@@ -41,6 +42,12 @@ class VerplanControllerSettings extends verplanController
 		
 		echo "speichern";
 		return true;
+	}
+	
+	function test(){
+		echo 'controller settings';
+		$model = $this->getModel('settings');
+		$model->getSetting('max_file_size');
 	}
 
 }
