@@ -130,6 +130,13 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 						name="allowed_filetypes" value="<?php echo $settings['allowed_filetypes'][value];?>" /></td>
 					<td class="def_td"><?php echo $settings['allowed_filetypes']['default'];?></td>
 				</tr>
+				
+				<tr>
+					<td class="key"><label for="intitle">Pattern Stand</label></td>
+					<td><!-- Dateityp --> <input size="40" type="text"
+						name="pattern_stand" value="<?php echo $settings['pattern_stand'][value];?>" /></td>
+					<td class="def_td"><?php echo $settings['pattern_stand']['default'];?></td>
+				</tr>
 			</tbody>
 		</table>
 		<input type="submit" name="settings" class="settingsbutton" value="Speichern" />
