@@ -43,14 +43,15 @@ class VerplanControllerUpload extends verplanController
 		$file = JRequest::getVar('file', null, 'files', 'array');
 
 		//lade Settings
-		$settingsmodel = JModel::getInstance('Settings', 'VerplanModel');
-		$settings = $settingsmodel->getSettings();
+		//$settingsmodel = JModel::getInstance('Settings', 'VerplanModel');
+		//$settings = $settingsmodel->getSettings();
 
 		//falls fehler in den regulaeren ausdruecken ignoriert werden sollen
 		$ignore = JRequest::getVar('ignore',false);
 
 		//get filetype information
-		$allowed_filetypes_string = $settings['allowed_filetypes'];
+		$settingsmodel = $this->getModel('settings');		
+		$allowed_filetypes_string = $settingsmodel->getSetting('allowed_filetypes');
 		$allowed_filetypes = explode(",",$allowed_filetypes_string);
 
 		//Import filesystem libraries. Perhaps not necessary, but does not hurt
@@ -68,7 +69,7 @@ class VerplanControllerUpload extends verplanController
 
 		//First check if the file has the right extension, we need jpg only
 		if ( in_array(strtolower(JFile::getExt($filename)),$allowed_filetypes) OR false) {
-			if ($filesize <= $settings['max_file_size']) {
+			if ($filesize <= $settingsmodel->getSetting('max_file_size')) {
 				if (JFile::upload($src, $dest) ) {
 					/*
 					 * Erfolg melden, upload erfolgreich
@@ -83,7 +84,7 @@ class VerplanControllerUpload extends verplanController
 				}
 			} else {
 				//Redirect and throw an error message
-				$filesize_settings = $settings['max_file_size'];
+				$filesize_settings = $settingsmodel->getSetting('max_file_size');
 				$msg = "Upload nicht erfolgreich, Datei ist zu groß ($filesize > $filesize_settings)";
 				JError::raiseWarning(0,$msg);
 				//$this->setRedirect( 'index.php?option=com_verplan', $msg );
@@ -169,7 +170,10 @@ class VerplanControllerUpload extends verplanController
 		* regulaerer ausdruck: Stand: dann zeichen dann Uhrzeit mit :,
 		* U=ungreedy
 		* */
-		$pattern = '/Stand:.*:[0-5][0-9]/U';
+		
+		$settingsmodel = $this->getModel('settings');		
+		$pattern = $settingsmodel->getSetting('pattern_stand');
+		//$pattern = '/Stand:.*:[0-5][0-9]/U';
 		if(preg_match_all($pattern,$inhalt,$matches)){
 			//falls es mehr als zwei treffer gibt, sollte es eine fehlermeldung geben
 			if($matches[1] && !$ignore){

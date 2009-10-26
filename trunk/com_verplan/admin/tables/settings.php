@@ -42,12 +42,11 @@ class TableSettings extends JTable
 	var $value = null;
 	
 	/**
-	 * 
+	 * default wert der einstellung
 	 *
-	 * @var boolean (short int)
+	 * @var string
 	 */
-	var $editable = null;
-
+	var $default = null;
 
 	/**
 	 * Constructor
