@@ -119,6 +119,9 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 		<table class="admin_table">
 			<tbody>
 				<tr>
+					<th colspan="3"><br>Uploads</th>
+				</tr>
+				<tr>
 					<td class="key"><label for="intitle">maximale Dateigröße</label></td>
 					<td><!-- maximale Dateigröße --> <input size="40" type="text"
 						name="max_file_size" value="<?php echo $settings['max_file_size'][value];?>" /></td>
@@ -131,11 +134,67 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 					<td class="def_td"><?php echo $settings['allowed_filetypes']['default'];?></td>
 				</tr>
 				
+				
+				<tr>
+					<th colspan="3"><br>Stand</th>
+				</tr>
 				<tr>
 					<td class="key"><label for="intitle">Pattern Stand</label></td>
 					<td><!-- Dateityp --> <input size="40" type="text"
 						name="pattern_stand" value="<?php echo $settings['pattern_stand'][value];?>" /></td>
 					<td class="def_td"><?php echo $settings['pattern_stand']['default'];?></td>
+				</tr>
+				
+				<tr>
+					<td class="key"><label for="intitle">Format Stand</label></td>
+					<td><!-- Dateityp --> <input size="40" type="text"
+						name="format_stand" value="<?php echo $settings['format_stand'][value];?>" /></td>
+					<td class="def_td"><?php echo $settings['format_stand']['default'];?></td>
+				</tr>
+				
+				
+				<tr>
+					<th colspan="3"><br>Geltungsdatum</th>
+				</tr>
+				<tr>
+					<td class="key"><label for="intitle">Pattern Datum</label></td>
+					<td><!-- Dateityp --> <input size="40" type="text"
+						name="pattern_date" value="<?php echo $settings['pattern_date'][value];?>" /></td>
+					<td class="def_td"><?php echo $settings['pattern_date']['default'];?></td>
+				</tr>
+				
+				<tr>
+					<td class="key"><label for="intitle">Format Datum</label></td>
+					<td><!-- Dateityp --> <input size="40" type="text"
+						name="format_date" value="<?php echo $settings['format_date'][value];?>" /></td>
+					<td class="def_td"><?php echo $settings['format_date']['default'];?></td>
+				</tr>
+				
+				<tr>
+					<th colspan="3"><br>Plantabelle</th>
+				</tr>
+				<tr>
+					<td class="key"><label for="intitle">Pattern Plantabelle</label></td>
+					<td><!-- Dateityp --> <input size="40" type="text"
+						name="pattern_plan" value="<?php echo $settings['pattern_plan'][value];?>" /></td>
+					<td class="def_td"><?php echo $settings['pattern_plan']['default'];?></td>
+				</tr>
+				
+				<tr>
+					<th colspan="3"><br>verzeichnisse</th>
+				</tr>
+				<tr>
+					<td class="key"><label for="intitle">Verzeichnis auf dem Server in der Komponente</label></td>
+					<td><!-- Dateityp --> <input size="40" type="text"
+						name="upload_dir_comp" value="<?php echo $settings['upload_dir_comp'][value];?>" /></td>
+					<td class="def_td"><?php echo $settings['upload_dir_comp']['default'];?></td>
+				</tr>
+				
+				<tr>
+					<td class="key"><label for="intitle">Verzeichnis der Vertrtungsplandateien</label></td>
+					<td><!-- Dateityp --> <input size="40" type="text"
+						name="upload_dir" value="<?php echo $settings['upload_dir'][value];?>" /></td>
+					<td class="def_td"><?php echo $settings['upload_dir']['default'];?></td>
 				</tr>
 			</tbody>
 		</table>
