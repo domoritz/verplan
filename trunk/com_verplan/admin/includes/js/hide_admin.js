@@ -11,7 +11,7 @@ jQuery(document).ready(function(){
 	jQuery('#admin_settings_div').hide('');
 	jQuery('#options_header').click(function() {
 		//wechsel des icons
-		jQuery('#admin_settings_div').toggle('blind','normal');
+		jQuery('#admin_settings_div').toggle('blind','slow');
 		jQuery(this).toggleClass('plus').toggleClass('minus');
 	});
 	
@@ -19,7 +19,7 @@ jQuery(document).ready(function(){
 	jQuery('#about_div').hide('');
 	jQuery('#about_header').click(function() {
 		//wechsel des icons
-		jQuery('#about_div').toggle('blind','normal');
+		jQuery('#about_div').toggle('blind','slow');
 		jQuery(this).toggleClass('plus').toggleClass('minus');
 	});
 });

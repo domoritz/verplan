@@ -36,7 +36,6 @@
 #ui_themeswitcher {
 	float: right;
 	align: right;
-	width: 150px;
 }
 
 /*thead*/
@@ -59,7 +58,7 @@
 	padding: 0 0 0 4px;
 	cursor: pointer; 
 	font-weight: bold !important;
-	padding: 4px 0px 4px 2px;
+	padding: 4px 0px 4px 4px;
 }
 
 #jquerytable th span{
@@ -100,7 +99,7 @@
 	-webkit-border-radius: 3px;
 	border-style:solid;
 	border-width:1px;
-	border-color:#BBBBBB;
+	border-color:#d4d4d4;
 	color:#464646;
 }
 
@@ -117,14 +116,15 @@
 #jquerytable tbody tr {
 	border-left: none;
 	border-right: none;
+	border-bottom: 1px solid #d4d4d4;
 }
 
 #jquerytable tr.odd { 
-	background-color: #eee;
+	background-color: #e1e1e1;
 }
 
 #jquerytable tr.even { 
-	background-color: #fff;
+	background-color: #e8e8e8;
 }
 
 #jquerytable tr.marked { 
@@ -133,8 +133,9 @@
 
 #jquerytable tbody tr td {
 	padding: 3px 3px;
-	border-bottom: transparent 1px solid;
+	/*border-bottom: transparent 1px solid;*/
 	font-weight: normal;
+	
 }
 
 #jquerytable tbody .ui-state-hover { 

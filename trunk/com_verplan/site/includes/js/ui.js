@@ -14,7 +14,9 @@ function show_hint(head, text) {
 }
 
 jQuery(document).ready(function(){ 
-	jQuery('#ui_themeswitcher').themeswitcher(); 
+	jQuery('#ui_themeswitcher').themeswitcher({
+		width: 200
+	}); 
 	
 	/*
 	 * selectmenu plugin
