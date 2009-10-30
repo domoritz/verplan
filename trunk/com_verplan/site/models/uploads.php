@@ -47,7 +47,7 @@ class VerplanModelUploads extends JModel
 			JError::raiseWarning(0,$msg);
 		}
 
-		return $distarray();
+		return $distarray;
 	}
 
 	function getInfos ($date){

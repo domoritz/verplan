@@ -64,9 +64,17 @@ class verplanViewverplan extends JView
 		$this->assignRef( 'stand', $stand);
 		$this->assignRef( 'options', $options);
 
+		
+		$name = 'uploads';
+		require_once(JPATH_COMPONENT.DS.'controllers'.DS.$name.'.php');
+		$controllerName = verplanController.ucfirst($name);
+		$controller = new $controllerName();
+			
 		//alle geltungsdaten als array
-		$datamodel = JModel::getInstance('Data', 'VerplanModel');
-		$datesandstands = $datamodel->getDatesAndStands();
+		
+		//holt sich das array mit daten und ständen
+		$datesandstands = $controller->getDatesAndStands();
+		
 		foreach ($datesandstands as $key => $value) {
 			$dates[] = $key;
 		}
@@ -84,12 +92,17 @@ class verplanViewverplan extends JView
 		$this->assignRef( 'dates', $dates);
 
 		//array mit daten und zugeordneten ständen
-		$datamodel = JModel::getInstance('Data', 'VerplanModel');
+		//$datamodel = JModel::getInstance('Data', 'VerplanModel');
 		//$both = $datamodel->getDatesAndStands();
 		//$this->assignRef( 'datesAndStands', $both);
+		
+		$name = 'plan';
+		require_once(JPATH_COMPONENT.DS.'controllers'.DS.$name.'.php');
+		$controllerName = verplanController.ucfirst($name);
+		$controller = new $controllerName();
 
 		//array des vertretungsplanes und der spalten
-		$array = $datamodel->getVerplanarray($date,$stand,$optionsarray[0]);
+		$array = $controller->getVerplanarray($date,$stand,$optionsarray[0]);
 		$this->assignRef( 'verplanArray', $array);
 
 		$this->assignRef( 'format', $format);
