@@ -1,11 +1,11 @@
 <?php
 /**
- * @version $Id$
- * @package    verplan
- * @subpackage _ECR_SUBPACKAGE_
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
- * @author     Dominik Moritz {@link http://www.dmoritz.bplaced.net}
- * @author     Created on 06-Sep-2009
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 06-Sep-2009
  */
 
 //-- No direct access
@@ -40,22 +40,6 @@ class verplanViewverplan extends JView
 		 */
 		$optionsarray = explode(',',$options);
 
-		//debug
-		//echo "date: ".$date;
-		//echo "stand: ".$stand;
-
-		/*
-		 * Timestamps
-		 *
-		 * PHP -> MySQL
-		 * $date = date( 'Y-m-d H:i:s', $date );
-		 *
-		 * MySQL -> PHP
-		 * $date = strtotime($date);
-		 *
-		 */
-
-
 		//Standardmodel laden
 		$model =& $this->getModel();
 
@@ -64,7 +48,7 @@ class verplanViewverplan extends JView
 		$this->assignRef( 'stand', $stand);
 		$this->assignRef( 'options', $options);
 
-		
+		//controller uploads laden
 		$name = 'uploads';
 		require_once(JPATH_COMPONENT.DS.'controllers'.DS.$name.'.php');
 		$controllerName = verplanController.ucfirst($name);
@@ -82,20 +66,12 @@ class verplanViewverplan extends JView
 		//jeden wert nur einmal
 		array_unique($dates);
 		//array sortieren
-		rsort($dates);		
+		rsort($dates);
 		
-		//debug
-//		echo "<pre>";
-//		var_dump($dates);
-//		echo "</pre>";
-		
+		//dates an template übergeben
 		$this->assignRef( 'dates', $dates);
 
-		//array mit daten und zugeordneten ständen
-		//$datamodel = JModel::getInstance('Data', 'VerplanModel');
-		//$both = $datamodel->getDatesAndStands();
-		//$this->assignRef( 'datesAndStands', $both);
-		
+		//controller plan laden
 		$name = 'plan';
 		require_once(JPATH_COMPONENT.DS.'controllers'.DS.$name.'.php');
 		$controllerName = verplanController.ucfirst($name);
@@ -107,9 +83,7 @@ class verplanViewverplan extends JView
 
 		$this->assignRef( 'format', $format);
 
-		//debug
-		//var_dump($dates);
-
+		//template laden
 		parent::display($tpl);
 	}// function
 }// class
