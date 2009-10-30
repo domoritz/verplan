@@ -41,6 +41,16 @@
 	font-size: smaller;
 }
 
+#columns_table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #000;
+}
+
+#columns_table td {
+	border: 1px solid #000;
+}
+
 /*plus and minus*/
 .expander {
 	padding-left: 16px;
