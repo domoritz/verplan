@@ -167,7 +167,7 @@ class VerplanControllerPlan extends verplanController
 				//erzeugt ein array mit den spaltennamen, die richtig sind
 				$richtigeSpaltenArray = array();
 				foreach ($assozArray_cols as $key => $subarray) {
-					if ($subarray[show] == 1) {
+					if ($subarray[published] == 1) {
 						$richtigeSpaltenArray[] = $subarray[name];
 					}
 				}

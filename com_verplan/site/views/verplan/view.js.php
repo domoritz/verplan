@@ -26,7 +26,7 @@ class verplanViewverplan extends JView
 		//Model laden
 		$model =& $this->getModel();
 		
-		
+		//daten aus POST/GET laden
 		$date = JRequest::getVar('date');
 		$stand = JRequest::getVar('stand');
 		$options = JRequest::getVar('options');
@@ -38,22 +38,13 @@ class verplanViewverplan extends JView
 		 */
 		$optionsarray = explode(',',$options);
 
-		/*
-		 * Timestamps
-		 * 
-		 * PHP -> MySQL
-		 * $date = date( 'Y-m-d H:i:s', $date );
-		 * 
-		 * MySQL -> PHP
-		 * $date = strtotime($date);
-		 * 
-		 */
 		
 		//stand und datum aus get options für view
 		$this->assignRef( 'date', $date);
 		$this->assignRef( 'stand', $stand);
 		$this->assignRef( 'options', $optionsarray[1]);
 		
+		//controller plan laden
 		$name = 'plan';
 		require_once(JPATH_COMPONENT.DS.'controllers'.DS.$name.'.php');
 		$controllerName = verplanController.ucfirst($name);
@@ -63,7 +54,7 @@ class verplanViewverplan extends JView
 		$array = $controller->getVerplanarray($date,$stand,$optionsarray[0]);
 		$this->assignRef( 'verplanarray', $array);
 		
-		//laedt das template json, welches dann den vertretungsplan als json anzeigt
+		//lädt das template json, welches dann den vertretungsplan als json anzeigt
 		parent::display($tpl);
 	}// function
 }// class
