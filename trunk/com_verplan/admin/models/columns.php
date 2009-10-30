@@ -56,15 +56,15 @@ class VerplanModelColumns extends JModel
 	 *
 	 * @return
 	 */
-	function getColumn($name){
+	function getColumn($id){
 		$table =& $this->getTable('columns');
-		$table->load($name);
+		$table->load($id);
 
 		//debug
 		//var_dump($table);
 		//var_dump($table->value);
 
-		return ($table->value);
+		return ($table);
 
 
 	}// function
@@ -74,7 +74,10 @@ class VerplanModelColumns extends JModel
 	 * @return
 	 */
 	function setColumn($data){
-		$table =& $this->getTable();
+		//debug
+		//var_dump($data);
+		
+		$table =& $this->getTable('columns');
 		if (!$table->save($data)){
 			JError::raiseWarning( 500, $table->getError() );
 		}
