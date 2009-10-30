@@ -31,7 +31,6 @@ class VerplanControllerSettings extends verplanController
 
 		// Register Extra tasks
 		$this->registerTask('setSettings','setSettings');
-		$this->registerTask('test','test');
 	}
 
 	/**

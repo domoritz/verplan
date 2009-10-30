@@ -41,14 +41,8 @@
 	font-size: smaller;
 }
 
-#columns_table {
-	width: 100%;
-	border-collapse: collapse;
-	border: 1px solid #000;
-}
-
-#columns_table td {
-	border: 1px solid #000;
+.highlight td {
+	bakground-color: red;	
 }
 
 /*plus and minus*/

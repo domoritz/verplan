@@ -67,7 +67,7 @@ class TableColumns extends JTable
 	 *
 	 * @param object Database connector object
 	 */
-	function TableSettings(& $db) {
-		parent::__construct('#__com_verplan_columns', 'name', $db);
+	function TableColumns(& $db) {
+		parent::__construct('#__com_verplan_columns', 'id', $db);
 	}
 }

@@ -27,6 +27,7 @@ $document->addStylesheet('components/com_verplan/includes/css/general.css');
 
 //Javascript
 $document->addScript('components/com_verplan/includes/js/hide_admin.js');
+$document->addScript('components/com_verplan/includes/js/changed_tr.js');
 $document->addScript('components/com_verplan/includes/js/jquery.datepicker.js');
 
 //Plugins
@@ -218,9 +219,9 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 		$columns = $this->columns;
 	?>
 	
-	<form name="columns" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">		
-		<table class="admin_table" id="columns_table">
-			<tbody>
+		
+		<table class="adminlist" id="columntable">
+			<thead>
 				<?php 
 				echo "<tr>";
 				//reset heißt ersten eintrag
@@ -229,17 +230,25 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 					echo $heads;
 					echo "</th>";
 				}
-				echo "</tr>";
+				echo "<th>Speichern</th></tr>";
 				?>
+			</thead>
+			<tbody>
 				<?php 
 				foreach ($columns as $id => $subarray) {
 					echo "<tr>";
+					$id = $subarray[id];
+					
+					?>
+					<form name="columns" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">	
+					<?php
+						
 					foreach ($subarray as $heads => $value) {
 						echo "<td>";
 						
 						switch ($heads) {
 						    case 'published':
-						        echo "<select>";
+						        echo "<select name=".$heads.">";
 						        for ($i = 0; $i < 2; $i++) {
 						        	echo "<option";
 						        	echo ($i == $value ? " selected=\"selected\"" : "");
@@ -248,39 +257,40 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 						        echo "</select>";
 						        break;
 						    case ($heads == 'label' || $heads == 'name' || $heads == 'type'):
-						        echo '<input type="text" value="'.$value.'"></input>';
+						        echo '<input name="'.$heads.'" type="text" value="'.$value.'"></input>';
 						        break;
 						    default:
 						        echo $value;
 						        break;
-						}
+						}					
 						
 						echo "</td>";
 					}
+						
+					?>
+						<td>
+							<input type="submit" name="columns" class="columnsbutton" value="Speichern" />
+						</td>
+
+						<!-- damit die Komponente wieder aufgerufen wird --> 
+						<input type="hidden" name="option" value="com_verplan" /> 
+						<!-- task laden (in verplanControllrsave_settings -->
+						<input type="hidden" name="task" value="setColumn" /> 
+						<input type="hidden" name="boxchecked" value="0" /> 
+						<!-- richtiger Controller -->
+						<input type="hidden" name="controller" value="columns" /> 
+						<!-- id der spalte!!! -->
+						<input type="hidden" name="id" value="<?php echo $id; ?>" />
+					</form>
+						
+					<?php 
+					
 					echo "</tr>";
 				}
 				?>
-				
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
 				<?php //var_dump($columns);?>
 			</tbody>
 		</table>
-		<input type="submit" name="columns" class="columnsbutton" value="Speichern" />
-	
-		<!-- damit die Komponente wieder aufgerufen wird --> 
-		<input type="hidden" name="option" value="com_verplan" /> 
-		<!-- task laden (in verplanControllrsave_settings -->
-		<input type="hidden" name="task" value="setColumns" /> 
-		<input type="hidden" name="boxchecked" value="0" /> 
-		<!-- richtiger Controller -->
-		<input type="hidden" name="controller" value="columns" /> 
-		<!-- die user ID (unnötig) -->
-		<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
-	</form>
 	
 	
 </div>

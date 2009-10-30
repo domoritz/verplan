@@ -30,8 +30,8 @@ class VerplanControllerColumns extends verplanController
 		parent::__construct();
 
 		// Register Extra tasks
-		$this->registerTask('setSettings','setSettings');
-		$this->registerTask('test','test');
+		$this->registerTask('setColumns','setColumns');
+		$this->registerTask('setColumn','setColumn');
 	}
 
 	/**
@@ -40,9 +40,9 @@ class VerplanControllerColumns extends verplanController
 	 */
 	function setColumns() {
 		//debug
-		//var_dump(JRequest::get('settings'));	
+		var_dump(JRequest::get('columns'));	
 		
-		$arr_in = JRequest::get('columns');
+		/*$arr_in = JRequest::get('columns');
 		
 		$i = 0;
 		foreach ($arr_in as $setting => $value) {
@@ -55,6 +55,23 @@ class VerplanControllerColumns extends verplanController
 		$model->setSettings($arr_out);
 		
 		$msg = 'Einstellungen gespeichert';
+		$this->setRedirect( 'index.php?option=com_verplan', $msg );*/
+	}
+	
+/**
+	 * speichert die einstellungen
+	 * @return void
+	 */
+	function setColumn() {
+		//debug
+		//var_dump(JRequest::get('columns'));	
+		
+		$column = JRequest::get('columns');
+		
+		$model = $this->getModel('columns');
+		$model->setColumn($column);
+		
+		$msg = 'Spalte gespeichert';
 		$this->setRedirect( 'index.php?option=com_verplan', $msg );
 	}
 }
