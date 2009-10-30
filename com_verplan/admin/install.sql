@@ -42,21 +42,19 @@ DROP TABLE IF EXISTS `#__com_verplan_columns`;
 CREATE TABLE `#__com_verplan_columns` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `name` TEXT NOT NULL ,
-`sort` INT NOT NULL DEFAULT '9999',
-`show` BOOL NULL DEFAULT '0',
+`order` INT NOT NULL DEFAULT '9999',
+`published` BOOL NULL DEFAULT '0',
 `type` TEXT NULL COMMENT 'wie soll sortiert werden',
-`label` TEXT NULL COMMENT 'alternativer name',
-`editable` BOOL NOT NULL DEFAULT '1'
+`label` TEXT NULL COMMENT 'alternativer name'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
 
 INSERT INTO `#__com_verplan_columns` (
 `name` ,
-`sort` ,
-`show` ,
-`label`,
-`editable`
+`order` ,
+`published` ,
+`label`
 )
-VALUES ('id','0','1','ID','1'),('timestamp','0','0','Timestamp','1'),('Geltungsdatum','0','1','Datum','1'),('Stand','0','1','Stand','1');
+VALUES ('id','0','1','ID'),('timestamp','0','0','Timestamp'),('Geltungsdatum','0','1','Datum'),('Stand','0','1','Stand');
 
 
 DROP TABLE IF EXISTS `#__com_verplan_uploads`;
