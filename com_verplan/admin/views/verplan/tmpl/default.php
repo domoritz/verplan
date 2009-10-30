@@ -247,8 +247,8 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 						        }
 						        echo "</select>";
 						        break;
-						    case 1:
-						        echo "i equals 1";
+						    case ($heads == 'label' || $heads == 'name' || $heads == 'type'):
+						        echo '<input type="text" value="'.$value.'"></input>';
 						        break;
 						    default:
 						        echo $value;
