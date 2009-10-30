@@ -50,7 +50,7 @@ class VerplanModelUploads extends JModel
 		return $distarray;
 	}
 
-	function getInfos ($date){
+	function getInfos($date){
 		$db =& JFactory::getDBO();
 		
 		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_uploads').'WHERE `Geltungsdatum` LIKE '.$db->quote($date."%");
@@ -60,6 +60,11 @@ class VerplanModelUploads extends JModel
 			$msg = $db->getErrorMsg();
 			JError::raiseWarning(0,$msg);
 		}
+		
+		/*debug
+		echo $query;
+		var_dump($infosarray);
+		//*/
 		
 		return $infosarray;
 	}

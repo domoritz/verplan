@@ -54,9 +54,13 @@ class verplanViewverplan extends JView
 		$this->assignRef( 'stand', $stand);
 		$this->assignRef( 'options', $optionsarray[1]);
 		
+		$name = 'plan';
+		require_once(JPATH_COMPONENT.DS.'controllers'.DS.$name.'.php');
+		$controllerName = verplanController.ucfirst($name);
+		$controller = new $controllerName();
+		
 		//verplanarray laden und an template übergeben
-		$datamodel = JModel::getInstance('Data', 'VerplanModel');
-		$array = $datamodel->getVerplanarray($date,$stand,$optionsarray[0]);
+		$array = $controller->getVerplanarray($date,$stand,$optionsarray[0]);
 		$this->assignRef( 'verplanarray', $array);
 		
 		//laedt das template json, welches dann den vertretungsplan als json anzeigt
