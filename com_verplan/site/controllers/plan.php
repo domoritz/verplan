@@ -31,6 +31,7 @@ class VerplanControllerPlan extends verplanController
 
 		// Register Extra tasks
 		$this->registerTask('getDatesAndStands','getDatesAndStands');
+		$this->registerTask('getUniques','getUniques');
 	}
 
 
@@ -40,11 +41,15 @@ class VerplanControllerPlan extends verplanController
 	 *
 	 * Array
 	 * (
+	 * 		[infos] => Array ()
 	 * 		[cols] => Array ()
-	 * 		[rows] => Array ()
+	 * 		([rows] => Array ())
 	 * )
 	 *
 	 * @access	public
+	 * @param $date		Geltungsdatum
+	 * @param $stand	Stand
+	 * @param $options	Optionen was angezeigt werden soll
 	 * @return	array
 	 */
 	function getVerplanarray($date,$stand,$options){
@@ -83,15 +88,7 @@ class VerplanControllerPlan extends verplanController
 			//var_dump($stands);
 		}
 
-		/*INFOS*/
-		/*$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_uploads').'WHERE `Geltungsdatum` LIKE '.$db->quote($date."%");
-		$db->setQuery($query);
-		$infosarray = $db->loadAssocList();
-		if ($db->getErrorNum()) {
-			$msg = $db->getErrorMsg();
-			JError::raiseWarning(0,$msg);
-		}*/
-		
+		/*INFOS*/		
 		$infosarray = $controller->getInfos($date);
 		
 
@@ -101,33 +98,7 @@ class VerplanControllerPlan extends verplanController
 		 var_dump($infosarray);
 		 //*/
 
-		/*
-		 * lädt die daten der zeilen als assoziatives array aus der datenbank,
-		 * dabei werden nur die zeilen geladen, in denen der richtige stand und
-		 * das richtige datum sind. das wird erreicht, indem die tabellen uploads und
-		 * plan in beziehung gesetzt werden. datum und stand werden sehr liberal beahndelt.
-		 * so heißt "2009-02", dass alle stände aus dem februar 2009 geladen werden
-		 *
-		 *
-		 * % ist ein platzhalter für beliebige zeichen. dadurch ist es möglich,
-		 * z.b. alle daten von 2009 zu bekommen
-		 * bei fehlern wird eine meldung ausgegeben
-		 *
-		 */
-		//(0,*) da sonst probeleme mit leerem ids array
-		/*$query = 'SELECT uploads.*, plan.*
-					FROM '.$db->nameQuote('#__com_verplan_plan').' AS plan,
-						'.$db->nameQuote('#__com_verplan_uploads').' AS uploads
-					WHERE plan.id_upload = uploads.id 
-						AND uploads.`Geltungsdatum` LIKE '.$db->quote($date."%").' 
-						AND uploads.`Stand` LIKE'.$db->quote($stand."%");
-
-		$db->setQuery($query);
-		$assozArray_rows = $db->loadAssocList();
-		if ($db->getErrorNum()) {
-			$msg = $db->getErrorMsg();
-			JError::raiseWarning(0,$msg);
-		}*/
+		/*ROWS*/
 		
 		$model = $this->getModel('plan');
 		$assozArray_rows = $model->getRows($date, $stand);
@@ -144,6 +115,7 @@ class VerplanControllerPlan extends verplanController
 		 //*/
 
 
+		/*COLUMNS*/
 
 		//lädt die spalten, aus der tabelle columns durch das model columns
 		$model =& $this->getModel('columns');
@@ -226,23 +198,15 @@ class VerplanControllerPlan extends verplanController
 
 
 	/**
-	 * array mit allen allen möglichkeiten einer
-	 * spalte aus der verplatabelle
+	 * weiterreichung an model
+	 * 
+	 * @param $lookForMe spalte, die zurückgegeben werden soll
 	 * @return array
 	 */
-	function getUniques($lookForMe){
-		/*$db =& JFactory::getDBO();
-		$query = 'SELECT DISTINCT '.$db->nameQuote($lookForMe).' FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE 1';
-		$db->setQuery($query);
-		$array = $db->loadAssocList();
-		if ($db->getErrorNum()) {
-			$msg = $db->getErrorMsg();
-			JError::raiseWarning(0,$msg);
-		}
-		return $array;*/
-		
+	function getUniques($lookForMe){		
 		$model =& $this->getModel('plan');
-		return $model->getUniques($lookForMe);
+		$uniques = $model->getUniques($lookForMe);
+		return $uniques;
 	}
 
 	

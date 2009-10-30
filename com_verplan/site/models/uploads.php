@@ -32,6 +32,14 @@ class VerplanModelUploads extends JModel
 		parent::__construct();
 	}
 
+	/**
+	 * holt aus der db eine liste mit allen werten einer spalte
+	 * dabei taucht jeder wert nur einmal auf (distinct)
+	 * 
+	 * @param $column	welche spalte
+	 * @param $where, $like	 	bedingungen
+	 * @return array
+	 */
 	function getDistinct($column, $where, $like) {
 		$db =& JFactory::getDBO();
 
@@ -50,6 +58,12 @@ class VerplanModelUploads extends JModel
 		return $distarray;
 	}
 
+	/**
+	 * holt die infos wie typ, stand, datum usw für ein datum aus der db
+	 * 
+	 * @param $date Geltungsdatum, für das die infos gesucht werden
+	 * @return array
+	 */
 	function getInfos($date){
 		$db =& JFactory::getDBO();
 		

@@ -33,7 +33,7 @@ class verplanViewverplan extends JView
 		
 		/*
 		 * verschiedene optionen möglich
-		 * 0. : optionen für das model 
+		 * 0. : optionen für das controller 
 		 * 1. : optionen für den view
 		 */
 		$optionsarray = explode(',',$options);
