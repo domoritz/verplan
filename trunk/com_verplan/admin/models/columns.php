@@ -19,7 +19,7 @@ jimport('joomla.application.component.model');
  * @package    verplan
  * @subpackage models
  */
-class VerplanModelSettings extends JModel
+class VerplanModelColumns extends JModel
 {
 	/**
 	 * Constructor that retrieves the ID from the request
@@ -34,24 +34,20 @@ class VerplanModelSettings extends JModel
 
 	/**
 	 * gibt ein assoziatives array mit allen einstellungen in der form
-	 * name => value
-	 * 		=> name
-	 * 		=> ...
-	 * zurueck
-	 * 
+	 * key=> zurueck
 	 * @return array
 	 */
-	function getSettings(){
+	function getColumns(){
 		$db =& JFactory::getDBO();
 
 		//zweidimensionales array laden
-		$query = 'SELECT `name`,`value`,`default` FROM `#__com_verplan_settings`';
+		$query = 'SELECT * FROM `#__com_verplan_columns`';
 		$db->setQuery( $query );
 		$settingsarray = $db->loadAssocList('name');
 		
 		//debug
 		//var_dump($settingsarray);
-			
+		
 		return $settingsarray;
 	}// function
 
@@ -60,8 +56,8 @@ class VerplanModelSettings extends JModel
 	 *
 	 * @return
 	 */
-	function getSetting($name){
-		$table =& $this->getTable('settings');
+	function getColumn($name){
+		$table =& $this->getTable('columns');
 		$table->load($name);
 
 		//debug
@@ -77,7 +73,7 @@ class VerplanModelSettings extends JModel
 	 *
 	 * @return
 	 */
-	function setSetting($data){
+	function setColumn($data){
 		$table =& $this->getTable();
 		if (!$table->save($data)){
 			JError::raiseWarning( 500, $table->getError() );
@@ -92,7 +88,7 @@ class VerplanModelSettings extends JModel
 	 * @access	public
 	 * @return	boolean	True on success
 	 */
-	function setSettings($data){
+	function setColumns($data){
 		//var_dump($data);
 
 		foreach ($data as $id => $subarray) {

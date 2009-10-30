@@ -211,6 +211,78 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 		<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
 	</form>
 	<br>
+	
+	
+	<?php 
+		//get settings
+		$columns = $this->columns;
+	?>
+	
+	<form name="columns" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">		
+		<table class="admin_table" id="columns_table">
+			<tbody>
+				<?php 
+				echo "<tr>";
+				//reset heißt ersten eintrag
+				foreach (reset($columns) as $heads => $value) {
+					echo "<th>";
+					echo $heads;
+					echo "</th>";
+				}
+				echo "</tr>";
+				?>
+				<?php 
+				foreach ($columns as $id => $subarray) {
+					echo "<tr>";
+					foreach ($subarray as $heads => $value) {
+						echo "<td>";
+						
+						switch ($heads) {
+						    case 'published':
+						        echo "<select>";
+						        for ($i = 0; $i < 2; $i++) {
+						        	echo "<option";
+						        	echo ($i == $value ? " selected=\"selected\"" : "");
+						        	echo ">$i</option>";
+						        }
+						        echo "</select>";
+						        break;
+						    case 1:
+						        echo "i equals 1";
+						        break;
+						    default:
+						        echo $value;
+						        break;
+						}
+						
+						echo "</td>";
+					}
+					echo "</tr>";
+				}
+				?>
+				
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<?php //var_dump($columns);?>
+			</tbody>
+		</table>
+		<input type="submit" name="columns" class="columnsbutton" value="Speichern" />
+	
+		<!-- damit die Komponente wieder aufgerufen wird --> 
+		<input type="hidden" name="option" value="com_verplan" /> 
+		<!-- task laden (in verplanControllrsave_settings -->
+		<input type="hidden" name="task" value="setColumns" /> 
+		<input type="hidden" name="boxchecked" value="0" /> 
+		<!-- richtiger Controller -->
+		<input type="hidden" name="controller" value="columns" /> 
+		<!-- die user ID (unnötig) -->
+		<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
+	</form>
+	
+	
 </div>
 
 <h3 id="about_header" class="expander plus">About</h3>

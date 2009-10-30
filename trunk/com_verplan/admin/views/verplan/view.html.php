@@ -38,6 +38,11 @@ class verplanViewVerplan extends JView
 		$settings =& $newmodel->getSettings();
 		$this->assignRef('settings', $settings);
 		
+		//lade columns
+		$newmodel = JModel::getInstance('Columns', 'VerplanModel');
+		$columns =& $newmodel->getColumns();
+		$this->assignRef('columns', $columns);
+		
 
 		parent::display($tpl);
 	}// function

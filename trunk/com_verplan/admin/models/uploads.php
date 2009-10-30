@@ -34,18 +34,14 @@ class VerplanModelSettings extends JModel
 
 	/**
 	 * gibt ein assoziatives array mit allen einstellungen in der form
-	 * name => value
-	 * 		=> name
-	 * 		=> ...
-	 * zurueck
-	 * 
+	 * key=> zurueck
 	 * @return array
 	 */
-	function getSettings(){
+	function getUploads(){
 		$db =& JFactory::getDBO();
 
 		//zweidimensionales array laden
-		$query = 'SELECT `name`,`value`,`default` FROM `#__com_verplan_settings`';
+		$query = 'SELECT `name`,`value`,`default` FROM `#__com_verplan_uploads`';
 		$db->setQuery( $query );
 		$settingsarray = $db->loadAssocList('name');
 		
@@ -60,8 +56,8 @@ class VerplanModelSettings extends JModel
 	 *
 	 * @return
 	 */
-	function getSetting($name){
-		$table =& $this->getTable('settings');
+	function getUpload($name){
+		$table =& $this->getUploads('settings');
 		$table->load($name);
 
 		//debug
@@ -77,7 +73,7 @@ class VerplanModelSettings extends JModel
 	 *
 	 * @return
 	 */
-	function setSetting($data){
+	function setUpload($data){
 		$table =& $this->getTable();
 		if (!$table->save($data)){
 			JError::raiseWarning( 500, $table->getError() );
@@ -92,7 +88,7 @@ class VerplanModelSettings extends JModel
 	 * @access	public
 	 * @return	boolean	True on success
 	 */
-	function setSettings($data){
+	function setUploads($data){
 		//var_dump($data);
 
 		foreach ($data as $id => $subarray) {
