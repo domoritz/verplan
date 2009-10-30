@@ -42,31 +42,14 @@ class VerplanControllerUploads extends verplanController
 	 * @return array
 	 */
 	function getDatesAndStands(){
-		/*$db =& JFactory::getDBO();
 
 		//erste ebene laden /daten
-		$query = 'SELECT DISTINCT '.$db->nameQuote('Geltungsdatum').' FROM '.$db->nameQuote('#__com_verplan_uploads').' WHERE 1';
-		$db->setQuery($query);
-		$datearray = $db->loadResultArray();
-		if ($db->getErrorNum()) {
-		$msg = $db->getErrorMsg();
-		JError::raiseWarning(0,$msg);
-		}*/
-
 		$model = $this->getModel('uploads');
 		$datearray = $model->getDistinct('Geltungsdatum','id','%');
 
 		//zweite ebene laden /stände
 		for($i = 0; $i < count($datearray); $i++) {
-			/*$query = 'SELECT DISTINCT '.$db->nameQuote('Stand').'
-			 FROM '.$db->nameQuote('#__com_verplan_uploads').'
-			 WHERE '.$db->nameQuote('Geltungsdatum').' LIKE '.$db->quote($datearray[$i]);
-			 $db->setQuery($query);
-			 $subarray = $db->loadResultArray();
-			 if ($db->getErrorNum()) {
-				$msg = $db->getErrorMsg();
-				JError::raiseWarning(0,$msg);
-				}*/
+			
 			$subarray = $model->getDistinct('Stand','Geltungsdatum',$datearray[$i]);
 				
 			/*
@@ -87,6 +70,12 @@ class VerplanControllerUploads extends verplanController
 		return $array;
 	}
 
+	/**
+	 * weiterreichen an model
+	 * 
+	 * @param $date Geltungsdatum, für das die infos gesucht werden
+	 * @return array
+	 */
 	function getInfos($date) {
 		$model = $this->getModel('uploads');
 		$infos = $model->getInfos($date);
