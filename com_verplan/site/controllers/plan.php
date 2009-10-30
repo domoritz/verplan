@@ -92,7 +92,7 @@ class VerplanControllerPlan extends verplanController
 			JError::raiseWarning(0,$msg);
 		}*/
 		
-		$controller->getInfos($date);
+		$infosarray = $controller->getInfos($date);
 		
 
 		/*debug

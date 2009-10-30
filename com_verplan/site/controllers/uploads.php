@@ -89,7 +89,8 @@ class VerplanControllerUploads extends verplanController
 
 	function getInfos($date) {
 		$model = $this->getModel('uploads');
-		return $model->getInfos($date);
+		$infos = $model->getInfos($date);
+		return $infos;
 	}
 
 
