@@ -45,6 +45,10 @@
 	border-collapse: collapse;	
 }
 
+.ajaxresmess {
+	display: none;
+}
+
 .highlight td{
 	color: #025A8D;
 	background-color: #C3D2E5 !important;	

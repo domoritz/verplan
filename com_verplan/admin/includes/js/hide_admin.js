@@ -15,6 +15,14 @@ jQuery(document).ready(function(){
 		jQuery(this).toggleClass('plus').toggleClass('minus');
 	});
 	
+	//versteckt optionen
+	jQuery('#admin_columns_div').hide('');
+	jQuery('#columns_header').click(function() {
+		//wechsel des icons
+		jQuery('#admin_columns_div').toggle('blind','slow');
+		jQuery(this).toggleClass('plus').toggleClass('minus');
+	});
+	
 	//versteckt about
 	jQuery('#about_div').hide('');
 	jQuery('#about_header').click(function() {
