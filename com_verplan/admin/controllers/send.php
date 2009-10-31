@@ -32,7 +32,7 @@ class VerplanControllerSend extends verplanController
 		// Register Extra tasks
 		$this->registerTask('send','send');
 		global $msg;
-		$msg = 0;
+		$msg = null;
 	}
 
 	/**
@@ -40,6 +40,12 @@ class VerplanControllerSend extends verplanController
 	 * @return void
 	 */
 	function send() {
+		
+		//für debug
+		$debug = JRequest::getVar('debug', false);
+		if ($debug == 'true') {
+			echo 'Debug mode<br>==========<br>';
+		}
 
 		//holt die dateiinfos
 		$file = JRequest::getVar('file', null, 'files', 'array');
@@ -108,7 +114,7 @@ class VerplanControllerSend extends verplanController
 				$upload_arr[Stand] = JRequest::getVar('stand', null).' '.JRequest::getVar('stand_time', null);//stand
 				$upload_arr[type] = $file[type]; //typ
 				$upload_arr[url] = $path; //url zur hochgeladenen datei
-				
+
 				$stand_date = JRequest::getVar('stand', null);
 
 				if (empty($upload_arr[Geltungsdatum])) {
@@ -134,15 +140,20 @@ class VerplanControllerSend extends verplanController
 
 
 		}
-		
-		
+
+
 		//für ajax
-		$ajax = JRequest::getVar('ajax', false);
-		if ($ajax == 'true') {
-			echo "Ajax response: ".$msg;
-			$mainframe =& JFactory::getApplication(); 
-			$mainframe->close();
-		}		
+		$ajax = JRequest::getVar('ajax', false);		
 		
+		if ($debug == 'true') {
+				echo $msg.'<br>==========<br>';
+				$mainframe =& JFactory::getApplication();
+				$mainframe->close();
+		} elseif ($ajax == 'true') {
+				echo "Ajax response: ".$msg;
+				$mainframe =& JFactory::getApplication();
+				$mainframe->close();
+		}
+
 	}
 }
