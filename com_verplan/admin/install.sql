@@ -51,18 +51,18 @@ DROP TABLE IF EXISTS `#__com_verplan_columns`;
 CREATE TABLE `#__com_verplan_columns` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `name` TEXT NOT NULL ,
-`order` INT NOT NULL DEFAULT '9999',
+`ordering` INT NOT NULL AUTO_INCREMENT,
 `published` BOOL NULL DEFAULT '0',
 `label` TEXT NULL COMMENT 'alternativer name'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
 
 INSERT INTO `#__com_verplan_columns` (
 `name` ,
-`order` ,
+`ordering` ,
 `published` ,
 `label`
 )
-VALUES ('id','0','1','ID'),('timestamp','0','0','Timestamp'),('Geltungsdatum','0','1','Datum'),('Stand','0','1','Stand');
+VALUES ('id','1','1','ID'),('timestamp','2','0','Timestamp'),('Geltungsdatum','3','1','Datum'),('Stand','4','1','Stand');
 
 
 DROP TABLE IF EXISTS `#__com_verplan_uploads`;

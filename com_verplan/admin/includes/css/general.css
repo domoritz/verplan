@@ -41,6 +41,12 @@
 	font-size: smaller;
 }
 
+.min_f_sort {
+	color: #999;
+	font-size: smaller;
+	margin-left: 5px;
+}
+
 #columntable {
 	border-collapse: collapse;	
 }
@@ -50,6 +56,10 @@
 }
 
 .ajaxresmess_1 {
+	display: none;
+}
+
+.ajaxresmess_2 {
 	display: none;
 }
 

@@ -32,10 +32,12 @@ class VerplanControllerColumns extends verplanController
 		// Register Extra tasks
 		$this->registerTask('setColumns','setColumns');
 		$this->registerTask('setColumn','setColumn');
+		$this->registerTask('reorder','reorder');
 	}
 
 	/**
-	 * speichert die einstellungen
+	 * nicht unterstützt
+	 * 
 	 * @return void
 	 */
 	function setColumns() {
@@ -59,21 +61,45 @@ class VerplanControllerColumns extends verplanController
 	}
 
 	/**
-	 * speichert die einstellungen
+	 * speichert eine spalte
+	 * 
 	 * @return void
 	 */
 	function setColumn() {
 		//debug
 		//var_dump(JRequest::get('columns'));
 
+		//get variable
 		$column = JRequest::get('columns');
 
+		//an model weiterreichen
 		$model = $this->getModel('columns');
 		$model->setColumn($column);
 
 		$msg = 'Spalte gespeichert';
-		$this->setRedirect( 'index.php?option=com_verplan', $msg );
 		
+		//für ajax
+		$ajax = JRequest::getVar('ajax', false);
+		if ($ajax == 'true') {
+			echo "Ajax response: ".$msg;
+			$mainframe =& JFactory::getApplication();
+			$mainframe->close();
+		} else {
+			$this->setRedirect( 'index.php?option=com_verplan', $msg );			
+		}
+	}
+	
+	/**
+	 * weiterreichen an model
+	 * @return unknown_type
+	 */
+	function reorder () {
+		
+		$model = $this->getModel('columns');
+		$model->reorder();
+		
+		
+		$msg = 'Sortierung neu aufgebaut';		
 		//für ajax
 		$ajax = JRequest::getVar('ajax', false);
 		if ($ajax == 'true') {

@@ -1,5 +1,7 @@
 <?php
 /**
+ * template inc spalten
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -53,21 +55,27 @@ $columns = $this->columns;
 			enctype="multipart/form-data" action="index.php?option=com_verplan">
 			<?php
 
-			foreach ($subarray as $heads => $value) {
+			foreach ($subarray as $head => $value) {
 				echo "<td>";
 
-				switch ($heads) {
+				switch ($head) {
+					case ($head == 'id'):
+						echo $value;
+						break;
 					case 'published':
-						echo "<select name=".$heads.">";
+						echo "<select name=".$head.">";
 						for ($i = 0; $i < 2; $i++) {
 							echo "<option";
 							echo ($i == $value ? " selected=\"selected\"" : "");
 							echo ">$i</option>";
 						}
-						echo "</select>";
+						echo "</select><span class=\"min_f_sort\">".$value."</span>";
 						break;
-					case ($heads == 'label' || $heads == 'name' || $heads == 'type'):
-						echo '<input name="'.$heads.'" type="text" value="'.$value.'"></input>';
+					case ($head == 'label' || $head == 'name'):
+						echo '<input name="'.$head.'" type="text" value="'.$value.'"></input><span class="min_f_sort">'.$value.'</span>';
+						break;
+					case ($head == 'ordering'):
+						echo '<input name="'.$head.'" type="text" value="'.$value.'"></input><span class="min_f_sort">'.$value.'</span>';
 						break;
 					default:
 						echo $value;
@@ -79,10 +87,9 @@ $columns = $this->columns;
 
 			?>		
 		
-		<td><input type="submit" name="columns" class="columnsbutton"
-			value="Speichern" /> <input type="reset" name="columns"
-			class="columnsbutton" value="Reset" /></td>
-		<input type="hidden" name="format" value="js" />
+		<td>
+		<input type="submit" name="columns" class="columnsbutton" value="Speichern" /> 
+		<input type="reset" name="columns" class="columnsbutton" value="Reset" /></td>
 
 		<!-- damit die Komponente wieder aufgerufen wird -->
 		<input type="hidden" name="option" value="com_verplan" />
@@ -104,5 +111,6 @@ $columns = $this->columns;
 	</tbody>
 </table>
 
+<a href="index.php?option=com_verplan&controller=columns&task=reorder">Sortierung neu aufbauen</a>
 
 </div>

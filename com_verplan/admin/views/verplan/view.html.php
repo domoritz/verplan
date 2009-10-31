@@ -1,11 +1,14 @@
 <?php
 /**
- * @version $Id$
- * @package    verplan
- * @subpackage _ECR_SUBPACKAGE_
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
- * @author     Dominik Moritz {@link http://www.dmoritz.bplaced.net}
- * @author     Created on 14-Sep-2009
+ * Viewcontroller für das admin backend
+ * von hier aus werden die daten an das template übergeben
+ * 
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 14-Sep-2009
  */
 
 //-- No direct access

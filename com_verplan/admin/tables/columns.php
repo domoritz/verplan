@@ -39,7 +39,7 @@ class TableColumns extends JTable
 	 *
 	 * @var int
 	 */
-	var $order = null;
+	var $ordering = null;
 	
 	/**
 	 * spalte anzeigen

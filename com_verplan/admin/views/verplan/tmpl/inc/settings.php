@@ -1,5 +1,7 @@
 <?php
 /**
+ * template inc einstellungen
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
