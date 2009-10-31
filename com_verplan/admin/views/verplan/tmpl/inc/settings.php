@@ -11,12 +11,22 @@
 
 <h3 id="settings_header" class="expander plus">Einstellungen</h3>
 <div id="admin_settings_div">
+
+<dl id="system-message" class="ajaxresmess_1">
+	<dt class="message">Message</dt>
+	<dd class="message message fade">
+	<ul>
+		<li id="ajaxresponse_1"></li>
+	</ul>
+	</dd>
+</dl>
+
 <?php 
 	//get settings
 	$settings = $this->settings;
 ?>
 
-<form name="settings" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
+<form name="settings_form" id="settings_form" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
 	
 	<table class="admin_table">
 		<tbody>
@@ -25,8 +35,9 @@
 			</tr>
 			<tr>
 				<td class="key"><label for="intitle">maximale Dateigröße</label></td>
-				<td><!-- maximale Dateigröße --> <input size="40" type="text"
-					name="max_file_size" value="<?php echo $settings['max_file_size'][value];?>" /></td>
+				<td>
+				<!-- maximale Dateigröße --> 
+				<input size="40" type="text" name="max_file_size" value="<?php echo $settings['max_file_size'][value];?>" /></td>
 				<td class="def_td"><?php echo $settings['max_file_size']['default'];?></td>
 			</tr>
 			<tr>

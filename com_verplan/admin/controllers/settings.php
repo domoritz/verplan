@@ -54,6 +54,15 @@ class VerplanControllerSettings extends verplanController
 		$model->setSettings($arr_out);
 		
 		$msg = 'Einstellungen gespeichert';
-		$this->setRedirect( 'index.php?option=com_verplan', $msg );
+		
+		//für ajax
+		$ajax = JRequest::getVar('ajax', false);
+		if ($ajax == 'true') {
+			echo "Ajax response: ".$msg;
+			$mainframe =& JFactory::getApplication();
+			$mainframe->close();
+		} else {
+			$this->setRedirect( 'index.php?option=com_verplan', $msg );			
+		}
 	}
 }

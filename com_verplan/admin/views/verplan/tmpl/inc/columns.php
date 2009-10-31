@@ -77,8 +77,7 @@ $columns = $this->columns;
 				echo "</td>";
 			}
 
-			?>
-		
+			?>		
 		
 		<td><input type="submit" name="columns" class="columnsbutton"
 			value="Speichern" /> <input type="reset" name="columns"
@@ -88,7 +87,7 @@ $columns = $this->columns;
 		<!-- damit die Komponente wieder aufgerufen wird -->
 		<input type="hidden" name="option" value="com_verplan" />
 		<!-- task laden (in verplanControllrsave_settings -->
-		<input type="hidden" name="task" value="setColumnAjax" />
+		<input type="hidden" name="task" value="setColumn" />
 		<input type="hidden" name="boxchecked" value="0" />
 		<!-- richtiger Controller -->
 		<input type="hidden" name="controller" value="columns" />
