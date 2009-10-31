@@ -270,6 +270,7 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 					?>
 						<td>
 							<input type="submit" name="columns" class="columnsbutton" value="Speichern" />
+							<input type="reset" name="columns" class="columnsbutton" value="Reset" />
 						</td>
 
 						<!-- damit die Komponente wieder aufgerufen wird --> 

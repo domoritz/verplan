@@ -41,8 +41,13 @@
 	font-size: smaller;
 }
 
-.highlight td {
-	bakground-color: red;	
+#columntable {
+	border-collapse: collapse;	
+}
+
+.highlight td{
+	color: #025A8D;
+	background-color: #C3D2E5 !important;	
 }
 
 /*plus and minus*/

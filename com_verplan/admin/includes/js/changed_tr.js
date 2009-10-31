@@ -8,10 +8,17 @@
  */
 jQuery(document).ready(function(){
 	
+	//wenn daten geändert werden
 	jQuery('#columntable input').change(function() {
 		jQuery(this).parent().parent().addClass('highlight');
 	});
+	
 	jQuery('#columntable select').change(function() {
 		jQuery(this).parent().parent().addClass('highlight');
+	});
+	
+	//bei reset
+	jQuery('#columntable input:reset').click(function() {
+		jQuery(this).parent().parent().removeClass('highlight');
 	});
 });
