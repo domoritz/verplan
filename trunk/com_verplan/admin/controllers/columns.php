@@ -32,7 +32,6 @@ class VerplanControllerColumns extends verplanController
 		// Register Extra tasks
 		$this->registerTask('setColumns','setColumns');
 		$this->registerTask('setColumn','setColumn');
-		$this->registerTask('setColumnAjax','setColumnAjax');
 	}
 
 	/**
@@ -74,17 +73,15 @@ class VerplanControllerColumns extends verplanController
 
 		$msg = 'Spalte gespeichert';
 		$this->setRedirect( 'index.php?option=com_verplan', $msg );
-	}
-
-	function setColumnAjax() {
-		//debug
-		//var_dump(JRequest::get('columns'));
-
-		$column = JRequest::get('columns');
-
-		$model = $this->getModel('columns');
-		$model->setColumn($column);
 		
-		echo "Spalte gespeichert";
+		//für ajax
+		$ajax = JRequest::getVar('ajax', false);
+		if ($ajax == 'true') {
+			echo "Ajax response: ".$msg;
+			$mainframe =& JFactory::getApplication();
+			$mainframe->close();
+		} else {
+			$this->setRedirect( 'index.php?option=com_verplan', $msg );			
+		}
 	}
 }
