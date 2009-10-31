@@ -20,7 +20,7 @@ jQuery(document).ready(function(){
     jQuery('#form_verplan').submit(function() { 
         //falls ajax in dem select aktiviert ist, wird ajax verwendet, sonst wird man einfach weitergeleitet
     	var ajax = jQuery('#select_ajax').val();
-    	alert (ajax);
+    	//alert (ajax);
     	if (ajax == 'true') {
     		// inside event callbacks 'this' is the DOM element so we first 
             // wrap it in a jQuery object and then invoke ajaxSubmit 
