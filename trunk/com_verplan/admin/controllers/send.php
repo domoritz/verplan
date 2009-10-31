@@ -50,8 +50,11 @@ class VerplanControllerSend extends verplanController
 		//holt die dateiinfos
 		$file = JRequest::getVar('file', null, 'files', 'array');
 			
-		//debug
-		//var_dump($file);
+		///*debug
+		echo '<br>==========<br>';
+		echo 'Fileinfos aus getVar<br>';
+		var_dump($file);
+		//*/
 
 		if (empty($file[name])) {
 			$msg .= "keine Datei ausgewählt";
@@ -68,8 +71,12 @@ class VerplanControllerSend extends verplanController
 			//datei hochladen (methode upload in controller upload)
 			$file = $controller->execute('upload');
 
-			//debug
+			///*debug
+			echo '<br>==========<br>';
+			echo 'Fileinfos nach Upload<br>';
 			var_dump($file);
+			//*/
+			
 
 			//Dateiinhalt der plandatei aus temp laden
 			$FileHandle = fopen($file[dest], "r" ) ;
@@ -83,8 +90,11 @@ class VerplanControllerSend extends verplanController
 				//nun kann die datei geparst werden
 				$data = $controller->parse_file_to_array($file);
 
-				//debug
+				///*debug
+				echo '<br>==========<br>';
+				echo 'nach Parsen<br>';
 				var_dump($data);
+				//*/
 
 
 				//und dann werden die daten noch gespeichert
@@ -125,8 +135,11 @@ class VerplanControllerSend extends verplanController
 					$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				} else {
 
-					//debug
-					//var_dump($upload_arr);
+					///*debug
+					echo '<br>==========<br>';
+					echo 'Infos wenn ohne DB<br>';
+					var_dump($upload_arr);
+					//*/
 
 					$model = $this->getModel('data');
 					$model->log_in_uploads($upload_arr);
