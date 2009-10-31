@@ -56,7 +56,7 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 		<dt class="message">Message</dt>
 		<dd class="message message fade">
 		<ul>
-			<li id="ajaxresponse"></li>
+			<li id="ajaxresponse_0"></li>
 		</ul>
 		</dd>
 	</dl>
@@ -97,261 +97,56 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 	<br>
 	<input type="submit" name="upload" class="uploadbutton" value="Abschicken" id="send" />
 	
-	<!-- anzeige ohne template (praktisch für ajax) -->
-	<!--<input type="hidden" name="tmpl" value="component" />-->
-	
-	<!-- soll das ergebnis ohne template angezeigt werden? (für ajax)-->
-	<label for="ajax">ajax</label>
-	<select name="ajax">
-		<option>true</option>
-		<option>false</option>
-	</select>
-	<!-- <input type="hidden" name="ajax" value="false" /> -->
+	<h3 id="options_header" class="expander plus">Optionen</h3>
+	<div id="admin_options_div">
+		<table class="admin_table">
+		<tbody>
+			<!-- anzeige ohne template (praktisch für ajax) -->
+			<!--<input type="hidden" name="tmpl" value="component" />-->
+			
+			<tr>
+			<!-- soll das ergebnis ohne template angezeigt werden? (für ajax)-->
+			<td><label for="ajax">ajax </label></td>
+			<td><select id="select_ajax" name="ajax">
+				<option>true</option>
+				<option>false</option>
+			</select></td>
+			<!-- <input type="hidden" name="ajax" value="false" /> -->
+			</tr>
+			
+			<tr>
+			<!-- soll das ergebnis ohne template angezeigt werden? (für ajax)-->
+			<td><label for="debug">debug </label></td>
+			<td><select id="select_debug" name="debug">
+				<option>false</option>
+				<option>true</option>
+			</select>
+			</tr></td>
+				
+			<!-- sollen fehler in den regulaeren ausdrücken ignoriert werden? (empfohlen) --> 
+			<input type="hidden" name="ignore" value="true" /> 
 		
-	<!-- sollen fehler in den regulaeren ausdrücken ignoriert werden? (empfohlen) --> 
-	<input type="hidden" name="ignore" value="true" /> 
-
-	<!-- damit die Komponente wieder aufgerufen wird --> 
-	<input type="hidden" name="option" value="com_verplan" /> 
-	<!-- task laden (in verplanControllrupload -->
-	<input type="hidden" name="task" value="send" />
-	<input type="hidden" name="boxchecked" value="0" />
-	<!-- richtiger Controller --> 
-	<input type="hidden" name="controller" value="send" /> 
-	<!-- die user ID (unnötig) -->
-	<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
+			<!-- damit die Komponente wieder aufgerufen wird --> 
+			<input type="hidden" name="option" value="com_verplan" /> 
+			<!-- task laden (in verplanControllrupload -->
+			<input type="hidden" name="task" value="send" />
+			<input type="hidden" name="boxchecked" value="0" />
+			<!-- richtiger Controller --> 
+			<input type="hidden" name="controller" value="send" /> 
+			<!-- die user ID (unnötig) -->
+			<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
+		</tbody>
+		</table>
+	</div>
 
 </form>
 
-<br><br>
+<?php require_once('inc/settings.php');?>
 
-<h3 id="options_header" class="expander plus">Optionen/Einstellungen</h3>
-<div id="admin_settings_div">
-	<?php 
-		//get settings
-		$settings = $this->settings;
-	?>
-	
-	<form name="settings" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
-		
-		<table class="admin_table">
-			<tbody>
-				<tr>
-					<th colspan="3"><br>Uploads</th>
-				</tr>
-				<tr>
-					<td class="key"><label for="intitle">maximale Dateigröße</label></td>
-					<td><!-- maximale Dateigröße --> <input size="40" type="text"
-						name="max_file_size" value="<?php echo $settings['max_file_size'][value];?>" /></td>
-					<td class="def_td"><?php echo $settings['max_file_size']['default'];?></td>
-				</tr>
-				<tr>
-					<td class="key"><label for="intitle">erlaubte Dateitypen</label></td>
-					<td><!-- Dateityp --> <input size="40" type="text"
-						name="allowed_filetypes" value="<?php echo $settings['allowed_filetypes'][value];?>" /></td>
-					<td class="def_td"><?php echo $settings['allowed_filetypes']['default'];?></td>
-				</tr>
-				
-				
-				<tr>
-					<th colspan="3"><br>Stand</th>
-				</tr>
-				<tr>
-					<td class="key"><label for="intitle">Pattern Stand</label></td>
-					<td><!-- Dateityp --> <input size="40" type="text"
-						name="pattern_stand" value="<?php echo $settings['pattern_stand'][value];?>" /></td>
-					<td class="def_td"><?php echo $settings['pattern_stand']['default'];?></td>
-				</tr>
-				
-				<tr>
-					<td class="key"><label for="intitle">Format Stand</label></td>
-					<td><!-- Dateityp --> <input size="40" type="text"
-						name="format_stand" value="<?php echo $settings['format_stand'][value];?>" /></td>
-					<td class="def_td"><?php echo $settings['format_stand']['default'];?></td>
-				</tr>
-				
-				
-				<tr>
-					<th colspan="3"><br>Geltungsdatum</th>
-				</tr>
-				<tr>
-					<td class="key"><label for="intitle">Pattern Datum</label></td>
-					<td><!-- Dateityp --> <input size="40" type="text"
-						name="pattern_date" value="<?php echo $settings['pattern_date'][value];?>" /></td>
-					<td class="def_td"><?php echo $settings['pattern_date']['default'];?></td>
-				</tr>
-				
-				<tr>
-					<td class="key"><label for="intitle">Format Datum</label></td>
-					<td><!-- Dateityp --> <input size="40" type="text"
-						name="format_date" value="<?php echo $settings['format_date'][value];?>" /></td>
-					<td class="def_td"><?php echo $settings['format_date']['default'];?></td>
-				</tr>
-				
-				<tr>
-					<th colspan="3"><br>Plantabelle</th>
-				</tr>
-				<tr>
-					<td class="key"><label for="intitle">Pattern Plantabelle</label></td>
-					<td><!-- Dateityp --> <input size="40" type="text"
-						name="pattern_plan" value="<?php echo $settings['pattern_plan'][value];?>" /></td>
-					<td class="def_td"><?php echo $settings['pattern_plan']['default'];?></td>
-				</tr>
-				
-				<tr>
-					<th colspan="3"><br>verzeichnisse</th>
-				</tr>
-				<tr>
-					<td class="key"><label for="intitle">Verzeichnis auf dem Server in der Komponente</label></td>
-					<td><!-- Dateityp --> <input size="40" type="text"
-						name="upload_dir_comp" value="<?php echo $settings['upload_dir_comp'][value];?>" /></td>
-					<td class="def_td"><?php echo $settings['upload_dir_comp']['default'];?></td>
-				</tr>
-				
-				<tr>
-					<td class="key"><label for="intitle">Verzeichnis der Vertrtungsplandateien</label></td>
-					<td><!-- Dateityp --> <input size="40" type="text"
-						name="upload_dir" value="<?php echo $settings['upload_dir'][value];?>" /></td>
-					<td class="def_td"><?php echo $settings['upload_dir']['default'];?></td>
-				</tr>
-			</tbody>
-		</table>
-		<input type="submit" name="settings" class="settingsbutton" value="Speichern" />
-	
-		<!-- damit die Komponente wieder aufgerufen wird --> 
-		<input type="hidden" name="option" value="com_verplan" /> 
-		<!-- task laden (in verplanControllrsave_settings -->
-		<input type="hidden" name="task" value="setSettings" /> 
-		<input type="hidden" name="boxchecked" value="0" /> 
-		<!-- richtiger Controller -->
-		<input type="hidden" name="controller" value="settings" /> 
-		<!-- die user ID (unnötig) -->
-		<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
-	</form>
-	<br>
-	
-	</div>
-	
-	
-	<h3 id="columns_header" class="expander plus">Spalten</h3>
-	<div id="admin_columns_div">
+<?php require_once('inc/columns.php');?>
 
+<?php require_once('inc/about.php');?>
 
-	<dl id="system-message" class="ajaxresmess_1">
-		<dt class="message">Message</dt>
-		<dd class="message message fade">
-		<ul>
-			<li id="ajaxresponse"></li>
-		</ul>
-		</dd>
-	</dl>
-
-
-<?php 
-		//get settings
-		$columns = $this->columns;
-	?>
-	
-		
-		<table class="adminlist" id="columntable">
-			<thead>
-				<?php 
-				echo "<tr>";
-				//reset heißt ersten eintrag
-				foreach (reset($columns) as $heads => $value) {
-					echo "<th>";
-					echo $heads;
-					echo "</th>";
-				}
-				echo "<th>Speichern</th></tr>";
-				?>
-			</thead>
-			<tbody>
-				<?php 
-				foreach ($columns as $id => $subarray) {
-					echo "<tr>";
-					$id = $subarray[id];
-					
-					?>
-					<form name="columns" id="columnsform" method="get" enctype="multipart/form-data" action="index.php?option=com_verplan">	
-					<?php
-						
-					foreach ($subarray as $heads => $value) {
-						echo "<td>";
-						
-						switch ($heads) {
-						    case 'published':
-						        echo "<select name=".$heads.">";
-						        for ($i = 0; $i < 2; $i++) {
-						        	echo "<option";
-						        	echo ($i == $value ? " selected=\"selected\"" : "");
-						        	echo ">$i</option>";
-						        }
-						        echo "</select>";
-						        break;
-						    case ($heads == 'label' || $heads == 'name' || $heads == 'type'):
-						        echo '<input name="'.$heads.'" type="text" value="'.$value.'"></input>';
-						        break;
-						    default:
-						        echo $value;
-						        break;
-						}					
-						
-						echo "</td>";
-					}
-						
-					?>
-						<td>
-							<input type="submit" name="columns" class="columnsbutton" value="Speichern" />
-							<input type="reset" name="columns" class="columnsbutton" value="Reset" />
-						</td>
-						<input type="hidden" name="format" value="js" /> 
-
-						<!-- damit die Komponente wieder aufgerufen wird --> 
-						<input type="hidden" name="option" value="com_verplan" /> 
-						<!-- task laden (in verplanControllrsave_settings -->
-						<input type="hidden" name="task" value="setColumnAjax" /> 
-						<input type="hidden" name="boxchecked" value="0" /> 
-						<!-- richtiger Controller -->
-						<input type="hidden" name="controller" value="columns" /> 
-						<!-- id der spalte!!! -->
-						<input type="hidden" name="id" value="<?php echo $id; ?>" />
-					</form>
-						
-					<?php 
-					
-					echo "</tr>";
-				}
-				?>
-				<?php //var_dump($columns);?>
-			</tbody>
-		</table>
-	
-	
-</div>
-
-<h3 id="about_header" class="expander plus">About</h3>
-
-<div id="about_div">
-	<p>Komponente zum Einstellen des Vertretungsplanes auf die Website des MCG (http://www.marie-curie-gymnasium-dallgow.de/).</p>
-	<ul>
-		<li>Lizenz: <a href="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL">GNU/GPL</a></li>
-		<li>Autor: <a href="http://www.dmoritz.bplaced.net">Dominik Moritz</a></li>
-		<li>Code: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a></li>
-	</ul>
-	<p>Verwendete Bibliotheken/Programme/Grafiken</p>
-	<ul>
-		<li><a href="http://jquery.com/">jQuery</a></li>
-		<li><a href="http://plugins.jquery.com/">diverse jQuery Plugins</a></li>
-		<li><a href="http://jacksleight.com/old/code">JS Extractor</a></li>
-		<li><a href="http://www.oxygen-icons.org/">Icons aus dem Oxygen Package</a></li>
-		<li><a href="http://www.preloaders.net">Ajax Indikatoren</a></li>
-	</ul>
-	<p>Systemvoraussetzungen</p>
-	<ul>
-		<li>PHP >= 5.3.0</li>
-	</ul>
-</div>
 
 <?php 
 /*
