@@ -22,7 +22,11 @@ class verplanViewVerplan extends JView
 {
 	function display($tpl = null)
 	{
-				
+		/*$id = JRequest::getVar('id');
+		$name = JRequest::getVar('name');
+		$order = JRequest::getVar('order');
+		$published = JRequest::getVar('published');
+		$label = JRequest::getVar('label');*/
 
 		parent::display($tpl);
 	}// function

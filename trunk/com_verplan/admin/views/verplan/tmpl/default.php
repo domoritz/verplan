@@ -27,7 +27,7 @@ $document->addStylesheet('components/com_verplan/includes/css/general.css');
 
 //Javascript
 $document->addScript('components/com_verplan/includes/js/hide_admin.js');
-$document->addScript('components/com_verplan/includes/js/changed_tr.js');
+$document->addScript('components/com_verplan/includes/js/form.js');
 $document->addScript('components/com_verplan/includes/js/jquery.datepicker.js');
 
 //Plugins
@@ -37,6 +37,7 @@ $document->addScript('components/com_verplan/includes/js/plugins/timepicker.js')
 //$document->addScript('components/com_verplan/includes/js/plugins/ui.datetimepicker.js');
 /*http://haineault.com/media/jquery/ui-timepickr/page/*/
 //$document->addScript('components/com_verplan/includes/js/plugins/km.timepicker.js');
+$document->addScript('components/com_verplan/includes/js/plugins/jquery.form.js');
 
 /*http://haineault.com/media/jquery/ui-timepickr/page/*/
 $document->addScript('components/com_verplan/includes/js/plugins/jquery.timepickr.js');
@@ -108,7 +109,6 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 <br><br>
 
 <h3 id="options_header" class="expander plus">Optionen/Einstellungen</h3>
-
 <div id="admin_settings_div">
 	<?php 
 		//get settings
@@ -213,8 +213,24 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 	</form>
 	<br>
 	
+	</div>
 	
-	<?php 
+	
+	<h3 id="columns_header" class="expander plus">Spalten</h3>
+	<div id="admin_columns_div">
+
+
+	<dl id="system-message" class="ajaxresmess">
+		<dt class="message">Message</dt>
+		<dd class="message message fade">
+		<ul>
+			<li id="ajaxresponse"></li>
+		</ul>
+		</dd>
+	</dl>
+
+
+<?php 
 		//get settings
 		$columns = $this->columns;
 	?>
@@ -240,7 +256,7 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 					$id = $subarray[id];
 					
 					?>
-					<form name="columns" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">	
+					<form name="columns" id="columnsform" method="get" enctype="multipart/form-data" action="index.php?option=com_verplan">	
 					<?php
 						
 					foreach ($subarray as $heads => $value) {
@@ -272,11 +288,12 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 							<input type="submit" name="columns" class="columnsbutton" value="Speichern" />
 							<input type="reset" name="columns" class="columnsbutton" value="Reset" />
 						</td>
+						<input type="hidden" name="format" value="js" /> 
 
 						<!-- damit die Komponente wieder aufgerufen wird --> 
 						<input type="hidden" name="option" value="com_verplan" /> 
 						<!-- task laden (in verplanControllrsave_settings -->
-						<input type="hidden" name="task" value="setColumn" /> 
+						<input type="hidden" name="task" value="setColumnAjax" /> 
 						<input type="hidden" name="boxchecked" value="0" /> 
 						<!-- richtiger Controller -->
 						<input type="hidden" name="controller" value="columns" /> 

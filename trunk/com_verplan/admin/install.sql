@@ -53,7 +53,6 @@ CREATE TABLE `#__com_verplan_columns` (
 `name` TEXT NOT NULL ,
 `order` INT NOT NULL DEFAULT '9999',
 `published` BOOL NULL DEFAULT '0',
-`type` TEXT NULL COMMENT 'wie soll sortiert werden',
 `label` TEXT NULL COMMENT 'alternativer name'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
 
