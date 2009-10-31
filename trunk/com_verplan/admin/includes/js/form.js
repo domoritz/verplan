@@ -8,20 +8,36 @@
  */
 jQuery(document).ready(function(){
 	
+	/*UPLOAD*/
+	//ajax für dateiupload form
+	var options_0 = { 
+			target:        '#ajaxresponse_0',   // target element(s) to be updated with server response 
+			beforeSubmit:  showRequest,  // pre-submit callback 
+			success:       showResponse  // post-submit callback 
+	};
+	
 	// bind to the form's submit event 
     jQuery('#form_verplan').submit(function() { 
-        // inside event callbacks 'this' is the DOM element so we first 
-        // wrap it in a jQuery object and then invoke ajaxSubmit 
-        jQuery(this).ajaxSubmit(options); 
-        jQuery('.ajaxresmess_0').show('blind','normal').focus();
- 
-        // !!! Important !!! 
-        // always return false to prevent standard browser submit and page navigation 
-        return false; 
+        //falls ajax in dem select aktiviert ist, wird ajax verwendet, sonst wird man einfach weitergeleitet
+    	var ajax = jQuery('#select_ajax').val();
+    	alert (ajax);
+    	if (ajax == 'true') {
+    		// inside event callbacks 'this' is the DOM element so we first 
+            // wrap it in a jQuery object and then invoke ajaxSubmit 
+            jQuery(this).ajaxSubmit(options_0); 
+            jQuery('.ajaxresmess_0').show('blind','normal').focus();
+     
+            // !!! Important !!! 
+            // always return false to prevent standard browser submit and page navigation 
+            return false; 
+		} else {
+			return true;
+		}
+    	
     }); 
 	
 	
-
+    /*COLUMNS*/
 	//wenn daten geändert werden
 	jQuery('#columntable input').change(function() {
 		jQuery(this).parent().parent().addClass('highlight');
@@ -30,34 +46,20 @@ jQuery(document).ready(function(){
 	jQuery('#columntable select').change(function() {
 		jQuery(this).parent().parent().addClass('highlight');
 	});
+	
 
-	// ajax formular
+	// ajax formular für columns
 	// http://jquery.malsup.com/form/
-	var options = { 
-			target:        '#ajaxresponse',   // target element(s) to be updated with server response 
+	var options_2 = { 
+			target:        '#ajaxresponse_2',   // target element(s) to be updated with server response 
 			beforeSubmit:  showRequest,  // pre-submit callback 
 			success:       showResponse  // post-submit callback 
-
-			// other available options: 
-			//url:       url         // override for form's 'action' attribute 
-			//type:      type        // 'get' or 'post', override for form's 'method' attribute 
-			//dataType:  null        // 'xml', 'script', or 'json' (expected server response type) 
-			//clearForm: true        // clear all form fields after successful submit 
-			//resetForm: true        // reset the form after successful submit 
-
-			// $.ajax options can be used here too, for example: 
-			//timeout:   3000 
 	};
 	
 	// bind to the form's submit event 
     jQuery('#columnsform').submit(function() { 
-        // inside event callbacks 'this' is the DOM element so we first 
-        // wrap it in a jQuery object and then invoke ajaxSubmit 
-        jQuery(this).ajaxSubmit(options).parent().removeClass('highlight'); 
-        jQuery('.ajaxresmess_1').show('blind','normal').focus();
- 
-        // !!! Important !!! 
-        // always return false to prevent standard browser submit and page navigation 
+        jQuery(this).ajaxSubmit(options_2).parent().removeClass('highlight'); 
+        jQuery('.ajaxresmess_2').show('blind','normal').focus();
         return false; 
     }); 
 

@@ -7,15 +7,23 @@
  * @author      Created on 2-Oct-2009
  */
 jQuery(document).ready(function(){
-	//versteckt optionen
-	jQuery('#admin_settings_div').hide('');
+	//verstecke optionen
+	jQuery('#admin_options_div').hide('');
 	jQuery('#options_header').click(function() {
+		//wechsel des icons
+		jQuery('#admin_options_div').toggle('blind','slow');
+		jQuery(this).toggleClass('plus').toggleClass('minus');
+	});
+	
+	//versteckt einstellungen
+	jQuery('#admin_settings_div').hide('');
+	jQuery('#settings_header').click(function() {
 		//wechsel des icons
 		jQuery('#admin_settings_div').toggle('blind','slow');
 		jQuery(this).toggleClass('plus').toggleClass('minus');
 	});
 	
-	//versteckt optionen
+	//versteckt spalteneinstellungen
 	jQuery('#admin_columns_div').hide('');
 	jQuery('#columns_header').click(function() {
 		//wechsel des icons
