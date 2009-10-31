@@ -45,7 +45,11 @@
 	border-collapse: collapse;	
 }
 
-.ajaxresmess {
+.ajaxresmess_0 {
+	display: none;
+}
+
+.ajaxresmess_1 {
 	display: none;
 }
 

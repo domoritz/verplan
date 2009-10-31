@@ -31,6 +31,8 @@ class VerplanControllerSend extends verplanController
 
 		// Register Extra tasks
 		$this->registerTask('send','send');
+		global $msg;
+		$msg = 0;
 	}
 
 	/**
@@ -46,7 +48,7 @@ class VerplanControllerSend extends verplanController
 		//var_dump($file);
 
 		if (empty($file[name])) {
-			$msg = "keine Datei ausgewählt";
+			$msg .= "keine Datei ausgewählt";
 			$this->setRedirect( 'index.php?option=com_verplan', $msg );
 		} else {
 
@@ -92,7 +94,7 @@ class VerplanControllerSend extends verplanController
 				if (!JERROR::getError()) {
 					//Erfolg melden
 					//zu bebuggzwecken kann man dies auskommentieren und kann sich dann den ablauf ansehen
-					$msg = 'Senden und parsen erfolgreich';
+					$msg .= 'Senden und parsen erfolgreich';
 					$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 
@@ -110,10 +112,10 @@ class VerplanControllerSend extends verplanController
 				$stand_date = JRequest::getVar('stand', null);
 
 				if (empty($upload_arr[Geltungsdatum])) {
-					$msg = "Bitte Geltungsdatum angeben";
+					$msg .= "Bitte Geltungsdatum angeben";
 					$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				} elseif (empty($stand_date)) {
-					$msg = "Bitte Stand angeben";
+					$msg .= "Bitte Stand angeben";
 					$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				} else {
 
@@ -124,7 +126,7 @@ class VerplanControllerSend extends verplanController
 					$model->log_in_uploads($upload_arr);
 
 					if (!JERROR::getError()) {
-						$msg = "Senden erfolgreich, ohne DB";
+						$msg .= "Senden erfolgreich, ohne DB";
 						$this->setRedirect( 'index.php?option=com_verplan', $msg );
 					}
 				}
@@ -132,5 +134,15 @@ class VerplanControllerSend extends verplanController
 
 
 		}
+		
+		
+		//für ajax
+		$ajax = JRequest::getVar('ajax', false);
+		if ($ajax == 'true') {
+			echo "Ajax response: ".$msg;
+			$mainframe =& JFactory::getApplication(); 
+			$mainframe->close();
+		}		
+		
 	}
 }

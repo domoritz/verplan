@@ -52,6 +52,15 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 
 <h2>Upload</h2>
 
+<dl id="system-message" class="ajaxresmess_0">
+		<dt class="message">Message</dt>
+		<dd class="message message fade">
+		<ul>
+			<li id="ajaxresponse"></li>
+		</ul>
+		</dd>
+	</dl>
+
 <!-- bitte auf post lassen, da es sonst probleme mit doppelten "option" werten gibt-->
 <form id="form_verplan" name="upload" method="post" enctype="multipart/form-data"	action="index.php?option=com_verplan">
 	
@@ -90,6 +99,14 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 	
 	<!-- anzeige ohne template (praktisch für ajax) -->
 	<!--<input type="hidden" name="tmpl" value="component" />-->
+	
+	<!-- soll das ergebnis ohne template angezeigt werden? (für ajax)-->
+	<label for="ajax">ajax</label>
+	<select name="ajax">
+		<option>true</option>
+		<option>false</option>
+	</select>
+	<!-- <input type="hidden" name="ajax" value="false" /> -->
 		
 	<!-- sollen fehler in den regulaeren ausdrücken ignoriert werden? (empfohlen) --> 
 	<input type="hidden" name="ignore" value="true" /> 
@@ -97,8 +114,8 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 	<!-- damit die Komponente wieder aufgerufen wird --> 
 	<input type="hidden" name="option" value="com_verplan" /> 
 	<!-- task laden (in verplanControllrupload -->
-	<input type="hidden" name="task" value="send" /> 
-	<input type="hidden" name="boxchecked" value="0" /> 
+	<input type="hidden" name="task" value="send" />
+	<input type="hidden" name="boxchecked" value="0" />
 	<!-- richtiger Controller --> 
 	<input type="hidden" name="controller" value="send" /> 
 	<!-- die user ID (unnötig) -->
@@ -220,7 +237,7 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 	<div id="admin_columns_div">
 
 
-	<dl id="system-message" class="ajaxresmess">
+	<dl id="system-message" class="ajaxresmess_1">
 		<dt class="message">Message</dt>
 		<dd class="message message fade">
 		<ul>

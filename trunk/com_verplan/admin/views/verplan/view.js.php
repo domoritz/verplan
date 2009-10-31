@@ -27,7 +27,9 @@ class verplanViewVerplan extends JView
 		$order = JRequest::getVar('order');
 		$published = JRequest::getVar('published');
 		$label = JRequest::getVar('label');*/
+		
+		echo "test";
 
-		parent::display($tpl);
+		//parent::display($tpl);
 	}// function
 }// class
