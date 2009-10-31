@@ -33,8 +33,7 @@ class VerplanModelColumns extends JModel
 	}
 
 	/**
-	 * gibt ein assoziatives array mit allen einstellungen in der form
-	 * key=> zurueck
+	 * gibt ein assoziatives array mit allen spalten zurück
 	 * @return array
 	 */
 	function getColumns(){
@@ -70,8 +69,11 @@ class VerplanModelColumns extends JModel
 	}// function
 
 	/**
+	 * methode, zum speichern der spalte in die datenbank
+	 * es wird nur eine spalte gespeichert
 	 *
-	 * @return
+	 * @access	public
+	 * @return	boolean	True on success
 	 */
 	function setColumn($data){
 		//debug
@@ -86,7 +88,7 @@ class VerplanModelColumns extends JModel
 
 
 	/**
-	 * methode, zum speichern der einstellungen in die datenbank
+	 * nicht unterstützt
 	 *
 	 * @access	public
 	 * @return	boolean	True on success
@@ -95,7 +97,7 @@ class VerplanModelColumns extends JModel
 		//var_dump($data);
 
 		foreach ($data as $id => $subarray) {
-			$table =& $this->getTable();
+			$table =& $this->getTable('columns');
 			if (!$table->save($subarray)){
 				JError::raiseWarning( 500, $table->getError() );
 			}
@@ -103,5 +105,20 @@ class VerplanModelColumns extends JModel
 		
 		return true;
 
+	}
+	
+	/**
+	 * vergibt nummerierung für sortierung
+	 * http://docs.joomla.org/JTable/reorder
+	 * 
+	 * @return unknown_type
+	 */
+	function reorder() {
+		$table =& $this->getTable('columns');
+		if (!$table->reorder()){
+				JError::raiseWarning( 500, $table->getError() );
+		}
+		
+		return true;
 	}
 }

@@ -1,5 +1,7 @@
 <?php
 /**
+ * template inc plan hochladen
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}

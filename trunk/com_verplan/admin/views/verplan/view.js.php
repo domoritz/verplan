@@ -1,5 +1,7 @@
 <?php
 /**
+ * zur zeit keine funktion
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}

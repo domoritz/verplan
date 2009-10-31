@@ -1,5 +1,7 @@
 <?php
 /**
+ * tempalte des admin backends
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -29,6 +31,7 @@ $document->addStylesheet('components/com_verplan/includes/css/general.css');
 $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 $document->addScript('components/com_verplan/includes/js/form.js');
 $document->addScript('components/com_verplan/includes/js/jquery.datepicker.js');
+$document->addScript('components/com_verplan/includes/js/tables.js');
 
 //Plugins
 /*http://milesich.com/timepicker/*/
@@ -38,6 +41,7 @@ $document->addScript('components/com_verplan/includes/js/plugins/timepicker.js')
 /*http://haineault.com/media/jquery/ui-timepickr/page/*/
 //$document->addScript('components/com_verplan/includes/js/plugins/km.timepicker.js');
 $document->addScript('components/com_verplan/includes/js/plugins/jquery.form.js');
+$document->addScript('components/com_verplan/includes/js/plugins/jquery.tablesorter.js');
 
 /*http://haineault.com/media/jquery/ui-timepickr/page/*/
 $document->addScript('components/com_verplan/includes/js/plugins/jquery.timepickr.js');
