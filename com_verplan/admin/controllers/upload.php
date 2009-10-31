@@ -106,23 +106,6 @@ class VerplanControllerUpload extends verplanController
 	}
 
 	/**
-	 * gibt den String zwischen $start und $end zurueck
-	 *
-	 * @param $string
-	 * @param $start
-	 * @param $end
-	 * @return string
-	 */
-	function get_string_between($string, $start, $end) {
-		$string = " ".$string;
-		$ini = strpos($string,$start);
-		if ($ini == 0) return "";
-		$ini += strlen($start);
-		$len = strpos($string,$end,$ini) - $ini;
-		return substr($string,$ini,$len);
-	}
-
-	/**
 	 * wandelt die datei in ein array um (parsen) und übergibt das array an die methode zum speichern
 	 * bei fehlern werden meldungen ausgegeben
 	 *
@@ -208,12 +191,15 @@ class VerplanControllerUpload extends verplanController
 		//array in unix timestamp wandeln
 		$stand = mktime($stand_array[hour],$stand_array[minute],$stand_array[second],$stand_array[month],$stand_array[day],$stand_array[year]);
 
-		//debug
+		///*debug
+		echo '<br>==========<br>';
+		echo 'Stand<br>';
+		echo $standstring.'<br>';
 		setlocale(LC_TIME, "de_DE");
 		$format="Stand: %A %d.%m.%Y %H:%M";
 		$strf=strftime($format,$stand);
 		echo "$strf <br>";
-		//echo $standstring;
+		//*/
 
 
 		/*DATUM*/
@@ -235,11 +221,16 @@ class VerplanControllerUpload extends verplanController
 		//array in unix timestamp wandeln
 		$date = mktime($date_array[hour],$date_array[minute],$date_array[second],$date_array[month],$date_array[day],$date_array[year]);
 
-		//debug
+		
+		///*debug
+		echo '<br>==========<br>';
+		echo 'Geltungsdatum<br>';
+		echo $datestring.'<br>';
 		setlocale(LC_TIME, "de_DE");
 		$format="Date: %A %d.%m.%Y %H:%M";
 		$strf=strftime($format,$date);
 		echo "$strf <br>";
+		//*/
 
 
 		/*TABELLE*/
@@ -272,10 +263,11 @@ class VerplanControllerUpload extends verplanController
 		$path = JURI::base(true).$upload_dir.JFile::makeSafe($file['name']);
 		$upload_arr[url] = $path; //url zur hochgeladenen datei
 		
-		//debug
-		echo "===========";
+		///*debug
+		echo '<br>==========<br>';
+		echo 'Array für Uploads<br>';
 		var_dump($upload_arr);
-		echo "===========";
+		//*/
 		
 			
 		/*

@@ -128,7 +128,8 @@ class VerplanModelData extends JModel
 		$query = substr($query, 0, -1);
 		$query.=")\n VALUES";
 		for ($i = 1; $i < count($data); $i++) {
-			var_dump($data[$i]);
+			//debug
+			//var_dump($data[$i]);
 			$query.="\n(";
 
 			//die daten
@@ -143,9 +144,12 @@ class VerplanModelData extends JModel
 		//entfernt das letzte komma, damit die sql syntay valide ist
 		$query = substr($query, 0, -1);
 		$query.=";";
-
-		//debug
-		echo $query."\n";
+		
+		///*debug
+		echo '<br>==========<br>';
+		echo 'Datenbankquery<br>';
+		echo "<pre>".$query."\n</pre>";
+		//*/
 
 		//fuehrt befehl aus
 		$db->setQuery($query);

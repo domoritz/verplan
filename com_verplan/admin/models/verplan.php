@@ -28,7 +28,7 @@ class verplanModelverplan extends JModel
 	}// function
 	
 	function getLinkFrontpage(){
-		return 'Bitte gehe auf die <a target="_blank" href="../index.php?option=com_verplan" target="_blank">Frontpage</a>.';
+		return 'Zur <a target="_blank" href="../index.php?option=com_verplan" target="_blank">Frontpage</a>.';
 	}// function
 	
 }// class
