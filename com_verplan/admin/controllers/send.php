@@ -34,6 +34,8 @@ class VerplanControllerSend extends verplanController
 	}
 
 	/**
+	 * funktion, die den upload verarbeitet
+	 * hier werden die methoden des vertretungsplanes aufgerufen und 
 	 *
 	 * @return void
 	 */
@@ -83,6 +85,9 @@ class VerplanControllerSend extends verplanController
 
 			//falls es sich um eine datei handelt, die in die DB eigelesen werden kann
 			if (strpos($inhalt, "Untis")) {
+				
+				//umlaute austauschen
+				$controller->execute('umlaute');
 
 				//nun kann die datei geparst werden
 				$controller->execute('parse_file_to_array');
