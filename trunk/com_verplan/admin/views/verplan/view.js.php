@@ -1,6 +1,6 @@
 <?php
 /**
- * zur zeit keine funktion
+ * anzeige für ajax
  * 
  * @version		$Id$
  * @package		verplan
@@ -22,14 +22,17 @@ jimport( 'joomla.application.component.view');
  */
 class verplanViewVerplan extends JView
 {
-	function display($tpl = null)
+	function display($tpl = ajax)
 	{
 		/*$id = JRequest::getVar('id');
 		$name = JRequest::getVar('name');
 		$order = JRequest::getVar('order');
 		$published = JRequest::getVar('published');
 		$label = JRequest::getVar('label');*/
+		
+		$msg = JRequest::getVar('msg');
+		$this->assignRef('msg', $msg);
 
-		//parent::display($tpl);
+		parent::display($tpl);
 	}// function
 }// class

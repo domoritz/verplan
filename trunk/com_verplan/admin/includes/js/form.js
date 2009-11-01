@@ -13,8 +13,7 @@ jQuery(document).ready(function(){
 	var options_0 = { 
 			target:        '#ajaxresponse_0',   // target element(s) to be updated with server response 
 			url: 'index.php?option=com_verplan',
-			beforeSubmit:  showRequest,  // pre-submit callback 
-			success:       showResponse  // post-submit callback 
+			success:       showResponse_0  // post-submit callback 
 	};
 
 	// bind to the form's submit event 
@@ -24,10 +23,10 @@ jQuery(document).ready(function(){
 		//alert (ajax);
 		if (ajax == 'true') {
 			// inside event callbacks 'this' is the DOM element so we first 
-			// wrap it in a jQuery object and then invoke ajaxSubmit 
+			// wrap it in a jQuery object and then invoke ajaxSubmit
+			jQuery('#ajax_indicator_0').show();
 			jQuery(this).ajaxSubmit(options_0); 
-			jQuery('.ajaxresmess_0').show('blind','normal').focus();
-
+			
 			// !!! Important !!! 
 			// always return false to prevent standard browser submit and page navigation 
 			return false; 
@@ -35,29 +34,42 @@ jQuery(document).ready(function(){
 			return true;
 		}
 
-	}); 
+	});
+	
+	//post-submit callback 
+	function showResponse_0(responseText, statusText)  { 
+		jQuery('.ajaxresmess_0').show('blind','normal').focus();
+		jQuery('#ajax_indicator_0').fadeOut('slow');
+	} 
+	
+	
 
 	/*SETTINGS*/
 	//ajax für einstellungen form
 	var options_1 = { 
 			target:        '#ajaxresponse_1',   // target element(s) to be updated with server response 
 			url: 'index.php?option=com_verplan&ajax=true',
-			beforeSubmit:  showRequest,  // pre-submit callback 
-			success:       showResponse  // post-submit callback 
+			success:       showResponse_1  // post-submit callback 
 	};
 
 	// bind to the form's submit event 
 	jQuery('#settings_form').submit(function() {
 		var ajax = jQuery('#select_ajax').val();
 		if (ajax == 'true') {
+			jQuery('#ajax_indicator_1').show();
 			jQuery(this).ajaxSubmit(options_1);
-			jQuery('.ajaxresmess_1').show('blind','normal').focus();
 
 			return false;
 		} else {
 			return true;
 		}
-	}); 
+	});	
+	
+	//post-submit callback 
+	function showResponse_1(responseText, statusText)  { 
+		jQuery('.ajaxresmess_1').show('blind','normal').focus();
+		jQuery('#ajax_indicator_1').fadeOut('slow');
+	} 
 
 
 	/*COLUMNS*/
@@ -76,58 +88,27 @@ jQuery(document).ready(function(){
 	var options_2 = { 
 			target:        '#ajaxresponse_2',   // target element(s) to be updated with server response 
 			url: 'index.php?option=com_verplan&ajax=true',
-			beforeSubmit:  showRequest,  // pre-submit callback 
-			success:       showResponse  // post-submit callback 
+			success:       showResponse_2  // post-submit callback 
 	};
 
 	// bind to the form's submit event 
 	jQuery('#columnsform').submit(function() { 
 		var ajax = jQuery('#select_ajax').val();
 		if (ajax == 'true') {
+			jQuery('#ajax_indicator_2').show();
 			jQuery(this).ajaxSubmit(options_2).parent().removeClass('highlight'); 
-			jQuery('.ajaxresmess_2').show('blind','normal').focus();
 			
 			return false;
 		} else {
 			return true;
 		}
 	}); 
+	
+	//post-submit callback 
+	function showResponse_2(responseText, statusText)  {
+		
+		jQuery('.ajaxresmess_2').show('blind','normal').focus();
+		jQuery('#ajax_indicator_2').fadeOut('slow');
+	} 
 
 });
-
-
-//pre-submit callback 
-function showRequest(formData, jqForm, options) { 
-	// formData is an array; here we use $.param to convert it to a string to display it 
-	// but the form plugin does this for you automatically when it submits the data 
-	var queryString = $.param(formData); 
-
-	// jqForm is a jQuery object encapsulating the form element.  To access the 
-	// DOM element for the form do this: 
-	// var formElement = jqForm[0]; 
-
-	//alert('About to submit: \n\n' + queryString); 
-
-	// here we could return false to prevent the form from being submitted; 
-	// returning anything other than false will allow the form submit to continue 
-	return true; 
-} 
-
-//post-submit callback 
-function showResponse(responseText, statusText)  { 
-	// for normal html responses, the first argument to the success callback 
-	// is the XMLHttpRequest object's responseText property 
-
-	// if the ajaxForm method was passed an Options Object with the dataType 
-	// property set to 'xml' then the first argument to the success callback 
-	// is the XMLHttpRequest object's responseXML property 
-
-	// if the ajaxForm method was passed an Options Object with the dataType 
-	// property set to 'json' then the first argument to the success callback 
-	// is the json data object returned by the server 
-
-	// alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
-	//     '\n\nThe output div should have already been updated with the responseText.'); 
-
-	//jQuery('.ajaxresmess').show('blind','normal').focus();
-} 

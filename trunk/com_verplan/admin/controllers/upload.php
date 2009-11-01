@@ -34,6 +34,10 @@ class VerplanControllerUpload extends verplanController
 		$this->registerTask('parse_file_to_array','parse_file_to_array');
 	}
 
+	public $inhalt;
+	public $file;
+	public $data;
+
 	/**
 	 * lädt den die vertretungsplandatei hoch
 	 * @return void
@@ -50,7 +54,7 @@ class VerplanControllerUpload extends verplanController
 		$ignore = JRequest::getVar('ignore',false);
 
 		//get filetype information
-		$settingsmodel = $this->getModel('settings');		
+		$settingsmodel = $this->getModel('settings');
 		$allowed_filetypes_string = $settingsmodel->getSetting('allowed_filetypes');
 		$allowed_filetypes = explode(",",$allowed_filetypes_string);
 
@@ -68,7 +72,7 @@ class VerplanControllerUpload extends verplanController
 		$upload_dir_comp = $settingsmodel->getSetting('upload_dir_comp');
 		//$upload_dir_comp = "uploads";
 		$dest = JPATH_COMPONENT . DS . $upload_dir_comp . DS . $filename;
-		
+
 		//bestimmungsort
 		$file[dest] = $dest;
 
@@ -80,6 +84,10 @@ class VerplanControllerUpload extends verplanController
 					 * Erfolg melden, upload erfolgreich
 					 * es wird true an den controller sent zurückgegeben, welcher nun weiter verfährt
 					 */
+					//speichere file in class variable
+					$this->file = $file;
+						
+					//rückgabewert
 					return ($file);
 				} else {
 					//Redirect and throw an error message
@@ -106,19 +114,63 @@ class VerplanControllerUpload extends verplanController
 	}
 
 	/**
-	 * wandelt die datei in ein array um (parsen) und übergibt das array an die methode zum speichern
+	 * wandelt umlaute in inhalt um
+	 * 
+	 */
+	function umlaute() {
+		//html verbessern, umlaute austauschen
+		$this->inhalt = str_replace("ß", "&szlig;", $this->inhalt, $count);
+		$this->inhalt = str_replace("ä", "&auml;", $this->inhalt, $count);
+		$this->inhalt = str_replace("ö", "&ouml;", $this->inhalt, $count);
+		$this->inhalt = str_replace("ü", "&uuml;", $this->inhalt, $count);
+
+		$this->inhalt = str_replace("Ä", "&Auml;", $this->inhalt, $count);
+		$this->inhalt = str_replace("Ö", "&Ouml;", $this->inhalt, $count);
+		$this->inhalt = str_replace("Ü", "&Uuml;", $this->inhalt, $count);
+		
+		
+		///*debug
+		echo '<br>==========<br>';
+		echo 'Umlaute ausgetauscht<br>';
+		//*/
+	}
+	
+	/**
+	 * liest die datei in die variable inhalt ein
+	 * 
+	 */
+	function einlesen() {
+		$file = $this->file;
+		
+		//öffnet die datei
+		$FileHandle = fopen($file[dest], "r" ) ;
+		//größe, wichtig für lesen
+		$n = $file[size];
+		//leißt bis zur größe ein
+		$inhalt = fread( $FileHandle , $n ) ;
+		//schleißt die datei wieder
+		fclose( $FileHandle ) ;
+		
+		//inhalt in class variable speichern
+		$this->inhalt = $inhalt;
+	}
+
+
+	/**
+	 * wandelt die datei in ein array um (parsen)
 	 * bei fehlern werden meldungen ausgegeben
 	 *
 	 * @param $filename
 	 * @return array
 	 */
-	function parse_file_to_array($file) {
-		
-		//Dateiinhalt der plandatei laden
-		$FileHandle = fopen($file[dest], "r" ) ;
-		$n = $file[size] ;
-		$inhalt = fread( $FileHandle , $n ) ;
-		fclose( $FileHandle ) ;
+	function parse_file_to_array() {
+		//variable file aus klasse
+		$file = $this->file;
+
+		//variable inhalt aus klasse
+		$inhalt = $this->inhalt;
+
+		$this->umlaute();
 
 		//extractor, parser
 		/*
@@ -128,7 +180,7 @@ class VerplanControllerUpload extends verplanController
 		*/
 		require_once("components/com_verplan/includes/js-extractor_0.1.1/library/JS/Extractor.php");
 		//neue instanz des Extractors
-		$extractor = new JS_Extractor($inhalt);
+		$extractor = new JS_Extractor($this->inhalt);
 		$body = $extractor->query("body")->item(0);
 		$table = $body->query("//table")->item(0);
 
@@ -154,11 +206,11 @@ class VerplanControllerUpload extends verplanController
 		* regulaerer ausdruck: Stand: dann zeichen dann Uhrzeit mit :,
 		* U=ungreedy
 		* */
-		
-		$settingsmodel = $this->getModel('settings');		
+
+		$settingsmodel = $this->getModel('settings');
 		$pattern = $settingsmodel->getSetting('pattern_stand');
 		//$pattern = '/Stand:.*:[0-5][0-9]/U';
-		if(preg_match_all($pattern,$inhalt,$matches)){
+		if(preg_match_all($pattern,$this->inhalt,$matches)){
 			//falls es mehr als zwei treffer gibt, sollte es eine fehlermeldung geben
 			if($matches[1] && !$ignore){
 				//debug
@@ -183,7 +235,7 @@ class VerplanControllerUpload extends verplanController
 		//strip "Stand:"
 		$standstring = substr($standstring,0);
 
-		//Datumsformat parsen !!ACHTUNG, benoetigt >= PHP 5.3!!		
+		//Datumsformat parsen !!ACHTUNG, benoetigt >= PHP 5.3!!
 		$format = $settingsmodel->getSetting('format_stand');
 		//$format = "d.m.Y H:i";
 		$stand_array = date_parse_from_format($format, $standstring);
@@ -221,7 +273,7 @@ class VerplanControllerUpload extends verplanController
 		//array in unix timestamp wandeln
 		$date = mktime($date_array[hour],$date_array[minute],$date_array[second],$date_array[month],$date_array[day],$date_array[year]);
 
-		
+
 		///*debug
 		echo '<br>==========<br>';
 		echo 'Geltungsdatum<br>';
@@ -252,7 +304,7 @@ class VerplanControllerUpload extends verplanController
 			
 		$date = date( 'Y-m-d H:i:s', $date );
 		$stand = date( 'Y-m-d H:i:s', $stand );
-		
+
 		$upload_dir = $settingsmodel->getSetting('upload_dir');
 		//$upload_dir = "/components/com_verplan/uploads/";
 			
@@ -262,13 +314,13 @@ class VerplanControllerUpload extends verplanController
 		$upload_arr[type] = 'db'; //typ, hier datenbank
 		$path = JURI::base(true).$upload_dir.JFile::makeSafe($file['name']);
 		$upload_arr[url] = $path; //url zur hochgeladenen datei
-		
+
 		///*debug
 		echo '<br>==========<br>';
 		echo 'Array für Uploads<br>';
 		var_dump($upload_arr);
 		//*/
-		
+
 			
 		/*
 		 * hier wird das model aufgerufen und die tabelle mit den uploads wird beschrieben.
@@ -304,16 +356,31 @@ class VerplanControllerUpload extends verplanController
 
 		//debug
 		//var_dump($data);
+		
+		//speichert data in class variable
+		$this->data = $data;
 
 
+		//gibt array data zurück
+		return $data;
+	}
+
+
+	/**
+	 * methode zum speichern der daten in der datenbank
+	 * es wird an das model weitergegeben
+	 * 
+	 * @return unknown_type
+	 */
+	function store() {
 		/*
 		 * an dieser stelle wird das model data aufgerufen und die methode
 		 * store mit dem array des vertretungsplanes als uebergabewert aufgerufen
 		 *
 		 * das array enthält alle daten, des planes inklusive einer id für datum und stand
 		 */
-		//$model->store($data);
-		return $data;
+		$model = $this->getModel('data');
+		$model->store($this->data);
 	}
 
 }

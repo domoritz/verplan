@@ -21,6 +21,24 @@
 	margin-left: 10px;
 }
 
+#ajax_indicator_0 {
+	display: none;
+	color: transparent;
+	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
+}
+
+#ajax_indicator_1 {
+	display: none;
+	color: transparent;
+	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
+}
+
+#ajax_indicator_2 {
+	display: none;
+	color: transparent;
+	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
+}
+
 /*Admintabelle*/
 .admin_table td {
 	padding: 3px;

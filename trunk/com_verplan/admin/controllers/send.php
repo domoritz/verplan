@@ -31,8 +31,6 @@ class VerplanControllerSend extends verplanController
 
 		// Register Extra tasks
 		$this->registerTask('send','send');
-		global $msg;
-		$msg = null;
 	}
 
 	/**
@@ -65,56 +63,50 @@ class VerplanControllerSend extends verplanController
 			$name = 'upload';
 			require_once(JPATH_COMPONENT.DS.'controllers'.DS.$name.'.php');
 
+			//instanz des controllers wird erzeugt
 			$controllerName = verplanController.ucfirst($name);
 			$controller = new $controllerName();
 
 			//datei hochladen (methode upload in controller upload)
-			$file = $controller->execute('upload');
+			$controller->execute('upload');
+			$file = $controller->file;
 
 			///*debug
 			echo '<br>==========<br>';
-			echo 'Fileinfos nach Upload<br>';
-			var_dump($file);
+			echo 'Fileinfos nach upload und vor einlesen<br>';
+			var_dump($controller->file);
 			//*/
 			
-
-			//Dateiinhalt der plandatei aus temp laden
-			$FileHandle = fopen($file[dest], "r" ) ;
-			$n = $file[size];
-			$inhalt = fread( $FileHandle , $n ) ;
-			fclose( $FileHandle ) ;
+			//inhalt einlesen
+			$controller->execute('einlesen');
+			$inhalt = $controller->inhalt;
 
 			//falls es sich um eine datei handelt, die in die DB eigelesen werden kann
 			if (strpos($inhalt, "Untis")) {
 
 				//nun kann die datei geparst werden
-				$data = $controller->parse_file_to_array($file);
+				$controller->execute('parse_file_to_array');
 
 				///*debug
 				echo '<br>==========<br>';
 				echo 'nach Parsen<br>';
-				var_dump($data);
+				var_dump($controller->data);
 				//*/
 
 
 				//und dann werden die daten noch gespeichert
-				/*
-				* an dieser stelle wird das model data aufgerufen und die methode
-				* store mit dem array des vertretungsplanes als uebergabewert aufgerufen
-				*
-				* das array enthält alle daten, des planes inklusive einer id für datum und stand
-				*/
-				$model = $this->getModel('data');
-				$model->store($data);
+				$controller->execute('store');
 
 				if (!JERROR::getError()) {
 					//Erfolg melden
 					//zu bebuggzwecken kann man dies auskommentieren und kann sich dann den ablauf ansehen
-					$msg .= 'Senden und parsen erfolgreich';
+					$msg .= "Senden und parsen erfolgreich";
 					$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 
 			} else {
+				//falls es sich nicht um eine parsbare datei handelt
+				
 				//var_dump(JURI::base(true));
 				$path = JURI::base(true)."/components/com_verplan/uploads/".JFile::makeSafe($file['name']);
 
@@ -163,9 +155,8 @@ class VerplanControllerSend extends verplanController
 				$mainframe =& JFactory::getApplication();
 				$mainframe->close();
 		} elseif ($ajax == 'true') {
-				echo "Ajax response: ".$msg;
-				$mainframe =& JFactory::getApplication();
-				$mainframe->close();
+				//weiterreichen an ajax view/template
+				$this->setRedirect( "index.php?option=com_verplan&format=js&msg=$msg", $msg);
 		}
 
 	}
