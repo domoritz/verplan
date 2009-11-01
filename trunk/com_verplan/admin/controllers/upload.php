@@ -114,24 +114,28 @@ class VerplanControllerUpload extends verplanController
 	}
 
 	/**
-	 * wandelt umlaute in inhalt um
+	 * wandelt umlaute in inhalt um, diese funktion muss nocheinmal 
+	 * anhand richtiger daten überprüft werden
 	 * 
 	 */
 	function umlaute() {
-		//html verbessern, umlaute austauschen
-		$this->inhalt = str_replace("ß", "&szlig;", $this->inhalt, $count);
-		$this->inhalt = str_replace("ä", "&auml;", $this->inhalt, $count);
-		$this->inhalt = str_replace("ö", "&ouml;", $this->inhalt, $count);
-		$this->inhalt = str_replace("ü", "&uuml;", $this->inhalt, $count);
-
-		$this->inhalt = str_replace("Ä", "&Auml;", $this->inhalt, $count);
-		$this->inhalt = str_replace("Ö", "&Ouml;", $this->inhalt, $count);
-		$this->inhalt = str_replace("Ü", "&Uuml;", $this->inhalt, $count);
 		
+		//$this->inhalt = iconv("UTF-8", "ISO-8859-1//TRANSLIT", $this->inhalt);
+		
+		$countt = 0;
+		
+		//umlaute austauschen
+		$umlaute = array("ä", "ö", "ü","Ä","Ö","Ü","ß","~","&nbsp;");
+		$expressions = array("&auml;", "&ouml;", "&uuml;","&Auml;","&Ouml;","&Uuml;","&szlig;","&#126;"," ");
+		
+		for ($i = 0; $i < count($umlaute); $i++) {
+			$this->inhalt = str_replace($umlaute[$i], $expressions[$i], $this->inhalt, $count);
+			$countt += $count;
+		}
 		
 		///*debug
 		echo '<br>==========<br>';
-		echo 'Umlaute ausgetauscht<br>';
+		echo "$countt Umlaute ausgetauscht<br>";
 		//*/
 	}
 	
@@ -169,8 +173,6 @@ class VerplanControllerUpload extends verplanController
 
 		//variable inhalt aus klasse
 		$inhalt = $this->inhalt;
-
-		$this->umlaute();
 
 		//extractor, parser
 		/*
