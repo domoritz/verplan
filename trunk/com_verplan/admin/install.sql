@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `#__com_verplan_columns`;
 CREATE TABLE `#__com_verplan_columns` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `name` TEXT NOT NULL ,
-`ordering` INT NOT NULL AUTO_INCREMENT,
+`ordering` INT NOT NULL comment 'sortierung',
 `published` BOOL NULL DEFAULT '0',
 `label` TEXT NULL COMMENT 'alternativer name'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
