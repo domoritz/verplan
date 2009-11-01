@@ -11,7 +11,7 @@
  */
 ?>
 
-<h3 id="columns_header" class="expander plus">Spalten</h3>
+<h3 id="columns_header" class="expander plus">Spalten<span id="ajax_indicator_2">loading...</span></h3>
 <div id="admin_columns_div">
 
 

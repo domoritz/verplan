@@ -11,7 +11,7 @@
  */
 ?>
 
-<h2>Upload</h2>
+<h2>Upload<span id="ajax_indicator_0">loading...</span></h2>
 
 <dl id="system-message" class="ajaxresmess_0">
 		<dt class="message">Message</dt>
