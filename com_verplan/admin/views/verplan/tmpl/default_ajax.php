@@ -14,15 +14,16 @@
 defined('_JEXEC') or die('=;)');
 ?>
 
-<?php $msg = $this->msg;?>
+<?php 
+	//variable holen
+	$msg = $this->msg;
+?>
 
 Ajax response: <?php echo $msg;?>
 
-
 <?php 
-/*
-//anzeige ohne template (praktisch für ajax)
+/*anzeige ohne template (praktisch für ajax)
 $mainframe =& JFactory::getApplication('site'); 
 $mainframe->close();
-*/
+//*/
 ?>

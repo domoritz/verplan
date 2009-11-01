@@ -30,7 +30,12 @@ class verplanViewVerplan extends JView
 		$published = JRequest::getVar('published');
 		$label = JRequest::getVar('label');*/
 		
+		//leert den buffer, damit nicht bei einem reload eine nachricht angezeigt wird
+		$doc =& JDocument::getInstance('html');
+		$msg = $doc->getBuffer('message');
+		
 		$msg = JRequest::getVar('msg');
+		
 		$this->assignRef('msg', $msg);
 
 		parent::display($tpl);
