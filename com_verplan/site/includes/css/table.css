@@ -52,6 +52,7 @@
 #jquerytable thead tr {
 	border-left: none;
 	border-right: none;
+	border-bottom: 1px;
 }
 
 #jquerytable th {
