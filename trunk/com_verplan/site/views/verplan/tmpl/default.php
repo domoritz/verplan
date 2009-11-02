@@ -66,36 +66,24 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	<div id="selectrahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
 		<span class="ui-state-default" style="border: none;">
 		<label for="select_date"></label> 
-		<select size="1" id="select_date" name="date">
-			<?php
+		
+		<?php 
 			$dates = $this->dates;
-			foreach ($dates as $key => $value) {
+			$which = $this->which;			
+		?>		
+		
+		<select size="1" id="select_date" name="date">
+			<?php			
+			for ($i = 0; $i < 3; $i++) {				
 				
-				//timestamp des geltungsdatums
-				$timestamp = strtotime($value);
+				//geltungsdatum
+				$date = strtotime($dates[$i]);
+				$date_date = date( 'Y-m-d', $date);
 				
-				//datums value, die zeit ist egal
-				$date_value = date( 'Y-m-d', $timestamp);
+				//falls diese option gleich die gewählte ist
+				$selected = $i == $which;			
 				
-				$selected = false;
-				
-				/*
-				 * falls nicht ein datum über dei url gewählt wurde, soll 
-				 * das datum des folgetages angezeigt werden
-				 */
-				if ($this->date == 'none'){
-					//morgiges datum autom auswählen
-					$date_of_timestamp = mktime(0, 0, 0, date("m",$timestamp)  , date("d",$timestamp), date("Y",$timestamp));
-					$now = time();
-					$tomorrow  = mktime(0, 0, 0, date("m",$now)  , date("d",$now)+1, date("Y",$now));
-					//wenn das geltungsdatum morgen ist
-					$selected = ($tomorrow == $date_of_timestamp);
-				} elseif ($date_value == $this->date){
-					//falls das ausgewählte datum der url mit dem geltungsdatum übereinstimmt
-					$selected = true;
-				}
-				
-				echo '<option value="'.$date_value.'"';
+				echo "<option value=\"$date_date\"";
 				//php Ternary Operator
 				print ($selected ? ' selected="selected" id="selected">' : '>');	
 				
@@ -110,10 +98,12 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 				 */						
 				setlocale(LC_TIME, "de_DE");		
 				$format="<b>%A</b> %d.%m.%Y";
-				$label= strftime($format,$timestamp);		
+				$label= strftime($format,$date);		
 				echo $label;
-				echo '</option>';
-			}	
+				
+				echo "</option>";
+				
+			}
 			?>
 		</select>
 		</span>
