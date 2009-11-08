@@ -117,19 +117,27 @@
 #jquerytable tbody tr {
 	border-left: none;
 	border-right: none;
-	border-bottom: 1px solid #d4d4d4;
+	/*border-bottom: 1px solid #d4d4d4;*/
+	border-bottom: 1px solid #EEEEEE;
 }
 
+
 #jquerytable tr.odd { 
-	background-color: #e1e1e1;
+	/*background-color: #e1e1e1;*/
+	background-color: #eee;
 }
 
 #jquerytable tr.even { 
-	background-color: #e8e8e8;
+	/*background-color: #e8e8e8;*/
+	background-color: #fff;
 }
 
 #jquerytable tr.marked { 
 	
+}
+
+.state-hover { 
+	background-color: #ddd !important;
 }
 
 #jquerytable tbody tr td {

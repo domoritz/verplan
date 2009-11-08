@@ -16,7 +16,6 @@ jQuery(document).ready(function() {
 	        color: '#333'
 	    } , 
 		width: 200,	   
-	    textAlign: 'center',
 	    tip: 'bottomLeft',
 	    name: 'dark' // Inherit the rest of the attributes from the preset dark style
 	};
@@ -100,5 +99,34 @@ jQuery(document).ready(function() {
 			textAlign: 'left'
 		}
 	});
+	
+	
+	//feedback
+	jQuery('#feedy').qtip( {
+		content : 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <strong>Feedback</strong> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
+		show : 'focus',
+		hide : 'click',
+		position : {
+			corner : {
+				target : 'bottomMiddle',
+				tooltip : 'topMiddle'
+			}
+		},
+		style : {
+			name: 'domstyle',
+			background: '#A00000',
+			color: '#fff',
+			textAlign: 'left',
+			padding: 5,
+		    border: {
+		        width: 4,
+		        radius: 5,
+		        color: '#A00000'
+		    } , 
+			width: 220,	  
+			tip: 'topMiddle'
+		}
+	});
+	jQuery('#feedy').focus();
 
 });
