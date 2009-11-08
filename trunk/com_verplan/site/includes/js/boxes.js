@@ -8,5 +8,6 @@
  */
 
 jQuery(document).ready(function(){
+	//http://www.no-margin-for-errors.com/projects/prettyPhoto-jquery-lightbox-clone/#themes
 	jQuery("a[rel^='prettyPhoto']").prettyPhoto();
 });

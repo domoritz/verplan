@@ -31,7 +31,8 @@ VALUES
 (NULL , 'format_date', 'j.n.Y w', 'j.n.Y w'),
 (NULL , 'pattern_plan', '//table[@class=\'mon_list\']', '//table[@class=\'mon_list\']'),
 (NULL , 'upload_dir_comp', 'uploads', 'uploads'),
-(NULL , 'upload_dir', '/components/com_verplan/uploads/', '/components/com_verplan/uploads/');
+(NULL , 'upload_dir', '/components/com_verplan/uploads/', '/components/com_verplan/uploads/'),
+(NULL , 'number_show', '3', '3');
 
 
 

@@ -92,7 +92,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		
 		<select size="1" id="select_date" name="date">
 			<?php			
-			for ($i = 0; $i < 3; $i++) {				
+			for ($i = 0; $i < count($dates); $i++) {				
 				
 				//geltungsdatum
 				$date = strtotime($dates[$i]);

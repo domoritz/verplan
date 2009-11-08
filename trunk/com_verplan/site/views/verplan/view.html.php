@@ -92,7 +92,9 @@ class verplanViewverplan extends JView
 		 * 
 		 * gleichzeitig wird das datum in das richtige format überführt
 		 */
-		$anzahl = 3;
+		$settingsmodel = JModel::getInstance('Settings', 'VerplanModel');
+		$number_show = $settingsmodel->getSetting('number_show');
+		$anzahl = $number_show;
 		for ($i = 0, $o = 0; $i < count($dates) && $o < $anzahl; $i++, $o++) {
 			$timestamp = strtotime($dates[$i]);
 			if ($timestamp > $now) {
