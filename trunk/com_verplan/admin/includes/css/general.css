@@ -7,13 +7,19 @@
  * @author      Created on 14-Sep-2009
  */
  
+#logo_verplan {
+	margin-right: 20px;
+	margin-left: 10px;
+	float: left;
+}
+ 
 .uploadbutton {
 	font-weight: bold;
 	font-size: 1.2em;
 }
 
 .ui-datepicker-trigger {
-	margin-left: 5px;	
+	margin-left: 5px;
 }
 
 #datepicker_stand_time {
@@ -24,7 +30,7 @@
 #ajax_indicator_0 {
 	display: none;
 	color: transparent;
-	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
+	background: transparent url(../images/ajax-loader.gif) no-repeat 50% center;
 }
 
 #ajax_indicator_1 {

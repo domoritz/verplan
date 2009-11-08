@@ -67,7 +67,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 <!-- -->
 
 <div>
-	<img alt="logo" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview.png" id="logo"/>
+	<img alt="logo vertretungsplan" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
 	<p style="">
 	
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
