@@ -12,6 +12,14 @@
 	max-width: 100%;
 }
 
+/*header*/
+
+#logo {
+	margin-right: 20px;
+	margin-left: 10px;
+	float: left;
+}
+
 #selectrahmen {
 	padding: 0.5em;
 }
@@ -38,6 +46,18 @@
 	height: 32px;
 	float:right;
 	background: transparent url(../images/ajax-loader-3d_26.gif) no-repeat 50%	center;
+}
+
+#loader_overlay {
+	display: hidden;
+	position: absolute;
+	top: 400px;
+	left: 50%;
+	align: center;
+	height: 100px;
+	width: 150px;
+	background: #fff url(../images/ajax-loader-spin_32.gif) 50% 50% no-repeat;
+	border: 3px solid #999;
 }
 
 

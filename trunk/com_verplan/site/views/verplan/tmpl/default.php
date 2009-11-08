@@ -20,7 +20,9 @@ $document->addStylesheet('components/com_verplan/includes/css/general.css');
 $document->addStylesheet('components/com_verplan/includes/css/table.css');
 $document->addStylesheet('components/com_verplan/includes/css/jquery.kiketable.colsizable.css');
 $document->addStylesheet('components/com_verplan/includes/css/ui.selectmenu.css');
-$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
+$document->addStylesheet('components/com_verplan/includes/css/prettyPhoto.css');
+//$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
+$document->addStylesheet($this->baseurl.'/components/com_verplan/includes/theme/jquery-ui-1.7.2.custom.css');
 
 /*
  * scripts
@@ -42,6 +44,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/hide_options.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ui.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/boxes.js');
 
 //plugins
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.tablesorter.min.js');
@@ -53,6 +56,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.qtip-1.0.0-rc3.min.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/ui.selectmenu.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/themeswitchertool.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jQuery.prettyPhoto.js');
 
 //$document->addScript('http://www.google.com/jsapi');
 //$document->addScript($this->baseurl.'/components/com_verplan/includes/js/googletable.js');
@@ -61,6 +65,20 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 ?>
 
 <!-- -->
+
+<div>
+	<img alt="logo" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview.png" id="logo"/>
+	<p style="">
+	
+		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
+		Weitere Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
+		Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=45em%&height=100%">Feedback</a>!
+	</p>
+	<br>
+</div>
+
+
+
 <form id="verplan_form" class="full_width ui-helper-clearfix" name="upload" method="get" enctype="multipart/form-data"	action="index.php">
 
 	<div id="selectrahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
@@ -109,9 +127,9 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 		</span>
 		
 		<!-- Indikator alternativ für platzhalter: ui-widget-content-->
-		<span id="load_platzhalter" class="ui-corner-all">
+		<!--<span id="load_platzhalter" class="ui-corner-all">
 			<span id="loading">&nbsp;</span>
-		</span>	
+		</span>-->
 
 	
 	</div>
@@ -193,6 +211,9 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 	<div class="left">Vertretungsplan</div>
 	<div id="ui_themeswitcher"></div>
 </div>
+
+<div id="loader_overlay"></div>
+
 <table id="jquerytable" class="ui-widget full_width">
 	<colgroup>
 		<?php

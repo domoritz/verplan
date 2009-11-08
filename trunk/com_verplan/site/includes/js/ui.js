@@ -15,8 +15,23 @@ function show_hint(head, text) {
 
 jQuery(document).ready(function(){ 
 	jQuery('#ui_themeswitcher').themeswitcher({
-		width: 200
+		width: 200,
+		initialText: 'Theme wechseln'
+		//loadTheme: 'ui-darkness'
 	}); 
+	
+	jQuery('#ui_themeswitcher').append(''); 
+	
+	
+	/*
+	<li>
+    	<a href="?ffDefault=Trebuchet+MS...[full theme path]">
+      	<img src="theme image" alt="UI Lightness" title="UI Lightness" /
+
+      	<span class="themeName">UI lightness</span>
+    	</a>
+ 	</li>
+	 */
 	
 	/*
 	 * selectmenu plugin
