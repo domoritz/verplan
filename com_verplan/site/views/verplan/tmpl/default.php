@@ -21,8 +21,8 @@ $document->addStylesheet('components/com_verplan/includes/css/table.css');
 $document->addStylesheet('components/com_verplan/includes/css/jquery.kiketable.colsizable.css');
 $document->addStylesheet('components/com_verplan/includes/css/ui.selectmenu.css');
 $document->addStylesheet('components/com_verplan/includes/css/prettyPhoto.css');
-//$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
-$document->addStylesheet($this->baseurl.'/components/com_verplan/includes/theme/jquery-ui-1.7.2.custom.css');
+$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
+//$document->addStylesheet($this->baseurl.'/components/com_verplan/includes/theme/jquery-ui-1.7.2.custom.css');
 
 /*
  * scripts
