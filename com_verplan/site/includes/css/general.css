@@ -49,7 +49,7 @@
 }
 
 #loader_overlay {
-	display: hidden;
+	display: none;
 	position: absolute;
 	top: 400px;
 	left: 50%;
