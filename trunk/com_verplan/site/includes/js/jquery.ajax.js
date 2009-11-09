@@ -20,7 +20,7 @@ jQuery(document).ready(function(){
 
 	//laden ganz am anfang
 	if (!gup('date')) {
-		loadJsonTable(false);
+		loadJsonTable(false, true);
 	}	
 	
 	//tabelle am anfang mit plugins
@@ -28,7 +28,7 @@ jQuery(document).ready(function(){
 
 	//falls sich im select etwas ändert
 	jQuery('#select_date').change(function(){
-		loadJsonTable(true);
+		loadJsonTable(false, true);
 	});
 	
 	/**
@@ -50,31 +50,34 @@ jQuery(document).ready(function(){
 	/**
 	 * funktion, die tbody mit JSON daten neu lädt
 	 * und dabei ein paar effekte anzeigt
+	 * 
+	 * effects		- ein und ausblendeffekte
+	 * effects indi	- ajax indikator
 	 */
-	function loadJsonTable(effects) {
+	function loadJsonTable(effects, effects_indi) {
 		//geschwindigkeit der ein und ausblendeffekte
 		var speed = 1000;
-
-		if (effects) {
+		
+		if (effects_indi) {
 			//jQuery('#loading').fadeIn('fast');
-			jQuery('#loader_overlay').fadeIn('fast');	
-			
-			
+			jQuery('#loader_overlay').fadeIn('fast');
+		}
+
+		if (effects) {			
 			jQuery('#jquerytable tbody').
 			fadeOut(speed).
 			//hide('blind',speed).
 			queue(function(){
-				loadContent();
+				loadContent(effects, effects_indi);
 				jQuery(this).dequeue();
 			});
 			
 		} else {
-			jQuery('div#loading').fadeIn('fast');
-			loadContent();	
+			loadContent(effects, effects_indi);	
 		}
 
 
-		function loadContent() {
+		function loadContent(effects, effects_indi) {
 			//get alle daten auf dem formular
 			var date = jQuery('#select_date').val();
 			var stand = jQuery('#verplan_form [name=stand]').val();
@@ -118,41 +121,44 @@ jQuery(document).ready(function(){
 					//table+='</table>';
 					jQuery('#jquerytable tbody').html(table);
 					table_update();
-					showNewContent();
+					showNewContent(effects, effects_indi);
 					
 				} else {
 	
 					jQuery('#no_db').html('<a href="'+json.infos[length].url+'">zum Vertretungsplan...</a>');
 					effects = false;
 					jQuery('#no_db').show('blind',speed);
-					showNewContent();
+					showNewContent(effects, effects_indi);
 					
 				}
 				
 			});
 		}  
-		function showNewContent() {
+		function showNewContent(effects, effects_indi) {
 			if (effects) {
 				
 				jQuery('#jquerytable tbody').
 				fadeIn(speed).
 				//show('blind',speed).
-				queue(function(){
-					hideLoader();
+				queue(function(){					
 					jQuery(this).dequeue();
 				});	
 				
 			} else {
 				jQuery('#jquerytable tbody').queue(function(){
-					hideLoader();
 					jQuery(this).dequeue();
 				});			
 			}
+			hideLoader(effects_indi);
 
 		}  
-		function hideLoader() {  
-			//jQuery('#loading').pause(500).fadeOut(1000);			
-			jQuery('#loader_overlay').pause(500).fadeOut(1000);
+		function hideLoader(effects_indi) {  
+			if (effects_indi) {
+				//jQuery('#loading').pause(500).fadeOut(1000);			
+				jQuery('#loader_overlay').pause(500).fadeOut(1000);
+			} else {
+				jQuery('#loader_overlay').hide();
+			}
 		}  
 
 	}
