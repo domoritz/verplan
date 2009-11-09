@@ -133,13 +133,14 @@ class VerplanControllerPlan extends verplanController
 		$order = array();
 		$id = array();
 		foreach ($assozArray_cols as $key => $row) {
-			$order[$key] = $row['order'];
+			$order[$key] = $row['ordering'];
 			$id[$key] = $row['id'];
 		}
 		//sortiert nach mehreren spalten
 		array_multisort($order, SORT_ASC, $id, SORT_ASC, $assozArray_cols);
 
 		/*debug
+		 echo "nach sortierung";
 		 var_dump($order);
 		 echo "==================";
 		 var_dump($id);
