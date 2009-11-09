@@ -45,7 +45,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.colorize-2.0.0.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.kiketable.colsizable-1.1.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.event.drag-1.4.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.qtip-1.0.0-rc3.min.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.qtip-1.0.0-rc3.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/ui.selectmenu.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/themeswitchertool.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.prettyPhoto.js');
@@ -58,11 +58,11 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 
 //eigene scripts
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.table.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.ajax.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.hide_options.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.boxes.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jqueryui.ui.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.tooltips.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/hide_options.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ui.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/boxes.js');
 
 
 ?>

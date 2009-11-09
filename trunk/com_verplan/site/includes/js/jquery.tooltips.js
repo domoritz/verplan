@@ -51,6 +51,21 @@ jQuery(document).ready(function() {
 		}
 	});
 	
+	jQuery('.ui-selectmenu').qtip( {
+		content : 'Geltungsdatum wählen',
+		show : 'mouseover',
+		hide : 'mouseout',
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle'
+		}
+	});
+	
 	jQuery('#expander_options').qtip( {
 		content : 'Erweiterte Einstellungen und Funktionen. z.B. Filter',
 		show : 'mouseover',
@@ -85,7 +100,13 @@ jQuery(document).ready(function() {
 	});
 	
 	jQuery('#jquerytable thead th').qtip( {
-		content : 'Sortiere nach dieser Spalte',
+		content : {
+			text: 'Sortiere nach dieser Spalte',
+			/*title: {
+				text: 'Sortieren', // Give the tooltip a title using each elements text
+				button: 'Schließen' // Show a close link in the title
+			}*/
+		},
 		show : 'mouseover',
 		hide : 'mouseout',
 		position : {
@@ -103,7 +124,15 @@ jQuery(document).ready(function() {
 	
 	//feedback
 	jQuery('#feedy').qtip( {
-		content : 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <strong>Feedback</strong> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
+		content : {
+            // Set the text to an image HTML string with the correct src URL to the loading image you want to use
+            text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <strong>Feedback</strong> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß'
+            //url: jQuery(this).attr('href'), // Use the rel attribute of each element for the url to load
+            /*title: {
+            	text: 'Feedback' // Give the tooltip a title using each elements text
+            	//button: 'Close' // Show a close link in the title
+            }*/		
+        },
 		show : 'focus',
 		hide : 'click',
 		position : {
