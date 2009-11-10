@@ -107,20 +107,28 @@
 			
 			<tr>
 				<td class="key"><label for="intitle">Verzeichnis der Vertrtungsplandateien</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
+				<td><input size="40" type="text"
 					name="upload_dir" value="<?php echo $settings['upload_dir'][value];?>" /></td>
 				<td class="def_td"><?php echo $settings['upload_dir']['default'];?></td>
+			</tr>
+			
+			<tr>
+				<td class="key"><label for="intitle">jQuery laden</label></td>
+				<td><input size="40" type="text"
+					name="load_jquery" value="<?php echo $settings['load_jquery'][value];?>" /></td>
+				<td class="def_td"><?php echo $settings['load_jquery']['default'];?></td>
 			</tr>
 			
 			<tr>
 				<th colspan="3"><br>Frontend</th>
 			</tr>
 			<tr>
-				<td class="key"><label for="intitle">Anzahl der anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt. </label></td>
+				<td class="key"><label for="intitle">Anzahl der anzuzeigenden Daten. <br>Daten in der Zukunft werden immer zusätztlich angezeigt.</label></td>
 				<td><!-- Dateityp --> <input size="40" type="text"
 					name="number_show" value="<?php echo $settings['number_show'][value];?>" /></td>
 				<td class="def_td"><?php echo $settings['number_show']['default'];?></td>
 			</tr>
+			
 		</tbody>
 	</table>
 	<input type="submit" name="settings" class="settingsbutton" value="Speichern" />

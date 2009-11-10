@@ -31,7 +31,9 @@ $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/th
 //jQuery hinzufügen
 //$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
 //$document->addScript($this->baseurl.'/components/com_verplan/includes/js//jquery-1.3.2_patched.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery-1.3.2.min.js');
+if ($this->load_jquery == 'true') {
+	$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery-1.3.2.min.js');
+}
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 
 
@@ -118,7 +120,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 				 * %M - minute
 				 */						
 				setlocale(LC_TIME, "de_DE");		
-				$format="<b>%A</b> %d.%m.%Y";
+				$format="%A %d.%m.%Y";
 				$label= strftime($format,$date);		
 				echo $label;
 				

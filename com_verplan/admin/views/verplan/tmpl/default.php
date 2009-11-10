@@ -16,7 +16,11 @@ defined('_JEXEC') or die('=;)');
 $document =& JFactory::getDocument();
 
 //jQuery support
-$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js');
+$settings = $this->settings;
+if ($settings['load_jquery'][value] == 'true') {
+	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js');
+}
+
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 $document->addScript('http://jqueryui.com/ui/i18n/ui.datepicker-de.js');
 
