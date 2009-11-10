@@ -1,6 +1,6 @@
 /* jQuery plugin themeswitcher
 ---------------------------------------------------------------------*/
-$.fn.themeswitcher = function(settings){
+jQuery.fn.themeswitcher = function(settings){
 	var options = jQuery.extend({
 		loadTheme: null,
 		initialText: 'Switch Theme',

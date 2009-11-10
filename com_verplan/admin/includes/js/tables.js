@@ -7,16 +7,23 @@
  * @author      Created on 31-Oct-2009
  */
 jQuery(document).ready(function(){
+	
+	//zebra noch bevor einmal sortiert
+	jQuery("#columntable tr:not([th]):even").addClass("row0");
+	jQuery("#columntable tr:not([th]):odd").addClass("row1"); 
+	
+	//sortierung für die tabelle columns in admin
 	jQuery('#columntable').tablesorter({
 		dateFormat:'de',
 		decimal: ',',
 		debug: false,
 		sortMultiSortKey:'ctrlKey',
 		textExtraction:'complex',
-		cssDesc: 'ui-state-active headerSortDown',
-		cssAsc: 'ui-state-active headerSortUp',
+		cssDesc: '',
+		cssAsc: '',
 		//zebra
 		widgets: ['zebra'],
-		widgetZebra: {css: ["even","odd"]}
+		widgetZebra: {css: ["row0","row1"]}
 	});	
+	
 });
