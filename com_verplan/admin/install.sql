@@ -38,7 +38,7 @@ VALUES
 
 
 
-//DROP TABLE IF EXISTS `#__com_verplan_plan`;
+DROP TABLE IF EXISTS `#__com_verplan_plan`;
 
 CREATE TABLE `#__com_verplan_plan` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
@@ -47,7 +47,7 @@ CREATE TABLE `#__com_verplan_plan` (
 
 
 
-//DROP TABLE IF EXISTS `#__com_verplan_columns`;
+DROP TABLE IF EXISTS `#__com_verplan_columns`;
 
 CREATE TABLE `#__com_verplan_columns` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
@@ -66,7 +66,7 @@ INSERT INTO `#__com_verplan_columns` (
 VALUES ('id','1','1','ID'),('timestamp','2','0','Timestamp'),('Geltungsdatum','3','1','Datum'),('Stand','4','1','Stand');
 
 
-//DROP TABLE IF EXISTS `#__com_verplan_uploads`;
+DROP TABLE IF EXISTS `#__com_verplan_uploads`;
 
 CREATE TABLE `#__com_verplan_uploads` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
