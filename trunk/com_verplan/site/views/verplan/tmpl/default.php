@@ -72,7 +72,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 <!-- -->
 
 <div>
-	<img alt="logo vertretungsplan" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
+	<img alt="logo vertretungsplan" width="152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
 	<p style="">
 	
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
@@ -82,7 +82,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 	<br>
 </div>
 
-
+<div style="margin-bottom: 3em;">
 <div id="select_rahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
 	<form id="select_form" method="get" enctype="multipart/form-data" action="#">
 	<label for="select_date"></label> 
@@ -137,38 +137,39 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 </div>
 
 <div id="hidden" style="overflow:hidden;">
-<div id="options_div" class="ui-helper-clearfix ui-widget-content ui-corner-bl ui-corner-br">
-
-	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
-		<!-- nur den neuesten stand --> 
-		<span>Stand</span>
-		<input type="text" name="stand" value="<?php print $this->stand;?>" />
-		<span>Options [model,view]</span>
-		<!-- view optionen nur für ajax interessant -->
-		<input type="text" name="options" value="<?php echo $this->options;?>" />
-		<!-- format wird nuir angezeigt, wenn  -->		    
-		
-		<span>Filter:</span>
-		<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
-		<select id="filter_this" style="width: 100px" name="filter_this">
-		<?php 
-		$array = $this->verplanArray;
-		foreach ($array[cols] as $key => $subarray) {
-			echo "<option>";
-			print empty($subarray[label])? $subarray[name]: $subarray[label];
-			echo "</option>";
-		}
-		?>
-		</select>
+	<div id="options_div" class="ui-helper-clearfix ui-widget-content ui-corner-bl ui-corner-br">
 	
-	</form>
-</div>
-
-	<div id="expander_options" class="ui-state-default ui-corner-bl ui-corner-br">
-				<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
-				erweiterte Optionen
+		<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
+			<!-- nur den neuesten stand --> 
+			<span>Stand</span>
+			<input type="text" name="stand" value="<?php print $this->stand;?>" />
+			<span>Options [model,view]</span>
+			<!-- view optionen nur für ajax interessant -->
+			<input type="text" name="options" value="<?php echo $this->options;?>" />
+			<!-- format wird nuir angezeigt, wenn  -->		    
+			
+			<span>Filter:</span>
+			<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
+			<select id="filter_this" style="width: 100px" name="filter_this">
+			<?php 
+			$array = $this->verplanArray;
+			foreach ($array[cols] as $key => $subarray) {
+				echo "<option>";
+				print empty($subarray[label])? $subarray[name]: $subarray[label];
+				echo "</option>";
+			}
+			?>
+			</select>
+		
+		</form>
 	</div>
 	
+</div>
+
+<div id="expander_options" class="ui-state-default ui-corner-bl ui-corner-br">
+	<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
+				erweiterte Optionen
+</div>
 </div>
 
 
@@ -176,7 +177,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 <noscript class="full_width">
 
 	<div class="ui-widget">
-		<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em;">
+		<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em; margin-bottom: 2em;">
 			<p>
 			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span>
 				<?php echo $this->nojs;?> 
@@ -245,7 +246,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 
 
 <div id="ajaxdiv" class=" ">
-<div class="table_header ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix">
+<div class="table_header ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix" style="height: 22px;">
 	<div class="left">Vertretungsplan</div>
 	<div id="ui_themeswitcher"></div>
 </div>
@@ -302,7 +303,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 	
 </div>
 
-<div class="table_footer ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix">
+<div class="table_footer ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix" style="height: 18px;">
 	<span style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Component</a></span>
 	<span style="float: right;">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
 </div>
