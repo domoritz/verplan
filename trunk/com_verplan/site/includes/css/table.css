@@ -114,17 +114,17 @@
 	display: table-row-group;
 }
 
-#jquerytable tbody tr {
-	border-left: none;
-	border-right: none;
+#jquerytable tbody tr{
+	border-style: solid none;
 	/*border-bottom: 1px solid #d4d4d4;*/
-	border-bottom: 1px solid #EEEEEE;
+	border-bottom: 1px solid #DFDFDF;
+	border-top: 1px solid #DFDFDF;
 }
 
 
 #jquerytable tr.odd { 
 	/*background-color: #e1e1e1;*/
-	background-color: #eee;
+	background-color: #F9F9F9;
 }
 
 #jquerytable tr.even { 
@@ -132,12 +132,14 @@
 	background-color: #fff;
 }
 
-#jquerytable tr.marked { 
+#jquerytable tr.marked  { 
 	
 }
 
-.state-hover { 
-	background-color: #ddd !important;
+#jquerytable tr.state-hover td{ 
+	background-color: #DFDFDF;
+	border-bottom: 1px solid #666666;
+	border-top: 1px solid #666666;
 }
 
 #jquerytable tbody tr td {

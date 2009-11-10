@@ -177,7 +177,7 @@ function table_update() {
 		bgColor: 'none',
 		hover: 'row', 
 		click: 'row', 
-		hiliteClass: 'ui-state-highlight', 
+		hiliteClass: 'ui-state-hover', 
 		hoverClass: 'state-hover',
 		oneClick: false
 	});
