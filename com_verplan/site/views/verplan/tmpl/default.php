@@ -129,9 +129,9 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 	</span>
 	
 	<!-- Indikator alternativ für platzhalter: ui-widget-content-->
-	<span id="load_platzhalter" class="ui-corner-all">
+	<!-- <span id="load_platzhalter" class="ui-corner-all">
 		<span id="loading">&nbsp;</span>
-	</span>
+	</span>-->
 	</form>
 		
 </div>
