@@ -22,16 +22,25 @@
 	float: left;
 }
 
-#selectrahmen {
-	padding: 0.5em;
+
+/*select*/
+
+#verplan_form {
+	
 }
 
-#verplan_form a, #verplan_form select {
+#select_rahmen {
+	padding: 5px;
+	margin-bottom: 3em;
+}
+
+#select_form a, #select_form select {
 	cursor: pointer;
 	width: 300px;
 	padding: 0em;
 	margin: 0.2em;
 	font-size: 1.1em;
+	font-weight: normal;
 	float: left;
 	vertical-align: middle;
 }
@@ -68,7 +77,6 @@
 	float:right;
 	padding: 5px;
 	border-top: none;
-	height: 10em;
 	position: relative;
 	right: 1em;
 	display: block;
@@ -87,10 +95,19 @@
 	float: left;
 }
 
-.submitbutton {
-	clear: both; 
-	float: right !important;
-	margin-right: 30px;	
+#filter_this {
+	float: left;
+	margin-left: 10px;	
+}
+
+/*kein js*/
+
+#select_date_nojs {
+	margin-top: 30px;
+}
+
+#submitbutton {
+	margin-bottom: 30px;	
 	font-weight: bold;
 }
 
