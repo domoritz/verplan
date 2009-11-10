@@ -83,88 +83,70 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 </div>
 
 
-
-<form id="verplan_form" class="full_width ui-helper-clearfix" name="upload" method="get" enctype="multipart/form-data"	action="index.php">
-
-	<div id="selectrahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
-		<span class="ui-state-default" style="border: none;">
-		<label for="select_date"></label> 
-		
-		<?php 
-			$dates = $this->dates;
-			$which = $this->which;			
-		?>		
-		
-		<select size="1" id="select_date" name="date">
-			<?php			
-			for ($i = 0; $i < count($dates); $i++) {				
-				
-				//geltungsdatum
-				$date = strtotime($dates[$i]);
-				$date_date = date( 'Y-m-d', $date);
-				
-				//falls diese option gleich die gewählte ist
-				$selected = $i == $which;			
-				
-				echo "<option value=\"$date_date\"";
-				//php Ternary Operator
-				print ($selected ? ' selected="selected" id="selected">' : '>');	
-				
-				/*
-				 * richtiges datumsformat
-				 * %A - wochentag
-				 * %d - tag
-				 * %m - monat
-				 * %Y - jahr, 4stellig
-				 * %H - stunde
-				 * %M - minute
-				 */						
-				setlocale(LC_TIME, "de_DE");		
-				$format="%A %d.%m.%Y";
-				$label= strftime($format,$date);		
-				echo $label;
-				
-				echo "</option>";
-				
-			}
-			?>
-		</select>
-		</span>
-		
-		<!-- Indikator alternativ für platzhalter: ui-widget-content-->
-		<!--<span id="load_platzhalter" class="ui-corner-all">
-			<span id="loading">&nbsp;</span>
-		</span>-->
-
+<div id="select_rahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
+	<form id="select_form" method="get" enctype="multipart/form-data" action="#">
+	<label for="select_date"></label> 
 	
-	</div>
+	<?php 
+		$dates = $this->dates;
+		$which = $this->which;			
+	?>
+	<span class="ui-state-default" style="border: none;">
+	<select size="1" id="select_date" name="date">
+		<?php		
+		for ($i = 0; $i < count($dates); $i++) {				
+			
+			//geltungsdatum
+			$date = strtotime($dates[$i]);
+			$date_date = date( 'Y-m-d', $date);
+			
+			//falls diese option gleich die gewählte ist
+			$selected = $i == $which;			
+			
+			echo "<option value=\"$date_date\"";
+			//php Ternary Operator
+			print ($selected ? ' selected="selected" id="selected">' : '>');	
+			
+			/*
+			 * richtiges datumsformat
+			 * %A - wochentag
+			 * %d - tag
+			 * %m - monat
+			 * %Y - jahr, 4stellig
+			 * %H - stunde
+			 * %M - minute
+			 */						
+			setlocale(LC_TIME, "de_DE");		
+			$format="%A %d.%m.%Y";
+			$label= strftime($format,$date);		
+			echo $label;
+			
+			echo "</option>";
+			
+		}
+		?>
+	</select>
+	</span>
 	
-	<div id="hidden" style="overflow:hidden;">
-	<div id="options_div" class="ui-helper-clearfix ui-widget-content ui-corner-bl ui-corner-br">
+	<!-- Indikator alternativ für platzhalter: ui-widget-content-->
+	<span id="load_platzhalter" class="ui-corner-all">
+		<span id="loading">&nbsp;</span>
+	</span>
+	</form>
+		
+</div>
+
+<div id="hidden" style="overflow:hidden;">
+<div id="options_div" class="ui-helper-clearfix ui-widget-content ui-corner-bl ui-corner-br">
+
+	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
 		<!-- nur den neuesten stand --> 
 		<span>Stand</span>
 		<input type="text" name="stand" value="<?php print $this->stand;?>" />
 		<span>Options [model,view]</span>
 		<!-- view optionen nur für ajax interessant -->
 		<input type="text" name="options" value="<?php echo $this->options;?>" />
-		<!-- format wird nuir angezeigt, wenn  -->
-		<noscript>
-			<span>Format</span>
-			<input type="text" name="format" value="<?php echo $this->format;?>" />
-	    </noscript>
-	    
-		<!-- damit die Komponente wieder aufgerufen wird --> 
-		<input type="hidden" name="option" value="com_verplan" /> 
-		<input type="hidden" name="task" value="" />		
-		<input type="hidden" name="Itemid" value="<?php echo JRequest::getVar('Itemid');?>" /> 
-		<input type="hidden" name="controller" value="" /> 
-		<!-- die user ID --> 
-		<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
-		
-		<noscript>
-			<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen  -->
-			<input type="submit" name="submit" class="submitbutton ui-helper-clearfix" value="Vertretungsplan anzeigen" />
-		</noscript>
+		<!-- format wird nuir angezeigt, wenn  -->		    
 		
 		<span>Filter:</span>
 		<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
@@ -178,16 +160,16 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 		}
 		?>
 		</select>
-		
-	</div>
-	</div>
+	
+	</form>
+</div>
 
 	<div id="expander_options" class="ui-state-default ui-corner-bl ui-corner-br">
 				<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
 				erweiterte Optionen
 	</div>
 	
-</form>
+</div>
 
 
 
@@ -202,6 +184,57 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 		</div>
 	</div>
 	
+	<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen  -->
+	
+	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
+	
+		<select size="1" id="select_nojs" name="date">
+		<?php		
+		for ($i = 0; $i < count($dates); $i++) {				
+			
+			//geltungsdatum
+			$date = strtotime($dates[$i]);
+			$date_date = date( 'Y-m-d', $date);
+			
+			//falls diese option gleich die gewählte ist
+			$selected = $i == $which;			
+			
+			echo "<option value=\"$date_date\"";
+			//php Ternary Operator
+			print ($selected ? ' selected="selected" id="selected">' : '>');	
+			
+			/*
+			 * richtiges datumsformat
+			 * %A - wochentag
+			 * %d - tag
+			 * %m - monat
+			 * %Y - jahr, 4stellig
+			 * %H - stunde
+			 * %M - minute
+			 */						
+			setlocale(LC_TIME, "de_DE");		
+			$format="%A %d.%m.%Y";
+			$label= strftime($format,$date);		
+			echo $label;
+			
+			echo "</option>";
+			
+			}
+			?>
+		</select>
+		
+		<!-- damit die Komponente wieder aufgerufen wird --> 
+		<input type="hidden" name="option" value="com_verplan" /> 
+		<input type="hidden" name="task" value="" />
+		<input type="hidden" name="Itemid" value="<?php echo JRequest::getVar('Itemid');?>" /> 
+		<input type="hidden" name="controller" value="" /> 
+		<!-- die user ID --> 
+		<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
+		
+		<input type="submit" name="submit" id="submitbutton" value="Vertretungsplan anzeigen" />
+		
+	</form>
+
 </noscript>
 
 
@@ -269,7 +302,7 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 	
 </div>
 
-<div class="table_footer ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+<div class="table_footer ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix">
 	<span style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Component</a></span>
 	<span style="float: right;">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
 </div>
