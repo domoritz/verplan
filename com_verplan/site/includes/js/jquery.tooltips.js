@@ -10,6 +10,7 @@ jQuery(document).ready(function() {
 		color: '#fff',
 		textAlign: 'center',
 		padding: 4,
+		'font-size': 'small',
 	    border: {
 	        width: 4,
 	        radius: 5,

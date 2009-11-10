@@ -12,6 +12,11 @@
 	max-width: 100%;
 }
 
+/*tooltips*/
+.qtip-wrapper {
+	font-size: small;
+}
+
 /*header*/
 
 #logo_verplan {
