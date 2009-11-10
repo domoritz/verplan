@@ -30,7 +30,7 @@
 
 <form name="settings_form" id="settings_form" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
 	
-	<table class="admin_table">
+	<table class="admin_table adminlist">
 		<tbody>
 			<tr>
 				<th colspan="3"><br>Uploads</th>

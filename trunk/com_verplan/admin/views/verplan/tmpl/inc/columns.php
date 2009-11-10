@@ -37,7 +37,7 @@ $columns = $this->columns;
 	echo "<tr>";
 	//reset heißt ersten eintrag
 	foreach (reset($columns) as $heads => $value) {
-		echo "<th>";
+		echo "<th class=\"title\">";
 		echo $heads;
 		echo "</th>";
 	}
