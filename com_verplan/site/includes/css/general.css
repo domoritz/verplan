@@ -30,8 +30,13 @@
 }
 
 #select_rahmen {
-	padding: 5px;
-	margin-bottom: 3em;
+	padding: 5px;	
+	
+	height: 35px;
+}
+
+#ajaxdiv {
+	margin-top: 1em;
 }
 
 #select_form a, #select_form select {
