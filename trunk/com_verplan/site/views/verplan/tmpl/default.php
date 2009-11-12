@@ -68,12 +68,27 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 
 ?>
 
-
+<!-- Ajax Javascrip, dieses muss hier includiert werden, damit php ausgeführt werden kann -->
 <script type="text/javascript">
 <?php require_once (JPATH_COMPONENT.DS.'/includes/js/jquery.ajax.js');?>
 </script>
 
 <!-- -->
+
+
+<pre>
+<?php 
+/*test mit joomlapfaden
+echo JURI::base()."\n";
+echo JURI::base(true)."\n";
+echo JURI::root()."\n";
+echo $this->baseurl."\n";
+echo JPATH_COMPONENT."\n";
+echo JPATH_BASE."\n";
+//*/
+
+?>
+</pre>
 
 <div>
 	<img alt="logo vertretungsplan" width="152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
