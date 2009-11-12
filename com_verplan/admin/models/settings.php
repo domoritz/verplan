@@ -45,7 +45,7 @@ class VerplanModelSettings extends JModel
 		$db =& JFactory::getDBO();
 
 		//zweidimensionales array laden
-		$query = 'SELECT `name`,`value`,`default` FROM `#__com_verplan_settings`';
+		$query = 'SELECT * FROM `#__com_verplan_settings`';
 		$db->setQuery( $query );
 		$settingsarray = $db->loadAssocList('name');
 		

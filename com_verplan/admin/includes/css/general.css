@@ -27,6 +27,8 @@
 	margin-left: 10px;
 }
 
+/*Ajax indikatoren der einzelnen einstellmöglichkeiten*/
+
 #ajax_indicator_0 {
 	display: none;
 	color: transparent;
@@ -45,22 +47,22 @@
 	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
 }
 
-/*Admintabelle*/
-.admin_table td {
-	padding: 3px;
+/*Ajaxnachrichten*/
+.ajaxresmess_0 {
+	display: none;
 }
 
-.admin_table td.key {
-	background-color: #F6F6F6;
-	border-bottom: 1px solid #E9E9E9;
-	border-right: 1px solid #E9E9E9;
-	color: #666666;
-	font-weight: bold;
-	text-align: right;
-	padding-right: 10px;
+.ajaxresmess_1 {
+	display: none;
 }
 
-.admin_table td.def_td {
+.ajaxresmess_2 {
+	display: none;
+}
+
+
+/*default value style*/
+td.def_td {
 	color: #999;
 	font-size: smaller;
 }
@@ -73,18 +75,6 @@
 
 #columntable {
 	border-collapse: collapse;	
-}
-
-.ajaxresmess_0 {
-	display: none;
-}
-
-.ajaxresmess_1 {
-	display: none;
-}
-
-.ajaxresmess_2 {
-	display: none;
 }
 
 .highlight td{

@@ -31,104 +31,33 @@
 <form name="settings_form" id="settings_form" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
 	
 	<table class="admin_table adminlist">
+		<thead>
+			<tr>
+				<th>Nummer</th>
+				<th>Name</th>
+				<th>Wert</th>
+				<th>Default</th>
+			</tr>
+		</thead>
 		<tbody>
-			<tr>
-				<th colspan="3"><br>Uploads</th>
-			</tr>
-			<tr>
-				<td class="key"><label for="intitle">maximale Dateigröße</label></td>
-				<td>
-				<!-- maximale Dateigröße --> 
-				<input size="40" type="text" name="max_file_size" value="<?php echo $settings['max_file_size'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['max_file_size']['default'];?></td>
-			</tr>
-			<tr>
-				<td class="key"><label for="intitle">erlaubte Dateitypen</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
-					name="allowed_filetypes" value="<?php echo $settings['allowed_filetypes'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['allowed_filetypes']['default'];?></td>
-			</tr>
+		<?php 
+		foreach ($settings as $key => $setting) {
 			
-			
-			<tr>
-				<th colspan="3"><br>Stand</th>
+			if ($setting[id] % 2 == 1) {
+				$zebra = "row0";
+			} else {
+				$zebra = "row1";
+			}
+			?>
+			<tr class="<?php echo $zebra ?>">
+				<td style="width:20px"><?php echo $setting['id']; ?></td>
+				<td style="width:300px"><label><?php echo $setting['de']; ?></label></td>				
+				<td><input size="40" type="text" name="<?php echo $setting['name'] ?>" value="<?php echo $setting['value']; ?>" /></td>
+				<td class="def_td"><?php echo $setting['default']; ?></td>
 			</tr>
-			<tr>
-				<td class="key"><label for="intitle">Pattern Stand</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
-					name="pattern_stand" value="<?php echo $settings['pattern_stand'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['pattern_stand']['default'];?></td>
-			</tr>
-			
-			<tr>
-				<td class="key"><label for="intitle">Format Stand</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
-					name="format_stand" value="<?php echo $settings['format_stand'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['format_stand']['default'];?></td>
-			</tr>
-			
-			
-			<tr>
-				<th colspan="3"><br>Geltungsdatum</th>
-			</tr>
-			<tr>
-				<td class="key"><label for="intitle">Pattern Datum</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
-					name="pattern_date" value="<?php echo $settings['pattern_date'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['pattern_date']['default'];?></td>
-			</tr>
-			
-			<tr>
-				<td class="key"><label for="intitle">Format Datum</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
-					name="format_date" value="<?php echo $settings['format_date'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['format_date']['default'];?></td>
-			</tr>
-			
-			<tr>
-				<th colspan="3"><br>Plantabelle</th>
-			</tr>
-			<tr>
-				<td class="key"><label for="intitle">Pattern Plantabelle</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
-					name="pattern_plan" value="<?php echo $settings['pattern_plan'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['pattern_plan']['default'];?></td>
-			</tr>
-			
-			<tr>
-				<th colspan="3"><br>Verzeichnisse</th>
-			</tr>
-			<tr>
-				<td class="key"><label for="intitle">Verzeichnis auf dem Server in der Komponente</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
-					name="upload_dir_comp" value="<?php echo $settings['upload_dir_comp'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['upload_dir_comp']['default'];?></td>
-			</tr>
-			
-			<tr>
-				<td class="key"><label for="intitle">Verzeichnis der Vertrtungsplandateien</label></td>
-				<td><input size="40" type="text"
-					name="upload_dir" value="<?php echo $settings['upload_dir'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['upload_dir']['default'];?></td>
-			</tr>
-			
-			<tr>
-				<td class="key"><label for="intitle">jQuery laden</label></td>
-				<td><input size="40" type="text"
-					name="load_jquery" value="<?php echo $settings['load_jquery'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['load_jquery']['default'];?></td>
-			</tr>
-			
-			<tr>
-				<th colspan="3"><br>Frontend</th>
-			</tr>
-			<tr>
-				<td class="key"><label for="intitle">Anzahl der anzuzeigenden Daten. <br>Daten in der Zukunft werden immer zusätztlich angezeigt.</label></td>
-				<td><!-- Dateityp --> <input size="40" type="text"
-					name="number_show" value="<?php echo $settings['number_show'][value];?>" /></td>
-				<td class="def_td"><?php echo $settings['number_show']['default'];?></td>
-			</tr>
-			
+			<?php 
+		}
+		?>			
 		</tbody>
 	</table>
 	<input type="submit" name="settings" class="settingsbutton" value="Speichern" />
