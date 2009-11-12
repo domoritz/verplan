@@ -85,6 +85,26 @@ echo JURI::root()."\n";
 echo $this->baseurl."\n";
 echo JPATH_COMPONENT."\n";
 echo JPATH_BASE."\n";
+
+jimport('joomla.version');
+$version = new JVersion();
+var_dump($version);
+echo $version->getLongVersion()."\n";
+echo $version->getShortVersion()."\n";
+echo $version->getHelpVersion()."\n";
+
+
+$db =& JFactory::getDBO();
+$query = 'SELECT *' .
+' FROM #__extensions' .
+" WHERE `element` LIKE 'com_verplan'" .
+' ORDER BY name';
+$db->setQuery($query);
+$rows = $db->loadAssocList();
+var_dump($rows);
+$a = $rows[0][manifest_cache];
+var_dump($a);
+
 //*/
 
 ?>
@@ -167,10 +187,13 @@ echo JPATH_BASE."\n";
 			<input type="text" name="options" value="<?php echo $this->options;?>" />
 			<!-- format wird nuir angezeigt, wenn  -->		    
 			
-			<span>Filter:</span>
+			<span>Filter nach einer Spalte:</span>
 			<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
 			<select id="filter_this" style="width: 100px" name="filter_this">
+				<!-- value="" ist wichtig, da sonst nach der spalte alle gesucht wird -->
+				<option value="">alle</option>
 			<?php 
+			//auswahlmöglichkeiten zum sortieren aus den spalten
 			$array = $this->verplanArray;
 			foreach ($array[cols] as $key => $subarray) {
 				echo "<option>";
@@ -323,7 +346,7 @@ echo JPATH_BASE."\n";
 </div>
 
 <div class="table_footer ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix" style="height: 18px;">
-	<span style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Component</a></span>
+	<span style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Component <?php //echo $this-();?></a></span>
 	<span style="float: right;">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
 </div>
 

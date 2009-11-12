@@ -87,6 +87,7 @@ function table_init(){
 	var theTable = jQuery('#jquerytable');
 
 	jQuery("#filter_input").keyup(function() {
+		//filter this - spalte, nach der gefiltert wird
 		var filter_this = jQuery('#verplan_form [name=filter_this]').val();
 		//alert (filter_this);
 		jQuery.uiTableFilter( theTable, this.value, filter_this);
