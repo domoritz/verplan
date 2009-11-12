@@ -47,6 +47,13 @@ class TableSettings extends JTable
 	 * @var string
 	 */
 	var $default = null;
+	
+	/**
+	 * dbeschreibung
+	 *
+	 * @var string
+	 */
+	var $de = null;
 
 	/**
 	 * Constructor
