@@ -84,7 +84,7 @@ jQuery(document).ready(function(){
 			var options = jQuery('#verplan_form [name=options]').val();
 			
 			
-			jQuery.getJSON('?option=com_verplan&view=verplan&format=js&date='+date+'&stand='+stand+'&options='+options, function(json){
+			jQuery.getJSON('<?php echo $url; ?>?option=com_verplan&view=verplan&format=js&date='+date+'&stand='+stand+'&options='+options, function(json){
 				var table = '';
 				//alert("JSON Data: " + json.data[0].id);
 				/*table += '<table style="width:80%; border:1px solid;"><thead>';
