@@ -60,14 +60,18 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 
 //eigene scripts
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.table.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.ajax.js');
+//$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.ajax.js.php');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.hide_options.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.boxes.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jqueryui.ui.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.tooltips.js');
 
-
 ?>
+
+
+<script type="text/javascript">
+<?php require_once (JPATH_COMPONENT.DS.'/includes/js/jquery.ajax.js');?>
+</script>
 
 <!-- -->
 
