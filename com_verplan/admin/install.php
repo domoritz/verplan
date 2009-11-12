@@ -27,6 +27,7 @@ gekommen sein, entferne bitte alle Tabellen mit, die mit
 '#__com_verplan' beginnen aus der Datenbank und versuche die
 Instrallation danach erneut.</p>
 	<?php
+	//http://docs.joomla.org/JDatabase
 	$db =& JFactory::getDBO();
 	//echo "Database prefix is : " . $db->getPrefix();
 	?>
@@ -34,10 +35,10 @@ Instrallation danach erneut.</p>
 <p>Um alle Daten aus Der Datenbank zu löschen, führe dieses SQL-Script
 aus:</p>
 <pre>
-DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>_com_verplan_settings`;
+DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_settings`;
 DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_plan`;
 DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_uploads`;
-DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_head`;
+DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_columns`;
 </pre>
 
 	<?php
@@ -58,6 +59,7 @@ alle Tabellem, die mit '#__com_verplan' beginnen aus der Datenbak
 entfernen.</p>
 
 	<?php
+	//http://docs.joomla.org/JDatabase
 	$db =& JFactory::getDBO();
 	//echo "Database prefix is : " . $db->getPrefix();
 	?>
@@ -65,10 +67,10 @@ entfernen.</p>
 <p>Um alle Daten aus Der Datenbank zu löschen, führe dieses SQL-Script
 aus:</p>
 <pre>
-DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>_com_verplan_settings`;
+DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_settings`;
 DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_plan`;
 DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_uploads`;
-DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_head`;
+DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_columns`;
 </pre>
 
 
