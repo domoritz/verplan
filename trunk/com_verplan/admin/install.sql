@@ -1,4 +1,7 @@
 /**
+ * Installations SQL Script. Es werden nur die Tabellen ereugt, 
+ * die nicht vorhanden sind und alte bleiben erhalten
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -7,9 +10,14 @@
  * @author      Created on 19-Sep-2009
  */
 
-DROP TABLE IF EXISTS `#__com_verplan_settings`;
 
-CREATE TABLE `#__com_verplan_settings` (
+--
+-- Tabelle mit Einstellungen
+--
+
+-- DROP TABLE IF EXISTS `#__com_verplan_settings`;
+
+CREATE TABLE IF NOT EXISTS `#__com_verplan_settings` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
 `name` TEXT NOT NULL COMMENT 'key',
 `value` TEXT NOT NULL COMMENT 'value',
@@ -37,20 +45,27 @@ VALUES
 
 
 
+--
+-- Tabelle mit den Daten des vertretungsplanes
+--
 
 
-DROP TABLE IF EXISTS `#__com_verplan_plan`;
+-- DROP TABLE IF EXISTS `#__com_verplan_plan`;
 
-CREATE TABLE `#__com_verplan_plan` (
+CREATE TABLE IF NOT EXISTS `#__com_verplan_plan` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
 `id_upload` INT NOT NULL COMMENT 'primary key of uploads table'
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
 
 
 
-DROP TABLE IF EXISTS `#__com_verplan_columns`;
+--
+-- Tabelle mit den Spalten der vertretungsplantabelle
+--
 
-CREATE TABLE `#__com_verplan_columns` (
+-- DROP TABLE IF EXISTS `#__com_verplan_columns`;
+
+CREATE TABLE IF NOT EXISTS `#__com_verplan_columns` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `name` TEXT NOT NULL ,
 `ordering` INT NOT NULL comment 'sortierung',
@@ -67,9 +82,13 @@ INSERT INTO `#__com_verplan_columns` (
 VALUES ('id','1','1','ID'),('timestamp','2','0','Timestamp'),('Geltungsdatum','3','1','Datum'),('Stand','4','1','Stand');
 
 
-DROP TABLE IF EXISTS `#__com_verplan_uploads`;
+--
+-- Tabelle mit den Uploads
+--
 
-CREATE TABLE `#__com_verplan_uploads` (
+-- DROP TABLE IF EXISTS `#__com_verplan_uploads`;
+
+CREATE TABLE IF NOT EXISTS `#__com_verplan_uploads` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 `timestamp` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
 `Geltungsdatum` TIMESTAMP NOT NULL ,
