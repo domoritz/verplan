@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<install type="component" version="1.5.0">
+<install type="component" version="1.5.0" method="upgrade">
     <name>verplan</name>
     <version>0.1.18</version>
     <description>Komponente zum Einstellen des Vertretungsplanes auf die Website des MCG (http://www.marie-curie-gymnasium-dallgow.de/).</description>
@@ -45,7 +45,7 @@
     </install>
     <uninstall>
     	<sql>
-    		<file charset="utf8" driver="mysql">uninstall.sql</file>
+    		<!--<file charset="utf8" driver="mysql">uninstall.sql</file>-->
     	</sql>
     </uninstall>
     
