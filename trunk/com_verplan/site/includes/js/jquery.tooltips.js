@@ -90,19 +90,20 @@ jQuery(document).ready(function() {
 		hide : 'mouseout',
 		position : {
 			corner : {
-				target : 'topMiddle',
+				target : 'topLeft',
 				tooltip : 'bottomLeft'
 			}
 		},
 		style : {
 			name: 'domstyle',
-			textAlign: 'left'
+			textAlign: 'left',
+			tip: 'bottomRight'
 		}
 	});
 	
 	jQuery('#jquerytable thead th').qtip( {
 		content : {
-			text: 'Sortiere nach dieser Spalte',
+			text: 'Sortiere nach dieser Spalte'
 			/*title: {
 				text: 'Sortieren', // Give the tooltip a title using each elements text
 				button: 'Schließen' // Show a close link in the title
@@ -112,13 +113,14 @@ jQuery(document).ready(function() {
 		hide : 'mouseout',
 		position : {
 			corner : {
-				target : 'topMiddle',
-				tooltip : 'bottomLeft'
+				target : 'bottomMiddle',
+				tooltip : 'topMiddle'
 			}
 		},
 		style : {
 			name: 'domstyle',
-			textAlign: 'left'
+			textAlign: 'left',
+			tip: 'topMiddle'
 		}
 	});
 	
@@ -158,5 +160,41 @@ jQuery(document).ready(function() {
 		}
 	});
 	jQuery('#feedy').focus();
+	
+	//meine website
+	jQuery('#hpvd').qtip( {
+		content : 'auf meine Website',
+		show : 'mouseover',
+		hide : 'mouseout',
+		position : {
+			corner : {
+				target : 'topLeft',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle',
+			textAlign: 'left',
+			tip: 'bottomMiddle'
+		}
+	});
+	
+	//projektseite
+	jQuery('#hpvvp').qtip( {
+		content : 'Zur Projektseite. Hier gibt es den gesamten Code, Anleitungen, Hilfe und das Programmm selber zum Downloaden. ',
+		show : 'mouseover',
+		hide : 'mouseout',
+		position : {
+			corner : {
+				target : 'topLeft',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle',
+			textAlign: 'left',
+			tip: 'bottomRight'
+		}
+	});
 
 });

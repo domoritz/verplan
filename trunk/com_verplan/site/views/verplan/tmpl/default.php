@@ -66,11 +66,14 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jqueryui.ui.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.tooltips.js');
 
+
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.ajax.js.php?url='.JURI::root());
+
 ?>
 
 <!-- Ajax Javascrip, dieses muss hier includiert werden, damit php ausgeführt werden kann -->
 <script type="text/javascript">
-<?php require_once (JPATH_COMPONENT.DS.'/includes/js/jquery.ajax.js');?>
+<?php //require_once (JPATH_COMPONENT.DS.'/includes/js/jquery.ajax.js');?>
 </script>
 
 <!-- -->
@@ -154,7 +157,6 @@ $version = $settingsmodel->getSetting('version');
 		Weitere Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
 		Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" 
 		href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=90%&height=100%">Feedback</a>!
-		Version: <?php echo $version;?>
 	</p>
 	<br>
 </div>
@@ -384,8 +386,8 @@ $version = $settingsmodel->getSetting('version');
 </div>
 
 <div class="table_footer ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix" style="height: 18px;">
-	<span style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | version:  <?php echo $version;?></a></span>
-	<span style="float: right;">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
+	<span id="hpvvp" style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | Version:  <?php echo $version;?></a></span>
+	<span id="hpvd" style="float: right;">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
 </div>
 
 </div>
