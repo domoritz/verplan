@@ -16,6 +16,7 @@
 <div id="about_div">
 	<p>Komponente zum Einstellen des Vertretungsplanes auf die Website des MCG (http://www.marie-curie-gymnasium-dallgow.de/).</p>
 	<ul>
+		<li>Version: <?php echo $version;?></li>
 		<li>Lizenz: <a href="http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL">GNU/GPL</a></li>
 		<li>Autor: <a href="http://www.dmoritz.bplaced.net">Dominik Moritz</a></li>
 		<li>Code: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a></li>

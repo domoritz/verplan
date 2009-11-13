@@ -76,9 +76,11 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.
 <!-- -->
 
 
-<pre>
 <?php 
 /*test mit joomlapfaden
+
+echo '<pre>';
+
 echo JURI::base()."\n";
 echo JURI::base(true)."\n";
 echo JURI::root()."\n";
@@ -93,6 +95,26 @@ echo $version->getLongVersion()."\n";
 echo $version->getShortVersion()."\n";
 echo $version->getHelpVersion()."\n";
 
+//Version
+$path = JPATH_BASE.'\administrator\components\com_verplan\com_verplan.xml';
+//echo $path;
+$data = JApplicationHelper::parseXMLInstallFile($path);
+//echo $data[version];
+
+
+//Profiler
+//http://docs.joomla.org/JProfiler
+$p = JProfiler::getInstance('Application');
+ 
+$p->mark('Start');
+$a = str_repeat("hello world!\n", 100000);
+$p->mark('Middle');
+unset($a);
+$p->mark('Stop');
+ 
+print_r($p->getBuffer());
+
+
 
 $db =& JFactory::getDBO();
 $query = 'SELECT *' .
@@ -105,10 +127,17 @@ var_dump($rows);
 $a = $rows[0][manifest_cache];
 var_dump($a);
 
-//*/
+echo '</pre>';
 
+//*/
 ?>
-</pre>
+
+<?php 
+//version number
+$settingsmodel = JModel::getInstance('Settings', 'VerplanModel');
+$version = $settingsmodel->getSetting('version');
+?>
+
 
 <div>
 	<img alt="logo vertretungsplan" width="152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
@@ -116,7 +145,9 @@ var_dump($a);
 	
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
 		Weitere Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
-		Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=45em%&height=100%">Feedback</a>!
+		Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" 
+		href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=90%&height=100%">Feedback</a>!
+		Version: <?php echo $version;?>
 	</p>
 	<br>
 </div>
@@ -346,7 +377,7 @@ var_dump($a);
 </div>
 
 <div class="table_footer ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix" style="height: 18px;">
-	<span style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Component <?php //echo $this-();?></a></span>
+	<span style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | version:  <?php echo $version;?></a></span>
 	<span style="float: right;">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
 </div>
 

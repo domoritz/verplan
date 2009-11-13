@@ -52,12 +52,28 @@ $document->addScript('components/com_verplan/includes/js/plugins/jquery.timepick
 $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css');
 ?>
 
+
+<?php 
+
+JToolBarHelper::preferences( 'com_verplan' );
+
+?>
+
+<?php 
+//get settings
+$settings = $this->settings;
+//get version
+$version = $settings[version]['default'];
+?>
+
+
 <div>
 	<img alt="logo vertretungsplan" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
 	<p style="">
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
 		Weitere Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
 		Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA">Feedback</a>!
+		Version: <?php echo $version;?>
 	</p>
 	<br>
 </div>

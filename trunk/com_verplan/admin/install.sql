@@ -79,24 +79,27 @@ CREATE TABLE IF NOT EXISTS `#__com_verplan_settings` (
 `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
 `name` TEXT NOT NULL COMMENT 'key',
 `value` TEXT NOT NULL COMMENT 'value',
-`default` TEXT NOT NULL COMMENT 'default value'
+`default` TEXT NOT NULL COMMENT 'default value',
+`de` TEXT NOT NULL COMMENT 'description'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT IGNORE INTO `#__com_verplan_settings` (
 `id` ,
 `name` ,
 `value` ,
-`default` 
+`default`,
+`de`
 )
 VALUES 
-('1' , 'max_file_size', '2097152', '2097152'),
-('2' , 'allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls', 'html,htm,gif,jpg,png,pdf,doc,odf,xls'),
-('3' , 'pattern_stand', '/Stand:.*:[0-5][0-9]/U', '/Stand:.*:[0-5][0-9]/U'),
-('4' , 'format_stand', 'd.m.Y H:i', 'd.m.Y H:i'),
-('5' , 'pattern_date', '//div[@class=\'mon_title\']', '//div[@class=\'mon_title\']'),
-('6' , 'format_date', 'j.n.Y w', 'j.n.Y w'),
-('7' , 'pattern_plan', '//table[@class=\'mon_list\']', '//table[@class=\'mon_list\']'),
-('8' , 'upload_dir_comp', 'uploads', 'uploads'),
-('9' , 'upload_dir', '/components/com_verplan/uploads/', '/components/com_verplan/uploads/'),
-('10' , 'number_show', '3', '3'),
-('11' , 'load_jquery', 'true', 'true');
+('1' , 'max_file_size', '2097152', '2097152','maximale Dateigröße'),
+('2' , 'allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls', 'html,htm,gif,jpg,png,pdf,doc,odf,xls','erlaubte Dateitypen'),
+('3' , 'pattern_stand', '/Stand:.*:[0-5][0-9]/U', '/Stand:.*:[0-5][0-9]/U','Pattern Stand'),
+('4' , 'format_stand', 'd.m.Y H:i', 'd.m.Y H:i','Format Stand'),
+('5' , 'pattern_date', '//div[@class=\'mon_title\']', '//div[@class=\'mon_title\']','Pattern Geltungsdatum'),
+('6' , 'format_date', 'j.n.Y w', 'j.n.Y w','Format Geltungsdatum'),
+('7' , 'pattern_plan', '//table[@class=\'mon_list\']', '//table[@class=\'mon_list\']','Pattern'),
+('8' , 'upload_dir_comp', 'uploads', 'uploads','Verzeichnis auf dem Server in der Komponente'),
+('9' , 'upload_dir', '/components/com_verplan/uploads/', '/components/com_verplan/uploads/','Verzeichnis der Vertrtungsplandateien'),
+('10' , 'number_show', '3', '3','Anzahl der anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt.'),
+('11' , 'load_jquery', 'true', 'true','jQuery laden'),
+('12' , 'version', '', '','nicht verändern');
