@@ -11,9 +11,9 @@
  */
 ?>
 
-<h3 id="about_header" class="expander plus">About</h3>
+<a href="#about_header" id="about_header" class="expander plus">About</a>
 
-<div id="about_div">
+<div id="about_div" class="verschwinder">
 	<p>Komponente zum Einstellen des Vertretungsplanes auf die Website des MCG (http://www.marie-curie-gymnasium-dallgow.de/).</p>
 	<ul>
 		<li>Version: <?php echo $version;?></li>
