@@ -12,49 +12,17 @@ jQuery(document).ready(function(){
 		  window.location.hash=this.hash;
 	 });
 	
-	//verstecke optionen
-	jQuery('#admin_options_div').hide('');
-	jQuery('#options_header').click(function() {
-		
-		//alle anderen , die offen sind schließen
-		/*jQuery('#options_header.minus').click();
-		jQuery('#settings_header.minus').click();
-		jQuery('#columns_header .minus').click();
-		jQuery('#about_header .minus').click();*/
-		jQuery('.minus:not(this)').toggleClass('plus').toggleClass('minus').next('.verschwinder').toggle('blind','slow');
-		//wechsel des icons
-		jQuery('#admin_options_div').toggle('blind','slow');
-		jQuery(this).toggleClass('plus').toggleClass('minus');
-	});
+	//alle divs verstecken, die für optionen sind
+	jQuery('a.expander').next('div').hide('');
 	
-	//versteckt einstellungen
-	jQuery('#admin_settings_div').hide('');
-	jQuery('#settings_header').click(function() {
+	//divs öffnen und schließen
+	jQuery('.expander').click(function() {		
 		
-		jQuery('.minus:not(this)').toggleClass('plus').toggleClass('minus').next('.verschwinder').toggle('blind','slow');
-		//wechsel des icons
-		jQuery('#admin_settings_div').toggle('blind','slow');
-		jQuery(this).toggleClass('plus').toggleClass('minus');
-	});
-	
-	//versteckt spalteneinstellungen
-	jQuery('#admin_columns_div').hide('');
-	jQuery('#columns_header').click(function() {
+		//alle anderen , die offen sind schließen		
+		jQuery(".minus").not(this).addClass('plus').removeClass('minus').next('.verschwinder').toggle('blind','slow');
 		
-		jQuery('.minus:not(this)').toggleClass('plus').toggleClass('minus').next('.verschwinder').toggle('blind','slow');
-		//wechsel des icons
-		jQuery('#admin_columns_div').toggle('blind','slow');
-		jQuery(this).toggleClass('plus').toggleClass('minus');
-	});
-	
-	//versteckt about
-	jQuery('#about_div').hide('');
-	jQuery('#about_header').click(function() {
-		
-		jQuery('.minus:not(this)').toggleClass('plus').toggleClass('minus').next('.verschwinder').toggle('blind','slow');
-		//wechsel des icons
-		jQuery('#about_div').toggle('blind','slow');
-		jQuery(this).toggleClass('plus').toggleClass('minus');
+		//icon wechseln und dieses öffnen
+		jQuery(this).toggleClass('plus').toggleClass('minus').next('.verschwinder').toggle('blind','slow');		
 	});
 	
 	var hash = window.location.hash;
