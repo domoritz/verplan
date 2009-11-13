@@ -31,8 +31,8 @@ function com_install() {
 	$data = array(
 		'id' => 12,
 		'name' => 'version',
-		'value' => $data[version],
-		'default' => $data[version],
+		'value' => $dataxml[version]." (".date( 'Y-m-d H:i:s', time() ).")",
+		'default' => $dataxml[version]." (".date( 'Y-m-d H:i:s', time() ).")",
 	);
 
 	//var_dump($data);

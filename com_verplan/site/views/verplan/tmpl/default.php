@@ -116,16 +116,23 @@ print_r($p->getBuffer());
 
 
 
-$db =& JFactory::getDBO();
-$query = 'SELECT *' .
-' FROM #__extensions' .
-" WHERE `element` LIKE 'com_verplan'" .
-' ORDER BY name';
-$db->setQuery($query);
-$rows = $db->loadAssocList();
-var_dump($rows);
-$a = $rows[0][manifest_cache];
-var_dump($a);
+$path = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'com_verplan.xml';
+$dataxml = JApplicationHelper::parseXMLInstallFile($path);
+var_dump($dataxml);
+$data = array(
+	'id' => 12,
+	'name' => 'version',
+	'value' => $dataxml[version]." (".date( 'Y-m-d H:i:s', time() ).")",
+	'default' => $dataxml[version]." (".date( 'Y-m-d H:i:s', time() ).")",
+);
+var_dump($data);
+JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'tables');
+$table = JTable::getInstance('settings', 'Table');
+
+if (!$table->save($data)){
+	JError::raiseWarning( 500, $table->getError() );
+}
+
 
 echo '</pre>';
 
