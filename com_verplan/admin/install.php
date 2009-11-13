@@ -67,10 +67,10 @@ gekommen sein, entferne bitte alle Tabellen mit, die mit '<?php echo $db->getPre
 beginnen aus der Datenbank und versuche die Instrallation danach erneut.</p>
 
 <p>Direkt zum <a
-	href="<?php echo JURI::base();?>/administrator/index.php?option=com_verplan">Adminbereich</a>
+	href="<?php echo JURI::base(true);?>/administrator/index.php?option=com_verplan">Adminbereich</a>
 </p>
 <p>Direkt zum <a
-	href="<?php echo JURI::base();?>index.php?option=com_verplan">Frontend</a>
+	href="<?php echo JURI::base(true);?>index.php?option=com_verplan">Frontend</a>
 </p>
 
 <p>Wenn du alle Daten und Datenbankeinträge entfernen oder neu
