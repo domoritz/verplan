@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <config>
-   <params>
+   <params> 
+    <!-- Example: the following will produce a text box 3 characters wide with the label 'Font size:'.  
+    When the user hovers the mouse over the label, a tooltip will pop up which states 'Please enter the 
+    required font size'.  On saving, a value entered into the text box will be saved as the 'font_size' 
+    parameter value. -->
+ 
+    <param type="text" name="font_size" size="3" label="Font size:" description="Please enter the required font size" />
+   	<param name="foo" default="bar" />
+   	<param type="text" name="email_from" size="15" 
+      label="Email sender:" description="It will be shown as FROM address" />
+    <param type="text" name="confirmationMail" size="15" 
+      label="Owner mail:" description="Oreder details will be sent here" />
+    <param type="radio" name="sendConfirmationMail" label="Send mail?:"
+      description="Do you want confirmation mail to be sent" default="0">
+        <option value="0">NO</option>
+        <option value="1">YES</option>
+    </param>
    	
    </params>
 </config>

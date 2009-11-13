@@ -11,8 +11,8 @@
  */
 ?>
 
-<h3 id="settings_header" class="expander plus">Parameter<span id="ajax_indicator_1">loading...</span></h3>
-<div id="admin_settings_div">
+<a href="#settings_header" id="settings_header" class="expander plus">Parameter<span id="ajax_indicator_1">loading...</span></a>
+<div id="admin_settings_div" class="verschwinder">
 
 <dl id="system-message" class="ajaxresmess_1">
 	<dt class="message">Message</dt>

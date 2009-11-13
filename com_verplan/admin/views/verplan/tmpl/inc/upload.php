@@ -58,8 +58,8 @@
 	<br>
 	<input type="submit" name="upload" class="uploadbutton" value="Abschicken" id="send" />
 	
-	<h3 id="options_header" class="expander plus">Optionen</h3>
-	<div id="admin_options_div">
+	<a href="#options_header" id="options_header" class="expander plus">Optionen</a>
+	<div id="admin_options_div" class="verschwinder">
 		<table class="admin_table">
 		<tbody>
 			<!-- anzeige ohne template (praktisch für ajax) -->

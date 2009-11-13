@@ -11,8 +11,8 @@
  */
 ?>
 
-<h3 id="columns_header" class="expander plus">Spalten<span id="ajax_indicator_2">loading...</span></h3>
-<div id="admin_columns_div">
+<a href="#columns_header" id="columns_header" class="expander plus">Spalten<span id="ajax_indicator_2">loading...</span></a>
+<div id="admin_columns_div" class="verschwinder">
 
 
 <dl id="system-message" class="ajaxresmess_2">

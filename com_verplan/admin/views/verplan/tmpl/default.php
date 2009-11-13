@@ -55,7 +55,7 @@ $document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css')
 
 <?php 
 
-JToolBarHelper::preferences( 'com_verplan' );
+//JToolBarHelper::preferences( 'com_verplan' );
 
 ?>
 
@@ -65,7 +65,6 @@ $settings = $this->settings;
 //get version
 $version = $settings[version]['default'];
 ?>
-
 
 <div>
 	<img alt="logo vertretungsplan" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
