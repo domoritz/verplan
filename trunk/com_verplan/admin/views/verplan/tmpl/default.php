@@ -92,6 +92,39 @@ $version = $settings[version]['default'];
 
 <?php 
 /*
+ * Update der versionsnummer, falls diese nicht bei der isntallation erkannt wurde
+ */
+
+$path = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'com_verplan.xml';
+//echo $path;
+$dataxml = JApplicationHelper::parseXMLInstallFile($path);
+//var_dump($data);
+//echo $data[version];
+
+//daten für jtable
+$data = array(
+	'id' => 12,
+	'name' => 'version',
+	'value' => $dataxml[version],
+	'default' => $dataxml[version],
+);
+
+//var_dump($data);
+
+//jtable laden
+JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'tables');
+$table = JTable::getInstance('settings', 'Table');
+
+//var_dump($table);
+
+if (!$table->save($data)){
+	JError::raiseWarning( 500, $table->getError() );
+}
+?>
+
+
+<?php 
+/*
 //anzeige ohne template (praktisch für ajax)
 $mainframe =& JFactory::getApplication('site'); 
 $mainframe->close();
