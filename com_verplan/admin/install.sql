@@ -64,8 +64,8 @@ INSERT IGNORE `#__com_verplan_columns` (
 VALUES 
 ('1', 'id','1','1','ID'),
 ('2','timestamp','2','0','Timestamp'),
-('3','Geltungsdatum','3','1','Datum'),
-('4','Stand','4','1','Stand');
+('3','Geltungsdatum','3','0','Datum'),
+('4','Stand','4','0','Stand');
 
 
 
