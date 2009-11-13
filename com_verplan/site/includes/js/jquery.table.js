@@ -90,7 +90,18 @@ function table_init(){
 		//filter this - spalte, nach der gefiltert wird
 		var filter_this = jQuery('#verplan_form [name=filter_this]').val();
 		//alert (filter_this);
+		
+		//seige leeren icon
+		if (this.value != "") {
+			
+		}
+		
+		//tabelle filtern
 		jQuery.uiTableFilter( theTable, this.value, filter_this);
+		/*
+		 * falls noch der hinweis angezeigt wird, dass spalten 
+		 * ausgeblendet werden, wird dieser ausgeblendet
+		 */
 		if (jQuery('#hint_table').css('display') != 'none') {
 			//hint ausblenden
 			jQuery('#hint_table').hide('blind', 'slow');

@@ -18,19 +18,67 @@ defined('_JEXEC') or die('Restricted access');
  * @return unknown_type
  */
 function com_install() {
+
+	//echo '<pre>';
+	//version aus xml laden
+	$path = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'com_verplan.xml';
+	//echo $path;
+	$dataxml = JApplicationHelper::parseXMLInstallFile($path);
+	//var_dump($data);
+	//echo $data[version];
+
+	//daten für jtable
+	$data = array(
+		'id' => 12,
+		'name' => 'version',
+		'value' => $data[version],
+		'default' => $data[version],
+	);
+
+	//var_dump($data);
+
+	//jtable laden
+	JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'tables');
+	$table = JTable::getInstance('settings', 'Table');
+
+	//var_dump($table);
+
+	if (!$table->save($data)){
+		JError::raiseWarning( 500, $table->getError() );
+	}
+
+	//var_dump($table);
+	//echo '</pre>';
 	?>
-<h1>Installation der Vertretungsplan Webapplication</h1>
-<p>Falls die Komponente schon einmal installiert war, wurden die alten
-Daten (bis auf die Einstellungen, diese wurden auf den Ursprungszustand
-zurückgesetzt) übernommen. Sollte es zu Fehlern bei der Installation
-gekommen sein, entferne bitte alle Tabellen mit, die mit
-'#__com_verplan' beginnen aus der Datenbank und versuche die
-Instrallation danach erneut.</p>
+
+
+<h1>Installation der Vertretungsplan Webapplication, Version: <?php echo $dataxml[version];?></h1>
+
 	<?php
 	//http://docs.joomla.org/JDatabase
 	$db =& JFactory::getDBO();
 	//echo "Database prefix is : " . $db->getPrefix();
 	?>
+
+<p>Falls die Komponente schon einmal installiert war, wurden die alten
+Daten (bis auf die Einstellungen, diese wurden auf den Ursprungszustand
+zurückgesetzt) übernommen. Sollte es zu Fehlern bei der Installation
+gekommen sein, entferne bitte alle Tabellen mit, die mit '<?php echo $db->getPrefix();?>com_verplan'
+beginnen aus der Datenbank und versuche die Instrallation danach erneut.</p>
+
+<p>Direkt zum <a
+	href="<?php echo JURI::base();?>/administrator/index.php?option=com_verplan">Adminbereich</a>
+</p>
+<p>Direkt zum <a
+	href="<?php echo JURI::base();?>index.php?option=com_verplan">Frontend</a>
+</p>
+
+<p>Wenn du alle Daten und Datenbankeinträge entfernen oder neu
+installieren möchtest, solltest du kein Update durchführen, sondern die
+Komponente deinstalliern und danach neu installieren. Beim
+Deinstallieren werden <strong>alle</strong> Daten der Komponente entfernt.
+Beim Upgrade (Neuinstallation ohne vorherige Deinstallation) bleiben die
+Datenbankeinträge erhalten.</p>
 
 <p>Um alle Daten aus Der Datenbank zu löschen, führe dieses SQL-Script
 aus:</p>
@@ -51,27 +99,15 @@ DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_columns`;
 function com_uninstall() {
 	echo '<h1>Und tschüss</h1>';
 	?>
-<p>Du hast dich entschlossen, die Komponente com_verplan zu entfernen.
-Bei der Installation wurden jedoch die Einträge in der Datenbank nicht
-gelöscht, damit du sie bei einer erneuten Installation nicht noch einmal
-eintragen musst. Solltest du diese Daten entfernen wollen, musst du nur
-alle Tabellem, die mit '#__com_verplan' beginnen aus der Datenbak
-entfernen.</p>
-
 	<?php
 	//http://docs.joomla.org/JDatabase
 	$db =& JFactory::getDBO();
 	//echo "Database prefix is : " . $db->getPrefix();
 	?>
-
-<p>Um alle Daten aus Der Datenbank zu löschen, führe dieses SQL-Script
-aus:</p>
-<pre>
-DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_settings`;
-DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_plan`;
-DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_uploads`;
-DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_columns`;
-</pre>
+<p>Du hast dich entschlossen, die Komponente com_verplan zu entfernen.
+Dabei wurden alle Einträge aus der Datenbank und alle Dateien entfernt.
+Falls du dies beim nächsten Mal nicht möchtest, solltest du eine
+Instaaltion ohne vorherige Deinstallation (Upgrade) durchführen.</p>
 
 
 	<?php
