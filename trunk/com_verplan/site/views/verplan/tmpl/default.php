@@ -13,6 +13,8 @@ defined('_JEXEC') or die('=;)');
 
 $document =& JFactory::getDocument();
 
+$baseurl = JURI::root();
+
 /*
  * css
  */
@@ -32,7 +34,7 @@ $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/th
 //$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
 //$document->addScript($this->baseurl.'/components/com_verplan/includes/js//jquery-1.3.2_patched.js');
 if ($this->load_jquery == 'true') {
-	$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery-1.3.2.min.js');
+	$document->addScript($baseurl.'/components/com_verplan/includes/js/jquery-1.3.2.min.js');
 }
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 
@@ -41,34 +43,34 @@ $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-u
 $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 
 //plugins
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.tablesorter.min.js');
-//$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.columnfilters.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.uitablefilter.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.colorize-2.0.0.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.kiketable.colsizable-1.1.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.event.drag-1.4.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.qtip-1.0.0-rc3.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/ui.selectmenu.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/themeswitchertool.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins/jquery.prettyPhoto.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.tablesorter.min.js');
+//$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.columnfilters.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.uitablefilter.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.colorize-2.0.0.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.kiketable.colsizable-1.1.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.event.drag-1.4.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.qtip-1.0.0-rc3.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/ui.selectmenu.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/themeswitchertool.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.prettyPhoto.js');
 
 //$document->addScript('http://www.google.com/jsapi');
-//$document->addScript($this->baseurl.'/components/com_verplan/includes/js/googletable.js');
+//$document->addScript($baseurl.'/components/com_verplan/includes/js/googletable.js');
 //$document->addCustomTag( "<script type=\"text/javascript\">google.load('visualization', '1', {packages: ['table']});</script>" );
-//$document->addScript($this->baseurl.'/components/com_verplan/includes/dataTables-1.5/media/js/jQuery.dataTables.js');
+//$document->addScript($baseurl.'/components/com_verplan/includes/dataTables-1.5/media/js/jQuery.dataTables.js');
 
 
 //eigene scripts
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/table.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/hide_options.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/boxes.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ui.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/tooltips.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/table.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/hide_options.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/boxes.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/ui.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/tooltips.js');
 
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js.php?url='.JURI::root());
+$document->addScript($baseurl.'/components/com_verplan/includes/js/ajax.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/ajax.js.php?url='.JURI::root());
 
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/general.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/general.js');
 
 ?>
 
@@ -85,12 +87,12 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/general
 
 echo '<pre>';
 
-echo JURI::base()."\n";
-echo JURI::base(true)."\n";
-echo JURI::root()."\n";
-echo $this->baseurl."\n";
-echo JPATH_COMPONENT."\n";
-echo JPATH_BASE."\n";
+echo 'JURI::base() '.JURI::base()."\n";
+echo 'JURI::base(true) '.JURI::base(true)."\n";
+echo 'JURI::root() '.JURI::root()."\n";
+echo '$this->baseurl '.$this->baseurl."\n";
+echo 'JPATH_COMPONENT '.JPATH_COMPONENT."\n";
+echo 'JPATH_BASE '.JPATH_BASE."\n";
 
 jimport('joomla.version');
 $version = new JVersion();

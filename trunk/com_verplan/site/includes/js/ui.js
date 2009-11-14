@@ -42,8 +42,10 @@ jQuery(document).ready(function(){
 		//menuWidth: 300
 		change: function() {
 	    	//alert(jQuery(this).val());
+			//setzt den hashwert
 			setHash(jQuery(this).val());
-			//window.location.hash = jQuery(this).val();
+			//läsft neue tabelle
+			loadJsonTable(false, true);
 		}
 	});
 
