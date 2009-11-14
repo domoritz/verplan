@@ -41,11 +41,12 @@ jQuery(document).ready(function(){
 		//style:'dropdown', 
 		//menuWidth: 300
 		change: function() {
-	    	//alert(jQuery(this).val());
+	    	//hashwert über das dropdown
+			var hash = jQuery(this).val();
 			//setzt den hashwert
-			setHash(jQuery(this).val());
+			setHash(hash);
 			//läsft neue tabelle
-			loadJsonTable(false, true);
+			jQuery.history.load(hash);	
 		}
 	});
 
