@@ -68,6 +68,8 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/tooltip
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
 $document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js.php?url='.JURI::root());
 
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/general.js');
+
 ?>
 
 <!-- Ajax Javascrip, dieses muss hier includiert werden, damit php ausgeführt werden kann -->

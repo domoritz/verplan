@@ -1,5 +1,4 @@
 /**
- * funktion, die die Rooturl der joomlainstallation zurückgibt
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -7,7 +6,7 @@
  * @license		GNU/GPL
  * @author      Created on 08-Okt-2009
  */
- 
+
 function getURL(){
-	return('<?php echo $_GET[url]; ?>');
+	return '<?php $_GET['url'];?>';
 }
