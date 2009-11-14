@@ -121,7 +121,7 @@ function showNewContent() {
 function hideLoader() {
 	if (effects_indi) {
 		// jQuery('#loading').pause(500).fadeOut(1000);
-		jQuery('#loader_overlay').pause(500).fadeOut(1000);
+		jQuery('#loader_overlay').pause(0).fadeOut(1500);
 	} else {
 		jQuery('#loader_overlay').hide();
 	}

@@ -1,10 +1,10 @@
 /**
- * @version		$Id$
- * @package		verplan
- * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
- * @link		http://code.google.com/p/verplan/
- * @license		GNU/GPL
- * @author      Created on 14-Nov-2009
+ * @version $Id$
+ * @package verplan
+ * @author Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link http://code.google.com/p/verplan/
+ * @license GNU/GPL
+ * @author Created on 14-Nov-2009
  */
 
 var effects = false;
@@ -14,36 +14,46 @@ var effects_indi = true;
  * initialisierung
  */
 jQuery(document).ready(function(){
-	//rooturl der joomlainstallation
+	// rooturl der joomlainstallation
 	rooturl = getURL();
 	
-	//tabellenplugins initialiseren
+	// tabellenplugins initialiseren
 	table_init();
 
 	/**
 	 * ajax
 	 */
 
-	/*lade tabelle falls url nicht gestezt
-	if (!gup('date')) {
-		loadJsonTable(false, true);
-	}//*/
+	/*
+	 * lade tabelle falls url nicht gestezt if (!gup('date')) {
+	 * loadJsonTable(false, true); }//
+	 */
 	
 	var hash = getHash();
 	
-	//lade tabelle, falls hash nicht gesetzt
+	// lade tabelle, falls hash nicht gesetzt
 	if (!hash) {
 		setHash(jQuery('#select_date').val());
-	}
+	}	
 	
-	//bei select das richtige auswählen
-	jQuery("#select_date option[value='"+hash+"']").attr('selected', 'selected');
-	
-	//lade die tabelle
-	loadJsonTable();
-	//jQuery.history.init(loadJsonTable);
+	// Check if url hash value exists (for bookmark)
+	// und initialisierung
+	jQuery.history.init(initverplan);
 
 });
+
+function initverplan(hash) {
+	// bei select das richtige auswählen
+	jQuery("#select_date option").attr('selected', '');
+	jQuery("#select_date option[value='"+hash+"']").attr('selected', 'selected');
+	
+	var selected = document.getElementById("select_date").selectedIndex;
+	jQuery('#select_date').selectmenu('value',selected); 
+	
+	// tabelle laden
+	loadJsonTable();
+}
+
 
 /**
  * funktion, die urlparameter ausliest
@@ -62,10 +72,10 @@ function gup( name )
 }
 
 /**
- * jQuery queue Funktion zur 
- * zeitverzögerung
+ * jQuery queue Funktion zur zeitverzögerung
  * 
- * @param zeit in ms
+ * @param zeit
+ *            in ms
  */
 jQuery.fn.pause = function (n) {
 	return this.queue(function () {
@@ -77,21 +87,21 @@ jQuery.fn.pause = function (n) {
 };
 
 /**
- * holt den hashwert aus der URL
- * ohne #
+ * holt den hashwert aus der URL ohne #
  * 
  * @return hash string
  */
 function getHash() {
 	return window.location.hash.substr(1,document.location.hash.length);
-	//hash = window.location.hash;
-	//return hash.replace(/^.*#/, '');
+	// hash = window.location.hash;
+	// return hash.replace(/^.*#/, '');
 }
 
 /**
  * setzt den hashwert der url
  * 
- * @param hash der gestezt werden soll
+ * @param hash
+ *            der gestezt werden soll
  * @return hash der url
  */
 function setHash(hash) {
