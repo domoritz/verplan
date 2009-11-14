@@ -59,15 +59,14 @@ $document->addScript($this->baseurl.'/components/com_verplan/includes/js/plugins
 
 
 //eigene scripts
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.table.js');
-//$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.ajax.js.php');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.hide_options.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.boxes.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jqueryui.ui.js');
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.tooltips.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/table.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/hide_options.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/boxes.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ui.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/tooltips.js');
 
-
-$document->addScript($this->baseurl.'/components/com_verplan/includes/js/jquery.ajax.js.php?url='.JURI::root());
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js');
+$document->addScript($this->baseurl.'/components/com_verplan/includes/js/ajax.js.php?url='.JURI::root());
 
 ?>
 
@@ -214,6 +213,7 @@ $version = $settingsmodel->getSetting('version');
 	</form>
 		
 </div>
+
 
 <div id="hidden" style="overflow:hidden;">
 	<div id="options_div" class="ui-helper-clearfix ui-widget-content ui-corner-bl ui-corner-br">
@@ -385,8 +385,12 @@ $version = $settingsmodel->getSetting('version');
 	
 </div>
 
-<div class="table_footer ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix" style="height: 18px;">
+<div class="table_footer ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix" style="height: 15px;">
 	<span id="hpvvp" style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | Version:  <?php echo $version;?></a></span>
+	
+	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all" title="top">
+		<span class="ui-icon ui-icon-circle-arrow-n"></span>
+	</a>
 	<span id="hpvd" style="float: right;">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
 </div>
 

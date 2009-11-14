@@ -40,7 +40,13 @@ jQuery(document).ready(function(){
 	jQuery('#select_date').selectmenu({
 		//style:'dropdown', 
 		//menuWidth: 300
+		change: function() {
+	    	//alert(jQuery(this).val());
+			setHash(jQuery(this).val());
+			//window.location.hash = jQuery(this).val();
+		}
 	});
+
 	
 	//mouseover für die einzelnen spaltenköpfe
 	jQuery('#jquerytable thead th').mouseover(function(){
@@ -66,6 +72,13 @@ jQuery(document).ready(function(){
 	jQuery('#expander_options').mouseleave(function(){
 		jQuery(this).removeClass('ui-state-hover');
 		jQuery(this).addClass('ui-state-default');
+	});
+	
+	
+	jQuery('#up_btn').mouseenter(function(){
+		jQuery(this).addClass('ui-state-hover');
+	}).mouseleave(function(){
+		jQuery(this).removeClass('ui-state-hover');
 	});
 	
 	
