@@ -7,6 +7,9 @@
  * @author      Created on 14-Nov-2009
  */
 
+var effects = false;
+var effects_indi = true;
+
 /**
  * initialisierung
  */
@@ -26,15 +29,19 @@ jQuery(document).ready(function(){
 		loadJsonTable(false, true);
 	}//*/
 	
+	var hash = getHash();
+	
 	//lade tabelle, falls hash nicht gesetzt
-	if (!getHash) {
-		loadJsonTable(false, true);
+	if (!hash) {
+		setHash(jQuery('#select_date').val());
 	}
-
-	//falls sich im select etwas ändert
-	jQuery('#select_date').change(function(){
-		//loadJsonTable(false, true);
-	});
+	
+	//bei select das richtige auswählen
+	jQuery("#select_date option[value='"+hash+"']").attr('selected', 'selected');
+	
+	//lade die tabelle
+	loadJsonTable();
+	//jQuery.history.init(loadJsonTable);
 
 });
 
@@ -77,6 +84,8 @@ jQuery.fn.pause = function (n) {
  */
 function getHash() {
 	return window.location.hash.substr(1,document.location.hash.length);
+	//hash = window.location.hash;
+	//return hash.replace(/^.*#/, '');
 }
 
 /**

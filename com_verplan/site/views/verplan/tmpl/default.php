@@ -51,6 +51,7 @@ $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquer
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.event.drag-1.4.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.qtip-1.0.0-rc3.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/ui.selectmenu.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.history.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/themeswitchertool.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.prettyPhoto.js');
 
@@ -64,13 +65,13 @@ $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquer
 $document->addScript($baseurl.'/components/com_verplan/includes/js/table.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/hide_options.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/boxes.js');
-$document->addScript($baseurl.'/components/com_verplan/includes/js/ui.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/tooltips.js');
 
 $document->addScript($baseurl.'/components/com_verplan/includes/js/ajax.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/ajax.js.php?url='.JURI::root());
 
 $document->addScript($baseurl.'/components/com_verplan/includes/js/general.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/ui.js');
 
 ?>
 
