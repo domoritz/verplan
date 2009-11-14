@@ -74,13 +74,13 @@ jQuery(document).ready(function() {
 		position : {
 			corner : {
 				target : 'bottomMiddle',
-				tooltip : 'topLeft'
+				tooltip : 'topRight'
 			}
 		},
 		style : {
 			name: 'domstyle',
 			textAlign: 'left',
-			tip: 'topLeft'
+			tip: 'topRight'
 		}
 	});
 	
