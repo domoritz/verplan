@@ -13,7 +13,7 @@
  * 
  * effects - ein und ausblendeffekte effects indi - ajax indikator
  */
-function loadJsonTable(effects, effects_indi) {
+function loadJsonTable() {
 	// geschwindigkeit der ein und ausblendeffekte
 	var speed = 1000;
 
@@ -31,12 +31,12 @@ function loadJsonTable(effects, effects_indi) {
 				});
 
 	} else {
-		loadContent(effects, effects_indi);
+		loadContent();
 	}
 
 }
 
-function loadContent(effects, effects_indi) {
+function loadContent() {
 	// get alle daten auf dem formular
 	//var date = jQuery('#select_date').val();
 	var date = getHash();
@@ -101,7 +101,7 @@ function loadContent(effects, effects_indi) {
 					});
 }
 
-function showNewContent(effects, effects_indi) {
+function showNewContent() {
 	if (effects) {
 
 		jQuery('#jquerytable tbody').fadeIn(speed).
@@ -118,7 +118,7 @@ function showNewContent(effects, effects_indi) {
 	hideLoader(effects_indi);
 
 }
-function hideLoader(effects_indi) {
+function hideLoader() {
 	if (effects_indi) {
 		// jQuery('#loading').pause(500).fadeOut(1000);
 		jQuery('#loader_overlay').pause(500).fadeOut(1000);

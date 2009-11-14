@@ -55,41 +55,41 @@ class verplanViewverplan extends JView
 		$controller = new $controllerName();
 			
 		//alle geltungsdaten als array
-		
+
 		//holt sich das array mit daten und ständen
 		$datesandstands = $controller->getDatesAndStands();
-		
+
 		/*DATEN*/
-		
+
 		//an template übergeben
 		foreach ($datesandstands as $key => $value) {
 			$dates[] = $key;
 		}
-		
+
 		//jeden wert nur einmal
 		array_unique($dates);
 		//array sortieren
 		rsort($dates);
-		
-		/* datum über url, der umweg wird gemacht, 
+
+		/* datum über url, der umweg wird gemacht,
 		 * damit das datum wirklich richtig formatiert ist
 		 */
 		$url = $this->date;
 		$url_date = date( 'Y-m-d', strtotime($url));
-		
+
 		//jetzt
 		$now = time();
 		$now_date = date( 'Y-m-d', $now);
-		
+
 		//morgen
 		$tomorrow  = mktime(0, 0, 0, date("m",$now)  , date("d",$now)+1, date("Y",$now));
 		$tomorrow_date = date( 'Y-m-d', $tomorrow);
-		
-		/* 
-		 * sorgt dafür, dass nur eine bestimmte anzahl 
+
+		/*
+		 * sorgt dafür, dass nur eine bestimmte anzahl
 		 * an daten gezeigt wird.
 		 * neuere, als heute werden zusätzlich angezeigt
-		 * 
+		 *
 		 * gleichzeitig wird das datum in das richtige format überführt
 		 */
 		$settingsmodel = JModel::getInstance('Settings', 'VerplanModel');
@@ -102,9 +102,9 @@ class verplanViewverplan extends JView
 			}
 			$dates_show[] = date('Y-m-d', $timestamp);
 		}
-		
+
 		$dates = $dates_show;
-		
+
 		//sucht die option, die gewählt werden soll
 		if (in_array($url_date,$dates)) {
 			//echo "url";
@@ -116,25 +116,25 @@ class verplanViewverplan extends JView
 			//echo "today";
 			$which = array_search($now_date,$dates);
 		}
-		
+
 		/*debug
-		var_dump($dates);
-		var_dump($url);
-		var_dump($now);
-		var_dump($now_date);
-		var_dump($tomorrow);
-		var_dump($tomorrow_date);
-		var_dump($which);
-		//*/
-		
+		 var_dump($dates);
+		 var_dump($url);
+		 var_dump($now);
+		 var_dump($now_date);
+		 var_dump($tomorrow);
+		 var_dump($tomorrow_date);
+		 var_dump($which);
+		 //*/
+
 		//dates an template übergeben
 		$this->assignRef( 'dates', $dates);
 		//übegeben, welches datum ausgewählt werden soll
 		$this->assignRef( 'which', $which);
-		
-		
+
+
 		//jquery laden?
-		$load_jquery = $settingsmodel->getSetting('load_jquery');	
+		$load_jquery = $settingsmodel->getSetting('load_jquery');
 		$this->assignRef( 'load_jquery', $load_jquery);
 
 		//controller plan laden
