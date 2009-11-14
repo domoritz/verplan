@@ -90,8 +90,8 @@ jQuery(document).ready(function() {
 		hide : 'mouseout',
 		position : {
 			corner : {
-				target : 'topLeft',
-				tooltip : 'bottomLeft'
+				target : 'topMiddle',
+				tooltip : 'bottomRight'
 			}
 		},
 		style : {
@@ -186,13 +186,32 @@ jQuery(document).ready(function() {
 		hide : 'mouseout',
 		position : {
 			corner : {
-				target : 'topLeft',
-				tooltip : 'bottomLeft'
+				target : 'topMiddle',
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
 			name: 'domstyle',
 			textAlign: 'left',
+			tip: 'bottomMiddle'
+		}
+	});
+	
+	
+	//nach oben
+	jQuery('#up_btn').qtip( {
+		content : 'nach oben',
+		show : 'mouseover',
+		hide : 'mouseout',
+		position : {
+			corner : {
+				target : 'topLeft',
+				tooltip : 'bottomRight'
+			}
+		},
+		style : {
+			width: 50,
+			name: 'domstyle',
 			tip: 'bottomRight'
 		}
 	});
