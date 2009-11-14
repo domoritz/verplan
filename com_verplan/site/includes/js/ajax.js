@@ -38,7 +38,9 @@ function loadJsonTable(effects, effects_indi) {
 
 function loadContent(effects, effects_indi) {
 	// get alle daten auf dem formular
-	var date = jQuery('#select_date').val();
+	//var date = jQuery('#select_date').val();
+	var date = getHash();
+	//alert(date);
 	var stand = jQuery('#verplan_form [name=stand]').val();
 	var options = jQuery('#verplan_form [name=options]').val();
 

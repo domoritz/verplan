@@ -21,14 +21,19 @@ jQuery(document).ready(function(){
 	 * ajax
 	 */
 
-	//lade tabelle
+	/*lade tabelle falls url nicht gestezt
 	if (!gup('date')) {
+		loadJsonTable(false, true);
+	}//*/
+	
+	//lade tabelle, falls hash nicht gesetzt
+	if (!getHash) {
 		loadJsonTable(false, true);
 	}
 
 	//falls sich im select etwas ändert
 	jQuery('#select_date').change(function(){
-		loadJsonTable(false, true);
+		//loadJsonTable(false, true);
 	});
 
 });
@@ -66,11 +71,12 @@ jQuery.fn.pause = function (n) {
 
 /**
  * holt den hashwert aus der URL
+ * ohne #
  * 
  * @return hash string
  */
 function getHash() {
-	return window.location.hash;
+	return window.location.hash.substr(1,document.location.hash.length);
 }
 
 /**
