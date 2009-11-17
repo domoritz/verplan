@@ -9,17 +9,33 @@ jQuery(document).ready(function() {
 		background: '#333',
 		color: '#fff',
 		textAlign: 'center',
-		padding: 4,
+		padding: 5,
 		'font-size': 'small',
 	    border: {
-	        width: 4,
+	        width: 2,
 	        radius: 5,
-	        color: '#333'
+	        color: '#000'
 	    } , 
+	    /* hide: { 
+	    	effect: { 
+	    		type: 'slide',
+	    		length: 600
+	    	} 
+	    },
+	    show: { 
+	    	effect: { 
+	    		type: 'slide',
+	    		length: 600
+	    	} 
+	    },*/
 		width: 200,	   
 	    tip: 'bottomLeft',
 	    name: 'dark' // Inherit the rest of the attributes from the preset dark style
 	};
+	
+	
+	//tooltips for all
+	jQuery('a[title]').qtip({ style: { name: 'domstyle', tip: true } });
 	
 	
 	//jQuery('._filterText').qtip("disable");
@@ -52,7 +68,7 @@ jQuery(document).ready(function() {
 		}
 	});
 	
-	jQuery('.ui-selectmenu').qtip( {
+	jQuery('.ui-selectmenu-status').qtip( {
 		content : 'Geltungsdatum wählen',
 		show : 'mouseover',
 		hide : 'mouseout',
@@ -145,7 +161,7 @@ jQuery(document).ready(function() {
 			}
 		},
 		style : {
-			name: 'domstyle',
+			//name: 'domstyle',
 			background: '#A00000',
 			color: '#fff',
 			textAlign: 'left',
@@ -159,6 +175,7 @@ jQuery(document).ready(function() {
 			tip: 'topMiddle'
 		}
 	});
+	//show feedy as default
 	jQuery('#feedy').focus();
 	
 	//meine website

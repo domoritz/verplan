@@ -113,7 +113,7 @@ function table_init(){
 		jQuery.uiTableFilter( theTable, '');
 		if (jQuery('#hint_table').css('display') != 'none') {
 			//hint ausblenden
-			jQuery('#hint_table').hide('blind', 'slow');
+			jQuery('#hint_table').hide('blind', 'fast');
 		}
 	});
 	
