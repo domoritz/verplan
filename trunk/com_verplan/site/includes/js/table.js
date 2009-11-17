@@ -91,11 +91,6 @@ function table_init(){
 		var filter_this = jQuery('#verplan_form [name=filter_this]').val();
 		//alert (filter_this);
 		
-		//seige leeren icon
-		if (this.value != "") {
-			
-		}
-		
 		//tabelle filtern
 		jQuery.uiTableFilter( theTable, this.value, filter_this);
 		/*
@@ -107,6 +102,12 @@ function table_init(){
 			jQuery('#hint_table').hide('blind', 'slow');
 		}
 	});
+	
+	//clear input bei start
+	jQuery('#filter_input').val('');
+	
+	//clearable input
+	jQuery('#filter_input').clearableTextField();
 	
 	jQuery('#verplan_form [name=filter_this]').change(function(){
 		jQuery("#filter_input").val('');

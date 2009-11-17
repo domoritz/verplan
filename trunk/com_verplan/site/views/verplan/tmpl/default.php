@@ -23,6 +23,7 @@ $document->addStylesheet('components/com_verplan/includes/css/table.css');
 $document->addStylesheet('components/com_verplan/includes/css/jquery.kiketable.colsizable.css');
 $document->addStylesheet('components/com_verplan/includes/css/ui.selectmenu.css');
 $document->addStylesheet('components/com_verplan/includes/css/prettyPhoto.css');
+$document->addStylesheet('components/com_verplan/includes/css/jquery.clearableTextField.css');
 $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
 //$document->addStylesheet($this->baseurl.'/components/com_verplan/includes/theme/jquery-ui-1.7.2.custom.css');
 
@@ -54,6 +55,7 @@ $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/ui.se
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.history.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/themeswitchertool.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.prettyPhoto.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.clearableTextField.js');
 
 //$document->addScript('http://www.google.com/jsapi');
 //$document->addScript($baseurl.'/components/com_verplan/includes/js/googletable.js');
@@ -231,7 +233,7 @@ $which = $this->which;
 		<input type="text" name="options" value="<?php echo $this->options;?>" />
 		<!-- format wird nuir angezeigt, wenn  -->		    
 		
-		<span>Filter nach einer Spalte:</span>
+		<span id="filter_label">Filter nach einer Spalte:</span>
 		<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
 		<select id="filter_this" style="width: 100px" name="filter_this">
 			<!-- value="" ist wichtig, da sonst nach der spalte alle gesucht wird -->
