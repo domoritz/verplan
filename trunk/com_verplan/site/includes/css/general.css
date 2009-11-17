@@ -7,9 +7,18 @@
  * @author      Created on 07-Sep-2009
  */
 
+/*helpers*/
 .full_width {
 	width: 100%;
 	max-width: 100%;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
 }
 
 /*tooltips*/
@@ -35,10 +44,6 @@
 	height: 35px;
 }
 
-#ajaxdiv {
-	margin-top: 1em;
-}
-
 #select_form a, #select_form select {
 	cursor: pointer;
 	width: 300px;
@@ -49,6 +54,8 @@
 	float: left;
 	vertical-align: middle;
 }
+
+/*indicators*/
 
 #load_platzhalter {
 	width: 64px;
@@ -76,18 +83,20 @@
 	border: 3px solid #999;
 }
 
+/*panel*/
 
-#options_div{
+#options_panel{
 	width: 80%;
 	float:right;
 	padding: 5px;
 	border-top: none;
 	position: relative;
 	right: 1em;
-	display: block;
+	/*display: block;*/
+	height: 100px;
 }
 
-#options_div span{
+#options_panel span{
 	float: left;
 	clear: both;
 	width: 200px;
@@ -96,13 +105,23 @@
 	font-weight: bold;
 }
 
-#options_div input{
+#options_panel input{
 	float: left;
 }
 
 #filter_this {
 	float: left;
 	margin-left: 10px;	
+}
+
+#expander_options {
+	float: right;
+	border-top: none;
+	height: 1.5em;
+	position: relative;
+	right: 3em;
+	padding: 2px 10px 2px 10px;
+	cursor: pointer;
 }
 
 /*kein js*/
@@ -116,22 +135,14 @@
 	font-weight: bold;
 }
 
-#expander_options {
-	float: right;
-	border-top: none;
-	height: 1.5em;
-	position: relative;
-	right: 3em;
-	padding: 2px 10px 2px 10px;
-	cursor: pointer;
-}
-
 #no_db {
 	display: none;
 	font-size: x-large;
 	margin: 1em 1em;
 }
 
+/*table panel*/
+
 #ajaxdiv {
-	margin-top: 2em;
+	clear: both;
 }

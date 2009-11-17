@@ -165,7 +165,7 @@ $version = $settingsmodel->getSetting('version');
 	<br>
 </div>
 
-<div style="margin-bottom: 3em;">
+
 <div id="select_rahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
 	<form id="select_form" method="get" enctype="multipart/form-data" action="#">
 	<label for="select_date"></label> 
@@ -220,46 +220,39 @@ $version = $settingsmodel->getSetting('version');
 </div>
 
 
-<div id="hidden" style="overflow:hidden;">
-	<div id="options_div" class="ui-helper-clearfix ui-widget-content ui-corner-bl ui-corner-br">
-	
-		<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
-			<!-- nur den neuesten stand --> 
-			<span>Stand</span>
-			<input type="text" name="stand" value="<?php print $this->stand;?>" />
-			<span>Options [model,view]</span>
-			<!-- view optionen nur für ajax interessant -->
-			<input type="text" name="options" value="<?php echo $this->options;?>" />
-			<!-- format wird nuir angezeigt, wenn  -->		    
-			
-			<span>Filter nach einer Spalte:</span>
-			<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
-			<select id="filter_this" style="width: 100px" name="filter_this">
-				<!-- value="" ist wichtig, da sonst nach der spalte alle gesucht wird -->
-				<option value="">alle</option>
-			<?php 
-			//auswahlmöglichkeiten zum sortieren aus den spalten
-			$array = $this->verplanArray;
-			foreach ($array[cols] as $key => $subarray) {
-				echo "<option>";
-				print empty($subarray[label])? $subarray[name]: $subarray[label];
-				echo "</option>";
-			}
-			?>
-			</select>
+<div id="options_panel" class="ui-helper-clearfix ui-widget-content ui-corner-bl ui-corner-br">
+	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
+		<!-- nur den neuesten stand --> 
+		<span>Stand</span>
+		<input type="text" name="stand" value="<?php print $this->stand;?>" />
+		<span>Options [model,view]</span>
+		<!-- view optionen nur für ajax interessant -->
+		<input type="text" name="options" value="<?php echo $this->options;?>" />
+		<!-- format wird nuir angezeigt, wenn  -->		    
 		
-		</form>
-	</div>
+		<span>Filter nach einer Spalte:</span>
+		<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
+		<select id="filter_this" style="width: 100px" name="filter_this">
+			<!-- value="" ist wichtig, da sonst nach der spalte alle gesucht wird -->
+			<option value="">alle</option>
+		<?php 
+		//auswahlmöglichkeiten zum sortieren aus den spalten
+		$array = $this->verplanArray;
+		foreach ($array[cols] as $key => $subarray) {
+			echo "<option>";
+			print empty($subarray[label])? $subarray[name]: $subarray[label];
+			echo "</option>";
+		}
+		?>
+		</select>
 	
+	</form>
 </div>
 
-<div id="expander_options" class="ui-state-default ui-corner-bl ui-corner-br">
+<p id="expander_options" class="ui-state-default ui-corner-bl ui-corner-br">
 	<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
 				erweiterte Optionen
-</div>
-</div>
-
-
+</p>
 
 <noscript class="full_width">
 
@@ -332,13 +325,16 @@ $version = $settingsmodel->getSetting('version');
 </div>
 
 
-<div id="ajaxdiv" class=" ">
-<div class="table_header ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix" style="height: 22px;">
+
+<div id="loader_overlay"></div>
+
+
+
+<div id="ajaxdiv" class="ui-helper-clearfix">
+<div id ="table_header" class="ui-widget-header ui-corner-tl ui-corner-tr" style="height: 22px;">
 	<div class="left">Vertretungsplan</div>
 	<div id="ui_themeswitcher"></div>
 </div>
-
-<div id="loader_overlay"></div>
 
 <table id="jquerytable" class="ui-widget full_width">
 	<colgroup>
@@ -390,13 +386,13 @@ $version = $settingsmodel->getSetting('version');
 	
 </div>
 
-<div class="table_footer ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix" style="height: 15px;">
-	<span id="hpvvp" style="float: left;"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | Version:  <?php echo $version;?></a></span>
+<div id="table_footer" class="ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix" style="height: 15px;">
+	<span id="hpvvp" class="left"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | Version:  <?php echo $version;?></a></span>
 	
 	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all" title="top">
 		<span class="ui-icon ui-icon-circle-arrow-n"></span>
 	</a>
-	<span id="hpvd" style="float: right;">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
+	<span id="hpvd" class="right">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
 </div>
 
 </div>

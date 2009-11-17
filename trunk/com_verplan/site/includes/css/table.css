@@ -12,25 +12,21 @@
 	border-collapse:collapse;
 }
 
-.table_header {
+#table_header {
 	padding: 5px;
 	font-size: 1em;
 }
 
-.table_header .left{
+#table_header .left{
 	padding-top: 0.2em;
 	padding-left: 0.4em;
 	font-size: 1.2em;
 	border-bottom: 0px;
 }
 
-.table_footer {
+#table_footer {
 	padding: 5px;
 	font-size: 1em;
-}
-
-.left {
-	float: left;
 }
 
 #ui_themeswitcher {
