@@ -1,0 +1,11 @@
+
+div.text_clear_button { 
+	background: transparent url(../images/clear_cross.png) no-repeat left; 
+	width:11px; 
+	height:11px; 
+	margin:0 0 0 -2px; 
+	padding:0;
+    z-index:2; 
+    position:absolute; 
+    cursor:pointer; 
+}

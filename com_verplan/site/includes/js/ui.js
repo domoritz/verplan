@@ -17,7 +17,7 @@ jQuery(document).ready(function(){
 	jQuery('#ui_themeswitcher').themeswitcher({
 		width: 200,
 		initialText: 'Theme wechseln'
-		/*loadTheme: 'ui-darkness'*/
+		//loadTheme: 'ui-darkness'
 	}); 
 	
 	jQuery('#ui_themeswitcher').append(''); 

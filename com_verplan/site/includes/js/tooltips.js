@@ -55,8 +55,8 @@ jQuery(document).ready(function() {
 		}
 	});
 	
-	jQuery('#filter_input').qtip( {
-		content : 'Daten nach einer bestimmten Spalte filtern',
+	jQuery('#filter_label').qtip( {
+		content : 'Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen.',
 		position : {
 			corner : {
 				target : 'topMiddle',
