@@ -47,6 +47,7 @@
 	border-left-width: 0 !important;
 	font-weight: normal !important;
 	font-size: small;
+	color: inherit;
 }
 
 .ui-selectmenu-menu li a,.ui-selectmenu-status {
