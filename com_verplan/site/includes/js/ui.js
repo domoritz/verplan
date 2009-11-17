@@ -49,7 +49,6 @@ jQuery(document).ready(function(){
 			jQuery.history.load(hash);	
 		}
 	});
-
 	
 	//mouseover für die einzelnen spaltenköpfe
 	jQuery('#jquerytable thead th').mouseover(function(){
@@ -67,18 +66,8 @@ jQuery(document).ready(function(){
 		jQuery(this).removeClass('ui-state-hover');
 	});*/
 	
-	//mouseover für den expander für die optionen
-	jQuery('#expander_options').mouseenter(function(){
-		jQuery(this).addClass('ui-state-hover');
-		jQuery(this).removeClass('ui-state-default');
-	});
-	jQuery('#expander_options').mouseleave(function(){
-		jQuery(this).removeClass('ui-state-hover');
-		jQuery(this).addClass('ui-state-default');
-	});
-	
-	
-	jQuery('#up_btn').mouseenter(function(){
+	//mouseover für den expander für die optionen und den up button	
+	jQuery('#up_btn, #expander_options').mouseenter(function(){
 		jQuery(this).addClass('ui-state-hover');
 	}).mouseleave(function(){
 		jQuery(this).removeClass('ui-state-hover');

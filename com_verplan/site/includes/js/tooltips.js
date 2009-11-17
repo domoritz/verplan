@@ -129,12 +129,12 @@ jQuery(document).ready(function() {
 	jQuery('#feedy').qtip( {
 		content : {
             // Set the text to an image HTML string with the correct src URL to the loading image you want to use
-            text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <strong>Feedback</strong> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß'
+            text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <strong>Feedback</strong> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
             //url: jQuery(this).attr('href'), // Use the rel attribute of each element for the url to load
-            /*title: {
-            	text: 'Feedback' // Give the tooltip a title using each elements text
-            	//button: 'Close' // Show a close link in the title
-            }*/		
+            title: {
+            	text: 'Feedback', // Give the tooltip a title using each elements text
+            	button: 'schließen' // Show a close link in the title
+            }
         },
 		show : 'focus',
 		hide : 'click',

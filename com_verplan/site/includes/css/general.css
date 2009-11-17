@@ -21,6 +21,13 @@
 	float: right;
 }
 
+/*all panels*/
+.panel {
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 1em;
+}
+
 /*tooltips*/
 
 /*header*/

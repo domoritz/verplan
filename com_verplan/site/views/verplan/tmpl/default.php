@@ -150,6 +150,9 @@ echo '</pre>';
 //version number
 $settingsmodel = JModel::getInstance('Settings', 'VerplanModel');
 $version = $settingsmodel->getSetting('version');
+
+$dates = $this->dates;
+$which = $this->which;			
 ?>
 
 
@@ -165,15 +168,13 @@ $version = $settingsmodel->getSetting('version');
 	<br>
 </div>
 
+<?php require_once('inc/messages.inc.php');?>
+
 
 <div id="select_rahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
 	<form id="select_form" method="get" enctype="multipart/form-data" action="#">
 	<label for="select_date"></label> 
 	
-	<?php 
-		$dates = $this->dates;
-		$which = $this->which;			
-	?>
 	<span class="ui-state-default" style="border: none;">
 	<select size="1" id="select_date" name="date">
 		<?php		
@@ -253,77 +254,6 @@ $version = $settingsmodel->getSetting('version');
 	<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
 				erweiterte Optionen
 </p>
-
-<noscript class="full_width">
-
-	<div class="ui-widget">
-		<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em; margin-bottom: 2em;">
-			<p>
-			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span>
-				<?php echo $this->nojs;?> 
-			</p>
-		</div>
-	</div>
-	
-	<!-- falls js nicht unterstürtz, ist es möglich, ohne ajax die seite zu benutzen  -->
-	
-	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
-	
-		<select size="1" id="select_nojs" name="date">
-		<?php		
-		for ($i = 0; $i < count($dates); $i++) {				
-			
-			//geltungsdatum
-			$date = strtotime($dates[$i]);
-			$date_date = date( 'Y-m-d', $date);
-			
-			//falls diese option gleich die gewählte ist
-			$selected = $i == $which;			
-			
-			echo "<option value=\"$date_date\"";
-			//php Ternary Operator
-			print ($selected ? ' selected="selected" id="selected">' : '>');	
-			
-			/*
-			 * richtiges datumsformat
-			 * %A - wochentag
-			 * %d - tag
-			 * %m - monat
-			 * %Y - jahr, 4stellig
-			 * %H - stunde
-			 * %M - minute
-			 */						
-			setlocale(LC_TIME, "de_DE");		
-			$format="%A %d.%m.%Y";
-			$label= strftime($format,$date);		
-			echo $label;
-			
-			echo "</option>";
-			
-			}
-			?>
-		</select>
-		
-		<!-- damit die Komponente wieder aufgerufen wird --> 
-		<input type="hidden" name="option" value="com_verplan" /> 
-		<input type="hidden" name="task" value="" />
-		<input type="hidden" name="Itemid" value="<?php echo JRequest::getVar('Itemid');?>" /> 
-		<input type="hidden" name="controller" value="" /> 
-		<!-- die user ID --> 
-		<input	type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
-		
-		<input type="submit" name="submit" id="submitbutton" value="Vertretungsplan anzeigen" />
-		
-	</form>
-
-</noscript>
-
-
-<div id="hint_table" class="ui-widget" style="display: none;">
-	<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em;">
-	</div>
-</div>
-
 
 
 <div id="loader_overlay"></div>
