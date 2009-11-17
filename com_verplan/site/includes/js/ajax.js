@@ -7,6 +7,9 @@
  * @author      Created on 14-Nov-2009
  */
 
+
+var speed = 1000;
+
 /**
  * funktion, die tbody mit JSON daten neu lädt und dabei ein paar effekte
  * anzeigt
@@ -15,7 +18,6 @@
  */
 function loadJsonTable() {
 	// geschwindigkeit der ein und ausblendeffekte
-	var speed = 1000;
 
 	if (effects_indi) {
 		// jQuery('#loading').fadeIn('fast');
@@ -23,12 +25,14 @@ function loadJsonTable() {
 	}
 
 	if (effects) {
-		jQuery('#jquerytable tbody').fadeOut(speed).
+		jQuery('#jquerytable tbody')
+		//.slideUp(speed).
+		.fadeOut(speed)
 		// hide('blind',speed).
-				queue(function() {
-					loadContent(effects, effects_indi);
-					jQuery(this).dequeue();
-				});
+		queue(function() {
+			loadContent(effects, effects_indi);
+			jQuery(this).dequeue();
+		});
 
 	} else {
 		loadContent();
@@ -104,11 +108,13 @@ function loadContent() {
 function showNewContent() {
 	if (effects) {
 
-		jQuery('#jquerytable tbody').fadeIn(speed).
-		// show('blind',speed).
-				queue(function() {
-					jQuery(this).dequeue();
-				});
+		jQuery('#jquerytable tbody')
+		//.slideDown(speed)
+		.fadeIn(speed)
+		// show('blind',speed)
+		.queue(function() {
+			jQuery(this).dequeue();
+		});
 
 	} else {
 		jQuery('#jquerytable tbody').queue(function() {

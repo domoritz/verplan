@@ -12,13 +12,12 @@ jQuery(document).ready(function(){
 	 * versteckt optionen (es wird das übergeordnete span versteckt, 
 	 * damit es keine probleme mit display gibt)
 	 */
-	jQuery('#hidden').hide('');
+	jQuery('#options_panel').hide('');
 	jQuery('#expander_options').click(function() {
 		//wechsel des icons
-		jQuery('#hidden').toggle('blind',1000);
+		jQuery('#options_panel').slideToggle(600);
 		jQuery('#icon_options').toggleClass('ui-icon-circle-plus').toggleClass('ui-icon-circle-minus');
 		jQuery('#expander_options').toggleClass('ui-state-default');
 		jQuery('#expander_options').toggleClass('ui-state-active');
 	});
-	
 });
