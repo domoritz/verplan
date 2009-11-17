@@ -65,13 +65,13 @@ $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquer
 $document->addScript($baseurl.'/components/com_verplan/includes/js/table.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/hide_options.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/boxes.js');
-$document->addScript($baseurl.'/components/com_verplan/includes/js/tooltips.js');
 
 $document->addScript($baseurl.'/components/com_verplan/includes/js/ajax.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/ajax.js.php?url='.JURI::root());
 
 $document->addScript($baseurl.'/components/com_verplan/includes/js/general.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/ui.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/tooltips.js');
 
 ?>
 
@@ -161,7 +161,7 @@ $which = $this->which;
 	<p style="">
 	
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
-		Weitere Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
+		Weitere Informationen: <a href="http://code.google.com/p/verplan/" title="Projektseite">http://code.google.com/p/verplan/</a>. 
 		Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" 
 		href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=90%&height=100%">Feedback</a>!
 	</p>
@@ -221,7 +221,7 @@ $which = $this->which;
 </div>
 
 
-<div id="options_panel" class="ui-helper-clearfix ui-widget-content ui-corner-bl ui-corner-br">
+<div id="options_panel" class="ui-helper-clearfix ui-widget-content ui-corner-bottom">
 	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
 		<!-- nur den neuesten stand --> 
 		<span>Stand</span>
@@ -250,7 +250,7 @@ $which = $this->which;
 	</form>
 </div>
 
-<p id="expander_options" class="ui-state-default ui-corner-bl ui-corner-br">
+<p id="expander_options" class="ui-state-default ui-corner-bottom">
 	<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
 				erweiterte Optionen
 </p>
@@ -261,7 +261,7 @@ $which = $this->which;
 
 
 <div id="ajaxdiv" class="ui-helper-clearfix">
-<div id ="table_header" class="ui-widget-header ui-corner-tl ui-corner-tr" style="height: 22px;">
+<div id ="table_header" class="ui-widget-header ui-corner-top" style="height: 22px;">
 	<div class="left">Vertretungsplan</div>
 	<div id="ui_themeswitcher"></div>
 </div>
@@ -316,10 +316,10 @@ $which = $this->which;
 	
 </div>
 
-<div id="table_footer" class="ui-widget-header ui-state-default ui-corner-bl ui-corner-br ui-helper-clearfix" style="height: 15px;">
+<div id="table_footer" class="ui-widget-header ui-state-default ui-corner-bottom ui-helper-clearfix" style="height: 15px;">
 	<span id="hpvvp" class="left"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | Version:  <?php echo $version;?></a></span>
 	
-	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all" title="top">
+	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all">
 		<span class="ui-icon ui-icon-circle-arrow-n"></span>
 	</a>
 	<span id="hpvd" class="right">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
