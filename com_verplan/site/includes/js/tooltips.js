@@ -83,6 +83,11 @@ jQuery(document).ready(function() {
 	
 	jQuery('#filter_input').qtip( {
 		content : 'Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen.',
+		hide: {
+			when: 'mouseout',
+			fixed: true
+		},
+		show: 'mouseover',
 		position : {
 			corner : {
 				target : 'topMiddle',
@@ -92,6 +97,11 @@ jQuery(document).ready(function() {
 		style : {
 			name: 'domstyle'
 		}
+	});
+	
+	//schließen bei click
+	jQuery('#filter_input').click(function(){
+		jQuery(this).qtip("hide");
 	});
 	
 	
