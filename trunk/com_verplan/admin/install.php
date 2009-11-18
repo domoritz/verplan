@@ -49,10 +49,19 @@ function com_install() {
 
 	//var_dump($table);
 	//echo '</pre>';
+
+	echo "<!--";
+	echo JURI::base()."\n";
+	echo JURI::base(true)."\n";
+	echo JURI::root()."\n";
+	echo JPATH_COMPONENT."\n";
+	echo JPATH_BASE."\n";
+	echo "-->";
+
 	?>
 
 
-<h1>Installation der Vertretungsplan Webapplication, Version: <?php echo $dataxml[version];?></h1>
+<h1>Installation der Vertretungsplan Webapplication</h1>
 
 	<?php
 	//http://docs.joomla.org/JDatabase
@@ -67,18 +76,18 @@ gekommen sein, entferne bitte alle Tabellen mit, die mit '<?php echo $db->getPre
 beginnen aus der Datenbank und versuche die Instrallation danach erneut.</p>
 
 <p>Direkt zum <a
-	href="<?php echo JURI::base(true);?>/administrator/index.php?option=com_verplan">Adminbereich</a>
+	href="<?php echo JURI::base();?>index.php?option=com_verplan">Adminbereich</a>
 </p>
 <p>Direkt zum <a
-	href="<?php echo JURI::base(true);?>index.php?option=com_verplan">Frontend</a>
+	href="<?php echo JURI::root();?>index.php?option=com_verplan">Frontend</a>
 </p>
 
 <p>Wenn du alle Daten und Datenbankeinträge entfernen oder neu
 installieren möchtest, solltest du kein Update durchführen, sondern die
 Komponente deinstalliern und danach neu installieren. Beim
-Deinstallieren werden <strong>alle</strong> Daten der Komponente entfernt.
-Beim Upgrade (Neuinstallation ohne vorherige Deinstallation) bleiben die
-Datenbankeinträge erhalten.</p>
+Deinstallieren werden <strong>alle</strong> Daten der Komponente
+entfernt. Beim Upgrade (Neuinstallation ohne vorherige Deinstallation)
+bleiben die Datenbankeinträge erhalten.</p>
 
 <p>Um alle Daten aus Der Datenbank zu löschen, führe dieses SQL-Script
 aus:</p>
