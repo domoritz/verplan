@@ -13,14 +13,15 @@
 }
 
 #table_header {
-	padding: 5px;
+	padding: 3px;
 	font-size: 1em;
 }
 
-#table_header .left{
+/*überschrift der verplantabelle*/
+#table_header .left_float{
 	padding-top: 0.2em;
 	padding-left: 0.4em;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	border-bottom: 0px;
 }
 

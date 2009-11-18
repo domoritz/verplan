@@ -55,7 +55,33 @@ jQuery(document).ready(function() {
 		}
 	});
 	
-	jQuery('#filter_label').qtip( {
+	jQuery('#input_options').qtip( {
+		content : 'nicht beachten',
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle'
+		}
+	});
+	
+	jQuery('#input_stand').qtip( {
+		content : 'nicht beachten',
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle'
+		}
+	});
+	
+	jQuery('#filter_input').qtip( {
 		content : 'Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen.',
 		position : {
 			corner : {
@@ -67,6 +93,7 @@ jQuery(document).ready(function() {
 			name: 'domstyle'
 		}
 	});
+	
 	
 	jQuery('.ui-selectmenu-status').qtip( {
 		content : 'Geltungsdatum wählen',
@@ -145,12 +172,12 @@ jQuery(document).ready(function() {
 	jQuery('#feedy').qtip( {
 		content : {
             // Set the text to an image HTML string with the correct src URL to the loading image you want to use
-            text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <strong>Feedback</strong> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
+            text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <strong>Feedback</strong> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß<br><p id="closefeedy" style="cursor: pointer; font-weight: bold; float:right;">schließen</p> '
             //url: jQuery(this).attr('href'), // Use the rel attribute of each element for the url to load
-            title: {
+            /*title: {
             	text: 'Feedback', // Give the tooltip a title using each elements text
             	button: 'schließen' // Show a close link in the title
-            }
+            }*/
         },
 		show : 'focus',
 		hide : 'click',
@@ -172,11 +199,18 @@ jQuery(document).ready(function() {
 		        color: '#A00000'
 		    } , 
 			width: 220,	  
-			tip: 'topMiddle'
+			tip: 'topMiddle',
+			'font-size': 'small'
 		}
 	});
 	//show feedy as default
 	jQuery('#feedy').focus();
+	
+	
+	//schließen bei click
+	jQuery('#closefeedy').click(function(){
+		jQuery('#feedy').qtip("hide");
+	});
 	
 	//meine website
 	jQuery('#hpvd').qtip( {
