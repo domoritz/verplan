@@ -56,6 +56,7 @@ $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquer
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/themeswitchertool.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.prettyPhoto.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.clearableTextField.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquery.cookie.js');
 
 //$document->addScript('http://www.google.com/jsapi');
 //$document->addScript($baseurl.'/components/com_verplan/includes/js/googletable.js');
@@ -83,6 +84,8 @@ $document->addScript($baseurl.'/components/com_verplan/includes/js/tooltips.js')
 </script>
 
 <!-- -->
+
+<div id="verplanwrapper" class="full_width">
 
 
 <?php 
@@ -172,7 +175,7 @@ $which = $this->which;
 
 <?php require_once('inc/messages.inc.php');?>
 
-
+<div class="panel ui-helper-clearfix">
 <div id="select_rahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
 	<form id="select_form" method="get" enctype="multipart/form-data" action="#">
 	<label for="select_date"></label> 
@@ -218,6 +221,7 @@ $which = $this->which;
 	<!-- <span id="load_platzhalter" class="ui-corner-all">
 		<span id="loading">&nbsp;</span>
 	</span>-->
+	
 	</form>
 		
 </div>
@@ -227,10 +231,10 @@ $which = $this->which;
 	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
 		<!-- nur den neuesten stand --> 
 		<span>Stand</span>
-		<input type="text" name="stand" value="<?php print $this->stand;?>" />
+		<input id="input_stand" type="text" name="stand" value="<?php print $this->stand;?>" />
 		<span>Options [model,view]</span>
 		<!-- view optionen nur für ajax interessant -->
-		<input type="text" name="options" value="<?php echo $this->options;?>" />
+		<input id="input_options" type="text" name="options" value="<?php echo $this->options;?>" />
 		<!-- format wird nuir angezeigt, wenn  -->		    
 		
 		<span id="filter_label">Filter nach einer Spalte:</span>
@@ -251,20 +255,24 @@ $which = $this->which;
 	
 	</form>
 </div>
-
+<!-- 
+<img style="margin-top: 6px; margin-left: 10px;" src="<?php echo $baseurl; ?>/components/com_verplan/includes/images/ajax/ajax-loader-spin_32.gif" id ="load_new"></img>
+ -->
+ 
 <p id="expander_options" class="ui-state-default ui-corner-bottom">
 	<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
 				erweiterte Optionen
 </p>
+</div>
 
 
-<div id="loader_overlay"></div>
+<div id="loader_overlay"><span>Laden...</span></div>
 
 
 
 <div id="ajaxdiv" class="ui-helper-clearfix">
-<div id ="table_header" class="ui-widget-header ui-corner-top" style="height: 22px;">
-	<div class="left">Vertretungsplan</div>
+<div id ="table_header" class="ui-widget-header ui-corner-top ui-helper-clearfix">
+	<div id="table_header_text" class="left_float">Vertretungsplan</div>
 	<div id="ui_themeswitcher"></div>
 </div>
 
@@ -318,13 +326,15 @@ $which = $this->which;
 	
 </div>
 
-<div id="table_footer" class="ui-widget-header ui-state-default ui-corner-bottom ui-helper-clearfix" style="height: 15px;">
-	<span id="hpvvp" class="left"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | Version:  <?php echo $version;?></a></span>
+<div id="table_footer" class="ui-widget-header ui-corner-bottom ui-helper-clearfix">
+	<span id="hpvvp" class="left_float"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | Version:  <?php echo $version;?></a></span>
 	
 	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all">
 		<span class="ui-icon ui-icon-circle-arrow-n"></span>
 	</a>
-	<span id="hpvd" class="right">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
+	<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
+</div>
+
 </div>
 
 </div>
