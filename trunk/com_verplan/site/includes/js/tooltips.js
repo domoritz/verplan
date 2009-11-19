@@ -35,7 +35,18 @@ jQuery(document).ready(function() {
 	
 	
 	//tooltips for all
-	jQuery('a[title]').qtip({ style: { name: 'domstyle', tip: true } });
+	jQuery('a[title]').qtip({ 
+		style: { 
+			name: 'domstyle', 
+			tip: true 
+		},
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomLeft'
+			}
+		}
+	});
 	
 	
 	//jQuery('._filterText').qtip("disable");
@@ -154,13 +165,13 @@ jQuery(document).ready(function() {
 		}
 	});
 	
-	jQuery('#jquerytable thead th').qtip( {
+	/*jQuery('#jquerytable thead th').qtip( {
 		content : {
 			text: 'Sortiere nach dieser Spalte'
 			/*title: {
 				text: 'Sortieren', // Give the tooltip a title using each elements text
 				button: 'Schließen' // Show a close link in the title
-			}*/
+			}*//*
 		},
 		show : 'mouseover',
 		hide : 'mouseout',
@@ -175,8 +186,31 @@ jQuery(document).ready(function() {
 			textAlign: 'left',
 			tip: 'topMiddle'
 		}
-	});
+	});*/
 	
+	//spaltentitel, es werden beschreibungen angezeigt
+	jQuery('#jquerytable thead th[title]').qtip( {
+		content : {
+			//keit content, damit der text aus dem title attribut genutz wird
+		},
+		show : 'mouseover',
+		hide: {
+			when: 'mouseout',
+			//hält tooltip auch, wenn man mit der maus aus den tootip fährt
+			fixed: true
+		},
+		position : {
+			corner : {
+				target : 'bottomMiddle',
+				tooltip : 'topMiddle'
+			}
+		},
+		style : {
+			name: 'domstyle',
+			textAlign: 'center',
+			tip: 'topMiddle'
+		}
+	});
 	
 	//feedback
 	jQuery('#feedy').qtip( {
