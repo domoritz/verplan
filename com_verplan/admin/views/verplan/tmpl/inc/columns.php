@@ -52,7 +52,7 @@ $columns = $this->columns;
 			
 		?>
 		<form name="columns" id="columnsform" method="get"
-			enctype="multipart/form-data" action="index.php?option=com_verplan">
+			enctype="multipart/form-data" action="index.php?option=com_verplan#columns_header">
 			<?php
 
 			foreach ($subarray as $head => $value) {
@@ -73,6 +73,9 @@ $columns = $this->columns;
 						break;
 					case ($head == 'label' || $head == 'name'):
 						echo '<input name="'.$head.'" type="text" value="'.$value.'"></input><span class="min_f_sort">'.$value.'</span>';
+						break;
+					case ($head == 'description'):
+						echo '<textarea name="'.$head.'" type="text" cols="50" rows="2">'.$value.'</textarea><span class="min_f_sort">'.'</span>';
 						break;
 					case ($head == 'ordering'):
 						echo '<input name="'.$head.'" type="text" value="'.$value.'"></input><span class="min_f_sort">'.$value.'</span>';

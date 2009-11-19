@@ -63,6 +63,13 @@ class TableColumns extends JTable
 	var $label = null;
 	
 	/**
+	 * Beschreibung, die im Tooltip angezeigt wird
+	 *
+	 * @var string
+	 */
+	var $description = null;
+	
+	/**
 	 * Constructor
 	 *
 	 * @param object Database connector object
