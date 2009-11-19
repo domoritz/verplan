@@ -12,7 +12,7 @@ jQuery(document).ready(function(){
 	//ajax für dateiupload form
 	var options_0 = { 
 			target:        '#ajaxresponse_0',   // target element(s) to be updated with server response 
-			url: 'index.php?option=com_verplan',
+			url:  'index.php?option=com_verplan',
 			success:       showResponse_0  // post-submit callback 
 	};
 
@@ -75,6 +75,10 @@ jQuery(document).ready(function(){
 	/*COLUMNS*/
 	//wenn daten geändert werden
 	jQuery('#columntable input').change(function() {
+		jQuery(this).parent().parent().addClass('highlight');
+	});
+	
+	jQuery('#columntable textarea').change(function() {
 		jQuery(this).parent().parent().addClass('highlight');
 	});
 
