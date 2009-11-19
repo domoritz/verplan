@@ -51,7 +51,8 @@ CREATE TABLE IF NOT EXISTS `#__com_verplan_columns` (
 `name` TEXT NOT NULL ,
 `ordering` INT NOT NULL comment 'sortierung',
 `published` BOOL NULL DEFAULT '0',
-`label` TEXT NULL COMMENT 'alternativer name'
+`label` TEXT NULL COMMENT 'alternativer name',
+`description` TEXT NULL
 ) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
 
 INSERT IGNORE `#__com_verplan_columns` (
@@ -59,13 +60,14 @@ INSERT IGNORE `#__com_verplan_columns` (
 `name` ,
 `ordering` ,
 `published` ,
-`label`
+`label`,
+`description`
 )
 VALUES 
-('1', 'id','1','1','ID'),
-('2','timestamp','2','0','Timestamp'),
-('3','Geltungsdatum','3','0','Datum'),
-('4','Stand','4','0','Stand');
+('1', 'id','1','1','ID','Fortlaufende Nummer'),
+('2','timestamp','2','0','Timestamp','Zeit, wann der Plan eingestellt wurde'),
+('3','Geltungsdatum','3','0','Datum','Datum, für das die Vertretungsen gelten'),
+('4','Stand','4','0','Stand','Zu diesem Zeitpunkt wurde der Vertretungsplan erstellt. In der Zwischenzeit könnte sich schon etwas geändert haben. ');
 
 
 
@@ -87,7 +89,7 @@ INSERT IGNORE INTO `#__com_verplan_settings` (
 `id` ,
 `name` ,
 `value` ,
-`default`,
+`default`, 
 `de`
 )
 VALUES 

@@ -290,7 +290,10 @@ $which = $this->which;
 		<tr class="ui-state-default">
 		<?php
 		foreach ($array[cols] as $colname => $subarray) {
-			echo "<th filter-type='ddl'>";
+			echo '<th filter-type="ddl"';
+			print !empty($subarray[description])? ' title="'.$subarray[description].'"': '';
+			echo '>';
+			
 			echo '<span class="ui-icon ui-icon-carat-2-n-s" style="float:right"></span>';
 			print empty($subarray[label])? $subarray[name]: $subarray[label];
 			echo "</th>";
