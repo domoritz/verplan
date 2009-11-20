@@ -73,9 +73,13 @@ function loadContent() {
 							if (jQuery('#no_db').css('display') != 'none') {
 								jQuery('#no_db').hide('blind', speed);
 							}
+							
+							//tbody leeren
+							jQuery('#jquerytable tbody').html('');
 
+							//tabelle zusammenbauen
 							jQuery.each(json.rows, function() {
-								table += '<tr>';
+								table = '<tr>';
 								jQuery.each(this, function(name,content) {
 									if (this != null) {
 										table += '<td title="'+name+'">';
@@ -85,10 +89,14 @@ function loadContent() {
 									}
 								});
 								table += '</tr>';
+								
+								//tabellenzeile anhängen
+								jQuery('#jquerytable tbody').append(table);
 							});
-
-							// table+='</table>';
-							jQuery('#jquerytable tbody').html(table);
+							
+							//tbody einfügen
+							//jQuery('#jquerytable tbody').append(table);
+							
 							table_update();
 							showNewContent(effects, effects_indi);
 

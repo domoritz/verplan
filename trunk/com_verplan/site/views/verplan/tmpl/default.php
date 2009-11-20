@@ -282,7 +282,7 @@ $which = $this->which;
 	$array = $this->verplanArray;
 	$anzahl = count($array[cols]);
 	for ($i = 0; $i < $anzahl; $i++) {
-		echo "<col></col>";
+		echo "<col/>";
 	}
 	?>
 	</colgroup>
