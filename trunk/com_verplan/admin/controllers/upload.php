@@ -34,8 +34,20 @@ class VerplanControllerUpload extends verplanController
 		$this->registerTask('parse_file_to_array','parse_file_to_array');
 	}
 
+	/**
+	 * Dateiinhalt
+	 * @var string
+	 */
 	public $inhalt;
+	/**
+	 * dateiinformationen
+	 * @var file
+	 */
 	public $file;
+	/**
+	 * daten der datei
+	 * @var array
+	 */
 	public $data;
 
 	/**
@@ -86,7 +98,7 @@ class VerplanControllerUpload extends verplanController
 					 */
 					//speichere file in class variable
 					$this->file = $file;
-						
+
 					//rückgabewert
 					return ($file);
 				} else {
@@ -114,38 +126,63 @@ class VerplanControllerUpload extends verplanController
 	}
 
 	/**
-	 * wandelt umlaute in inhalt um, diese funktion muss nocheinmal 
+	 * wandelt umlaute in inhalt um, diese funktion muss nocheinmal
 	 * anhand richtiger daten überprüft werden
-	 * 
+	 *
 	 */
 	function umlaute() {
-		
+
 		//$this->inhalt = iconv("UTF-8", "ISO-8859-1//TRANSLIT", $this->inhalt);
-		
-		$countt = 0;
-		
+
+		/*$countt = 0;
+
 		//umlaute austauschen
 		$umlaute = array("ä", "ö", "ü","Ä","Ö","Ü","ß","~","&nbsp;");
 		$expressions = array("&auml;", "&ouml;", "&uuml;","&Auml;","&Ouml;","&Uuml;","&szlig;","&#126;"," ");
-		
+
 		for ($i = 0; $i < count($umlaute); $i++) {
 			$this->inhalt = str_replace($umlaute[$i], $expressions[$i], $this->inhalt, $count);
 			$countt += $count;
-		}
+		}*/
 		
+		function htmlent(&$value, &$key) {
+			htmlentities($value);
+			htmlentities($key);
+		}
+
+		//codiert das array in utf-8
+		array_walk_recursive($this->data,htmlent);
+
 		///*debug
 		echo '<br>==========<br>';
-		echo "$countt Umlaute ausgetauscht<br>";
+		echo "Umlaute ausgetauscht<br>";
 		//*/
 	}
-	
+
+	/**
+	 * codiert das array um
+	 * @return unknown_type
+	 */
+	function charset() {
+		//in utf-8
+
+		//codiert einen wert um
+		function utf8(&$value, &$key) {
+			utf8_encode($value);
+			utf8_encode($key);
+		}
+
+		//codiert das array in utf-8
+		array_walk_recursive($this->data,utf8);
+	}
+
 	/**
 	 * liest die datei in die variable inhalt ein
-	 * 
+	 *
 	 */
 	function einlesen() {
 		$file = $this->file;
-		
+
 		//öffnet die datei
 		$FileHandle = fopen($file[dest], "r" ) ;
 		//größe, wichtig für lesen
@@ -154,7 +191,7 @@ class VerplanControllerUpload extends verplanController
 		$inhalt = fread( $FileHandle , $n ) ;
 		//schleißt die datei wieder
 		fclose( $FileHandle ) ;
-		
+
 		//inhalt in class variable speichern
 		$this->inhalt = $inhalt;
 	}
@@ -358,7 +395,7 @@ class VerplanControllerUpload extends verplanController
 
 		//debug
 		//var_dump($data);
-		
+
 		//speichert data in class variable
 		$this->data = $data;
 
@@ -371,7 +408,7 @@ class VerplanControllerUpload extends verplanController
 	/**
 	 * methode zum speichern der daten in der datenbank
 	 * es wird an das model weitergegeben
-	 * 
+	 *
 	 * @return unknown_type
 	 */
 	function store() {

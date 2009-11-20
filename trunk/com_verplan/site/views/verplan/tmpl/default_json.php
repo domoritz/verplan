@@ -33,6 +33,18 @@ defined('_JEXEC') or die('=;)');
 <?php
 //holt das array
 $arr = $this->verplanarray;
+
+/*codiert einen wert um
+function utf8(&$value, &$key) {
+	utf8_encode($value);
+	utf8_encode($key);
+}
+
+//codiert das array in utf-8
+array_walk_recursive($arr,utf8);
+*/
+
+//optionen für view
 $options = $this->options;
 
 switch ($options) {

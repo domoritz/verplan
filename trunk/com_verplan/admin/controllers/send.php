@@ -86,8 +86,8 @@ class VerplanControllerSend extends verplanController
 			//falls es sich um eine datei handelt, die in die DB eigelesen werden kann
 			if (strpos($inhalt, "Untis")) {
 				
-				//umlaute austauschen
-				$controller->execute('umlaute');
+				//umlaute austauschen (auf string, auskommentiert)
+				//$controller->execute('umlaute');
 
 				//nun kann die datei geparst werden
 				$controller->execute('parse_file_to_array');
@@ -97,7 +97,12 @@ class VerplanControllerSend extends verplanController
 				echo 'nach Parsen<br>';
 				var_dump($controller->data);
 				//*/
-
+				
+				//codiert datei richtig
+				$controller->execute('charset');
+				
+				//umlaute austauschen (htmlentities auf array)
+				//$controller->execute('umlaute');
 
 				//und dann werden die daten noch gespeichert
 				$controller->execute('store');
