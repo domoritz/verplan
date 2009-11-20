@@ -76,10 +76,11 @@ function loadContent() {
 
 							jQuery.each(json.rows, function() {
 								table += '<tr>';
-								jQuery.each(this, function() {
-									if (this != "") {
-										table += '<td>';
-										table += this;
+								jQuery.each(this, function(name,content) {
+									if (this != null) {
+										table += '<td title="'+name+'">';
+										//console.log(a,b);
+										table += (content) ? content : '';
 										table += '</td>';
 									}
 								});
