@@ -27,7 +27,7 @@ defined('_JEXEC') or die('=;)');
 ?>
 
 <?php
-//header('Content-type: application/json');
+header('Content-type: application/json');
 ?>
 
 <?php
