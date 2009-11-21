@@ -15,43 +15,45 @@ jQuery(document).ajaxStop(function() {
 	hideIndicator();
 });
 
-function getAndUseJSON(date, stand, options) {
-	/*jQuery.getJSON(rooturl
-			+ 'index.php?option=com_verplan&view=verplan&format=js&date='
-			+ date + '&stand=' + stand + '&options=' + options, function(json,
-			textstatus) {
-		JSONsuccess(json, textstatus);
+var date;
+var stand;
+var options;
 
-	});*/
 
+function getAndUseJSON() {	
+	/*
+	 * hidetable hat als Callback ajaxCall, welches wiederum JSONsuccsss
+	 * aufruft. von dort aus wird dann show table aufgerufen (falls type=db)
+	 * 
+	 * hideTable()->ajaxCall()->JSONsuccess()+buildTable->showTable()
+	 */
+	hideTable();
+	
+}
+
+function ajaxCall() {
 	jQuery.ajax( {
 		type : "GET",
 		dataType : "json",
-		url : rooturl+"index.php",
-		data : 'option=com_verplan&view=verplan&format=js&date='+date+'&stand='+stand+'&options='+options,
+		url : rooturl + "index.php",
+		data : 'option=com_verplan&view=verplan&format=js&date=' + date
+				+ '&stand=' + stand + '&options=' + options,
 		timeout : 5000,
 		async : true,
 		global : true,
-		beforeSend : function() {
-			hideTable();
-		},
-		complete : function() {
-			showTable();
-		},
-		success : function(XMLHttpRequest,textStatus) {
-			JSONsuccess(XMLHttpRequest,textStatus);
+		success : function(XMLHttpRequest, textStatus) {
+			JSONsuccess(XMLHttpRequest, textStatus);
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			// typically only one of textStatus or errorThrown
-			// will have info
-			alert(textStatus+'<br>'+errorThrown); // the options for this ajax request
+		// will have info
+		alert(textStatus + '<br>' + errorThrown); // the options for this ajax
+													// request
 	}
-
 	});
-
 }
 
-function JSONsuccess(json,textStatus) {
+function JSONsuccess(json, textStatus) {
 	console.log('JSON status: ' + textStatus);
 
 	// holt aus dem array immer die neuesten infos (höchster
@@ -67,6 +69,8 @@ function JSONsuccess(json,textStatus) {
 
 		// baut die tabelle zusammen
 		buildTableFromJSON(jQuery('#jquerytable tbody'), json.rows);
+		
+		showTable();
 
 		// update der plugins
 		table_update();
@@ -94,7 +98,6 @@ function buildTableFromJSON(tbody, json) {
 		table += '</tr>';
 
 		// tabellenzeile anhängen
-			tbody.append(table);
-		});
-
+		tbody.append(table);
+	});
 }
