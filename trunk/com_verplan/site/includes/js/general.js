@@ -49,9 +49,9 @@ function initverplan(hash) {
 	
 	
 	// json laden und tabelle anzeigen	
-	var date = getHash();
-	var stand = jQuery('#verplan_form [name=stand]').val();
-	var options = jQuery('#verplan_form [name=options]').val();
+	date = getHash();
+	stand = jQuery('#verplan_form [name=stand]').val();
+	options = jQuery('#verplan_form [name=options]').val();
 	
 	getAndUseJSON(date, stand, options);
 }

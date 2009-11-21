@@ -7,7 +7,7 @@
  * @author      Created on 21-Nov-2009
  */
 
-var speed = 2000;
+var speed = 500;
 var effects = true;
 var effects_indi = true;
 
@@ -58,7 +58,7 @@ function hideTable() {
 		jQuery('#jquerytable tbody')
 		//.slideUp(speed)
 		//.hide('blind',speed)
-		.fadeOut(speed)
+		.fadeOut(speed,ajaxCall)
 		;
 	}
 }

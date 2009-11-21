@@ -32,11 +32,19 @@ $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/th
  */
 
 //jQuery hinzufügen
-//$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
-//$document->addScript($this->baseurl.'/components/com_verplan/includes/js//jquery-1.3.2_patched.js');
 if ($this->load_jquery == 'true') {
-	//$document->addScript($baseurl.'/components/com_verplan/includes/js/jquery-1.3.2.min.js');
 	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.js');
+	?>
+	<script type="text/javascript">
+	if (typeof jQuery == 'undefined')
+	{
+	    document.write(unescape("%3Cscript src='<?php echo $baseurl;?>/components/com_verplan/includes/js/jquery-1.3.2.min.js' type='text/javascript'%3E%3C/script%3E"));
+	}
+	</script>
+	<?php
+	//$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
+	//$document->addScript($baseurl.'/components/com_verplan/includes/js//jquery-1.3.2_patched.js');
+	
 }
 $document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
 
@@ -80,7 +88,7 @@ $document->addScript($baseurl.'/components/com_verplan/includes/js/tooltips.js')
 
 ?>
 
-<!-- Ajax Javascrip, dieses muss hier includiert werden, damit php ausgeführt werden kann -->
+<!-- Ajax Javascript, dieses muss hier includiert werden, damit php ausgeführt werden kann -->
 <script type="text/javascript">
 <?php //require_once (JPATH_COMPONENT.DS.'/includes/js/jquery.ajax.js');?>
 </script>
@@ -341,5 +349,7 @@ $which = $this->which;
 </div>
 
 </div>
+
+<div id="syncFnHolder"></div>
 
 </div>
