@@ -7,9 +7,6 @@
  * @author Created on 14-Nov-2009
  */
 
-var effects = false;
-var effects_indi = true;
-
 /**
  * initialisierung
  */
@@ -50,8 +47,13 @@ function initverplan(hash) {
 	var selected = document.getElementById("select_date").selectedIndex;
 	jQuery('#select_date').selectmenu('value',selected); 
 	
-	// tabelle laden
-	loadJsonTable();
+	
+	// json laden und tabelle anzeigen	
+	var date = getHash();
+	var stand = jQuery('#verplan_form [name=stand]').val();
+	var options = jQuery('#verplan_form [name=options]').val();
+	
+	getAndUseJSON(date, stand, options);
 }
 
 
