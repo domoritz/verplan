@@ -16,17 +16,43 @@ jQuery(document).ajaxStop(function() {
 });
 
 function getAndUseJSON(date, stand, options) {
-	jQuery.getJSON(rooturl
+	/*jQuery.getJSON(rooturl
 			+ 'index.php?option=com_verplan&view=verplan&format=js&date='
 			+ date + '&stand=' + stand + '&options=' + options, function(json,
 			textstatus) {
 		JSONsuccess(json, textstatus);
 
+	});*/
+
+	jQuery.ajax( {
+		type : "GET",
+		dataType : "json",
+		url : rooturl+"index.php",
+		data : 'option=com_verplan&view=verplan&format=js&date='+date+'&stand='+stand+'&options='+options,
+		timeout : 5000,
+		async : true,
+		global : true,
+		beforeSend : function() {
+			hideTable();
+		},
+		complete : function() {
+			showTable();
+		},
+		success : function(XMLHttpRequest,textStatus) {
+			JSONsuccess(XMLHttpRequest,textStatus);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			// typically only one of textStatus or errorThrown
+			// will have info
+			alert(textStatus+'<br>'+errorThrown); // the options for this ajax request
+	}
+
 	});
+
 }
 
-function JSONsuccess(json, textstatus) {
-	console.log('JSON status: ' + textstatus);
+function JSONsuccess(json,textStatus) {
+	console.log('JSON status: ' + textStatus);
 
 	// holt aus dem array immer die neuesten infos (höchster
 	// wert)
@@ -53,9 +79,9 @@ function JSONsuccess(json, textstatus) {
 }
 
 function buildTableFromJSON(tbody, json) {
-	//tabelle leeren
+	// tabelle leeren
 	jQuery('#jquerytable tbody').html('');
-	
+
 	var table = '';
 	jQuery.each(json, function() {
 		table = '<tr>';
