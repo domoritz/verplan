@@ -50,8 +50,7 @@ function ajaxCall() {
 }
 
 function JSONsuccess(json, textStatus) {
-	console.log('JSON status: ' + textStatus);
-
+	
 	// holt aus dem array immer die neuesten infos (höchster
 	// wert)
 	var infoarr = json.infos;

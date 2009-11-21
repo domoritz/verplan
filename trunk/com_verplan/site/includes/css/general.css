@@ -92,7 +92,7 @@
 
 #loader_overlay {
 	display: none;
-	position: absolute;
+	position: relative;
 	text-align: center;
 	top: 300px;
 	left: 50%;
@@ -116,7 +116,7 @@
 	position: relative;
 	right: 1em;
 	/*display: block;*/
-	height: 100px;
+	height: 120px;
 }
 
 #options_panel span{
