@@ -1,3 +1,10 @@
+//klasse, die gefiltert werden soll, der wert wird gespeichert
+var filterKlasse = jQuery.cookie('Klasse');
+
+//klasse, für filter, gilt nur bis zum nächsten ajax request
+var filterKlasse_temp = null;
+
+
 /**
  * initialisiert die tabelle
  * @return
@@ -34,7 +41,8 @@ function table_init(){
         	//entfernt leerzeichen am anfang und ende
         	s = jQuery.trim(s);
         	s = s.toLowerCase();
-        	var replace = "";
+        	//leeres, durch das ersetzt wird
+        	var replace = null;
         	//array mit alles buchstaben
         	var array = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
         	//alle buchstaben werden durch zahlen mit führenden nullen ersetzt
@@ -89,18 +97,16 @@ function table_init(){
 	jQuery("#filter_input").keyup(function() {
 		//filter this - spalte, nach der gefiltert wird
 		var filter_this = jQuery('#verplan_form [name=filter_this]').val();
-		//alert (filter_this);
+		
+		//debug
+		console.log('Filter: '+filter_this+' '+this.value);
+		
+		//klassenfilter wird zurüchgesetzt
+		resetKlassFilter();
 		
 		//tabelle filtern
 		jQuery.uiTableFilter( theTable, this.value, filter_this);
-		/*
-		 * falls noch der hinweis angezeigt wird, dass spalten 
-		 * ausgeblendet werden, wird dieser ausgeblendet
-		 */
-		if (jQuery('#hint_table').css('display') != 'none') {
-			//hint ausblenden
-			jQuery('#hint_table').hide('blind', 'slow');
-		}
+		hideHint();
 	});
 	
 	//clear input bei start
@@ -109,13 +115,42 @@ function table_init(){
 	//clearable input
 	jQuery('#filter_input').clearableTextField();
 	
+	//falls sich bei filter ehis etwas ändert
 	jQuery('#verplan_form [name=filter_this]').change(function(){
 		jQuery("#filter_input").val('');
 		jQuery.uiTableFilter( theTable, '');
-		if (jQuery('#hint_table').css('display') != 'none') {
-			//hint ausblenden
-			jQuery('#hint_table').hide('blind', 'fast');
-		}
+		
+		//reset klasse filter
+		resetKlassFilter();
+		
+		
+		hideHint();
+	});
+	
+	
+	//filter klasse
+	jQuery("#klasse").attr('selected', '');
+	jQuery("#klasse option[value='']").attr('selected', 'selected');
+	
+	jQuery("#klasse").change(function() {
+		//filter this - spalte, nach der gefiltert wird
+		var filter_this = '(Klasse(n))';
+		
+		//filterKlasse,wird gesetzt
+		filterKlasse = this.value;
+		jQuery.cookie('Klasse', filterKlasse, { expires: 7 });
+		
+		//anderer filter wird zurüchgesetzt
+		jQuery(".text_clear_button").click();
+		jQuery("#filter_this").attr('selected', '');
+		jQuery("#filter_this option[value='']").attr('selected', 'selected');
+		
+		//debug
+		console.log('Filter '+this.value);
+		
+		//tabelle filtern
+		jQuery.uiTableFilter( theTable, this.value,filter_this);
+		hideHint();
 	});
 	
 	
@@ -160,6 +195,28 @@ function table_init(){
 	table_update();
 	
 }
+
+/**
+ * falls noch der hinweis angezeigt wird, dass spalten 
+ * ausgeblendet werden, wird dieser ausgeblendet
+ */
+function hideHint() {
+	if (jQuery('#hint_table').css('display') != 'none') {
+		//hint ausblenden
+		jQuery('#hint_table').hide('blind', 'fast');
+	}
+}
+
+/**
+ * setzt alle einstellungen des klassenfilters zuück (auch cookie)
+ */
+function resetKlassFilter() {
+	filterKlasse = null;
+	jQuery("#klasse").attr('selected', '');
+	jQuery("#klasse option[value='']").attr('selected', 'selected');
+	jQuery.cookie('Klasse', null);
+}
+
 
 /**
  * update/repaint nach ajax update
@@ -218,25 +275,31 @@ function table_update() {
 	jQuery('#jquerytable').trigger("update");
 	
 	
-	//neue funktion zur zeitverzögerung
-	jQuery.fn.pause = function (n) {
-		return this.queue(function () {
-			var el = this;
-			setTimeout(function () {
-				return jQuery(el).dequeue();
-			}, n);
-		});
-	};
-	
-	//update filter
+	//update filter all
 	var theTable = jQuery('#jquerytable');
 	var filter_input = jQuery('#verplan_form [name=filter_input]').val();
 	var filter_this = jQuery('#verplan_form [name=filter_this]').val();
-	jQuery.uiTableFilter( theTable, filter_input, filter_this);
+	jQuery.uiTableFilter( theTable, filter_input, filter_this);	
 	
-	//alert(filter_input != '');
-	
+	//alert(filter_input != '');	
 	if (filter_input != '') {
+		show_hint('Achtung','Es werden Spalten ausgeblendet, weil ein Filter aktiv ist.');
+	}
+	
+	
+	//update filter klasse
+	//wähle die klasse, die vorher gewählt war
+	jQuery("#klasse").attr('selected', '');
+	jQuery("#klasse option[value='"+filterKlasse+"']").attr('selected', 'selected');
+	
+	var filter_this = '(Klasse(n))';
+	filterKlasse_temp = jQuery("#klasse").val();
+	console.log('filterKlasse '+filterKlasse);
+	console.log('filterKlasse_temp '+filterKlasse_temp);
+	
+	jQuery.uiTableFilter( theTable, filterKlasse_temp, filter_this);
+	
+	if (filterKlasse_temp != '') {
 		show_hint('Achtung','Es werden Spalten ausgeblendet, weil ein Filter aktiv ist.');
 	}
 

@@ -262,6 +262,11 @@ $which = $this->which;
 		}
 		?>
 		</select>
+		
+		<span id="filter_label_klassen">Klasse</span>
+		<select id="klasse" style="width: 100px" name="klasse">
+			<option value="">alle</option>
+		</select>
 	
 	</form>
 </div>
