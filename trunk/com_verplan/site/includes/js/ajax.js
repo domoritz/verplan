@@ -78,21 +78,21 @@ function loadContent() {
 							jQuery('#jquerytable tbody').html('');
 
 							//tabelle zusammenbauen
-							jQuery.each(json.rows, function() {
-								table = '<tr>';
-								jQuery.each(this, function(name,content) {
-									if (this != null) {
+							if (json.rows) {
+								jQuery.each(json.rows, function() {
+									table = '<tr>';
+									jQuery.each(this,function(name,content) {
 										table += '<td title="'+name+'">';
 										//console.log(a,b);
 										table += (content) ? content : '';
 										table += '</td>';
-									}
+									});
+									table += '</tr>';
+									
+									//tabellenzeile anhängen
+									jQuery('#jquerytable tbody').append(table);
 								});
-								table += '</tr>';
-								
-								//tabellenzeile anhängen
-								jQuery('#jquerytable tbody').append(table);
-							});
+							}
 							
 							//tbody einfügen
 							//jQuery('#jquerytable tbody').append(table);
