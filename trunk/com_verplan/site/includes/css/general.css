@@ -128,12 +128,11 @@
 	font-weight: bold;
 }
 
-#options_panel input{
+#options_panel input, #options_panel select{
 	float: left;
 }
 
 #filter_this {
-	float: left;
 	margin-left: 10px;	
 }
 

@@ -116,6 +116,30 @@ jQuery(document).ready(function() {
 	});
 	
 	
+	jQuery('#klasse').qtip( {
+		content : 'Filtere die Tabelle nach deiner Klasse. Die Eingabe bleibt auch erhalten, wenn du einen neuen Plan wählst oder sogar die Seite neu aufrufst. ',
+		hide: {
+			when: 'mouseout',
+			fixed: true
+		},
+		show: 'mouseover',
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle'
+		}
+	});
+	
+	//schließen bei click
+	jQuery('#klasse').click(function(){
+		jQuery(this).qtip("hide");
+	});
+	
+	
 	jQuery('.ui-selectmenu-status').qtip( {
 		content : 'Geltungsdatum wählen',
 		show : 'mouseover',

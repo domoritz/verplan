@@ -26,6 +26,7 @@ jQuery(document).ready(function(){
 		jQuery('#options_panel').slideToggle(600);
 		toggleStuff();
 		
+		//setzt wert für cookie auf true
 		jQuery.cookie('show_advanced_layer', 'true', { expires: 7 });
 	});
 	
@@ -35,7 +36,8 @@ jQuery(document).ready(function(){
 		jQuery('#options_panel').slideToggle(600);
 		toggleStuff();
 		
-		jQuery.cookie('show_advanced_layer', 'false', { expires: 7 });
+		//löscht cookie
+		jQuery.cookie('show_advanced_layer', null);
 	});
 	
 });
