@@ -66,11 +66,12 @@ $document->addScript($baseurl.'/components/com_verplan/includes/js/plugins/jquer
 
 
 //eigene scripts
-$document->addScript($baseurl.'/components/com_verplan/includes/js/table.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/tableplugins.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/hide_options.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/boxes.js');
 
-$document->addScript($baseurl.'/components/com_verplan/includes/js/ajax.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/ajaxjson.js');
+$document->addScript($baseurl.'/components/com_verplan/includes/js/ajaxeffects.js');
 $document->addScript($baseurl.'/components/com_verplan/includes/js/ajax.js.php?url='.JURI::root());
 
 $document->addScript($baseurl.'/components/com_verplan/includes/js/general.js');

@@ -8,5 +8,5 @@
  */
 
 function getURL(){
-	return '<?php $_GET['url'];?>';
+	return '<?php echo $_GET['url'];?>';
 }
