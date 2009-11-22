@@ -115,7 +115,7 @@ function filterKlassen(rows) {
 	//select leeren
 	jQuery('#klasse').html('');
 	
-	var klassehead = '(Klasse(n))';
+	var klassehead = getVarname();
 	
 	var klassenArray = new Array();
 	var klasse = null;
