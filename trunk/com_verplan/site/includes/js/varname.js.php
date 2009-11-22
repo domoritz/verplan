@@ -8,5 +8,8 @@
  */
 
 function getVarname(){
-	return '<?php echo $_GET['var'];?>';
+	var a = '<?php echo $_GET['var'];?>';
+	a.trim();
+	console.log('Varname: '+a);
+	return a;
 }

@@ -8,5 +8,8 @@
  */
 
 function getColname(){
-	return '<?php echo $_GET['col'];?>';
+	var a = '<?php echo $_GET['col'];?>';
+	a.trim();
+	console.log('Colname: '+a);
+	return a;
 }

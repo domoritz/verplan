@@ -5,7 +5,7 @@ var filterKlasse = jQuery.cookie('Klasse');
 var filterKlasse_temp = null;
 
 //tabelle
-var theTable = jQuery('#jquerytable');
+var theTable;
 
 
 /**
@@ -96,6 +96,8 @@ function table_init(){
 	 * tablefilter
 	 * http://plugins.jquery.com/project/uiTableFilter
 	 */
+	
+	theTable = jQuery('#jquerytable');
 
 	jQuery("#filter_input").keyup(function() {
 		//filter this - spalte, nach der gefiltert wird
@@ -138,7 +140,7 @@ function table_init(){
 	
 	jQuery("#klasse").change(function() {
 		//filter this - spalte, nach der gefiltert wird
-		var filter_this = '(Klasse(n))';
+		var filter_this = getColname();
 		
 		//filterKlasse,wird gesetzt
 		filterKlasse = this.value;
@@ -153,7 +155,7 @@ function table_init(){
 		console.log('Filter Klasse: '+filter_this+' '+this.value);
 		
 		//tabelle filtern
-		jQuery.uiTableFilter( theTable, this.value,filter_this);
+		jQuery.uiTableFilter( theTable,this.value,filter_this);
 		hideHint();
 	});
 	
@@ -298,12 +300,12 @@ function table_update() {
 	jQuery("#klasse").attr('selected', '');
 	jQuery("#klasse option[value='"+filterKlasse+"']").attr('selected', 'selected');
 	
-	var filter_this = '(Klasse(n))';
+	var filter_this = getColname();
 	filterKlasse_temp = jQuery("#klasse").val();
 	console.log('filterKlasse '+filterKlasse);
 	console.log('filterKlasse_temp '+filterKlasse_temp);
 	
-	jQuery.uiTableFilter( theTable, filterKlasse_temp, filter_this);
+	jQuery.uiTableFilter(theTable,filterKlasse_temp,filter_this);
 	
 	if (filterKlasse_temp != '') {
 		show_hint('Achtung','Es werden Zeilen ausgeblendet, weil ein Filter aktiv ist.');
