@@ -13,6 +13,7 @@ var theTable = jQuery('#jquerytable');
  * @return
  */
 function table_init(){
+	console.log('table init');
 	
 	/*
 	 * tablesorter plugin
@@ -227,6 +228,7 @@ function resetKlassFilter() {
  * @return
  */
 function table_update() {
+	console.log('table update');
 	
 	if (jQuery('#hint_table').css('display') != 'none') {
 		//hint ausblenden

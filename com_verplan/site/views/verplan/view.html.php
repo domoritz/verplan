@@ -144,7 +144,7 @@ class verplanViewverplan extends JView
 		
 		//namen für klassenfilter
 		$classname = $settingsmodel->getSetting('class_col');
-		$this->assignRef( 'classmane', $classname);
+		$this->assignRef( 'classname', $classname);
 		$varname = $settingsmodel->getSetting('class_name');
 		$this->assignRef( 'varname', $varname);
 

@@ -8,11 +8,39 @@
  */
 
 /**
+ * It will cause Javascript errors, terminating the execution of the block of Javascript containing the error. 
+ * You could, however, define a dummy function that's a no-op when Firebug is not active:
+ * 
+ * diese zeilen lenken die consolenausgaben ins leere, falls keine console vorhanden ist. 
+ * das ist wichtig, weil es sonst zu js fehlern kommt. 
+ */
+var debugging = true; // true -> an; false -> aus
+if (typeof console == "undefined") { 
+	var console = { 
+		log: function() {},
+		time: function() {},
+		timeEnd: function() {} 
+	};
+} else if (!debugging || typeof console.log == "undefined") {
+	console.log = function() {};
+	console.time = function() {};
+	console.timeEnd = function() {};
+}
+
+/**
+ * hash ist der teil der url nach dem #
+ * diser wird nur vom browser interpretiert und kann nicht
+ * vom server gelesen werden (also auch nicht von php)
+ */
+var hash;
+
+/**
  * initialisierung
  */
 jQuery(document).ready(function(){
 	// rooturl der joomlainstallation
 	rooturl = getURL();
+	hash = getHash();
 	
 	// tabellenplugins initialiseren
 	table_init();
@@ -26,12 +54,11 @@ jQuery(document).ready(function(){
 	 * loadJsonTable(false, true); }//
 	 */
 	
-	var hash = getHash();
-	
-	// lade tabelle, falls hash nicht gesetzt
+	// setzt den hashwert, falls er noch nicht gesetzt ist
 	if (!hash) {
-		setHash(jQuery('#select_date').val());
-	}	
+		hash = jQuery('#select_date').val();
+		setHash(hash);
+	}
 	
 	// Check if url hash value exists (for bookmark)
 	// und initialisierung
@@ -40,6 +67,7 @@ jQuery(document).ready(function(){
 });
 
 function initverplan(hash) {
+	
 	// bei select das richtige auswählen
 	jQuery("#select_date option").attr('selected', '');
 	jQuery("#select_date option[value='"+hash+"']").attr('selected', 'selected');
@@ -48,12 +76,11 @@ function initverplan(hash) {
 	jQuery('#select_date').selectmenu('value',selected); 
 	
 	
-	// json laden und tabelle anzeigen	
-	date = getHash();
+	// json laden und tabelle anzeigen
 	stand = jQuery('#verplan_form [name=stand]').val();
 	options = jQuery('#verplan_form [name=options]').val();
 	
-	getAndUseJSON(date, stand, options);
+	getAndUseJSON(hash, stand, options);
 }
 
 
@@ -94,7 +121,9 @@ jQuery.fn.pause = function (n) {
  * @return hash string
  */
 function getHash() {
-	return window.location.hash.substr(1,document.location.hash.length);
+	var hash = window.location.hash.substr(1,document.location.hash.length);
+	console.log('hash: '+hash);
+	return hash;
 	// hash = window.location.hash;
 	// return hash.replace(/^.*#/, '');
 }
@@ -102,12 +131,12 @@ function getHash() {
 /**
  * setzt den hashwert der url
  * 
- * @param hash
- *            der gestezt werden soll
+ * @param hash, der gestezt werden soll
  * @return hash der url
  */
-function setHash(hash) {
+function setHash(hashP) {
+	hash = hashP;
 	window.location.hash = hash;
-	
+	console.log('setHash '+hash+' | '+window.location.hash);
 	return window.location.hash;
 }
