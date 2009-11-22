@@ -70,14 +70,14 @@ $document->addScript($baseurl.'includes/js/tableplugins.js');
 $document->addScript($baseurl.'includes/js/hide_options.js');
 $document->addScript($baseurl.'includes/js/boxes.js');
 
-$document->addScript($baseurl.'includes/js/ajaxjson.js');
-$document->addScript($baseurl.'includes/js/ajaxeffects.js');
 $document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
 $document->addScript($baseurl.'includes/js/colname.js.php?col='.$this->classname);
 $document->addScript($baseurl.'includes/js/varname.js.php?var='.$this->varname);
 
 $document->addScript($baseurl.'includes/js/general.js');
-$document->addScript($baseurl.'includes/js/ui.js');
+$document->addScript($baseurl.'includes/js/ajaxjson.js'); //ajax nach gereral, da hash
+$document->addScript($baseurl.'includes/js/ajaxeffects.js');
+$document->addScript($baseurl.'includes/js/ui.js'); //ui muss nach general, da select in general gesetzt
 $document->addScript($baseurl.'includes/js/tooltips.js');
 
 ?>

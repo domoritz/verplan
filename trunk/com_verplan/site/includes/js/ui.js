@@ -9,7 +9,6 @@
 
 function show_hint(head, text) {
 		jQuery('#hint_table div').html('<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span><p><strong>'+head+'</strong><br>'+text+'</p></p>');
-
 		jQuery('#hint_table').show('blind', 'slow');
 }
 
@@ -42,10 +41,10 @@ jQuery(document).ready(function(){
 		//menuWidth: 300
 		change: function() {
 	    	//hashwert über das dropdown
-			var hash = jQuery(this).val();
-			//setzt den hashwert
-			setHash(hash);
-			//läsft neue tabelle
+			hash = jQuery(this).val();
+			//debug
+			console.log('Wert aus select: '+hash);
+			//lädt neue tabelle und setzt hash
 			jQuery.history.load(hash);	
 		}
 	});
