@@ -15,14 +15,14 @@ jQuery(document).ajaxStop(function() {
 	hideIndicator();
 });
 
-var date;
-var stand;
-var options;
+var ajax_date;
+var ajax_stand;
+var ajax_options;
 
-function getAndUseJSON(dateP, standP, optionsP) {
-	date = dateP;
-	stand = standP;
-	options = optionsP;
+function getAndUseJSON(date, stand, options) {
+	ajax_date = date;
+	ajax_stand = stand;
+	ajax_options = options;
 	
 	/*
 	 * hidetable hat als Callback ajaxCall, welches wiederum JSONsuccsss
@@ -39,8 +39,8 @@ function ajaxCall() {
 		type : "GET",
 		dataType : "json",
 		url : rooturl + "index.php",
-		data : 'option=com_verplan&view=verplan&format=js&date=' + date
-				+ '&stand=' + stand + '&options=' + options,
+		data : 'option=com_verplan&view=verplan&format=js&date=' + ajax_date
+				+ '&stand=' + ajax_stand + '&options=' + ajax_options,
 		timeout : 5000,
 		async : true,
 		global : true,
