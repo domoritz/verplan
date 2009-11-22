@@ -77,10 +77,10 @@ function initverplan(hash) {
 	
 	
 	// json laden und tabelle anzeigen
-	stand = jQuery('#verplan_form [name=stand]').val();
-	options = jQuery('#verplan_form [name=options]').val();
+	ajax_stand = jQuery('#verplan_form [name=stand]').val();
+	ajax_options = jQuery('#verplan_form [name=options]').val();
 	
-	getAndUseJSON(hash, stand, options);
+	getAndUseJSON(hash, ajax_stand, ajax_options);
 }
 
 
