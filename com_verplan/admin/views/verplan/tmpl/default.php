@@ -103,7 +103,7 @@ $dataxml = JApplicationHelper::parseXMLInstallFile($path);
 
 //daten für jtable
 $data = array(
-	'id' => 14,
+	'id' => 15,
 	'name' => 'version',
 	'value' => $dataxml[version],
 	'default' => $dataxml[version],

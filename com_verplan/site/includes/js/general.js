@@ -14,7 +14,7 @@
  * diese zeilen lenken die consolenausgaben ins leere, falls keine console vorhanden ist. 
  * das ist wichtig, weil es sonst zu js fehlern kommt. 
  */
-var debugging = true; // true -> an; false -> aus
+var debugging = getDebug(); // true -> an; false -> aus
 if (typeof console == "undefined") { 
 	var console = { 
 		log: function() {},
