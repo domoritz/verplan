@@ -66,7 +66,7 @@ INSERT IGNORE `#__com_verplan_columns` (
 VALUES 
 ('1', 'id','1','1','ID','Fortlaufende Nummer'),
 ('2','timestamp','2','0','Timestamp','Zeit, wann der Plan eingestellt wurde'),
-('3','Geltungsdatum','3','0','Datum','Datum, für das die Vertretungsen gelten'),
+('3','Geltungsdatum','3','0','Datum','Datum, für das die Vertretungen gelten'),
 ('4','Stand','4','0','Stand','Zu diesem Zeitpunkt wurde der Vertretungsplan erstellt. In der Zwischenzeit könnte sich schon etwas geändert haben. ');
 
 
@@ -92,7 +92,7 @@ INSERT IGNORE INTO `#__com_verplan_settings` (
 `default`, 
 `de`
 )
-VALUES 
+VALUES
 ('1' , 'max_file_size', '2097152', '2097152','maximale Dateigröße'),
 ('2' , 'allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls', 'html,htm,gif,jpg,png,pdf,doc,odf,xls','erlaubte Dateitypen'),
 ('3' , 'pattern_stand', '/Stand:.*:[0-5][0-9]/U', '/Stand:.*:[0-5][0-9]/U','Pattern Stand'),
