@@ -13,7 +13,7 @@ jQuery(document).ready(function(){
 	jQuery("#columntable tr:not([th]):odd").addClass("row1"); 
 	
 	//sortierung für die tabelle columns in admin
-	jQuery('#columntable').tablesorter({
+	/*jQuery('#columntable').tablesorter({
 		dateFormat:'de',
 		decimal: ',',
 		debug: false,
@@ -24,6 +24,12 @@ jQuery(document).ready(function(){
 		//zebra
 		widgets: ['zebra'],
 		widgetZebra: {css: ["row0","row1"]}
-	});	
+	});*/
+	
+	//alle speichern
+	jQuery('#save_all_cols').click(function() {
+		//wählt nur die, die euch geändert wurden
+		jQuery('#columntable tr.highlight').children('form').submit();
+	});
 	
 });

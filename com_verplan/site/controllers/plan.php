@@ -130,14 +130,14 @@ class VerplanControllerPlan extends verplanController
 		 * http://www.php.net/manual/en/function.array-multisort.php
 		 * example 3
 		 */
-		$order = array();
+		$ordering = array();
 		$id = array();
 		foreach ($assozArray_cols as $key => $row) {
-			$order[$key] = $row['ordering'];
+			$ordering[$key] = $row['ordering'];
 			$id[$key] = $row['id'];
 		}
 		//sortiert nach mehreren spalten
-		array_multisort($order, SORT_ASC, $id, SORT_ASC, $assozArray_cols);
+		array_multisort($ordering, SORT_ASC, $id, SORT_ASC, $assozArray_cols);
 
 		/*debug
 		 echo "nach sortierung";

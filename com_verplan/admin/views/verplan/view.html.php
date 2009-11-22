@@ -45,6 +45,10 @@ class verplanViewVerplan extends JView
 		$newmodel = JModel::getInstance('Columns', 'VerplanModel');
 		$columns =& $newmodel->getColumns();
 		$this->assignRef('columns', $columns);
+
+		//sortierung übergeben, standard ist ordering
+		$sort = JRequest::getVar('sort','ordering');
+		$this->assignRef( 'sort', $sort);
 		
 
 		parent::display($tpl);

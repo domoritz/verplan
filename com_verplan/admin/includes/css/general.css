@@ -107,3 +107,11 @@ td.def_td {
 .minus:hover {
 	background: transparent url(../images/minus_m_h.png) no-repeat scroll 0 2px;
 }
+
+/*Links in columns*/
+
+.links_do {
+	font-size: 1.2em;
+	margin: 0.2em 0 0.2em 2em;
+	font-weight: bold;
+}

@@ -85,6 +85,10 @@ jQuery(document).ready(function(){
 	jQuery('#columntable select').change(function() {
 		jQuery(this).parent().parent().addClass('highlight');
 	});
+	
+	jQuery('#columntable .columnsbutton:reset').click(function() {
+		jQuery(this).parent().parent().removeClass('highlight');
+	});
 
 
 	// ajax formular für columns

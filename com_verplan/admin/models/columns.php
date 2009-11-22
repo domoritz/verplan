@@ -114,11 +114,14 @@ class VerplanModelColumns extends JModel
 	 * @return unknown_type
 	 */
 	function reorder() {
-		$table =& $this->getTable('columns');
-		if (!$table->reorder()){
+		$table = $this->getTable('columns');
+		
+		$response = $table->reorder();
+		
+		if (!$response){
 				JError::raiseWarning( 500, $table->getError() );
 		}
 		
-		return true;
+		return "Sortierung neu aufgebaut ".$response;
 	}
 }
