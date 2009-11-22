@@ -99,19 +99,14 @@ function table_init(){
 	
 	theTable = jQuery('#jquerytable');
 
-	jQuery("#filter_input").keyup(function() {
-		//filter this - spalte, nach der gefiltert wird
-		var filter_this = jQuery('#verplan_form [name=filter_this]').val();
+	//falls sich etwas ändert
+	jQuery("#filter_input").keyup(function() {	
 		
-		//debug
-		console.log('Filter: '+filter_this+' '+this.value);
-		
-		//klassenfilter wird zurüchgesetzt
+		//reset klassenfilter
 		resetKlassFilter();
 		
-		//tabelle filtern
-		jQuery.uiTableFilter( theTable, this.value, filter_this);
-		hideHint();
+		//ruft die funktion filter auf
+		filter(this.value);
 	});
 	
 	//clear input bei start
@@ -120,15 +115,13 @@ function table_init(){
 	//clearable input
 	jQuery('#filter_input').clearableTextField();
 	
-	//falls sich bei filter ehis etwas ändert
+	//falls sich bei filter this etwas ändert
 	jQuery('#verplan_form [name=filter_this]').change(function(){
 		jQuery(".text_clear_button").click();
 		jQuery("#filter_input").val('');
-		jQuery.uiTableFilter( theTable, '');
 		
-		//reset klasse filter
+		//reset klasse filter und table
 		resetKlassFilter();
-		
 		
 		hideHint();
 	});
@@ -142,21 +135,27 @@ function table_init(){
 		//filter this - spalte, nach der gefiltert wird
 		var filter_this = getColname();
 		
+		//falls alle ausgewählt wird, soll auch spalten aus alle gestellt werden
+		if (this.value == '') {
+			filter_this = '';
+		}
+		
 		//filterKlasse,wird gesetzt
 		filterKlasse = this.value;
 		jQuery.cookie('Klasse', filterKlasse, { expires: 7 });
 		
-		//anderer filter wird zurüchgesetzt
+		//anderer filter wird zurückgesetzt
 		jQuery(".text_clear_button").click();
 		jQuery("#filter_this").attr('selected', '');
-		jQuery("#filter_this option[value='']").attr('selected', 'selected');
+		jQuery("#filter_this option[value='"+filter_this+"']").attr('selected', 'selected');
+		
+		jQuery("#filter_input").val(filterKlasse).change();
+		
+		var value = jQuery("#filter_input").val();
+		filter(value);
 		
 		//debug
 		console.log('Filter Klasse: '+filter_this+' '+this.value);
-		
-		//tabelle filtern
-		jQuery.uiTableFilter( theTable,this.value,filter_this);
-		hideHint();
 	});
 	
 	
@@ -200,6 +199,20 @@ function table_init(){
 	
 	table_update();
 	
+}
+
+function filter(value) {	
+	//filter this - spalte, nach der gefiltert wird
+	var filter_this = jQuery('#verplan_form [name=filter_this]').val();
+	
+	//debug
+	console.log('Filter: '+filter_this+' '+value);
+	
+	//tabelle filtern
+	jQuery.uiTableFilter( theTable, value, filter_this);
+	
+	//hinweis auf filter ausblenden
+	hideHint();
 }
 
 /**
@@ -283,31 +296,24 @@ function table_update() {
 	jQuery('#jquerytable').trigger("update");
 	
 	
-	//update filter all
-	var theTable = jQuery('#jquerytable');
-	var filter_input = jQuery('#verplan_form [name=filter_input]').val();
-	var filter_this = jQuery('#verplan_form [name=filter_this]').val();
-	jQuery.uiTableFilter( theTable, filter_input, filter_this);	
-	
-	//alert(filter_input != '');	
-	if (filter_input != '') {
-		show_hint('Achtung','Es werden Zeilen ausgeblendet, weil ein Filter aktiv ist.');
-	}
-	
-	
-	//update filter klasse
-	//wähle die klasse, die vorher gewählt war
+	//update filter
 	jQuery("#klasse").attr('selected', '');
 	jQuery("#klasse option[value='"+filterKlasse+"']").attr('selected', 'selected');
 	
-	var filter_this = getColname();
-	filterKlasse_temp = jQuery("#klasse").val();
-	console.log('filterKlasse '+filterKlasse);
-	console.log('filterKlasse_temp '+filterKlasse_temp);
+	var klasseFilter_temp = jQuery("#klasse").val();
+	console.log('klasseFilter_temp: '+klasseFilter_temp);
+	if (klasseFilter_temp != "") {	
+		jQuery("#klasse").change();
+	}
 	
-	jQuery.uiTableFilter(theTable,filterKlasse_temp,filter_this);
+	var value = jQuery("#filter_input").val();
+	filter(value);
 	
-	if (filterKlasse_temp != '') {
+	
+	//falls filter aktiv sind
+	//alert(filter_input != '');
+	var filter_input = jQuery("#filter_input").val();
+	if (filter_input != '') {
 		show_hint('Achtung','Es werden Zeilen ausgeblendet, weil ein Filter aktiv ist.');
 	}
 

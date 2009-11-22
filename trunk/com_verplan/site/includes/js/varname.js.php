@@ -9,7 +9,7 @@
 
 function getVarname(){
 	var a = '<?php echo $_GET['var'];?>';
-	a.trim();
+	a = jQuery.trim(a);
 	console.log('Varname: '+a);
 	return a;
 }

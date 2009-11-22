@@ -130,10 +130,11 @@
 
 #options_panel input, #options_panel select{
 	float: left;
+	margin: 0px;
 }
 
 #filter_this {
-	margin-left: 10px;	
+	margin-left: 10px!important;	
 }
 
 #expander_options {

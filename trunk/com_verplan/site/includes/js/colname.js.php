@@ -9,7 +9,7 @@
 
 function getColname(){
 	var a = '<?php echo $_GET['col'];?>';
-	a.trim();
+	a = jQuery.trim(a);
 	console.log('Colname: '+a);
 	return a;
 }
