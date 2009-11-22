@@ -19,7 +19,11 @@ var date;
 var stand;
 var options;
 
-function getAndUseJSON() {
+function getAndUseJSON(dateP, standP, optionsP) {
+	date = dateP;
+	stand = standP;
+	options = optionsP;
+	
 	/*
 	 * hidetable hat als Callback ajaxCall, welches wiederum JSONsuccsss
 	 * aufruft. von dort aus wird dann show table aufgerufen (falls type=db)
@@ -30,7 +34,7 @@ function getAndUseJSON() {
 
 }
 
-function ajaxCall() {
+function ajaxCall() {	
 	jQuery.ajax( {
 		type : "GET",
 		dataType : "json",
@@ -82,6 +86,7 @@ function JSONsuccess(json, textStatus) {
 }
 
 function buildTableFromJSON(tbody, json) {
+	console.time('tablebuild');
 	// tabelle leeren
 	tbody.html('');
 
@@ -90,6 +95,7 @@ function buildTableFromJSON(tbody, json) {
 		table = '<tr>';
 		jQuery.each(this, function(name, content) {
 			table += '<td title="' + name + '">';
+			//table += '<td>';
 			// console.log(a,b);
 				table += (content) ? content : '';
 				table += '</td>';
@@ -98,10 +104,14 @@ function buildTableFromJSON(tbody, json) {
 
 		// tabellenzeile anhängen
 			tbody.append(table);
-		});
+	});
+	
+	console.timeEnd('tablebuild');
 }
 
 function filterKlassen(rows) {
+	console.time('filterklassen');
+	
 	//select leeren
 	jQuery('#klasse').html('');
 	
@@ -132,6 +142,8 @@ function filterKlassen(rows) {
 	jQuery.each(klassenArray, function(id, klasse) {
 		jQuery('#klasse').append('<option value="'+klasse+'">' + klasse + '</option>');
 	});
+	
+	console.timeEnd('filterklassen');
 }
 
 function sortfunction(first, second) {
