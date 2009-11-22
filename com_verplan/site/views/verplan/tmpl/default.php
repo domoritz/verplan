@@ -246,9 +246,11 @@ $which = $this->which;
 		//auswahlmöglichkeiten zum sortieren aus den spalten
 		$array = $this->verplanArray;
 		foreach ($array[cols] as $key => $subarray) {
-			echo "<option>";
+			echo '<option value="';
 			print empty($subarray[label])? $subarray[name]: $subarray[label];
-			echo "</option>";
+			echo '">';
+			print empty($subarray[label])? $subarray[name]: $subarray[label];			
+			echo '</option>';
 		}
 		?>
 		</select>

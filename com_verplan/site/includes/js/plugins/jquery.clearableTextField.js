@@ -37,8 +37,13 @@
       var clear_button = input.parent().children('div.text_clear_button');
       var w = clear_button.outerHeight(), h = clear_button.outerHeight();
       
+      /*       
       input.css('padding-right', parseInt(input.css('padding-right')) + w + 1);
       input.width(input.width() - w - 1);
+       */
+      
+      input.css('padding-right', parseInt(input.css('padding-right')) + 1);
+      input.width(input.width() - 1);
           
       var pos = input.position();
       var style = {};  
