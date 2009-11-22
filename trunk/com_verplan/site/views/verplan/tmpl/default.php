@@ -73,6 +73,7 @@ $document->addScript($baseurl.'includes/js/boxes.js');
 $document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
 $document->addScript($baseurl.'includes/js/colname.js.php?col='.$this->classname);
 $document->addScript($baseurl.'includes/js/varname.js.php?var='.$this->varname);
+$document->addScript($baseurl.'includes/js/debug.js.php?debug='.$this->debugmode);
 
 $document->addScript($baseurl.'includes/js/general.js');
 $document->addScript($baseurl.'includes/js/ajaxjson.js'); //ajax nach gereral, da hash

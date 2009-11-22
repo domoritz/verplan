@@ -147,6 +147,9 @@ class verplanViewverplan extends JView
 		$this->assignRef( 'classname', $classname);
 		$varname = $settingsmodel->getSetting('class_name');
 		$this->assignRef( 'varname', $varname);
+		//debugmode
+		$debug = $settingsmodel->getSetting('debug');
+		$this->assignRef( 'debugmode', $debug);
 
 		//controller plan laden
 		$name = 'plan';

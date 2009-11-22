@@ -104,6 +104,7 @@ VALUES
 ('9' , 'upload_dir', '/components/com_verplan/uploads/', '/components/com_verplan/uploads/','Verzeichnis der Vertrtungsplandateien'),
 ('10' , 'number_show', '3', '3','Anzahl der anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt.'),
 ('11' , 'load_jquery', 'true', 'true','jQuery laden'),
-('12' , 'class_col', '(Klasse(n))', '(Klasse(n))','Spaltenname der Klassenspalte'),
-('13' , 'class_name', '(Klasse(n))', '(Klasse(n))','Variablenname der Klassenspalte in JSON'),
-('14' , 'version', '', '','nicht verändern');
+('12' , 'debug', 'false', 'false','Debug Mode für JS'),
+('13' , 'class_col', '(Klasse(n))', '(Klasse(n))','Spaltenname der Klassenspalte'),
+('14' , 'class_name', '(Klasse(n))', '(Klasse(n))','Variablenname der Klassenspalte in JSON'),
+('15' , 'version', '', '','nicht verändern');
