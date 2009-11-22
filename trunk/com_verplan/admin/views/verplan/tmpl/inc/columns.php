@@ -28,6 +28,21 @@
 <?php
 //get settings
 $columns = $this->columns;
+
+$sort = $this->sort;
+
+//soriere array am anfang nach ordering
+$ordering = array();
+$sortarr = array();
+foreach ($columns as $key => $row) {
+	$ordering[$key] = $row['ordering'];
+	$sortarr[$key] = $row[$sort];
+}
+//sortiert
+array_multisort($sortarr, SORT_ASC, $ordering, SORT_ASC, $columns);
+
+//debug
+//var_dump($columns);
 ?>
 
 
@@ -38,7 +53,7 @@ $columns = $this->columns;
 	//reset heißt ersten eintrag
 	foreach (reset($columns) as $heads => $value) {
 		echo "<th>";
-		echo $heads;
+		echo '<a href="index.php?option=com_verplan&sort='.$heads.'#columns_header">'.$heads.'</a>';
 		echo "</th>";
 	}
 	echo "<th>Speichern</th></tr>";
@@ -52,7 +67,7 @@ $columns = $this->columns;
 			
 		?>
 		<form name="columns" id="columnsform" method="get"
-			enctype="multipart/form-data" action="index.php?option=com_verplan#columns_header">
+			enctype="multipart/form-data" action="index.php?option=com_verplan">
 			<?php
 
 			foreach ($subarray as $head => $value) {
@@ -69,16 +84,16 @@ $columns = $this->columns;
 							echo ($i == $value ? " selected=\"selected\"" : "");
 							echo ">$i</option>";
 						}
-						echo "</select><span class=\"min_f_sort\">".$value."</span>";
+						//echo "</select><span class=\"min_f_sort\">".$value."</span>";
 						break;
 					case ($head == 'label' || $head == 'name'):
-						echo '<input name="'.$head.'" type="text" value="'.$value.'"></input><span class="min_f_sort">'.$value.'</span>';
+						echo '<input name="'.$head.'" type="text" value="'.$value.'"></input>';
 						break;
 					case ($head == 'description'):
-						echo '<textarea name="'.$head.'" type="text" cols="50" rows="2">'.$value.'</textarea><span class="min_f_sort">'.'</span>';
+						echo '<textarea name="'.$head.'" type="text" cols="50" rows="2">'.$value.'</textarea>';
 						break;
 					case ($head == 'ordering'):
-						echo '<input name="'.$head.'" type="text" value="'.$value.'"></input><span class="min_f_sort">'.$value.'</span>';
+						echo '<input name="'.$head.'" type="text" value="'.$value.'"></input>';
 						break;
 					default:
 						echo $value;
@@ -114,6 +129,7 @@ $columns = $this->columns;
 	</tbody>
 </table>
 
-<a href="index.php?option=com_verplan&controller=columns&task=reorder">Sortierung neu aufbauen</a>
+<a href="#columns_header" id="save_all_cols" class="links_do">alle Speichern</a><br>
+<a href="index.php?option=com_verplan&controller=columns&task=reorder#columns_header" class="links_do">Sortierung neu aufbauen</a>
 
 </div>

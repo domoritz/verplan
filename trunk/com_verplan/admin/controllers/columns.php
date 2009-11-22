@@ -96,18 +96,10 @@ class VerplanControllerColumns extends verplanController
 	function reorder () {
 		
 		$model = $this->getModel('columns');
-		$model->reorder();
+		$msg = $model->reorder();
 		
-		
-		$msg = 'Sortierung neu aufgebaut';		
-		//für ajax
-		$ajax = JRequest::getVar('ajax', false);
-		if ($ajax == 'true') {
-			echo "Ajax response: ".$msg;
-			$mainframe =& JFactory::getApplication();
-			$mainframe->close();
-		} else {
-			$this->setRedirect( 'index.php?option=com_verplan', $msg );			
-		}
+		echo $msg;
+			
+		$this->setRedirect( 'index.php?option=com_verplan', $msg );			
 	}
 }
