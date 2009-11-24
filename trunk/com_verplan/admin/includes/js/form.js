@@ -43,6 +43,33 @@ jQuery(document).ready(function(){
 	} 
 	
 	
+	/*CLEAN*/
+	var options_3 = { 
+			target:        '#ajaxresponse_3',   // target element(s) to be updated with server response 
+			url:  'index.php?option=com_verplan&ajax=true',
+			success:       showResponse_3  // post-submit callback 
+	};
+
+	jQuery('#form_clean').submit(function() { 
+		var ajax = jQuery('#select_ajax').val();
+		//alert (ajax);
+		if (ajax == 'true') {
+			jQuery('#ajax_indicator_3').show();
+			jQuery(this).ajaxSubmit(options_3); 
+			
+			return false;
+		} else {
+			return true;
+		}
+
+	});
+	
+	//post-submit callback 
+	function showResponse_3(responseText, statusText)  { 
+		jQuery('.ajaxresmess_3').show('blind','normal').focus();
+		jQuery('#ajax_indicator_3').fadeOut('slow');
+	} 
+	
 
 	/*SETTINGS*/
 	//ajax für einstellungen form

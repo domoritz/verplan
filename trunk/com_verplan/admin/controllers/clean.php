@@ -6,7 +6,7 @@
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
  * @link		http://code.google.com/p/verplan/
  * @license		GNU/GPL
- * @author      Created on 4-Okt-2009
+ * @author      Created on 24-Nov-2009
 
  */
 
@@ -14,12 +14,12 @@
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 /**
- * verplan Upload Controller
+ * Verplan Clean Controller
  *
  * @package    verplan
  * @subpackage controller
  */
-class VerplanControllerSettings extends verplanController
+class VerplanControllerClean extends verplanController
 {
 	/**
 	 * constructor (registers additional tasks to methods)
@@ -30,30 +30,24 @@ class VerplanControllerSettings extends verplanController
 		parent::__construct();
 
 		// Register Extra tasks
-		$this->registerTask('setSettings','setSettings');
+		$this->registerTask('clean','clean');
 	}
 
 	/**
-	 * speichert die einstellungen
-	 * @return void
+	 * berinigt die datenbank von unnötigen einträgen um
+	 * speicherplatz zu sparen
+	 * @return boolean
 	 */
-	function setSettings() {
+	function clean() {
 		//debug
 		//var_dump(JRequest::get('settings'));	
 		
-		$arr_in = JRequest::get('settings');
 		
-		$i = 0;
-		foreach ($arr_in as $setting => $value) {
-			$arr_out[$i][name] = $setting;
-			$arr_out[$i][value] = $value;
-			$i++;
-		}
+		$model = $this->getModel('clean');
+		$anzGel = $model->clean();
 		
-		$model = $this->getModel('settings');
-		$model->setSettings($arr_out);
 		
-		$msg = 'Einstellungen gespeichert';
+		$msg = 'Datenbank bereinigt '.$anzGel.' Einträge gelöscht';
 		
 		//für ajax
 		$ajax = JRequest::getVar('ajax', false);
