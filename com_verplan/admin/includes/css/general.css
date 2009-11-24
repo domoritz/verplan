@@ -47,6 +47,12 @@
 	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
 }
 
+#ajax_indicator_3 {
+	display: none;
+	color: transparent;
+	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
+}
+
 /*Ajaxnachrichten*/
 .ajaxresmess_0 {
 	display: none;
@@ -57,6 +63,10 @@
 }
 
 .ajaxresmess_2 {
+	display: none;
+}
+
+.ajaxresmess_3 {
 	display: none;
 }
 

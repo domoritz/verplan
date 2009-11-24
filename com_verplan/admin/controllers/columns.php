@@ -81,9 +81,8 @@ class VerplanControllerColumns extends verplanController
 		//für ajax
 		$ajax = JRequest::getVar('ajax', false);
 		if ($ajax == 'true') {
-			echo "Ajax response: ".$msg;
-			$mainframe =& JFactory::getApplication();
-			$mainframe->close();
+			//weiterreichen an ajax view/template
+			$this->setRedirect( "index.php?option=com_verplan&format=js&msg=$msg", $msg);
 		} else {
 			$this->setRedirect( 'index.php?option=com_verplan', $msg );			
 		}

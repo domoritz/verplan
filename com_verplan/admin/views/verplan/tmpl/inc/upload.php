@@ -102,3 +102,35 @@
 
 </form>
 
+
+
+<a href="#clean_header" id="clean_header" class="expander plus">Datenbank bereinigen<span id="ajax_indicator_3">loading...</span></a>
+<div id="admin_clean_div" class="verschwinder">
+
+	
+	<dl id="system-message" class="ajaxresmess_3">
+		<dt class="message">Message</dt>
+		<dd class="message message fade">
+		<ul>
+			<li id="ajaxresponse_3"></li>
+		</ul>
+		</dd>
+	</dl>
+	
+	<form id="form_clean" name="form_clean" method="post" enctype="multipart/form-data"	action="index.php?option=com_verplan">
+		
+				<input type="submit" name="clean" value="Datenbank bereinigen"/>
+			
+				<!-- damit die Komponente wieder aufgerufen wird --> 
+				<input type="hidden" name="option" value="com_verplan" /> 
+				<!-- task laden (in verplanControllrupload -->
+				<input type="hidden" name="task" value="clean" />
+				<input type="hidden" name="boxchecked" value="0" />
+				<!-- richtiger Controller --> 
+				<input type="hidden" name="controller" value="clean" /> 
+				<!-- die user ID (unnötig) -->
+				<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
+	</form>
+
+</div>
+
