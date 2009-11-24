@@ -43,8 +43,10 @@ class VerplanControllerClean extends verplanController
 		//var_dump(JRequest::get('settings'));	
 		
 		
+		//parameter für clean: anzahl der uploads, die behalten werden
+		//uploads der zukunft bleiben immer erhalten
 		$model = $this->getModel('clean');
-		$anzGel = $model->clean();
+		$anzGel = $model->clean(JRequest::getVar('keep'));
 		
 		
 		$msg = 'Datenbank bereinigt '.$anzGel.' Einträge gelöscht';
