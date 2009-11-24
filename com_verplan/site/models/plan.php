@@ -69,7 +69,7 @@ class VerplanModelPlan extends JModel
 	}
 
 	/**
-	 * array mit allen allen möglichkeiten einer
+	 * array mit allen allen möglichkeiten von daten einer
 	 * spalte aus der verplatabelle
 	 * 
 	 * @param $lookForMe spalte, die zurückgegeben werden soll

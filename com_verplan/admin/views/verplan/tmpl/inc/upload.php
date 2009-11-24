@@ -118,7 +118,10 @@
 	</dl>
 	
 	<form id="form_clean" name="form_clean" method="post" enctype="multipart/form-data"	action="index.php?option=com_verplan">
-		
+	
+				<label for="keep">Anzahl der Einträge, die erhalten bleiben sollen</label>
+				<input type="text" name="keep" value="10" /><br>
+
 				<input type="submit" name="clean" value="Datenbank bereinigen"/>
 			
 				<!-- damit die Komponente wieder aufgerufen wird --> 
