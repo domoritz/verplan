@@ -56,10 +56,9 @@
       clear_button.click(function(){
         input.val('');
         
-        //filter updaten
-        var theTable = jQuery('#jquerytable');
-        var value = jQuery("#filter_input").val();
-        jQuery.uiTableFilter( theTable, value);
+        //filter updaten        
+        resetAllFilter();
+        resetKlassFilter();
         
         trigger(input);
       });
