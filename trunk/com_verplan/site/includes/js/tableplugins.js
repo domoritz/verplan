@@ -115,6 +115,11 @@ function table_init(){
 	//clearable input
 	jQuery('#filter_input').clearableTextField();
 	
+	//wenn auf den leeren button geklickt wird (kleiner roter mit x)
+	jQuery('div.text_clear_button').click(function() {
+		alert('0');
+	});
+	
 	//falls sich bei filter this etwas ändert
 	jQuery('#verplan_form [name=filter_this]').change(function(){
 		jQuery(".text_clear_button").click();
@@ -135,6 +140,8 @@ function table_init(){
 		//filter this - spalte, nach der gefiltert wird
 		var filter_this = getColname();
 		
+		console.log('Name der Klassenspalte: '+filter_this);
+		
 		//falls alle ausgewählt wird, soll auch spalten aus alle gestellt werden
 		if (this.value == '') {
 			filter_this = '';
@@ -145,7 +152,6 @@ function table_init(){
 		jQuery.cookie('Klasse', filterKlasse, { expires: 7 });
 		
 		//anderer filter wird zurückgesetzt
-		jQuery(".text_clear_button").click();
 		jQuery("#filter_this").attr('selected', '');
 		jQuery("#filter_this option[value='"+filter_this+"']").attr('selected', 'selected');
 		
@@ -235,6 +241,13 @@ function resetKlassFilter() {
 	jQuery("#klasse option[value='']").attr('selected', 'selected');
 	jQuery.cookie('Klasse', null);
 	jQuery.uiTableFilter( theTable, '');
+}
+
+/**
+ * setzt alle einstellungen des filters zuück
+ */
+function resetAllFilter() {
+    jQuery.uiTableFilter( theTable, '');
 }
 
 
