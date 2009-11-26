@@ -183,7 +183,11 @@ $which = $this->which;
 	
 	<span class="ui-state-default" style="border: none;">
 	<select size="1" id="select_date" name="date">
-		<?php		
+		<?php	
+
+		//setlocale überprüfen (debug)
+		if(!setlocale(LC_TIME, 'de_DE')) echo "<!--setlocale () konnte nicht ausgeführt werden-->";
+		
 		for ($i = 0; $i < count($dates); $i++) {				
 			
 			//geltungsdatum
@@ -206,9 +210,21 @@ $which = $this->which;
 			 * %H - stunde
 			 * %M - minute
 			 */						
-			setlocale(LC_TIME, "de_DE");		
+			setlocale(LC_TIME, 'de_DE');		
 			$format="%A %d.%m.%Y";
-			$label= strftime($format,$date);		
+			$label = strftime($format,$date);
+
+			
+			// Übersetzungsarray Englisch->Deutsch
+			$trans = array(
+				"Monday"=>"Montag", "Tuesday"=>"Dienstag", "Wednesday"=>"Mittwoch", "Thursday"=>"Donnerstag", "Friday"=>"Freitag", "Saturday"=>"Sonnabend", "Sunday"=>"Sonntag",
+				"Mon"=>"Mo", "Tue"=>"Di", "Wed"=>"Mi", "Thu"=>"Do", "Fri"=>"Fr", "Sat"=>"Sa", "Sun"=>"So",
+				"January"=>"Januar", "February"=>"Februar", "March"=>"März", "April"=>"April", "May"=>"Mai", "June"=>"Juni", "July"=>"Juli", "August"=>"August", "September"=>"September", "October"=>"Oktober", "November"=>"November", "December"=>"Dezember",
+				"Jan"=>"Jan", "Feb"=>"Feb", "Mar"=>"März", "Apr"=>"Apr", "May"=>"Mai", "Jun"=>"Jun", "Jul"=>"Jul", "Aug"=>"Aug", "Sep"=>"Sep", "Oct"=>"Okt", "Nov"=>"Nov", "Dec"=>"Dez"
+			);
+			//ersetzt die englischen bezeichnungen durch Deutsche, wenn es nötig ist (falls sprache nicht installiert)
+			$label = strtr($label,$trans);
+			
 			echo $label;
 			
 			echo "</option>";
