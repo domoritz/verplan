@@ -57,11 +57,13 @@ function iniFilters() {
 			jQuery("#filter_this").val('');
 			//lösche cookie
 			jQuery.cookie('Klasse', null);
+			filterKlasse = '';
 			console.log('cookie gelöscht');
 		} else {
 			jQuery("#filter_this").val(getColname());
-			//speichere cookie
+			//speichere cookie und variable
 			jQuery.cookie('Klasse', this.value, {expires: 7});
+			filterKlasse = this.value;
 			console.log('cookie gespeichert: ' + this.value);
 		}
 		
@@ -77,7 +79,7 @@ function iniFilters() {
 /**
  * filtert die tabelle
  */
-function filterTable() {	
+function filterTable() {
 	//filter this - spalte, nach der gefiltert wird
 	var filter_this = jQuery('#filter_this').val();
 	
@@ -92,24 +94,17 @@ function filterTable() {
 }
 
 /**
- * falls noch der hinweis angezeigt wird, dass spalten 
- * ausgeblendet werden, wird dieser ausgeblendet
- */
-function hideHint() {
-	if (jQuery('#hint_table').css('display') != 'none') {
-		//hint ausblenden
-		jQuery('#hint_table').hide('blind', 'fast');
-	}
-}
-
-/**
  * dies wird aufgerufen, wenn sich z.b. per ajax die tabelle ändert
  * oder am anfang die filterung geladen werden soll
  * @return
  */
 function updateFilters() {
-	//lädh die klasse in die auswahlliste klasse
+	//lädt die klasse in die auswahlliste klasse
 	jQuery('#klasse').val(filterKlasse).change();
+	
+	if (jQuery('#filter_input').val() != '') {
+		slideHint('Es werden Spalten ausgeblendet, weil ein Filter aktiv ist', 'warn', '400px');
+	}
 }
 
 /**

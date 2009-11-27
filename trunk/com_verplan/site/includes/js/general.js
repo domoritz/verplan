@@ -140,3 +140,45 @@ function setHash(hashP) {
 	console.log('setHash '+hash+' | '+window.location.hash);
 	return window.location.hash;
 }
+
+
+/**
+ * show hint
+ * @return
+ */
+function slideHint(text, type, width) {
+	if (!width) {
+		width = '400px';
+	}
+	
+	if (type == 'warn') {
+		text = '<span class="icon_verplan icon_warn">&nbsp;</span><strong>Achtung:</strong> ' + text;
+	}
+	
+	if (type == 'info') {
+		text = '<span class="icon_verplan icon_info">&nbsp;</span><strong>Info:</strong> ' + text;
+	}
+	
+	if (type == 'critical') {
+		text = '<span class="icon_verplan icon_critical">&nbsp;</span><strong style="color: red; ">Kritischer Fehler:</strong> ' + text;
+	}
+	
+	//fügt den text an
+	if (text) {
+		//zeigt den hinweis
+		jQuery('#notify #text').html(text).parent().css('width', width).toggle('slide', {direction: 'right'}, 500);
+	} else {
+		//zeigt den hinweis
+		jQuery('#notify #text').parent().css('width', width).toggle('slide', {direction: 'right'}, 500);
+	}
+	
+	console.log(type+' '+text+' '+width);
+}
+
+/**
+ * lässt den hinweis hinausfahren
+ * @return
+ */
+function hideHint() {
+	jQuery('#notify').pause(1000).hide('slide', {direction: 'right'}, 700);
+}

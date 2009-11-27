@@ -236,9 +236,13 @@ $which = $this->which;
 	</span>
 	
 	<!-- Indikator alternativ für platzhalter: ui-widget-content-->
-	<span id="load_platzhalter" class="ui-corner-all">
-		<span id="loading">&nbsp;</span>
-	</span>
+	<div id="loading">&nbsp;</div>
+	<div id="platzhalter" class="ui-corner-all">
+	</div>
+	<div id="notify" class="ui-corner-all">
+		<span id="text">loading...</span>
+	</div>
+	
 	
 	</form>
 		
