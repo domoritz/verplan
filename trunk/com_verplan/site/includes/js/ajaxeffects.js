@@ -31,15 +31,15 @@ function showNoDB() {
 
 function showIndicator() {
 	if (effects_indi) {
-		// jQuery('#loading').fadeIn('fast');
-		jQuery('#loader_overlay').fadeIn('fast');
+		jQuery('#loading').fadeIn('fast');
+		//jQuery('#loader_overlay').fadeIn('fast');
 	}
 }
 
 function hideIndicator() {
 	if (effects_indi) {
-		// jQuery('#loading').pause(500).fadeOut(1000);
-		jQuery('#loader_overlay').pause(0).fadeOut(1500);
+		jQuery('#loading').pause(500).fadeOut(1000);
+		//jQuery('#loader_overlay').pause(0).fadeOut(1500);
 	}
 }
 
