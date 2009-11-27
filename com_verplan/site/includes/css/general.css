@@ -65,7 +65,7 @@
 
 #select_form a, #select_form select {
 	cursor: pointer;
-	width: 300px;
+	width: 200px;
 	padding: 0em;
 	margin: 0.2em;
 	font-size: 1.1em;
@@ -84,10 +84,11 @@
 }
 
 #loading {
+	display: none;
 	width: 64px;
 	height: 32px;
 	float:right;
-	background: transparent url(../images/ajax/ajax-loader-3d_26.gif) no-repeat 50%	center;
+	background: transparent url(../images/ajax/weelthrobber_20.gif) no-repeat 50%	center;
 }
 
 #loader_overlay {

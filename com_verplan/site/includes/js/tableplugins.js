@@ -84,11 +84,11 @@ function table_init(){
      * assign the sortStart event 
      *
 	jQuery("#jquerytable").bind("sortStart",function() { 
-		//jQuery('#loading').fadeIn(200); 
-		jQuery('#loader_overlay').fadeIn(200); 
+		jQuery('#loading').fadeIn(200); 
+		//jQuery('#loader_overlay').fadeIn(200); 
     }).bind("sortEnd",function() { 
-    	//jQuery('#loading').fadeOut(1000);
-    	jQuery('#loader_overlay').fadeOut(1000);
+    	jQuery('#loading').fadeOut(1000);
+    	//jQuery('#loader_overlay').fadeOut(1000);
     });
 
 	
@@ -330,12 +330,5 @@ function table_update() {
 		show_hint('Achtung','Es werden Zeilen ausgeblendet, weil ein Filter aktiv ist.');
 	}
 
-	
-	/*
-	 * highlight effect für tr
-	 *
-	jQuery("#jquerytable tbody tr").click(function(){
-		jQuery(this);
-	});	
 	/**/
 }
