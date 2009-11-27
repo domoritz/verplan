@@ -66,6 +66,7 @@ $document->addScript($baseurl.'includes/js/plugins/jquery.cookie.js');
 
 
 //eigene scripts
+$document->addScript($baseurl.'includes/js/filters.js');
 $document->addScript($baseurl.'includes/js/tableplugins.js');
 $document->addScript($baseurl.'includes/js/hide_options.js');
 $document->addScript($baseurl.'includes/js/boxes.js');

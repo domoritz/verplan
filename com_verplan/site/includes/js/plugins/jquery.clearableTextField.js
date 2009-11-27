@@ -57,8 +57,7 @@
         input.val('');
         
         //filter updaten        
-        resetAllFilter();
-        resetKlassFilter();
+        clickOnClear();
         
         trigger(input);
       });
