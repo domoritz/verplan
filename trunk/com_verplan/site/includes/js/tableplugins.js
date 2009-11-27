@@ -1,13 +1,3 @@
-//klasse, die gefiltert werden soll, der wert wird gespeichert
-var filterKlasse = jQuery.cookie('Klasse');
-
-//klasse, für filter, gilt nur bis zum nächsten ajax request
-var filterKlasse_temp = null;
-
-//tabelle
-var theTable;
-
-
 /**
  * initialisiert die tabelle
  * @return
@@ -89,80 +79,7 @@ function table_init(){
     }).bind("sortEnd",function() { 
     	jQuery('#loading').fadeOut(1000);
     	//jQuery('#loader_overlay').fadeOut(1000);
-    });
-
-	
-	/*
-	 * tablefilter
-	 * http://plugins.jquery.com/project/uiTableFilter
-	 */
-	
-	theTable = jQuery('#jquerytable');
-
-	//falls sich etwas ändert
-	jQuery("#filter_input").keyup(function() {	
-		
-		//reset klassenfilter
-		resetKlassFilter();
-		
-		//ruft die funktion filter auf
-		filter(this.value);
-	});
-	
-	//clear input bei start
-	jQuery('#filter_input').val('');
-	
-	//clearable input
-	jQuery('#filter_input').clearableTextField();
-	
-	//wenn auf den leeren button geklickt wird (kleiner roter mit x)
-	jQuery('div.text_clear_button').click(function() {
-		alert('0');
-	});
-	
-	//falls sich bei filter this etwas ändert
-	jQuery('#verplan_form [name=filter_this]').change(function(){
-		jQuery(".text_clear_button").click();
-		jQuery("#filter_input").val('');
-		
-		//reset klasse filter und table
-		resetKlassFilter();
-		
-		hideHint();
-	});
-	
-	
-	//filter klasse
-	jQuery("#klasse").attr('selected', '');
-	jQuery("#klasse option[value='']").attr('selected', 'selected');
-	
-	jQuery("#klasse").change(function() {
-		//filter this - spalte, nach der gefiltert wird
-		var filter_this = getColname();
-		
-		console.log('Name der Klassenspalte: '+filter_this);
-		
-		//falls alle ausgewählt wird, soll auch spalten aus alle gestellt werden
-		if (this.value == '') {
-			filter_this = '';
-		}
-		
-		//filterKlasse,wird gesetzt
-		filterKlasse = this.value;
-		jQuery.cookie('Klasse', filterKlasse, { expires: 7 });
-		
-		//anderer filter wird zurückgesetzt
-		jQuery("#filter_this").attr('selected', '');
-		jQuery("#filter_this option[value='"+filter_this+"']").attr('selected', 'selected');
-		
-		jQuery("#filter_input").val(filterKlasse).change();
-		
-		var value = jQuery("#filter_input").val();
-		filter(value);
-		
-		//debug
-		console.log('Filter Klasse: '+filter_this+' '+this.value);
-	});
+    });	
 	
 	
 	/*
@@ -198,56 +115,14 @@ function table_init(){
 	 * http://plugins.jquery.com/project/columnmanager
 	 */
 	
-	//hint bei click ausblenden
-	jQuery('#hint_table').click(function(){
-		jQuery(this).hide('blind', 'slow');
-	});
+	/*
+	 * filter initialisierung
+	 */
+	iniFilters();
+	
 	
 	table_update();
 	
-}
-
-function filter(value) {	
-	//filter this - spalte, nach der gefiltert wird
-	var filter_this = jQuery('#verplan_form [name=filter_this]').val();
-	
-	//debug
-	console.log('Filter: '+filter_this+' '+value);
-	
-	//tabelle filtern
-	jQuery.uiTableFilter( theTable, value, filter_this);
-	
-	//hinweis auf filter ausblenden
-	hideHint();
-}
-
-/**
- * falls noch der hinweis angezeigt wird, dass spalten 
- * ausgeblendet werden, wird dieser ausgeblendet
- */
-function hideHint() {
-	if (jQuery('#hint_table').css('display') != 'none') {
-		//hint ausblenden
-		jQuery('#hint_table').hide('blind', 'fast');
-	}
-}
-
-/**
- * setzt alle einstellungen des klassenfilters zuück (auch cookie)
- */
-function resetKlassFilter() {
-	filterKlasse = null;
-	jQuery("#klasse").attr('selected', '');
-	jQuery("#klasse option[value='']").attr('selected', 'selected');
-	jQuery.cookie('Klasse', null);
-	jQuery.uiTableFilter( theTable, '');
-}
-
-/**
- * setzt alle einstellungen des filters zuück
- */
-function resetAllFilter() {
-    jQuery.uiTableFilter( theTable, '');
 }
 
 
@@ -309,26 +184,10 @@ function table_update() {
 	jQuery('#jquerytable').trigger("update");
 	
 	
-	//update filter
-	jQuery("#klasse").attr('selected', '');
-	jQuery("#klasse option[value='"+filterKlasse+"']").attr('selected', 'selected');
-	
-	var klasseFilter_temp = jQuery("#klasse").val();
-	console.log('klasseFilter_temp: '+klasseFilter_temp);
-	if (klasseFilter_temp != "") {	
-		jQuery("#klasse").change();
-	}
-	
-	var value = jQuery("#filter_input").val();
-	filter(value);
-	
-	
-	//falls filter aktiv sind
-	//alert(filter_input != '');
-	var filter_input = jQuery("#filter_input").val();
-	if (filter_input != '') {
-		show_hint('Achtung','Es werden Zeilen ausgeblendet, weil ein Filter aktiv ist.');
-	}
+	/*
+	 * filter update
+	 */
+	updateFilters();
 
 	/**/
 }
