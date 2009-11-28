@@ -19,6 +19,12 @@ if (filterKlasse == null) {
 	filterKlasse = '';
 }
 
+/**
+ * intervall für hint listener
+ */
+var myInterval;
+
+
 function iniFilters() {
 	
 	//clearable input
@@ -33,6 +39,7 @@ function iniFilters() {
 	//falls sich in dem eingabefeld des filters etwas ändert
 	jQuery("#filter_input").keyup(function() {	
 		jQuery('#klasse').val('');
+		removeCookie();
 		
 		//ruft die funktion filter auf
 		filterTable();
@@ -44,21 +51,19 @@ function iniFilters() {
 		console.log('filter_this change');
 		
 		jQuery('#klasse').val('');
+		removeCookie();
 		jQuery('#filter_input').val(null).change();
 		filterTable();
 	});
 	
 	//falls sich etwas in der select klasse ändert
 	jQuery('#klasse').change(function(){
-		console.log('klasse change');
+		console.log('klasse change ' + this.value);
 		
 		//bei all soll nichts gefiltert werden
 		if (this.value == '') {
 			jQuery("#filter_this").val('');
-			//lösche cookie
-			jQuery.cookie('Klasse', null);
-			filterKlasse = '';
-			console.log('cookie gelöscht');
+			removeCookie();
 		} else {
 			jQuery("#filter_this").val(getColname());
 			//speichere cookie und variable
@@ -91,6 +96,18 @@ function filterTable() {
 	
 	//tabelle filtern
 	jQuery.uiTableFilter(jQuery('#jquerytable'), input, filter_this);
+	
+	hideHint(0);
+}
+
+/**
+ * lösche den cookie mit klasse
+ */
+function removeCookie(){
+	//lösche cookie
+	jQuery.cookie('Klasse', null);
+	filterKlasse = '';
+	console.log('cookie gelöscht');
 }
 
 /**
@@ -99,11 +116,39 @@ function filterTable() {
  * @return
  */
 function updateFilters() {
-	//lädt die klasse in die auswahlliste klasse
-	jQuery('#klasse').val(filterKlasse).change();
+	console.log('updateFilters');
 	
-	if (jQuery('#filter_input').val() != '') {
-		slideHint('Es werden Spalten ausgeblendet, weil ein Filter aktiv ist', 'warn', '400px');
+	//lädt die klasse in die auswahlliste klasse
+	jQuery("#klasse").val(filterKlasse);
+	if (filterKlasse == '') {
+	} else {
+		jQuery("#filter_this").val(getColname());
+		jQuery("#filter_input").val(filterKlasse);
+	}
+	
+	//zeigt das rote icon und schreibt die klasse
+	jQuery('#filter_input').change();
+	
+	//filtern
+	var filter_this = jQuery('#filter_this').val();
+	var input = jQuery('#filter_input').val();
+	jQuery.uiTableFilter(jQuery('#jquerytable'), input, filter_this);
+	
+	
+	//falls spalten gefiltert werden, soll darauf gewartet werden, dass kein hinweis 
+	//angezeigt wird und dann soll der eigene hinweis angezeigt werden
+	if (jQuery('#filter_input').val() != '') {	
+		clearInterval(myInterval);
+		
+		console.log('start listener');
+		myInterval = setInterval(function() {
+			console.log('wait for hint');
+			if (hintshown == false) {
+				clearInterval(myInterval);
+				hintshown == true;
+				setTimeout("showHint('Es werden Spalten ausgeblendet, weil ein Filter aktiv ist', 'warn', '420px', 'filty');",500);
+			}
+		},100);
 	}
 }
 

@@ -259,7 +259,7 @@ $which = $this->which;
 		<input id="input_options" type="text" name="options" value="<?php echo $this->options;?>" />
 		<!-- format wird nuir angezeigt, wenn  -->		    
 		
-		<span id="filter_label">Filter nach einer Spalte:</span>
+		<span id="filter_label">Filter nach einer Spalte</span>
 		<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
 		<select id="filter_this" style="width: 100px" name="filter_this">
 			<!-- value="" ist wichtig, da sonst nach der spalte alle gesucht wird -->
@@ -277,7 +277,7 @@ $which = $this->which;
 		?>
 		</select>
 		
-		<span id="filter_label_klassen">Klasse</span>
+		<span id="filter_label_klassen">Filter nach Klasse</span>
 		<select id="klasse" style="width: 100px" name="klasse">
 			<option value="">alle</option>
 		</select>

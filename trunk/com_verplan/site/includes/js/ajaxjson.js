@@ -103,7 +103,7 @@ function buildTableFromJSON(tbody, json) {
 		table += '</tr>';
 
 		// tabellenzeile anhängen
-			tbody.append(table);
+		tbody.append(table);
 	});
 	
 	console.timeEnd('tablebuild');
