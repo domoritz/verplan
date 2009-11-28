@@ -87,12 +87,12 @@
             	</fileset>
         	</tar>
         	
-        	<delete file="${target}/../${package}.zip" quiet="true" />        	
+        	<!--<delete file="${target}/../${package}.zip" quiet="true" />        	
         	<zip destfile="${target}/../${package}.zip">
                 <fileset dir="${target}">
                 	<include name="*" />
             	</fileset>
-            </zip>        	
+            </zip>   -->     	
 
         	<echo msg="Files copied and compressed in build directory OK!" />
     	</target>
