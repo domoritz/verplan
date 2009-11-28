@@ -39,6 +39,7 @@ function defaultStyle() {
 	      corner: true, 
 	      background: null 
 	   }, 
+	   'font-size': 'small',
 	   border: { 
 	      width: 5, 
 	      radius: 3 
