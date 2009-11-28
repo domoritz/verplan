@@ -166,13 +166,18 @@
 	height: 120px;
 }
 
-#options_panel span{
+#options_panel label{
 	float: left;
 	clear: both;
 	width: 200px;
 	margin-right: 10px;
 	text-align: right;
 	font-weight: bold;
+}
+
+#options_panel label span{
+	float: right;
+	margin-left: 5px;
 }
 
 #options_panel input, #options_panel select{
