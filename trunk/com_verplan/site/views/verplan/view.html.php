@@ -24,7 +24,7 @@ class verplanViewverplan extends JView
 	function display($tpl = null)
 	{
 		//ohne Model
-		$nojs = '<p><strong>Achtung:</strong><br>Bitte aktiviere JavaScript um den vollen Funktionsumfang nutzen zu können! </p>';
+		$nojs = '<p><strong>Achtung:</strong><br>Bitte aktiviere JavaScript um den vollen Funktionsumfang nutzen zu können! Ohne Javascript kannst du die meisten Funktionen des Programms nicht benutzen!</p>';
 		$this->assignRef('nojs',$nojs);
 
 		//variablen, falls js deaktiviert

@@ -308,8 +308,13 @@ $which = $this->which;
 
 <table id="jquerytable" class="ui-widget full_width">
 	<colgroup>
-		<?php
+	<?php
 	$array = $this->verplanArray;
+	
+	/*debug
+	var_dump($array);
+	//*/
+	
 	$anzahl = count($array[cols]);
 	for ($i = 0; $i < $anzahl; $i++) {
 		echo "<col/>";
@@ -331,7 +336,7 @@ $which = $this->which;
 		?>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody>	
 	<?php
 	if (!empty($array[rows])){
 		foreach ($array[rows] as $row) {
@@ -355,8 +360,21 @@ $which = $this->which;
 	</tbody>
 </table>
 
-<div id="no_db">
-	
+<?php 
+	//falls der typ nicht db ist, wird heir ein link angezeigt oder ein text
+	$last = count($array[infos])-1;
+?>
+<div id="no_db" <?php print $array[infos][$last][type] != 'db' ? 'style="display: block;"' : ''?>>
+	<?php 
+	//falls no_db oder kein plan
+	if ($array[infos][$last][type] != 'db') {
+		if ($array[infos][$last][type] == 'none') {
+			echo "Hurra, es gibt keine Vertretungen!<br>Stand: ".$array[infos][0][Stand];
+		} else {
+			echo '<a href="'.$array[infos][$last][url].'">zum Vertretungsplan</a><br>Stand: '.$array[infos][0][Stand];
+		}
+	} 
+	?>
 </div>
 
 <div id="table_footer" class="ui-widget-header ui-corner-bottom ui-helper-clearfix">
