@@ -35,12 +35,12 @@ class VerplanControllerSend extends verplanController
 
 	/**
 	 * funktion, die den upload verarbeitet
-	 * hier werden die methoden des vertretungsplanes aufgerufen und 
+	 * hier werden die methoden des vertretungsplanes aufgerufen und
 	 *
 	 * @return void
 	 */
 	function send() {
-		
+
 		//für debug
 		$debug = JRequest::getVar('debug', false);
 		if ($debug == 'true') {
@@ -57,8 +57,41 @@ class VerplanControllerSend extends verplanController
 		//*/
 
 		if (empty($file[name])) {
-			$msg .= "keine Datei ausgewählt";
-			$this->setRedirect( 'index.php?option=com_verplan', $msg );
+
+			//keine Vertretungen
+
+			//array mit den infos für die tabelle uploads
+			$upload_arr = array();
+			$upload_arr[Geltungsdatum] = JRequest::getVar('date', null); //geltungsdatum
+			$upload_arr[Stand] = JRequest::getVar('stand', null).' '.JRequest::getVar('stand_time', null);//stand
+			$upload_arr[type] = 'none'; //typ
+			$upload_arr[url] = '';
+
+			$stand_date = JRequest::getVar('stand', null);
+
+			if (empty($upload_arr[Geltungsdatum])) {
+				$msg .= "Bitte Geltungsdatum angeben";
+				$this->setRedirect( 'index.php?option=com_verplan', $msg );
+			} elseif (empty($stand_date)) {
+				$msg .= "Bitte Stand angeben";
+				$this->setRedirect( 'index.php?option=com_verplan', $msg );
+			} else {
+
+				///*debug
+				echo '<br>==========<br>';
+				echo 'Infos wenn ohne DB<br>';
+				var_dump($upload_arr);
+				//*/
+
+				$model = $this->getModel('data');
+				$model->log_in_uploads($upload_arr);
+
+				if (!JERROR::getError()) {
+					$msg .= "Senden erfolgreich, ohne DB, keine Vertretungen";
+					$this->setRedirect( 'index.php?option=com_verplan', $msg );
+				}
+			}
+				
 		} else {
 
 			// upload controller laden
@@ -78,14 +111,14 @@ class VerplanControllerSend extends verplanController
 			echo 'Fileinfos nach upload und vor einlesen<br>';
 			var_dump($controller->file);
 			//*/
-			
+				
 			//inhalt einlesen
 			$controller->execute('einlesen');
 			$inhalt = $controller->inhalt;
 
 			//falls es sich um eine datei handelt, die in die DB eigelesen werden kann
 			if (strpos($inhalt, "Untis")) {
-				
+
 				//umlaute austauschen (auf string, auskommentiert)
 				//$controller->execute('umlaute');
 
@@ -97,10 +130,10 @@ class VerplanControllerSend extends verplanController
 				echo 'nach Parsen<br>';
 				var_dump($controller->data);
 				//*/
-				
+
 				//codiert datei richtig
 				$controller->execute('charset');
-				
+
 				//umlaute austauschen (htmlentities auf array)
 				//$controller->execute('umlaute');
 
@@ -116,7 +149,7 @@ class VerplanControllerSend extends verplanController
 
 			} else {
 				//falls es sich nicht um eine parsbare datei handelt
-				
+
 				//var_dump(JURI::base(true));
 				$path = JURI::base(true)."/components/com_verplan/uploads/".JFile::makeSafe($file['name']);
 
@@ -158,15 +191,15 @@ class VerplanControllerSend extends verplanController
 
 
 		//für ajax
-		$ajax = JRequest::getVar('ajax', false);		
-		
+		$ajax = JRequest::getVar('ajax', false);
+
 		if ($debug == 'true') {
-				echo $msg.'<br>==========<br>';
-				$mainframe =& JFactory::getApplication();
-				$mainframe->close();
+			echo $msg.'<br>==========<br>';
+			$mainframe =& JFactory::getApplication();
+			$mainframe->close();
 		} elseif ($ajax == 'true') {
-				//weiterreichen an ajax view/template
-				$this->setRedirect( "index.php?option=com_verplan&format=js&msg=$msg", $msg);
+			//weiterreichen an ajax view/template
+			$this->setRedirect( "index.php?option=com_verplan&format=js&msg=$msg", $msg);
 		}
 
 	}
