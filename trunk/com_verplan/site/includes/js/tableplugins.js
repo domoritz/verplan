@@ -81,40 +81,6 @@ function table_init(){
     	//jQuery('#loader_overlay').fadeOut(1000);
     });	
 	
-	
-	/*
-	 * filter
-	 * http://plugins.jquery.com/project/ColumnFilters
-	 * http://www.tomcoote.co.uk/jQueryColumnFilters.aspx
-	 */
-	/*jQuery('#jquerytable').columnFilters({
-		alternateRowClassNames:['even','odd'],
-		underline:false,
-		caseSensitive:false
-	});*/
-	
-	/*
-	 * resizer
-	 * breite der spalten anpassen
-	 * http://plugins.jquery.com/project/kiketable_colsizable
-	 */
-	/*jQuery("#jquerytable").kiketable_colsizable({
-		dragMove : true,
-		dragProxy : "area",
-		dragOpacity: 0.3,
-		fixWidth: true,
-		minWidth: 40,
-		title: 'Spaltenbreite verändern',
-		onLoad: function(){}
-	});*/
-	
-	
-	
-	/*
-	 * jQuery column manager für options
-	 * http://plugins.jquery.com/project/columnmanager
-	 */
-	
 	/*
 	 * filter initialisierung
 	 */
@@ -159,24 +125,7 @@ function table_update() {
 		hiliteClass: 'ui-state-hover', 
 		hoverClass: 'state-hover',
 		oneClick: false
-	});
-	
-	/*jQuery('#jquerytable tbody tr').mouseover(function(){
-		jQuery(this).addClass('state-hover');
-	});
-	jQuery('#jquerytable tbody tr').mouseout(function(){
-		jQuery(this).removeClass('state-hover');
-	});
-	
-	jQuery("#jquerytable tbody tr").click(function(){
-	jQuery(this).toggle(function() {
-			jQuery(this).addClass("ui-state-highlight");
-		}, function() {
-			//jQuery(this).removeClass("ui-icon-plusthick");        
-		});
-    });*/
-
-	
+	});	
 	
 	/*
 	 * tablesorter update

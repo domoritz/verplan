@@ -8,23 +8,10 @@
  */
 jQuery(document).ready(function(){
 	
-	//zebra noch bevor einmal sortiert
+	//zebra
 	jQuery("#columntable tr:not([th]):even").addClass("row0");
 	jQuery("#columntable tr:not([th]):odd").addClass("row1"); 
 	
-	//sortierung für die tabelle columns in admin
-	/*jQuery('#columntable').tablesorter({
-		dateFormat:'de',
-		decimal: ',',
-		debug: false,
-		sortMultiSortKey:'ctrlKey',
-		textExtraction:'complex',
-		cssDesc: '',
-		cssAsc: '',
-		//zebra
-		widgets: ['zebra'],
-		widgetZebra: {css: ["row0","row1"]}
-	});*/
 	
 	//alle speichern
 	jQuery('#save_all_cols').click(function() {

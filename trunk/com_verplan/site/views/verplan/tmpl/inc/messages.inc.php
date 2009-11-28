@@ -77,9 +77,3 @@ defined('_JEXEC') or die('=;)');
 	</form>
 
 </noscript>
-
-
-<div id="hint_table" class="panel ui-widget" style="display: none;">
-	<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em;">
-	</div>
-</div>

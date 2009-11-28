@@ -25,7 +25,6 @@ $document->addStylesheet($baseurl.'includes/css/ui.selectmenu.css');
 $document->addStylesheet($baseurl.'includes/css/prettyPhoto.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.clearableTextField.css');
 $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
-//$document->addStylesheet($baseurl.'includes/theme/jquery-ui-1.7.2.custom.css');
 
 /*
  * scripts
@@ -84,74 +83,7 @@ $document->addScript($baseurl.'includes/js/tooltips.js');
 
 ?>
 
-<!-- -->
-
 <div id="verplanwrapper" class="full_width">
-
-
-<?php 
-/*test mit joomlapfaden
-
-echo '<pre>';
-
-echo 'JURI::base() '.JURI::base()."\n";
-echo 'JURI::base(true) '.JURI::base(true)."\n";
-echo 'JURI::root() '.JURI::root()."\n";
-echo 'JURI::root(true) '.JURI::root(true)."\n";
-echo '$this->baseurl '.$this->baseurl."\n";
-echo 'JPATH_COMPONENT '.JPATH_COMPONENT."\n";
-echo 'JPATH_BASE '.JPATH_BASE."\n";
-
-jimport('joomla.version');
-$version = new JVersion();
-var_dump($version);
-echo $version->getLongVersion()."\n";
-echo $version->getShortVersion()."\n";
-echo $version->getHelpVersion()."\n";
-
-//Version
-$path = JPATH_BASE.'\administrator\components\com_verplan\com_verplan.xml';
-//echo $path;
-$data = JApplicationHelper::parseXMLInstallFile($path);
-//echo $data[version];
-
-
-//Profiler
-//http://docs.joomla.org/JProfiler
-$p = JProfiler::getInstance('Application');
- 
-$p->mark('Start');
-$a = str_repeat("hello world!\n", 100000);
-$p->mark('Middle');
-unset($a);
-$p->mark('Stop');
- 
-print_r($p->getBuffer());
-
-
-
-$path = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'com_verplan.xml';
-$dataxml = JApplicationHelper::parseXMLInstallFile($path);
-var_dump($dataxml);
-$data = array(
-	'id' => 12,
-	'name' => 'version',
-	'value' => $dataxml[version]." (".date( 'Y-m-d H:i:s', time() ).")",
-	'default' => $dataxml[version]." (".date( 'Y-m-d H:i:s', time() ).")",
-);
-var_dump($data);
-JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'tables');
-$table = JTable::getInstance('settings', 'Table');
-
-if (!$table->save($data)){
-	JError::raiseWarning( 500, $table->getError() );
-}
-
-
-echo '</pre>';
-
-//*/
-?>
 
 <?php 
 //version number

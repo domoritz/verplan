@@ -40,12 +40,7 @@ $document->addScript('components/com_verplan/includes/js/tables.js');
 //Plugins
 /*http://milesich.com/timepicker/*/
 $document->addScript('components/com_verplan/includes/js/plugins/timepicker.js');
-/*http://stackoverflow.com/questions/1028409/jquery-datepicker-and-timepicker-for-same-input-field-to-popup-one-after-another*/
-//$document->addScript('components/com_verplan/includes/js/plugins/ui.datetimepicker.js');
-/*http://haineault.com/media/jquery/ui-timepickr/page/*/
-//$document->addScript('components/com_verplan/includes/js/plugins/km.timepicker.js');
 $document->addScript('components/com_verplan/includes/js/plugins/jquery.form.js');
-$document->addScript('components/com_verplan/includes/js/plugins/jquery.tablesorter.js');
 
 /*http://haineault.com/media/jquery/ui-timepickr/page/*/
 $document->addScript('components/com_verplan/includes/js/plugins/jquery.timepickr.js');
