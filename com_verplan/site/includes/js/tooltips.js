@@ -66,11 +66,11 @@ jQuery(document).ready(function() {
 		}
 	});
 	
-	jQuery('#input_options').qtip( {
+	jQuery('#options_label').qtip( {
 		content : 'nicht beachten',
 		position : {
 			corner : {
-				target : 'topMiddle',
+				target : 'topRight',
 				tooltip : 'bottomLeft'
 			}
 		},
@@ -79,11 +79,11 @@ jQuery(document).ready(function() {
 		}
 	});
 	
-	jQuery('#input_stand').qtip( {
+	jQuery('#stand_label').qtip( {
 		content : 'nicht beachten',
 		position : {
 			corner : {
-				target : 'topMiddle',
+				target : 'topRight',
 				tooltip : 'bottomLeft'
 			}
 		},
@@ -101,7 +101,7 @@ jQuery(document).ready(function() {
 		show: 'mouseover',
 		position : {
 			corner : {
-				target : 'topMiddle',
+				target : 'topRight',
 				tooltip : 'bottomLeft'
 			}
 		},
@@ -116,7 +116,7 @@ jQuery(document).ready(function() {
 	});
 	
 	
-	jQuery('#filter_label_klasse').qtip( {
+	jQuery('#filter_label_klassen').qtip( {
 		content : 'Filtere die Tabelle nach deiner Klasse. Die Eingabe bleibt auch erhalten, wenn du einen neuen Plan wählst oder sogar die Seite neu aufrufst. ',
 		hide: {
 			when: 'mouseout',
@@ -125,7 +125,7 @@ jQuery(document).ready(function() {
 		show: 'mouseover',
 		position : {
 			corner : {
-				target : 'topMiddle',
+				target : 'topRight',
 				tooltip : 'bottomLeft'
 			}
 		},
@@ -135,7 +135,7 @@ jQuery(document).ready(function() {
 	});
 	
 	//schließen bei click
-	jQuery('#filter_label_klasse').click(function(){
+	jQuery('#filter_label_klassen').click(function(){
 		jQuery(this).qtip("hide");
 	});
 	
