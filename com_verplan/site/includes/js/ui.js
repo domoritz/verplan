@@ -15,6 +15,12 @@ function show_hint(head, text) {
 jQuery(document).ready(function(){ 
 	jQuery('#ui_themeswitcher').themeswitcher({
 		width: 200,
+		onSelect: function() {
+		},
+		onOpen: function() {		
+		},
+		onClose: function() {		
+		},
 		initialText: 'Theme wechseln'
 		//loadTheme: 'ui-darkness'
 	}); 

@@ -1,38 +1,75 @@
-jQuery(document).ready(function() {
-	/*
-	 * tooltips http://craigsworks.com/projects/qtip/
-	 */
+var style = '';
+
+function updateTooltipStyle() {
+	var theme = jQuery.cookie('jquery-ui-theme');
 	
+	console.log('jQuery UI theme: '+theme);
+	
+	switch (theme) {
+	case 'UI darkness':
+		style = "own";
+		break;
+		
+	case 'UI lightness':
+		style = "dark";
+		break;
+		
+	case 'Start':
+		style = "dark";
+		break;
+
+	default:
+		style = "own";
+		break;
+	}
+	
+	console.log('Tooltipstyle: '+style);
+}
+
+jQuery(document).ready(function() {
+	updateTooltipStyle();
+	
+	defaultStyle();
+	createTooltips();
+});
+
+function defaultStyle() {
 	jQuery.fn.qtip.styles.domstyle = { // Last part is the name of the style
-		tip : 'bottomLeft', // Notice the corner value is identical to the
-		// previously mentioned positioning corners	
-		background: '#333',
-		color: '#fff',
-		textAlign: 'center',
-		padding: 5,
-		'font-size': 'small',
-	    border: {
-	        width: 2,
-	        radius: 5,
-	        color: '#000'
-	    } , 
-	    /* hide: { 
-	    	effect: { 
-	    		type: 'slide',
-	    		length: 600
-	    	} 
-	    },
-	    show: { 
-	    	effect: { 
-	    		type: 'slide',
-	    		length: 600
-	    	} 
-	    },*/
-		width: 200,	   
-	    tip: 'bottomLeft',
-	    name: 'dark' // Inherit the rest of the attributes from the preset dark style
+	   tip: { 
+	      corner: true, 
+	      background: null 
+	   }, 
+	   border: { 
+	      width: 5, 
+	      radius: 3 
+	   },
+//	   classes: { 
+//	      tooltip: 'ui-widget', 
+//	      tip: 'ui-widget', 
+//	      title: 'ui-widget-header', 
+//	      content: 'ui-widget-content' 
+//	   },
+	   
+	   //style ist eine variable
+	   name: style // Inherit the rest of the attributes from the preset style
 	};
 	
+	jQuery.fn.qtip.styles.own = { // Last part is the name of the style
+		color: '#000',
+		background: '#DCEDFF',
+	   	border: {
+			color: '#59B4D4'
+		},
+	   
+	   	name: 'blue' // Inherit the rest of the attributes from the preset style
+	};
+}
+
+function createTooltips() {
+
+	/*
+	 * tooltips http://craigsworks.com/projects/qtip/
+	 */	
 	
 	//tooltips for all
 	jQuery('a[title]').qtip({ 
@@ -335,4 +372,4 @@ jQuery(document).ready(function() {
 		}
 	});
 
-});
+};
