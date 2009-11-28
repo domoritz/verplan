@@ -1,3 +1,15 @@
+/**
+ * qTips
+ * 
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 14-Nov-2009
+ */
+
+
 var style = '';
 
 function updateTooltipStyle() {
@@ -83,24 +95,6 @@ function createTooltips() {
 				target : 'topMiddle',
 				tooltip : 'bottomLeft'
 			}
-		}
-	});
-	
-	
-	//jQuery('._filterText').qtip("disable");
-	jQuery('._filterText').qtip( {
-		content : 'Daten filtern. Du kannst außerdem folgende Zeichen benutzen:<br>* - beliebige Zeichen<br>! - nicht',
-		show : 'mouseover',
-		hide : 'mouseout',
-		position : {
-			corner : {
-				target : 'topMiddle',
-				tooltip : 'bottomLeft'
-			}
-		},
-		style : {
-			name: 'domstyle',
-			textAlign: 'left'
 		}
 	});
 	
@@ -226,29 +220,6 @@ function createTooltips() {
 			tip: 'bottomRight'
 		}
 	});
-	
-	/*jQuery('#jquerytable thead th').qtip( {
-		content : {
-			text: 'Sortiere nach dieser Spalte'
-			/*title: {
-				text: 'Sortieren', // Give the tooltip a title using each elements text
-				button: 'Schließen' // Show a close link in the title
-			}*//*
-		},
-		show : 'mouseover',
-		hide : 'mouseout',
-		position : {
-			corner : {
-				target : 'bottomMiddle',
-				tooltip : 'topMiddle'
-			}
-		},
-		style : {
-			name: 'domstyle',
-			textAlign: 'left',
-			tip: 'topMiddle'
-		}
-	});*/
 	
 	//spaltentitel, es werden beschreibungen angezeigt
 	jQuery('#jquerytable thead th[title]').qtip( {

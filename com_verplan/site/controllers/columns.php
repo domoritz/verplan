@@ -7,7 +7,6 @@
  * @link		http://code.google.com/p/verplan/
  * @license		GNU/GPL
  * @author      Created on 4-Okt-2009
-
  */
 
 // No direct access
