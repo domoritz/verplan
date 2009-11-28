@@ -62,8 +62,8 @@ function table_init(){
 		debug:false,
 		sortMultiSortKey:'ctrlKey',
 		textExtraction:'complex',
-		cssDesc: 'ui-state-active headerSortDown',
-		cssAsc: 'ui-state-active headerSortUp',
+		cssDesc: 'ui-state-active headerSortUp',
+		cssAsc: 'ui-state-active headerSortDown',
 		//zebra
 		widgets: ['zebra'],
 		widgetZebra: {css: ["even","odd"]}
@@ -183,6 +183,8 @@ function table_update() {
 	 */
 	jQuery('#jquerytable').trigger("update");
 	
+	//damit die sortierung wieder übernommen wird
+	jQuery('#jquerytable thead th.ui-state-active').click().click();
 	
 	/*
 	 * filter update
