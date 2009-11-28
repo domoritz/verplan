@@ -1,101 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Verplan" default="dist" basedir=".">
-        <property name="src"   value="."/>
-        <property name="version"   value="0.9.1"/>
-        <property name="project" value="com_verplan" />
-        <property name="package" value="com_verplan_${version}" />        
-        <property name="target"  value="/build/${package}" />
-        <property name="src_site"  value="../../../components/${project}/"/>        
-        
-        <target name="copy_admin" description="copy all files target">
-    		<echo message="Running build.xml. Copying files from dev to target... (admin)" />
-            <copy file="${src}/admin.verplan.php" todir="${target}/admin"/>
-            <copy file="${src}/config.xml" todir="${target}/admin"/>
-            <copy file="${src}/controller.php" todir="${target}/admin"/>
-            <copy file="${src}/install.php" todir="${target}/admin"/>
-            <copy file="${src}/install.sql" todir="${target}/admin"/>
-            <copy file="${src}/uninstall.sql" todir="${target}/admin"/>
-            <copy file="${src}/com_verplan.xml" todir="${target}"/>
-    	</target>
-    	  
-        <!-- Fileset for include admin folders -->        
-    	<fileset dir="${src}/includes" id="admin_include">
-        	<include name="**" />
-    	</fileset>
-    	<!-- Fileset for include admin folders -->        
-    	<fileset dir="${src}/controllers" id="admin_controllers">
-        	<include name="**" />
-    	</fileset>
-    	<!-- Fileset for tables admin folders -->        
-    	<fileset dir="${src}/tables" id="admin_tables">
-        	<include name="**" />
-    	</fileset>
-    	<!-- Fileset for include admin folders -->        
-    	<fileset dir="${src}/models" id="admin_models">
-        	<include name="**" />
-    	</fileset>
-    	<!-- Fileset for include admin folders -->        
-    	<fileset dir="${src}/views" id="admin_views">
-        	<include name="**" />
-    	</fileset>
-    	<!-- Fileset for include admin folders -->        
-    	<fileset dir="${src}/uploads" id="admin_uploads">
-        	<include name="**" />
-    	</fileset>
-    	
-        <!-- Fileset for all site files -->        
-    	<fileset dir="${src_site}" id="sitefiles">
-        	<include name="**" />
-    	</fileset>
-        
-        <!-- copy_all Target -->
-    	<target name="copy_site" description="copy all files target">              
-        	<echo message="Copying files to target project...(site)" />
-        	<copy todir="${target}/site">
-            	<fileset refid="sitefiles" />
-        	</copy>
-        	
-        	<echo message="Copying files to target project...(admin)" />
-        	<copy todir="${target}/admin/includes">
-            	<fileset refid="admin_include" />
-        	</copy>
-        	<copy todir="${target}/admin/controllers">
-            	<fileset refid="admin_controllers" />
-        	</copy>
-        	<copy todir="${target}/admin/tables">
-            	<fileset refid="admin_tables" />
-        	</copy>
-        	<copy todir="${target}/admin/models">
-            	<fileset refid="admin_models" />
-        	</copy>
-        	<copy todir="${target}/admin/views">
-            	<fileset refid="admin_views" />
-        	</copy>
-        	<copy todir="${target}/admin/uploads">
-            	<fileset refid="admin_uploads" />
-        	</copy>
-    	</target>
-    	
-    	
-    	<target name="dist" depends="copy_admin,copy_site">
-        	<echo msg="Creating archives..." />
-        	
-			<delete file="${target}/../${package}.tar.gz" quiet="true" />
-        	<tar destfile="${target}/../${package}.tar.gz" compression="gzip">
-            	<fileset dir="${target}">
-                	<include name="*" />
-            	</fileset>
-        	</tar>
-        	
-        	<!--<delete file="${target}/../${package}.zip" quiet="true" />        	
-        	<zip destfile="${target}/../${package}.zip">
-                <fileset dir="${target}">
-                	<include name="*" />
-            	</fileset>
-            </zip>   -->     	
+	<property name="src" value="." />
+	<property name="version" value="0.9.1" />
+	<property name="project" value="com_verplan" />
+	<property name="package" value="com_verplan_${version}" />
+	<property name="target" value="/build/${package}" />
+	<property name="src_site" value="../../../components/${project}/" />
 
-        	<echo msg="Files copied and compressed in build directory OK!" />
-    	</target>
-    		
-        
+	<target name="copy_admin" description="copy all files target">
+		<echo message="Running build.xml. Copying files from dev to target... (admin)" />
+		<copy file="${src}/admin.verplan.php" todir="${target}/admin" />
+		<copy file="${src}/config.xml" todir="${target}/admin" />
+		<copy file="${src}/controller.php" todir="${target}/admin" />
+		<copy file="${src}/install.php" todir="${target}/admin" />
+		<copy file="${src}/install.sql" todir="${target}/admin" />
+		<copy file="${src}/uninstall.sql" todir="${target}/admin" />
+		<copy file="${src}/com_verplan.xml" todir="${target}" />
+	</target>
+
+	<!-- Fileset for include admin folders -->
+	<fileset dir="${src}/includes" id="admin_include">
+		<include name="**" />
+	</fileset>
+	<!-- Fileset for include admin folders -->
+	<fileset dir="${src}/controllers" id="admin_controllers">
+		<include name="**" />
+	</fileset>
+	<!-- Fileset for tables admin folders -->
+	<fileset dir="${src}/tables" id="admin_tables">
+		<include name="**" />
+	</fileset>
+	<!-- Fileset for include admin folders -->
+	<fileset dir="${src}/models" id="admin_models">
+		<include name="**" />
+	</fileset>
+	<!-- Fileset for include admin folders -->
+	<fileset dir="${src}/views" id="admin_views">
+		<include name="**" />
+	</fileset>
+	<!-- Fileset for include admin folders -->
+	<fileset dir="${src}/uploads" id="admin_uploads">
+		<include name="**" />
+	</fileset>
+
+	<!-- Fileset for all site files -->
+	<fileset dir="${src_site}" id="sitefiles">
+		<include name="**" />
+	</fileset>
+
+	<!-- copy_all Target -->
+	<target name="copy_site" description="copy all files target">
+		<echo message="Copying files to target project...(site)" />
+		<copy todir="${target}/site">
+			<fileset refid="sitefiles" />
+		</copy>
+
+		<echo message="Copying files to target project...(admin)" />
+		<copy todir="${target}/admin/includes">
+			<fileset refid="admin_include" />
+		</copy>
+		<copy todir="${target}/admin/controllers">
+			<fileset refid="admin_controllers" />
+		</copy>
+		<copy todir="${target}/admin/tables">
+			<fileset refid="admin_tables" />
+		</copy>
+		<copy todir="${target}/admin/models">
+			<fileset refid="admin_models" />
+		</copy>
+		<copy todir="${target}/admin/views">
+			<fileset refid="admin_views" />
+		</copy>
+		<copy todir="${target}/admin/uploads">
+			<fileset refid="admin_uploads" />
+		</copy>
+	</target>
+
+
+	<target name="dist" depends="copy_admin,copy_site">
+		<echo msg="Creating archives..." />
+
+		<delete file="${target}/../${package}.tar.gz" quiet="true" />
+		<tar destfile="${target}/../${package}.tar.gz" compression="gzip">
+			<fileset dir="${target}">
+				<include name="*" />
+			</fileset>
+		</tar>
+
+		<!--
+			<delete file="${target}/../${package}.zip" quiet="true" /> <zip
+			destfile="${target}/../${package}.zip"> <fileset dir="${target}">
+			<include name="*" /> </fileset> </zip>
+		-->
+
+		<echo msg="Files copied and compressed in build directory OK!" />
+	</target>
+
+
 </project>
