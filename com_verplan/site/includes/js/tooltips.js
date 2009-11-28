@@ -92,7 +92,7 @@ jQuery(document).ready(function() {
 		}
 	});
 	
-	jQuery('#filter_input').qtip( {
+	jQuery('#filter_label').qtip( {
 		content : 'Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen.',
 		hide: {
 			when: 'mouseout',
@@ -111,12 +111,12 @@ jQuery(document).ready(function() {
 	});
 	
 	//schließen bei click
-	jQuery('#filter_input').click(function(){
+	jQuery('#filter_label').click(function(){
 		jQuery(this).qtip("hide");
 	});
 	
 	
-	jQuery('#klasse').qtip( {
+	jQuery('#filter_label_klasse').qtip( {
 		content : 'Filtere die Tabelle nach deiner Klasse. Die Eingabe bleibt auch erhalten, wenn du einen neuen Plan wählst oder sogar die Seite neu aufrufst. ',
 		hide: {
 			when: 'mouseout',
@@ -135,7 +135,7 @@ jQuery(document).ready(function() {
 	});
 	
 	//schließen bei click
-	jQuery('#klasse').click(function(){
+	jQuery('#filter_label_klasse').click(function(){
 		jQuery(this).qtip("hide");
 	});
 	

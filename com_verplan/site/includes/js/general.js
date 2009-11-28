@@ -143,10 +143,33 @@ function setHash(hashP) {
 
 
 /**
+ * Good for serializing animations
+ */
+jQuery.fn.chain = function(fn) {
+  var elements = this;
+  var i = 0;
+  function nextAction() {
+    if (elements.eq(i)) fn.apply(elements.eq(i), [nextAction]);
+    i++;
+  }
+  nextAction();
+};
+
+
+/**
+ * variable, die anzeigt, ob ein hinweis angezeigt wird
+ */
+var hintshown = false;
+
+
+/**
  * show hint
  * @return
  */
-function slideHint(text, type, width) {
+function showHint(text, type, width, name) {
+	hintshown = true;
+	console.log('hintshown');
+	
 	if (!width) {
 		width = '400px';
 	}
@@ -158,27 +181,25 @@ function slideHint(text, type, width) {
 	if (type == 'info') {
 		text = '<span class="icon_verplan icon_info">&nbsp;</span><strong>Info:</strong> ' + text;
 	}
-	
+		
 	if (type == 'critical') {
 		text = '<span class="icon_verplan icon_critical">&nbsp;</span><strong style="color: red; ">Kritischer Fehler:</strong> ' + text;
 	}
+		
+	jQuery('#notify #text').html(text).parent().css('width', width).css('left', 0).attr('name', name).show('slide', {direction: 'right'}, 500); 
 	
-	//fügt den text an
-	if (text) {
-		//zeigt den hinweis
-		jQuery('#notify #text').html(text).parent().css('width', width).toggle('slide', {direction: 'right'}, 500);
-	} else {
-		//zeigt den hinweis
-		jQuery('#notify #text').parent().css('width', width).toggle('slide', {direction: 'right'}, 500);
-	}
-	
-	console.log(type+' '+text+' '+width);
+	console.log(type+' '+text+' '+width+' '+name);
 }
 
 /**
  * lässt den hinweis hinausfahren
  * @return
  */
-function hideHint() {
-	jQuery('#notify').pause(1000).hide('slide', {direction: 'right'}, 700);
+function hideHint(time) {
+	if (hintshown == true) {
+		jQuery('#notify:visible').stop().pause(time).hide('slide', {direction: 'right'}, 1000, function() {
+			console.log('hinthidden');
+			hintshown = false;
+		});
+	}
 }
