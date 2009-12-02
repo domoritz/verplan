@@ -19,6 +19,9 @@ var ajax_date;
 var ajax_stand;
 var ajax_options;
 
+//intervall zum warten, dass keine nachricht angezeigt wird
+var myInterval2;
+
 function getAndUseJSON(date, stand, options) {
 	ajax_date = date;
 	ajax_stand = stand;
@@ -34,18 +37,23 @@ function getAndUseJSON(date, stand, options) {
 
 }
 
-function ajaxCall() {	
+function ajaxCall() {
 	jQuery.ajax( {
 		type : "GET",
 		dataType : "json",
 		url : rooturl + "index.php",
 		data : 'option=com_verplan&view=verplan&format=js&date=' + ajax_date
 				+ '&stand=' + ajax_stand + '&options=' + ajax_options,
-		timeout : 5000,
+		timeout : 4000,
 		async : true,
 		global : true,
 		success : function(XMLHttpRequest, textStatus) {
-			JSONsuccess(XMLHttpRequest, textStatus);
+			console.log(textStatus);
+			if (XMLHttpRequest.infos == '') {
+				JSONfail(XMLHttpRequest, textStatus);
+			} else {
+				JSONsuccess(XMLHttpRequest, textStatus);
+			}
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(textStatus + '<br>' + errorThrown); 
@@ -86,6 +94,27 @@ function JSONsuccess(json, textStatus) {
 				.html('<a href="' + json.infos[length].url + '">zum Vertretungsplan...</a> <br>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
 	}
+}
+
+function JSONfail(json, textStatus){
+	// tabelle leeren
+	jQuery('#jquerytable tbody').html('');
+	//no_db verstecken
+	jQuery('#no_db').hide();
+	
+	//intervall, warten, dass nachricht angezeigt werden kann
+	
+	clearInterval(myInterval2);
+	
+	console.log('start listener');
+	myInterval2 = setInterval(function() {
+		console.log('wait for hint');
+		if (hintshown == false) {
+			clearInterval(myInterval2);
+			hintshown == true;
+			setTimeout("showHint('Fehler. Es existiert kein Plan für das gewählte Datum.', 'warn', '400px', 'noplan');", 200);
+		}
+	},100);
 }
 
 function buildTableFromJSON(tbody, json) {
