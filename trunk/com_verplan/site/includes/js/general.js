@@ -67,6 +67,9 @@ jQuery(document).ready(function(){
 });
 
 function initverplan(hash) {
+	//die intervalle beenden, die darauf warten, dass eine nachricht ausgeblendet wird
+	clearInterval(myInterval);
+	clearInterval(myInterval2);
 	
 	// bei select das richtige auswählen
 	jQuery("#select_date option").attr('selected', '');
@@ -163,7 +166,13 @@ var hintshown = false;
 
 
 /**
- * show hint
+ * zeigt eine benachrichtigung
+ * 
+ * @param text Nachrichtentext
+ * @param type warnung, info oder kritisch
+ * @param width breite der nachricht
+ * @param name name attribut
+ * 
  * @return
  */
 function showHint(text, type, width, name) {
