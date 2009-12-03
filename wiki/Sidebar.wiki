@@ -1,3 +1,4 @@
-  * Benutzerhandbuch
+  * [Benutzerhandbuch]
     * [Benutzerhandbuch_Frontend Frontend]
     * [Benutzerhandbuch_Backend Backend]
+  * [FAQ Häufig gestellte Fragen (FAQ)]
