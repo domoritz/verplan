@@ -1,24 +1,21 @@
 #labels Benutzerhanbuch
-#Hier stehen die wichtigsten Informationen für einen Benutzer, der nur das #Vertretungsplanprogramm benutzen möchte
-
 = Einleitung =
 
-Add your content here.
+In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsplanprogramm benutzen zu können.
 
 <wiki:toc max_depth="2" />
 
-= Details =
+= Für wen ist das Programm gedacht? =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Das Programm ist für folgende Personen gedacht:
+  * *Schüler* des MCG, die wissen möchten, welche Vertretungen an einem bestimmten tag sind
+  * *Lehrer* des MCG, die gerne wissen wollen, ob sie eventuell einen anderen Lehrer vertreten sollen
+  * *Eltern* von Schülern des MCG, die gerne wissen, ob ihr Kind gerade den Unterricht hat, der im Stundenplan steht
 
-{{{
-def fib(n):
-  if n == 0 or n == 1:
-    return n
-  else:
-    # This recursion is not good for large numbers.
-    return fib(n-1) + fib(n-2)
-}}}}
+= Was kann das Programm? =
+
+Dieses Programm ist dazu gedacht, den Vertretungsplan anzuzeigen, sodass sich die o.g. Personen über Ausfälle, Vertretungen, Raumwechsel oder andere Ereignisse informieren können. Normalerweise hängt der Vertretungsplan auch in der Schule aus. Da man diesen aber nicht von zu Hause einsehen kann, gibt es das Vertretungsplanprogramm, sodass man sich den vertretungsplan von überall ansehen kann. 
+
+= Was kann das Programm nicht? = 
+
+Zurzeit ist es nicht möglich, den Unterricht ferngesteuert ausfallen zu lassen. An diesem Feature wird noch gearbeitet. (Achtung: Ironie)
