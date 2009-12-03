@@ -1,3 +1,5 @@
+#sidebar TableOfContents
+
 = Einleitung =
 
 In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsplanprogramm benutzen zu können.
@@ -53,4 +55,5 @@ Wenn du eine Spalte gewählt hast, und ein Wort zum filtern eingegeben hast, wer
 
 === Filter - Klassen ===
 
-Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filtern]. Du musst nur eine Klasse (wahrscheinlich deine eigene) aus der liste auswählen und schon werden nur noch die Spalten angezeigt, die für die gewählte Klasse gelten. Nachdem du eine Klasse gewählt hast, kannst du die Filterung noch bearbeiten, indem du den Text in dem Eingabefeld für den Filter veränderst. 
+Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filtern]. Du musst nur eine Klasse (wahrscheinlich deine eigene) aus der Liste auswählen und schon werden nur noch die Spalten angezeigt, die für die gewählte Klasse gelten. 
+Nachdem du eine Klasse gewählt hast, kannst du die Filterung noch bearbeiten, indem du den Text in dem Eingabefeld für den Filter veränderst. 
