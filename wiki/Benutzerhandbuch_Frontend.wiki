@@ -10,13 +10,13 @@ In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsp
 == Für wen ist das Programm gedacht? ==
 
 Das Programm ist für folgende Personen gedacht:
-  * *Schüler* des MCG, die wissen möchten, welche Vertretungen an einem bestimmten tag sind
+  * *Schüler* des MCG, die wissen möchten, welche Vertretungen an einem bestimmten Tag sind
   * *Lehrer* des MCG, die gerne wissen wollen, ob sie eventuell einen anderen Lehrer vertreten sollen
   * *Eltern* von Schülern des MCG, die gerne wissen, ob ihr Kind gerade den Unterricht hat, der im Stundenplan steht
 
 == Was kann das Programm? ==
 
-Dieses Programm ist dazu gedacht, den Vertretungsplan anzuzeigen, sodass sich die o.g. Personen über Ausfälle, Vertretungen, Raumwechsel oder andere Ereignisse informieren können. Normalerweise hängt der Vertretungsplan auch in der Schule aus. Da man diesen aber nicht von zu Hause einsehen kann, gibt es das Vertretungsplanprogramm, sodass man sich den vertretungsplan von überall ansehen kann. 
+Dieses Programm ist dazu gedacht, den Vertretungsplan anzuzeigen, sodass sich die o.g. Personen über Ausfälle, Vertretungen, Raumwechsel oder andere Ereignisse informieren können. Normalerweise hängt der Vertretungsplan auch in der Schule aus. Da man diesen aber nicht von zu Hause einsehen kann, gibt es das Vertretungsplanprogramm, sodass man sich den Vertretungsplan von überall ansehen kann. 
 
 == Was kann das Programm nicht? == 
 
@@ -25,7 +25,7 @@ Zurzeit ist es nicht möglich, den Unterricht ferngesteuert ausfallen zu lassen.
 = Handbuch =
 
 == Datum wählen ==
-Damit du dir einen bestimmten vertretungsplan ansehen kannst, musst du dessen Datum wählen. Das Datum wählst du, indem du auf das Feld links in dem oberen Block klickst. Dann öffnet sich ein Popup, in dem du das gewünschte Datum (wieder  mit einem Klick) auswählen kannst. Danach wird automatisch der Vertretungsplan angezeigt. 
+Damit du dir einen bestimmten Vertretungsplan ansehen kannst, musst du dessen Datum wählen. Das Datum wählst du, indem du auf das Feld links in dem oberen Block klickst. Dann öffnet sich ein Popup, in dem du das gewünschte Datum (wieder  mit einem Klick) auswählen kannst. Danach wird automatisch der Vertretungsplan angezeigt. 
 
 Bei der Anzeige gibt es drei verschiedene Möglichkeiten:
   # Es wird eine Tabelle mit den Vertretungen angezeigt
@@ -38,6 +38,12 @@ Diese Funktion gibt es in diesem Programm bewusst nicht mehr.
 
 == Erweiterte Funktionen==
 
+Um in die erweiterten Optionen zu gelangen, musst du auf den Button klicken. Danach öffnet sich eine Box mit mit den Einstellungsmöglichkeiten. 
+
+Diese Funktionen funktionieren nur, wenn eine Tabelle angezeigt wird ([#datum])
+
 === Filter ===
+
+Hier hast du die Möglichkeit, die Vertretungsplantabelle zu Filtern. 
 
 === Filter - Klassen ===
