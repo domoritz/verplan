@@ -74,14 +74,14 @@ Daten (bis auf die Einstellungen, diese wurden auf den Ursprungszustand
 zurückgesetzt) übernommen. Sollte es zu Fehlern bei der Installation
 gekommen sein, entferne bitte alle Tabellen mit, die mit '<?php echo $db->getPrefix();?>com_verplan'
 beginnen aus der Datenbank und versuche die Instrallation danach erneut.</p>
-
+<br>
 <p>Direkt zum <a
 	href="<?php echo JURI::base();?>index.php?option=com_verplan">Adminbereich</a>
 </p>
 <p>Direkt zum <a
 	href="<?php echo JURI::root();?>index.php?option=com_verplan">Frontend</a>
 </p>
-
+<br>
 <p>Wenn du alle Daten und Datenbankeinträge entfernen oder neu
 installieren möchtest, solltest du kein Update durchführen, sondern die
 Komponente deinstalliern und danach neu installieren. Beim

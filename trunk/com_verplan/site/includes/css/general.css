@@ -55,7 +55,14 @@
 
 #help_head {
 	float: right;
-	margin-left: 0px;	
+	margin-left: 0px;
+	border: none;
+	background: none;	
+}
+
+#help_head img{
+	border: none;
+	background: none;	
 }
 
 
