@@ -53,6 +53,11 @@
 	cursor: pointer;
 }
 
+#help_head {
+	float: right;
+	margin-left: 0px;	
+}
+
 
 /*select*/
 

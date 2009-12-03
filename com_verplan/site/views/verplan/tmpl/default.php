@@ -95,15 +95,17 @@ $which = $this->which;
 ?>
 
 
-<div>
-	<img alt="logo vertretungsplan" width="152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
-	<p style="">
+<div id="header_verplan" class="ui-helper-clearfix panel">
+	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
+	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head"><img alt="Hilfe" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/help_contents_32.png"></a>
+	<p>
 	
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
 		Weitere Informationen: <a href="http://code.google.com/p/verplan/" title="Projektseite">http://code.google.com/p/verplan/</a>. 
 		Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" 
 		href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=90%&height=100%">Feedback</a>!
 	</p>
+	
 	<br>
 </div>
 

@@ -84,7 +84,7 @@ function createTooltips() {
 	 * tooltips http://craigsworks.com/projects/qtip/
 	 */	
 	
-	//tooltips for all
+	//tooltips für alle links
 	jQuery('a[title]').qtip({ 
 		style: { 
 			name: 'domstyle', 
@@ -95,6 +95,19 @@ function createTooltips() {
 				target : 'topMiddle',
 				tooltip : 'bottomLeft'
 			}
+		}
+	});
+	
+	jQuery('#help_head').qtip( {
+		content : 'Benutzerhandbuch und Hilfe',
+		position : {
+			corner : {
+				target : 'leftMiddle',
+				tooltip : 'rightMiddle'
+			}
+		},
+		style : {
+			name: 'domstyle'
 		}
 	});
 	
