@@ -40,11 +40,11 @@ Du kannst in dem Auswahlfeld rechts neben dem Eingabefeld festlegen, in welcher 
 
 Wenn du eine Spalte gewählt hast, und ein Wort zum filtern eingegeben hast, werden nur noch die Zeilen angezeigt, in denen in der gewählten Spalte das gesuchte Wort vorkommt. 
 
-<a href="http://picasaweb.google.com/lh/photo/OEd_0fr6eCLBc8G7y5zmug?feat=embedwebsite"><img src="http://lh4.ggpht.com/_7now-UGMzi4/SxgF-WdyytI/AAAAAAAAARY/0aL_aCKyEHg/s144/2009-12-03_193925.png" /></a>
+<a href="http://picasaweb.google.com/lh/photo/OEd_0fr6eCLBc8G7y5zmug?feat=embedwebsite"><img src="http://lh4.ggpht.com/_7now-UGMzi4/SxgF-WdyytI/AAAAAAAAARY/0aL_aCKyEHg/s400/2009-12-03_193925.png" /></a>
 
 === Filter - Klassen ===
 
 Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filtern]. Du musst nur eine Klasse (wahrscheinlich deine eigene) aus der Liste auswählen und schon werden nur noch die Spalten angezeigt, die für die gewählte Klasse gelten. 
 Nachdem du eine Klasse gewählt hast, kannst du die Filterung noch bearbeiten, indem du den Text in dem Eingabefeld für den Filter veränderst. 
 
-<a href="http://picasaweb.google.com/lh/photo/-Br_IXZggcvYfTCtcqMPEg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_7now-UGMzi4/SxgFk3ZtOCI/AAAAAAAAARU/YNgrCg3awrw/s144/2009-12-03_193738.png" /></a>
+<a href="http://picasaweb.google.com/lh/photo/-Br_IXZggcvYfTCtcqMPEg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_7now-UGMzi4/SxgFk3ZtOCI/AAAAAAAAARU/YNgrCg3awrw/s400/2009-12-03_193738.png" /></a>
