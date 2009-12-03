@@ -44,6 +44,12 @@ jQuery(document).ready(function(){
 	
 	// tabellenplugins initialiseren
 	table_init();
+	
+	//neu laden, wenn man auf das logo klickt
+	jQuery('#logo_verplan').click(function() {
+		window.location.hash = '';
+		window.location.href=window.location.href.slice(0, -1);
+	});
 
 	/**
 	 * ajax
