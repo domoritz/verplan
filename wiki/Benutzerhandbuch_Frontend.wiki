@@ -39,7 +39,7 @@ Diese Funktion gibt es in diesem Programm bewusst nicht mehr.
 
 Um in die erweiterten Optionen zu gelangen, musst du auf den Button klicken. Danach öffnet sich eine Box mit mit den Einstellungsmöglichkeiten. 
 
-Diese Funktionen funktionieren nur, wenn eine Tabelle angezeigt wird (mehr Informationen: [Benutzerhandbuch_Frontend#Datum_wählen Datum])
+Diese Funktionen funktionieren nur, wenn eine Tabelle angezeigt wird (mehr Informationen: [#Datum_wählen Datum])
 
 === Filter ===
 
@@ -51,4 +51,4 @@ Du kannst in dem Auswahlfeld rechts neben dem Eingabefeld festlegen, in welcher 
 
 === Filter - Klassen ===
 
-Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [Benutzerhandbuch_Frontend#Filter filter]
+Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filter]
