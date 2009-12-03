@@ -2,26 +2,9 @@
 
 = Einleitung =
 
-In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsplanprogramm benutzen zu können.
+In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsplanprogramm benutzen zu können. Falls du ein Problem hast, schau doch mal im [faq FAQ] nach. 
 
 <wiki:toc max_depth="3" />
-
-= Fragen =
-
-== Für wen ist das Programm gedacht? ==
-
-Das Programm ist für folgende Personen gedacht:
-  * *Schüler* des MCG, die wissen möchten, welche Vertretungen an einem bestimmten Tag sind
-  * *Lehrer* des MCG, die gerne wissen wollen, ob sie eventuell einen anderen Lehrer vertreten sollen
-  * *Eltern* von Schülern des MCG, die gerne wissen, ob ihr Kind gerade den Unterricht hat, der im Stundenplan steht
-
-== Was kann das Programm? ==
-
-Dieses Programm ist dazu gedacht, den Vertretungsplan anzuzeigen, sodass sich die o.g. Personen über Ausfälle, Vertretungen, Raumwechsel oder andere Ereignisse informieren können. Normalerweise hängt der Vertretungsplan auch in der Schule aus. Da man diesen aber nicht von zu Hause einsehen kann, gibt es das Vertretungsplanprogramm, sodass man sich den Vertretungsplan von überall ansehen kann. 
-
-== Was kann das Programm nicht? == 
-
-Zurzeit ist es nicht möglich, den Unterricht ferngesteuert ausfallen zu lassen. An diesem Feature wird noch gearbeitet. (Achtung: Ironie)
 
 = Handbuch =
 
