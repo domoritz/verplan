@@ -49,6 +49,8 @@ In das Suchfeld kannst du beliebige Zeichen eingeben. Ein Leerzeichen bedeutet O
 
 Du kannst in dem Auswahlfeld rechts neben dem Eingabefeld festlegen, in welcher Spalte der Text gesucht werden soll. Es ist nicht möglich, mehrere Spalten auf einmal zu wählen.
 
+Wenn du eine Spalte gewählt hast, und ein Wort zum filtern eingegeben hast, werden nur noch die Zeilen angezeigt, in denen in der gewählten Spalte das gesuchte Wort vorkommt. 
+
 === Filter - Klassen ===
 
-Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [Benutzerhandbuch_Frontend#Filter filter]
+Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filtern]. Du musst nur eine Klasse (wahrscheinlich deine eigene) aus der liste auswählen und schon werden nur noch die Spalten angezeigt, die für die gewählte Klasse gelten. Nachdem du eine Klasse gewählt hast, kannst du die Filterung noch bearbeiten, indem du den Text in dem Eingabefeld für den Filter veränderst. 
