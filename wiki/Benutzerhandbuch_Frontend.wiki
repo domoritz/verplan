@@ -39,7 +39,7 @@ Diese Funktion gibt es in diesem Programm bewusst nicht mehr.
 
 Um in die erweiterten Optionen zu gelangen, musst du auf den Button klicken. Danach öffnet sich eine Box mit mit den Einstellungsmöglichkeiten. 
 
-Diese Funktionen funktionieren nur, wenn eine Tabelle angezeigt wird (mehr Informationen: [#Datum_wählen Datum])
+Diese Funktionen funktionieren nur, wenn eine Tabelle angezeigt wird (mehr Informationen: [#Datum_wählen] )
 
 === Filter ===
 
