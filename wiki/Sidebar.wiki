@@ -1,4 +1,4 @@
   * [http://code.google.com/p/verplan/ Home]
-  * [/downloads Downloads]
-  * [/wiki Wiki]
-  * [/source Source]
+  * [http://code.google.com/p/verplan/downloads Downloads]
+  * [http://code.google.com/p/verplan/wiki Wiki]
+  * [http://code.google.com/p/verplan/source Source]
