@@ -1,0 +1,5 @@
+Wähle bitte das Handbuch aus:
+  * [Frontend Benutzerhandbuch_Frontend]
+  * [Backend Benutzerhandbuch_Backend]
+
+Falls du wissen möchtest, wie man das Programm benutzt und wenn du den Vertretungsplan sehen willst, dann schau dir das [Frontendhandbuch Benutzerhandbuch_Frontend]an. Willst du einen Vertretungsplan hoch laden, oder Einstellungen der Programms verändern, dann sieh dir bitte das [Backendhandbuch Benutzerhandbuch_Backend] an. 
