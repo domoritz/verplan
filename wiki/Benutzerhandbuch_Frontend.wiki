@@ -11,7 +11,9 @@ In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsp
 == Datum wählen ==
 Damit du dir einen bestimmten Vertretungsplan ansehen kannst, musst du dessen Datum wählen. Das Datum wählst du, indem du auf das Feld links in dem oberen Block klickst. Dann öffnet sich ein Popup, in dem du das gewünschte Datum (wieder  mit einem Klick) auswählen kannst. Danach wird automatisch der Vertretungsplan angezeigt. 
 
-[http://picasaweb.google.com/lh/photo/OsaZE3B2JnbjGEFpKnDOvA?feat=directlink&nonsense=bild.jpg]
+<img src="http://lh4.ggpht.com/_7now-UGMzi4/SxgCuM73qwI/AAAAAAAAARM/8Sbkor3a1yc/s800/2009-12-03_192412.png" alt="Bild">
+
+<strong>text</strong>
 
 Bei der Anzeige gibt es drei verschiedene Möglichkeiten:
   # Es wird eine Tabelle mit den Vertretungen angezeigt
@@ -25,6 +27,8 @@ Diese Funktion gibt es in diesem Programm bewusst nicht mehr.
 == Erweiterte Funktionen==
 
 Um in die erweiterten Optionen zu gelangen, musst du auf den Button klicken. Danach öffnet sich eine Box mit mit den Einstellungsmöglichkeiten. 
+
+<img src="http://lh5.ggpht.com/_7now-UGMzi4/SxgCuS_n_iI/AAAAAAAAARQ/1d7wDSJRDl4/s800/2009-12-03_192538.png" alt="Bild">
 
 Diese Funktionen funktionieren nur, wenn eine Tabelle angezeigt wird
 
