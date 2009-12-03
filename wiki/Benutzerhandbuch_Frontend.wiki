@@ -1,0 +1,24 @@
+#labels Benutzerhanbuch
+#Hier stehen die wichtigsten Informationen für einen Benutzer, der nur das #Vertretungsplanprogramm benutzen möchte
+
+= Einleitung =
+
+Add your content here.
+
+<wiki:toc max_depth="2" />
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
+
+{{{
+def fib(n):
+  if n == 0 or n == 1:
+    return n
+  else:
+    # This recursion is not good for large numbers.
+    return fib(n-1) + fib(n-2)
+}}}}
