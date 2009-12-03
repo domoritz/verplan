@@ -11,6 +11,8 @@ In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsp
 == Datum wählen ==
 Damit du dir einen bestimmten Vertretungsplan ansehen kannst, musst du dessen Datum wählen. Das Datum wählst du, indem du auf das Feld links in dem oberen Block klickst. Dann öffnet sich ein Popup, in dem du das gewünschte Datum (wieder  mit einem Klick) auswählen kannst. Danach wird automatisch der Vertretungsplan angezeigt. 
 
+[http://picasaweb.google.com/lh/photo/OsaZE3B2JnbjGEFpKnDOvA?feat=directlink&nonsense=bild.jpg]
+
 Bei der Anzeige gibt es drei verschiedene Möglichkeiten:
   # Es wird eine Tabelle mit den Vertretungen angezeigt
   # Es erscheint ein Text, dass es keine Vertretungen für den entsprechenden Tag gibt
