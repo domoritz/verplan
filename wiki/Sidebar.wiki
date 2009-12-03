@@ -1,7 +1,7 @@
   * [http://code.google.com/p/verplan/ Home]
   * [http://code.google.com/p/verplan/downloads Downloads]
   * [http://code.google.com/p/verplan/wiki Wiki]
-    * [Benutzerhandbuck_Frontend Benutzerhandbuch Frontend]
+    * [Benutzerhandbuch_Frontend Benutzerhandbuch Frontend]
   * [http://code.google.com/p/verplan/source Source]
     * [http://code.google.com/p/verplan/source/checkout Checkout]
     * [http://code.google.com/p/verplan/source/browse Browse]
