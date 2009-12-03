@@ -1,0 +1,5 @@
+#FAQ Page
+
+= Einleitung =
+
+Hier siehst du häufig gestellte Fragen, vielleicht wurde deine frage schon einmal gestellt. 
