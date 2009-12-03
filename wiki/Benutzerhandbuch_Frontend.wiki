@@ -2,7 +2,7 @@
 
 = Einleitung =
 
-In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsplanprogramm benutzen zu können. Falls du ein Problem hast, schau doch mal im [faq FAQ] nach. 
+In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsplanprogramm benutzen zu können. Falls du ein Problem hast, schau doch mal im [FAQ FAQ] nach. 
 
 <wiki:toc max_depth="3" />
 
