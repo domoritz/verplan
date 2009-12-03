@@ -1,3 +1,5 @@
+#sidebar Benutzerhandbuch_Frontend
+
 = Einleitung =
 
 In dieser Anleitung findest du alle wichtigen Informationen, du das Vertretungsplanprogramm benutzen zu können.
