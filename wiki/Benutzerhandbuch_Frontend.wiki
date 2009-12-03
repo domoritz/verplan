@@ -52,4 +52,4 @@ Du kannst in dem Auswahlfeld rechts neben dem Eingabefeld festlegen, in welcher 
 
 === Filter - Klassen ===
 
-Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [filtern|#Filter]
+Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filter]
