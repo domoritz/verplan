@@ -300,14 +300,20 @@ $which = $this->which;
 ?>
 <div id="no_db" <?php print $array[infos][$last][type] != 'db' ? 'style="display: block;"' : ''?>>
 	<?php 
-	//falls no_db oder kein plan
-	if ($array[infos][$last][type] != 'db') {
-		if ($array[infos][$last][type] == 'none') {
-			echo "Hurra, es gibt keine Vertretungen!<br>Stand: ".$array[infos][0][Stand];
-		} else {
-			echo '<a href="'.$array[infos][$last][url].'">zum Vertretungsplan</a><br>Stand: '.$array[infos][0][Stand];
+	//nur, wenn auch ein Datun gewählt wurde
+	if (is_array($array[infos])) {
+		//falls no_db oder kein plan
+		if ($array[infos][$last][type] != 'db') {
+			if ($array[infos][$last][type] == 'none') {
+				echo "Hurra, es gibt keine Vertretungen!<br>Stand: ".$array[infos][0][Stand];
+			} else {
+				echo '<a href="'.$array[infos][$last][url].'">zum Vertretungsplan</a><br>Stand: '.$array[infos][0][Stand];
+			}
 		}
-	} 
+	} else {
+		echo "Bitte warten oder ein Datum wählen!";
+	}
+	
 	?>
 </div>
 
