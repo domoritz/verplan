@@ -234,7 +234,7 @@ $which = $this->which;
 <div id="no_db" <?php print $array[infos][$last][type] != 'db' ? 'style="display: block;"' : ''?>>
 	<?php 
 	//nur, wenn auch ein Datun gewählt wurde
-	if (is_array($array[infos])) {
+	if (!empty($array[infos])) {
 		//falls no_db oder kein plan
 		if ($array[infos][$last][type] != 'db') {
 			if ($array[infos][$last][type] == 'none') {
@@ -244,7 +244,7 @@ $which = $this->which;
 			}
 		}
 	} else {
-		echo "Bitte warten oder ein Datum wählen!";
+		echo "Bitte warten oder ein Datum wählen! <div id=\"iniloader\"></div>";
 	}
 	
 	?>

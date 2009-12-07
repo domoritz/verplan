@@ -232,6 +232,14 @@
 	margin: 1em 1em;
 }
 
+/*indicator, wenn noch nichts angezeigt wird oder kein js*/
+#iniloader {
+	width: 100%;
+	margin: 1em 0;
+	height: 4px;
+	background: #fff url(../images/ajax/loader_40x4.gif) 50% 50% no-repeat;
+}
+
 /*table panel*/
 
 #ajaxdiv {
