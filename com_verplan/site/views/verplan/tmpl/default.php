@@ -11,75 +11,8 @@
 //-- No direct access
 defined('_JEXEC') or die('=;)');
 
-$document =& JFactory::getDocument();
-
-$baseurl = JURI::root(true).'/components/com_verplan/';
-
-/*
- * css
- */
-$document->addStylesheet($baseurl.'includes/css/general.css');
-$document->addStylesheet($baseurl.'includes/css/table.css');
-$document->addStylesheet($baseurl.'includes/css/jquery.kiketable.colsizable.css');
-$document->addStylesheet($baseurl.'includes/css/ui.selectmenu.css');
-$document->addStylesheet($baseurl.'includes/css/prettyPhoto.css');
-$document->addStylesheet($baseurl.'includes/css/jquery.clearableTextField.css');
-$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
-
-/*
- * scripts
- */
-
-//jQuery hinzufügen
-if ($this->load_jquery == 'true') {
-	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.js');
-	//$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
-	//$document->addScript($baseurl.'includes/js//jquery-1.3.2_patched.js');
-	
-}
-$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
-
-
-//no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
-$document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
-
-//plugins
-$document->addScript($baseurl.'includes/js/plugins/jquery.tablesorter.min.js');
-//$document->addScript($baseurl.'includes/js/plugins/jquery.columnfilters.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.uitablefilter.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.colorize-2.0.0.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.kiketable.colsizable-1.1.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.event.drag-1.4.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.qtip-1.0.0-rc3.js');
-$document->addScript($baseurl.'includes/js/plugins/ui.selectmenu.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.history.js');
-$document->addScript($baseurl.'includes/js/plugins/themeswitchertool.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.prettyPhoto.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.clearableTextField.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.cookie.js');
-
-//$document->addScript('http://www.google.com/jsapi');
-//$document->addScript($baseurl.'includes/js/googletable.js');
-//$document->addCustomTag( "<script type=\"text/javascript\">google.load('visualization', '1', {packages: ['table']});</script>" );
-//$document->addScript($baseurl.'includes/dataTables-1.5/media/js/jQuery.dataTables.js');
-
-
-//eigene scripts
-$document->addScript($baseurl.'includes/js/filters.js');
-$document->addScript($baseurl.'includes/js/tableplugins.js');
-$document->addScript($baseurl.'includes/js/hide_options.js');
-$document->addScript($baseurl.'includes/js/boxes.js');
-
-$document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
-$document->addScript($baseurl.'includes/js/colname.js.php?col='.$this->classname);
-$document->addScript($baseurl.'includes/js/varname.js.php?var='.$this->varname);
-$document->addScript($baseurl.'includes/js/debug.js.php?debug='.$this->debugmode);
-
-$document->addScript($baseurl.'includes/js/general.js');
-$document->addScript($baseurl.'includes/js/ajaxjson.js'); //ajax nach gereral, da hash
-$document->addScript($baseurl.'includes/js/ajaxeffects.js');
-$document->addScript($baseurl.'includes/js/ui.js'); //ui muss nach general, da select in general gesetzt
-$document->addScript($baseurl.'includes/js/tooltips.js');
+//fügt die gesamten scripts und stylesheets hinzu
+require_once('inc/scripts.inc.php');
 
 ?>
 
