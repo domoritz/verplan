@@ -1,4 +1,8 @@
 /**
+ * die funktonen dieser datei soregn dafür, dass die daten für die tabelle per json geladen werden
+ * und dann eine tabelle aufgebaut wird (danach muss ein table update geschehen). 
+ * im unteren teil stehen noch ein paar funktionen, die das auswahlfeld für die klassen ausbauen
+ * 
  * @version $Id$
  * @package verplan
  * @author Dominik Moritz {@link http://www.dmoritz.bplaced.net}

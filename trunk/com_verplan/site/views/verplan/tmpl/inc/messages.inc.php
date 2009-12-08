@@ -13,7 +13,9 @@ defined('_JEXEC') or die('=;)');
 
 ?>
 
-
+<?php 
+//falls js nicht unterstützt wird oder abgeschaltet ist, wird dies angezeigt
+?>
 <noscript class="panel">
 
 	<div class="ui-widget">

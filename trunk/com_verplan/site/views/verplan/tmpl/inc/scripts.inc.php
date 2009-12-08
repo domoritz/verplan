@@ -1,5 +1,11 @@
 <?php 
 /**
+ * in dieser php datei stehen alle includes für alle
+ * css stylesheets und javascriptdateien
+ * 
+ * die reihenfolge ist oft wichtig, da einige scrite von 
+ * anderen abhängen
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}

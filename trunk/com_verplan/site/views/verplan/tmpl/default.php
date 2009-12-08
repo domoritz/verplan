@@ -1,5 +1,7 @@
 <?php
 /**
+ * templatedatei des frontends
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -20,8 +22,7 @@ require_once('inc/scripts.inc.php');
 
 <?php 
 //version number
-$settingsmodel = JModel::getInstance('Settings', 'VerplanModel');
-$version = $settingsmodel->getSetting('version');
+$version = $this->version;
 
 $dates = $this->dates;
 $which = $this->which;			
@@ -32,11 +33,7 @@ $which = $this->which;
 	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
 	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head"><img alt="Hilfe" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p>
-	
-		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
-		Weitere Informationen: <a href="http://code.google.com/p/verplan/" title="Projektseite">http://code.google.com/p/verplan/</a>. 
-		Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" 
-		href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=90%&height=100%">Feedback</a>!
+		<?php echo $this->einltext?>
 	</p>
 	
 	<br>
@@ -118,19 +115,19 @@ $which = $this->which;
 
 <div id="options_panel" class="ui-helper-clearfix ui-widget-content ui-corner-bottom">
 	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
-		<!-- nur den neuesten stand --> 
-		<label for="input_stand" id="stand_label">Stand<span class="ui-icon ui-icon-lightbulb"></span></label>
-		<input id="input_stand" type="text" name="stand" value="<?php print $this->stand;?>" />
+		<?php // nur den neuesten stand ?>
+		<!-- <label for="input_stand" id="stand_label">Stand<span class="ui-icon ui-icon-lightbulb"></span></label> -->
+		<input id="input_stand" type="hidden" name="stand" value="<?php print $this->stand;?>" />
 		
-		<label for="input_options" id="options_label">Options [model,view]<span class="ui-icon ui-icon-lightbulb"></span></label>
-		<!-- view optionen nur für ajax interessant -->
-		<input id="input_options" type="text" name="options" value="<?php echo $this->options;?>" />
-		<!-- format wird nuir angezeigt, wenn  -->		    
-		
+		<?php // view optionen nur für ajax interessant ?>
+		<!--<label for="input_options" id="options_label">Options [model,view]<span class="ui-icon ui-icon-lightbulb"></span></label> -->
+		<input id="input_options" type="hidden" name="options" value="<?php echo $this->options;?>" />
+	
+		<?php // filter?>			
 		<label for="filter_input" id="filter_label">Filter nach einer Spalte<span class="ui-icon ui-icon-lightbulb"></span></label>
 		<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
 		<select id="filter_this" style="width: 100px" name="filter_this">
-			<!-- value="" ist wichtig, da sonst nach der spalte alle gesucht wird -->
+			<?php // value="" ist wichtig, da sonst nach der spalte alle gesucht wird ?>
 			<option value="">alle</option>
 		<?php 
 		//auswahlmöglichkeiten zum sortieren aus den spalten
@@ -203,7 +200,7 @@ $which = $this->which;
 		?>
 		</tr>
 	</thead>
-	<tbody>	
+	<tbody>
 	<?php
 	if (!empty($array[rows])){
 		foreach ($array[rows] as $row) {
@@ -244,11 +241,14 @@ $which = $this->which;
 			}
 		}
 	} else {
-		echo "Bitte warten oder ein Datum wählen! <div id=\"iniloader\"></div>";
+		echo "Bitte warten oder ein Datum wählen!";
 	}
 	
 	?>
 </div>
+
+<?php //kleiner indikator ?>
+<div id ="miniindi" style="display: block" class="miniloader"></div>
 
 <div id="table_footer" class="ui-widget-header ui-corner-bottom ui-helper-clearfix">
 	<span id="hpvvp" class="left_float"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | Version:  <?php echo $version;?></a></span>

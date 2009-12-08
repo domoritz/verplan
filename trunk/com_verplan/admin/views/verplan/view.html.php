@@ -2,7 +2,7 @@
 /**
  * Viewcontroller für das admin backend
  * von hier aus werden die daten an das template übergeben
- * 
+ *
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -31,16 +31,16 @@ class verplanViewVerplan extends JView
 		//Link zu Frontpage laden
 		$link = $model->getLinkFrontpage();
 		$this->assignRef('link', $link);
-		
+
 		//Beschreibung
 		$description = $model->getDescription();
 		$this->assignRef('description', $description);
-		
+
 		//lade Settings
 		$newmodel = JModel::getInstance('Settings', 'VerplanModel');
 		$settings =& $newmodel->getSettings();
 		$this->assignRef('settings', $settings);
-		
+
 		//lade columns
 		$newmodel = JModel::getInstance('Columns', 'VerplanModel');
 		$columns =& $newmodel->getColumns();
@@ -49,8 +49,42 @@ class verplanViewVerplan extends JView
 		//sortierung übergeben, standard ist ordering
 		$sort = JRequest::getVar('sort','ordering');
 		$this->assignRef( 'sort', $sort);
-		
+
+		//setzt die versionsnummer
+		$this->updateVersion();
 
 		parent::display($tpl);
 	}// function
+
+	function updateVersion(){
+		/*
+		 * Update der versionsnummer, falls diese nicht bei der isntallation erkannt wurde
+		 */
+
+		$path = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'com_verplan.xml';
+		//echo $path;
+		$dataxml = JApplicationHelper::parseXMLInstallFile($path);
+		//var_dump($data);
+		//echo $data[version];
+
+		//daten für jtable
+		$data = array(
+			'id' => 1,
+			'name' => 'version',
+			'value' => $dataxml[version],
+			'default' => $dataxml[version],
+		);
+
+		//var_dump($data);
+
+		//jtable laden
+		JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'tables');
+		$table = JTable::getInstance('settings', 'Table');
+
+		//var_dump($table);
+
+		if (!$table->save($data)){
+			JError::raiseWarning( 500, $table->getError() );
+		}
+	}
 }// class

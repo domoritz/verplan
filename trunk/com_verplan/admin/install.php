@@ -29,7 +29,7 @@ function com_install() {
 
 	//daten für jtable
 	$data = array(
-		'id' => 15,
+		'id' => 1,
 		'name' => 'version',
 		'value' => $dataxml[version],
 		'default' => $dataxml[version],

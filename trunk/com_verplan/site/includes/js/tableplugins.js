@@ -1,4 +1,20 @@
 /**
+ * es gibt zwei funktionen
+ * die erste ist dafür verantwortlich, dass alle jQuery plugins für die tabelle
+ * am anfang initialisiert werden
+ * die zweite funktion sorgt dafür, dass bestimmte plugins und funktionen aufgerufen
+ * werden, falls sich etwas an der struktur der tabelle ändert. dann müssen auch ein 
+ * paar funktionen erneut ausgeführt werden
+ * 
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 10-Oct-2009
+ */
+
+/**
  * initialisiert die tabelle
  * @return
  */

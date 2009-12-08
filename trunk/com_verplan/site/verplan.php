@@ -1,5 +1,8 @@
 <?php
 /**
+ * initialisierung des frontends, hauptdatei
+ * hier sollte eigentlich nichts geändert werden
+ * 
  * @version $Id$
  * @package    verplan
  * @subpackage _ECR_SUBPACKAGE_

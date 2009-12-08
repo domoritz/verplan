@@ -1,5 +1,7 @@
 <?php
 /**
+ * versorgt das template für den vertretungsplan mit daten
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}

@@ -1,4 +1,6 @@
 /**
+ * js datei, in der alles zu dem filter und klassenfilter des frontends steht
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}

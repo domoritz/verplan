@@ -1,5 +1,5 @@
 /**
- * qTips
+ * qTips tooltips für das frontend
  * 
  * @version		$Id$
  * @package		verplan

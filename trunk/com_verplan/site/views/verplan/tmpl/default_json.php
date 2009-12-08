@@ -4,7 +4,7 @@
  * dise daten kann man natürlich auch in anderen programmen 
  * nutzen, indem man einfach die daten über die URL abruft.
  * die syntax ist
- * /index.php?option=com_verplan&view=verplan&format=js&date=<mySQL Timestamp>&stand=<mySQL Timestamp>
+ * ?option=com_verplan&view=verplan&format=js&date=<mySQL Timestamp>&stand=<mySQL Timestamp>&options=<Optionen für das model>,<Optionen für die anzeige>
  * 
  * Timestamps
  * 

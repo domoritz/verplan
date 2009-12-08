@@ -1,5 +1,7 @@
 <?php
 /**
+ * versorgt das template des frontends mit den nötigen daten
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -23,11 +25,18 @@ class verplanViewverplan extends JView
 {
 	function display($tpl = null)
 	{
-		//ohne Model
-		$nojs = '<p><strong>Achtung:</strong><br>Bitte aktiviere JavaScript um den vollen Funktionsumfang nutzen zu können! Ohne Javascript kannst du die meisten Funktionen des Programms nicht benutzen!</p>';
-		$this->assignRef('nojs',$nojs);
+		//Standardmodel laden
+		$model =& $this->getModel();
 
-		//variablen, falls js deaktiviert
+		//kein js nachricht
+		$nojs = $model->getNojs(); 
+		$this->assignRef('nojs',$nojs);
+		
+		//einleitungstext
+		$einltext = $model->getText(); 		
+		$this->assignRef('einltext',$einltext);
+		
+		//variablen, wichtig falls js deaktiviert
 		$date = JRequest::getVar('date','none');
 		$stand = JRequest::getVar('stand','latest');
 		$options = JRequest::getVar('options',',min');
@@ -37,11 +46,9 @@ class verplanViewverplan extends JView
 		 * verschiedene optionen möglich
 		 * 0. : optionen für das controller
 		 * 1. : optionen für den view
+		 * die optionen sind mit komma getrennt
 		 */
 		$optionsarray = explode(',',$options);
-
-		//Standardmodel laden
-		$model =& $this->getModel();
 
 		//stand und datum und options aus get
 		$this->assignRef( 'date', $date);
@@ -150,6 +157,11 @@ class verplanViewverplan extends JView
 		//debugmode
 		$debug = $settingsmodel->getSetting('debug');
 		$this->assignRef( 'debugmode', $debug);
+		
+		//versionsnummer
+		//version number
+		$version = $settingsmodel->getSetting('version');
+		$this->assignRef( 'version', $version);
 
 		//controller plan laden
 		$name = 'plan';

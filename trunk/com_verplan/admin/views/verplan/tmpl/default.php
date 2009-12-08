@@ -39,12 +39,15 @@ $document->addScript('components/com_verplan/includes/js/tables.js');
 
 //Plugins
 /*http://milesich.com/timepicker/*/
-$document->addScript('components/com_verplan/includes/js/plugins/timepicker.js');
+//$document->addScript('components/com_verplan/includes/js/plugins/timepicker.js');
 $document->addScript('components/com_verplan/includes/js/plugins/jquery.form.js');
 
 /*http://haineault.com/media/jquery/ui-timepickr/page/*/
-$document->addScript('components/com_verplan/includes/js/plugins/jquery.timepickr.js');
-$document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css');
+//$document->addScript('components/com_verplan/includes/js/plugins/jquery.timepickr.js');
+//$document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css');
+
+$document->addScript('components/com_verplan/includes/js/plugins/jquery.timePicker.js');
+
 ?>
 
 
@@ -83,39 +86,6 @@ $version = $settings[version]['default'];
 <?php require_once('inc/columns.php');?>
 
 <?php require_once('inc/about.php');?>
-
-
-<?php 
-/*
- * Update der versionsnummer, falls diese nicht bei der isntallation erkannt wurde
- */
-
-$path = JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'com_verplan.xml';
-//echo $path;
-$dataxml = JApplicationHelper::parseXMLInstallFile($path);
-//var_dump($data);
-//echo $data[version];
-
-//daten für jtable
-$data = array(
-	'id' => 15,
-	'name' => 'version',
-	'value' => $dataxml[version],
-	'default' => $dataxml[version],
-);
-
-//var_dump($data);
-
-//jtable laden
-JTable::addIncludePath(JPATH_ADMINISTRATOR.DS.'components'.DS.'com_verplan'.DS.'tables');
-$table = JTable::getInstance('settings', 'Table');
-
-//var_dump($table);
-
-if (!$table->save($data)){
-	JError::raiseWarning( 500, $table->getError() );
-}
-?>
 
 
 <?php 

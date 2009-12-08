@@ -1,12 +1,15 @@
 <?php
 /**
- * @version $Id$
- * @package    verplan
- * @subpackage _ECR_SUBPACKAGE_
- * @author     EasyJoomla {@link http://www.easy-joomla.org Easy-Joomla.org}
- * @author     Dominik Moritz {@link http://www.dmoritz.bplaced.net}
- * @author     Created on 06-Sep-2009
+ * hauptmodel des frontends
+ * 
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 6-Sep-2009
  */
+
 
 //-- No direct access
 defined('_JEXEC') or die('=;)');
@@ -21,12 +24,28 @@ jimport( 'joomla.application.component.model' );
  */
 class verplanModelverplan extends JModel
 {
-	/**
-	 * Gets the greeting
-	 * @return string The greeting to be displayed to the user
-	 */
-	function getGreeting()
+
+	function getNojs()
 	{
-		return 'Hello World (model) !';
+		$nojs = '
+			<p><strong>Achtung:</strong><br>
+			Bitte aktiviere JavaScript um den vollen Funktionsumfang nutzen zu können! 
+			Ohne Javascript kannst du die meisten Funktionen des Programms nicht benutzen!
+			</p>
+		';
+		
+		return $nojs;
+	}// function
+	
+	function getText()
+	{
+		$einltext = '
+			Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
+			Weitere Informationen: <a href="http://code.google.com/p/verplan/" title="Projektseite">http://code.google.com/p/verplan/</a>. 
+			Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" 
+			href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=90%&height=100%">Feedback</a>!
+		';
+		
+		return $einltext;
 	}// function
 }// class

@@ -52,7 +52,7 @@ jQuery(function() {
 	*/
 	
 	jQuery('#datepicker_stand').datepicker({
-		duration: '',
+		//duration: '',
         showTime: false,
         constrainInput: false,
         stepMinutes: 10,
@@ -80,8 +80,17 @@ jQuery(function() {
 	/*http://code.google.com/p/jquery-utils/wiki/UiTimepickr*/
 	$('#datepicker_stand_time').timepickr({
 		convention: 24,
-		val: '00:00',
+		//val: '00:00',
 		format24: '{h:02.d}:{m:02.d}' 
 	}); 
+	
+	//http://labs.perifer.se/timedatepicker/
+	jQuery("#datepicker_stand_time").timePicker({
+		startTime: "6.00",
+		endTime: "23.00",
+		show24Hours: true,
+		separator: ':',
+		step: 15
+	});
 	
 });
