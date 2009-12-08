@@ -53,6 +53,7 @@ function showTable() {
 		//.show('blind',speed)
 		.fadeIn(speed)
 		;
+		jQuery('#miniindi').hide();
 	}
 }
 
@@ -63,6 +64,7 @@ function hideTable() {
 		//.hide('blind',speed)
 		.fadeOut(speed,ajaxCall)
 		;
+		jQuery('#miniindi').show();
 	}
 }
 

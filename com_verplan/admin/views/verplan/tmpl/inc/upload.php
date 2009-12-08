@@ -45,8 +45,12 @@
 			<tr>
 				<td class="key"><label for="stand">Stand</label></td>
 				<td>
-					<input size="40" type="text" id="datepicker_stand" name="stand" />
-					<input size="40" type="text" id="datepicker_stand_time" name="stand_time" />
+					<?php 
+						$time = date('H:i');						
+						$date = date('Y-m-d');
+					?>
+					<input size="40" type="text" id="datepicker_stand" name="stand" value="<?php echo $date; ?>"/>
+					<input size="40" type="text" id="datepicker_stand_time" name="stand_time" value="<?php echo $time; ?>" />
 				</td>
 				<!-- <td>
 					<input size="40" type="stand_time" id="datepicker_stand_time" name="stand" class="inputbox" /><br>
@@ -82,23 +86,23 @@
 				<option>false</option>
 				<option>true</option>
 			</select>
-			</tr></td>
-				
-			<!-- sollen fehler in den regulaeren ausdrücken ignoriert werden? (empfohlen) --> 
-			<input type="hidden" name="ignore" value="true" /> 
-		
-			<!-- damit die Komponente wieder aufgerufen wird --> 
-			<input type="hidden" name="option" value="com_verplan" /> 
-			<!-- task laden (in verplanControllrupload -->
-			<input type="hidden" name="task" value="send" />
-			<input type="hidden" name="boxchecked" value="0" />
-			<!-- richtiger Controller --> 
-			<input type="hidden" name="controller" value="send" /> 
-			<!-- die user ID (unnötig) -->
-			<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
+			</tr>
 		</tbody>
 		</table>
 	</div>
+	
+	<!-- sollen fehler in den regulaeren ausdrücken ignoriert werden? (empfohlen) --> 
+	<input type="hidden" name="ignore" value="true" /> 
+
+	<!-- damit die Komponente wieder aufgerufen wird --> 
+	<input type="hidden" name="option" value="com_verplan" /> 
+	<!-- task laden (in verplanControllrupload -->
+	<input type="hidden" name="task" value="send" />
+	<input type="hidden" name="boxchecked" value="0" />
+	<!-- richtiger Controller --> 
+	<input type="hidden" name="controller" value="send" /> 
+	<!-- die user ID (unnötig) -->
+	<input type="hidden" name="id" value="<?php echo $this->user->id; ?>" />
 
 </form>
 

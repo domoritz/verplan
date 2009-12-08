@@ -1,4 +1,7 @@
 /**
+ * kümmert sich darum, dass die erweiterten optionen aus und eingeblendet werden können
+ * beim starten wird der zustand aus dem cookie geladen
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -6,6 +9,7 @@
  * @license		GNU/GPL
  * @author      Created on 2-Oct-2009
  */
+
 jQuery(document).ready(function(){
 	
 	/*
@@ -14,10 +18,12 @@ jQuery(document).ready(function(){
 	 */	
 	
 	//zustand aus Cookie wieder herstellen
-	if (!(jQuery.cookie('show_advanced_layer') == 'true')) {
-		jQuery('#options_panel').hide('');
-	} else {
+	if (jQuery.cookie('show_advanced_layer') == 'true') {
 		toggleStuff();
+	} else {
+		jQuery('#options_panel').hide('');
+		//nur sicherheitshalber
+		jQuery.cookie('show_advanced_layer', null);
 	}
 	
 	//einblenden
@@ -42,6 +48,9 @@ jQuery(document).ready(function(){
 	
 });
 
+/**
+ * wechselt ob, das panel aus doer eingeblendet werden soll
+ */
 function toggleStuff() {
 	jQuery('#icon_options').toggleClass('ui-icon-circle-plus').toggleClass('ui-icon-circle-minus');
 	jQuery('#expander_options').toggleClass('ui-state-default');

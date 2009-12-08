@@ -1,4 +1,6 @@
 /**
+ * haupt CSS datei, in der alle styles des fontends stehen
+ * die styles der tabelle stehen in einer extradatei  
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -171,12 +173,12 @@
 #options_panel{
 	width: 80%;
 	float:right;
-	padding: 5px;
+	padding: 2em 5px;
 	border-top: none;
 	position: relative;
 	right: 1em;
 	/*display: block;*/
-	height: 120px;
+	/*height: 120px;*/
 }
 
 #options_panel label{
@@ -232,12 +234,12 @@
 	margin: 1em 1em;
 }
 
-/*indicator, wenn noch nichts angezeigt wird oder kein js*/
-#iniloader {
+/*miniindikator gif*/
+.miniloader {
 	width: 100%;
 	margin: 1em 0;
 	height: 4px;
-	background: #fff url(../images/ajax/loader_40x4.gif) 50% 50% no-repeat;
+	background: #fff url(../images/ajax/ajax_40x4.gif) 50% 50% no-repeat;
 }
 
 /*table panel*/
