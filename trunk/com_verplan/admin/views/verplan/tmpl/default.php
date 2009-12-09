@@ -34,19 +34,11 @@ $document->addStylesheet('components/com_verplan/includes/css/general.css');
 //Javascript
 $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 $document->addScript('components/com_verplan/includes/js/form.js');
-$document->addScript('components/com_verplan/includes/js/jquery.datepicker.js');
+$document->addScript('components/com_verplan/includes/js/datepicker.js');
 $document->addScript('components/com_verplan/includes/js/tables.js');
 
 //Plugins
-/*http://milesich.com/timepicker/*/
-//$document->addScript('components/com_verplan/includes/js/plugins/timepicker.js');
 $document->addScript('components/com_verplan/includes/js/plugins/jquery.form.js');
-
-/*http://haineault.com/media/jquery/ui-timepickr/page/*/
-//$document->addScript('components/com_verplan/includes/js/plugins/jquery.timepickr.js');
-//$document->addStylesheet('components/com_verplan/includes/css/ui.timepickr.css');
-
-$document->addScript('components/com_verplan/includes/js/plugins/jquery.timePicker.js');
 
 ?>
 
@@ -65,7 +57,7 @@ $version = $settings[version]['default'];
 ?>
 
 <div>
-	<img alt="logo vertretungsplan" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
+	<a href=""><img alt="logo vertretungsplan" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/></a>
 	<p style="">
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
 		Weitere Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
