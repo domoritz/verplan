@@ -6,9 +6,7 @@ In dieser Anleitung findest du alle wichtigen Informationen, die du brauchst um 
 
 <wiki:toc max_depth="3" />
 
-= Handbuch =
-
-== Datum wählen ==
+= Datum wählen =
 Damit du dir einen bestimmten Vertretungsplan ansehen kannst, musst du dessen Datum wählen. Das Datum wählst du, indem du auf das Feld links in dem oberen Block klickst. Dann öffnet sich ein Popup, in dem du das gewünschte Datum (wieder  mit einem Klick) auswählen kannst. Danach wird automatisch der Vertretungsplan angezeigt. 
 
 <a href="http://picasaweb.google.com/lh/photo/OsaZE3B2JnbjGEFpKnDOvA?feat=embedwebsite"><img src="http://lh4.ggpht.com/_7now-UGMzi4/SxgCuM73qwI/AAAAAAAAARM/8Sbkor3a1yc/s400/2009-12-03_192412.png" /></a>
@@ -18,11 +16,11 @@ Bei der Anzeige gibt es drei verschiedene Möglichkeiten:
   # Es erscheint ein Text, dass es keine Vertretungen für den entsprechenden Tag gibt
   # Es wird ein Link auf eine Datei angezeigt, welche den Vertretungsplan enthält. Klicke einfach auf den Link, um zum Vertretungsplan zu gelangen. 
 
-== Stand wählen ==
+= Stand wählen =
 
 Diese Funktion gibt es in diesem Programm bewusst nicht mehr. 
 
-== Erweiterte Funktionen==
+= Erweiterte Funktionen=
 
 Um in die erweiterten Optionen zu gelangen, musst du auf den Button klicken. Danach öffnet sich eine Box mit mit den Einstellungsmöglichkeiten. 
 
@@ -30,7 +28,7 @@ Um in die erweiterten Optionen zu gelangen, musst du auf den Button klicken. Dan
 
 Diese Funktionen funktionieren nur, wenn eine Tabelle angezeigt wird
 
-=== Filter ===
+== Filter ==
 
 Hier hast du die Möglichkeit, die Vertretungsplantabelle zu Filtern. Um die Tabelle zu filtern, musst du einen Text, der gesucht werden soll, in das entsprechende Feld eingeben. Nachdem du ein paar Zeichen eingegeben hast, wirst du sehen, dass automatisch nur die Zeilen angezeigt werden, die das gesuchte Wort enthalten. 
 
@@ -42,7 +40,7 @@ Wenn du eine Spalte gewählt hast, und ein Wort zum filtern eingegeben hast, wer
 
 <a href="http://picasaweb.google.com/lh/photo/OEd_0fr6eCLBc8G7y5zmug?feat=embedwebsite"><img src="http://lh4.ggpht.com/_7now-UGMzi4/SxgF-WdyytI/AAAAAAAAARY/0aL_aCKyEHg/s400/2009-12-03_193925.png" /></a>
 
-=== Filter - Klassen ===
+== Filter - Klassen ==
 
 Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filtern]. Du musst nur eine Klasse (wahrscheinlich deine eigene) aus der Liste auswählen und schon werden nur noch die Spalten angezeigt, die für die gewählte Klasse gelten. 
 Nachdem du eine Klasse gewählt hast, kannst du die Filterung noch bearbeiten, indem du den Text in dem Eingabefeld für den Filter veränderst. 
