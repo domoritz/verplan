@@ -61,7 +61,9 @@ function ajaxCall() {
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			alert(textStatus + '<br>' + errorThrown); 
-		}
+		},
+		complete: ajaxcomplete
+		
 	});
 }
 

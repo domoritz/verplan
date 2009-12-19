@@ -103,7 +103,7 @@ VALUES
 ('8' , 'pattern_plan', '//table[@class=\'mon_list\']', '//table[@class=\'mon_list\']','Pattern'),
 ('9' , 'upload_dir_comp', 'uploads', 'uploads','Verzeichnis auf dem Server in der Komponente'),
 ('10' , 'upload_dir', '/components/com_verplan/uploads/', '/components/com_verplan/uploads/','Verzeichnis der Vertrtungsplandateien'),
-('11' , 'number_show', '3', '3','Anzahl der anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt.'),
+('11' , 'number_show', '5', '5','Anzahl der anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt.'),
 ('12' , 'load_jquery_frontend', 'true', 'true','jQuery laden (Frontend)'),
 ('13' , 'load_jquery_backend', 'true', 'true','jQuery laden (Backend)'),
 ('14' , 'load_jqueryui_frontend', 'true', 'true','jQueryUI laden (Frontend)'),

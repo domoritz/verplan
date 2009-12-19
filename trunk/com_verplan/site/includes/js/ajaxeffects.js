@@ -40,7 +40,7 @@ function showIndicator() {
 function hideIndicator() {
 	if (effects_indi) {
 		jQuery('#loading').pause(500).fadeOut(1000);
-		//jQuery('#loader_overlay').pause(0).fadeOut(1500);
+		//jQuery('#loader_overlay').pause(0).fadeOut(1500);		
 		
 		hideHint(1500);
 	}
@@ -66,5 +66,9 @@ function hideTable() {
 		;
 		jQuery('#miniindi').show();
 	}
+}
+
+function ajaxcomplete() {
+	jQuery('#miniindi').hide();
 }
 

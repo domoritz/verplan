@@ -38,8 +38,12 @@ jQuery(document).ready(function(){
 	
 	//post-submit callback 
 	function showResponse_0(responseText, statusText)  { 
-		//eingabefeld leeren
-		jQuery('#file').val('');
+		
+		//eingabefeld(er) leeren, wenn kein debugmode
+		if (jQuery('#select_debug').val() != 'true') {
+			jQuery('#file').val('');
+			jQuery('#datepicker_date').val('');
+		}		
 		
 		//erfolg melden
 		jQuery('.ajaxresmess_0').show('blind','normal').focus();
