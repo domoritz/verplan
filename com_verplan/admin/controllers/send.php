@@ -70,10 +70,10 @@ class VerplanControllerSend extends verplanController
 			$stand_date = JRequest::getVar('stand', null);
 
 			if (empty($upload_arr[Geltungsdatum])) {
-				$msg .= "Bitte Geltungsdatum angeben";
+				$msg .= "Bitte Geltungsdatum angeben oder eine Datei wählen";
 				$this->setRedirect( 'index.php?option=com_verplan', $msg );
 			} elseif (empty($stand_date)) {
-				$msg .= "Bitte Stand angeben";
+				$msg .= "Bitte Stand angeben oder eine Datei wählen";
 				$this->setRedirect( 'index.php?option=com_verplan', $msg );
 			} else {
 

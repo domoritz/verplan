@@ -31,14 +31,15 @@ $document->addStylesheet('components/com_verplan/includes/css/general.css');
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
 //$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
 
+//Plugins
+$document->addScript('components/com_verplan/includes/js/plugins/jquery.form.js');
+$document->addScript('components/com_verplan/includes/js/plugins/jquery.timePicker.js');
+
 //Javascript
 $document->addScript('components/com_verplan/includes/js/hide_admin.js');
 $document->addScript('components/com_verplan/includes/js/form.js');
 $document->addScript('components/com_verplan/includes/js/datepicker.js');
 $document->addScript('components/com_verplan/includes/js/tables.js');
-
-//Plugins
-$document->addScript('components/com_verplan/includes/js/plugins/jquery.form.js');
 
 ?>
 
