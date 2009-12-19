@@ -1,6 +1,6 @@
 = Einleitung =
 
-Hier siehst du häufig gestellte Fragen, vielleicht wurde deine frage schon einmal gestellt. 
+Hier siehst du häufig gestellte Fragen, vielleicht wurde deine Frage schon einmal gestellt. 
 
 <wiki:toc max_depth="3" />
 
@@ -20,6 +20,19 @@ Dieses Programm ist dazu gedacht, den Vertretungsplan anzuzeigen, sodass sich di
 == Was kann das Programm nicht? == 
 
 Zurzeit ist es nicht möglich, den Unterricht ferngesteuert ausfallen zu lassen. An diesem Feature wird noch gearbeitet. (Achtung: Ironie)
+
+== Wer hat das Programm entwickelt? ==
+
+Das Programm ist eine 5.Prüfungskomponente und wurde von [http://www.dmoritz.bplaced.net Dominik Moritz] entwickelt. 
+
+== Kann ich mithelfen, dass Programm zu verbessern? ==
+
+Klar! Wenn du richtig mit programmieren willst, dann gehe bitte auf [/p/verplan/source/checkout diese Seite] und schau dir an, wie du an den Code kommst. Du kannst mir auch gerne eine Nachricht schicken.
+
+Wenn du nicht so gerne programmierst oder anders helfen möchtest, dann schreibe mir ein [http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA Feedback]! Die Feedbacks helfen mir sehr das Programm ständig zu verbessern.
+
+== Ich habe einen Fehler gefunden ==
+Bitte [/p/verplan/issues/entry hier] melden oder mir eine Nachricht schreiben!
 
 = Frage stellen! =
 Wenn du eine Frage stellen möchtest, dann schreibe einfach einen Kommentar. 
