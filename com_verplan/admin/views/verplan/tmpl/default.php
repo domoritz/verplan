@@ -17,19 +17,22 @@ $document =& JFactory::getDocument();
 
 //jQuery support
 $settings = $this->settings;
-if ($settings['load_jquery'][value] == 'true') {
+if ($settings['load_jquery_backend']['value'] == 'true') {
 	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js');
 }
 
-$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
+//no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
+$document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
+
+if ($settings['load_jqueryui_backend']['value'] == 'true') {
+	$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
+	$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
+}
+
 $document->addScript('http://jqueryui.com/ui/i18n/ui.datepicker-de.js');
 
 //stylesheets
-$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
-
-//no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
-//$document->addCustomTag( '<script type="text/javascript">var jQuery = jQuery.noConflict();</script>' );
 
 //Plugins
 $document->addScript('components/com_verplan/includes/js/plugins/jquery.form.js');

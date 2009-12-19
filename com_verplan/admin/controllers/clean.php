@@ -1,5 +1,7 @@
 <?php
 /**
+ * die funktionen in dieser datei sorgen dafür, dass datenbankeinträge 
+ * und hochgeladene dateien gelöscht werden. 
  *
  * @version		$Id$
  * @package		verplan

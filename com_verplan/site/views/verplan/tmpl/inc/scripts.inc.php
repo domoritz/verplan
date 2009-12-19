@@ -37,15 +37,17 @@ $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/th
 
 //jQuery hinzufügen
 if ($this->load_jquery == 'true') {
-	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.js');
-	//$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
-	
+	//$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.js');
+	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
 }
-$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
-
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
 $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
+
+if ($this->load_jqueryui == 'true') {
+	$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
+}
+
 
 //plugins
 $document->addScript($baseurl.'includes/js/plugins/jquery.tablesorter.min.js');

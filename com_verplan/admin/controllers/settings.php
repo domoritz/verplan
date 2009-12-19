@@ -1,5 +1,6 @@
 <?php
 /**
+ * verwaltet die einstellungen
  *
  * @version		$Id$
  * @package		verplan

@@ -72,6 +72,10 @@ class VerplanControllerUpload extends verplanController
 
 		//Import filesystem libraries. Perhaps not necessary, but does not hurt
 		jimport('joomla.filesystem.file');
+		
+		//die datei bekommt das datum in den dateinamen
+		$date = date( 'Ymd_Hi_');
+		$file['name'] = $date.$file['name'];
 
 		//Clean up filename to get rid of strange characters like spaces etc
 		$filename = JFile::makeSafe($file['name']);
@@ -83,10 +87,6 @@ class VerplanControllerUpload extends verplanController
 		$src = $file['tmp_name'];
 		$upload_dir_comp = $settingsmodel->getSetting('upload_dir_comp');
 		
-		
-		//die datei bekommt das datum in den dateinamen
-		$date = $date = date( 'Ymd_Hi_');
-		$filename = $date.$filename;
 		
 		//$upload_dir_comp = "uploads";
 		$dest = JPATH_COMPONENT . DS . $upload_dir_comp . DS . $filename;

@@ -1,5 +1,6 @@
 <?php
 /**
+ * verwaltung der spalten vom backend aus
  *
  * @version		$Id$
  * @package		verplan

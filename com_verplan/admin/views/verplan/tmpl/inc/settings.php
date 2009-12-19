@@ -50,8 +50,8 @@
 			}
 			?>
 			<tr class="<?php echo $zebra ?>">
-				<td style="width:20px"><?php echo $setting['id']; ?></td>
-				<td style="width:300px"><label><?php echo $setting['de']; ?></label></td>				
+				<td style="width: 20px"><?php echo $setting['id']; ?></td>
+				<td style="width: 50%; min-width: 300px;"><label><?php echo $setting['de']; ?></label></td>				
 				<td><input size="40" type="text" name="<?php echo $setting['name'] ?>" value="<?php echo $setting['value']; ?>" /></td>
 				<td class="def_td"><?php echo $setting['default']; ?></td>
 			</tr>
