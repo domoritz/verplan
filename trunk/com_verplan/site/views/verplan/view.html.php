@@ -146,8 +146,12 @@ class verplanViewverplan extends JView
 		}
 
 		//jquery laden?
-		$load_jquery = $settingsmodel->getSetting('load_jquery');
+		$load_jquery = $settingsmodel->getSetting('load_jquery_frontend');
 		$this->assignRef( 'load_jquery', $load_jquery);
+		
+		//jqueryUI laden?
+		$load_jqueryui = $settingsmodel->getSetting('load_jqueryui_frontend');
+		$this->assignRef( 'load_jqueryui', $load_jqueryui);
 		
 		//namen für klassenfilter
 		$classname = $settingsmodel->getSetting('class_col');

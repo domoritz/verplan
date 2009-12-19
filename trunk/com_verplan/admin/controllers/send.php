@@ -1,5 +1,6 @@
 <?php
 /**
+ * hauptdatei für das einstellen des vertretungsplanes
  *
  * @version		$Id$
  * @package		verplan

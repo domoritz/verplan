@@ -104,7 +104,10 @@ VALUES
 ('9' , 'upload_dir_comp', 'uploads', 'uploads','Verzeichnis auf dem Server in der Komponente'),
 ('10' , 'upload_dir', '/components/com_verplan/uploads/', '/components/com_verplan/uploads/','Verzeichnis der Vertrtungsplandateien'),
 ('11' , 'number_show', '3', '3','Anzahl der anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt.'),
-('12' , 'load_jquery', 'true', 'true','jQuery laden'),
-('13' , 'debug', 'false', 'false','Debug Mode für JS'),
-('14' , 'class_col', '(Klasse(n))', '(Klasse(n))','Spaltenname der Klassenspalte'),
-('15' , 'class_name', '(Klasse(n))', '(Klasse(n))','Variablenname der Klassenspalte in JSON');
+('12' , 'load_jquery_frontend', 'true', 'true','jQuery laden (Frontend)'),
+('13' , 'load_jquery_backend', 'true', 'true','jQuery laden (Backend)'),
+('14' , 'load_jqueryui_frontend', 'true', 'true','jQueryUI laden (Frontend)'),
+('15' , 'load_jqueryui_backend', 'true', 'true','jQueryUI laden (Backend)'),
+('16' , 'debug', 'false', 'false','Debug Mode für JS'),
+('17' , 'class_col', '(Klasse(n))', '(Klasse(n))','Spaltenname der Klassenspalte'),
+('18' , 'class_name', '(Klasse(n))', '(Klasse(n))','Variablenname der Klassenspalte in JSON');
