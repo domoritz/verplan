@@ -62,14 +62,14 @@ class VerplanControllerSend extends verplanController
 
 			//array mit den infos für die tabelle uploads
 			$upload_arr = array();
-			$upload_arr[Geltungsdatum] = JRequest::getVar('date', null); //geltungsdatum
-			$upload_arr[Stand] = JRequest::getVar('stand', null).' '.JRequest::getVar('stand_time', null);//stand
-			$upload_arr[type] = 'none'; //typ
-			$upload_arr[url] = '';
+			$upload_arr['Geltungsdatum'] = JRequest::getVar('date', null); //geltungsdatum
+			$upload_arr['Stand'] = JRequest::getVar('stand', null).' '.JRequest::getVar('stand_time', null);//stand
+			$upload_arr['type'] = 'none'; //typ
+			$upload_arr['url'] = '';
 
 			$stand_date = JRequest::getVar('stand', null);
 
-			if (empty($upload_arr[Geltungsdatum])) {
+			if (empty($upload_arr['Geltungsdatum'])) {
 				$msg .= "Bitte Geltungsdatum angeben oder eine Datei wählen";
 				$this->setRedirect( 'index.php?option=com_verplan', $msg );
 			} elseif (empty($stand_date)) {
@@ -117,7 +117,7 @@ class VerplanControllerSend extends verplanController
 			$inhalt = $controller->inhalt;
 
 			//falls es sich um eine datei handelt, die in die DB eigelesen werden kann
-			if (strpos($inhalt, "Untis")) {
+			if (strpos($inhalt, "Untis") && ($file['type'] == 'text/html')) {
 
 				//umlaute austauschen (auf string, auskommentiert)
 				//$controller->execute('umlaute');
@@ -147,6 +147,10 @@ class VerplanControllerSend extends verplanController
 					$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 
+			} elseif ($file['type'] == 'text/xml') {
+				//xml parsen
+				//noch nicht implementiert/ programmiert
+				
 			} else {
 				//falls es sich nicht um eine parsbare datei handelt
 
@@ -155,14 +159,14 @@ class VerplanControllerSend extends verplanController
 
 				//array mit den infos für die tabelle uploads
 				$upload_arr = array();
-				$upload_arr[Geltungsdatum] = JRequest::getVar('date', null); //geltungsdatum
-				$upload_arr[Stand] = JRequest::getVar('stand', null).' '.JRequest::getVar('stand_time', null);//stand
-				$upload_arr[type] = $file[type]; //typ
-				$upload_arr[url] = $path; //url zur hochgeladenen datei
+				$upload_arr['Geltungsdatum'] = JRequest::getVar('date', null); //geltungsdatum
+				$upload_arr['Stand'] = JRequest::getVar('stand', null).' '.JRequest::getVar('stand_time', null);//stand
+				$upload_arr['type'] = $file['type']; //typ
+				$upload_arr['url'] = $path; //url zur hochgeladenen datei
 
 				$stand_date = JRequest::getVar('stand', null);
 
-				if (empty($upload_arr[Geltungsdatum])) {
+				if (empty($upload_arr['Geltungsdatum'])) {
 					$msg .= "Bitte Geltungsdatum angeben";
 					$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				} elseif (empty($stand_date)) {

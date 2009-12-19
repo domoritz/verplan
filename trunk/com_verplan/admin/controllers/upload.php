@@ -82,6 +82,12 @@ class VerplanControllerUpload extends verplanController
 		//Set up the source and destination of the file
 		$src = $file['tmp_name'];
 		$upload_dir_comp = $settingsmodel->getSetting('upload_dir_comp');
+		
+		
+		//die datei bekommt das datum in den dateinamen
+		$date = $date = date( 'Ymd_Hi_');
+		$filename = $date.$filename;
+		
 		//$upload_dir_comp = "uploads";
 		$dest = JPATH_COMPONENT . DS . $upload_dir_comp . DS . $filename;
 
