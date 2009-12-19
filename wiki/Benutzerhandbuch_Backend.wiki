@@ -61,3 +61,5 @@ Version der Webapplication. Dieser Wert sollte normalerweise nicht geändert wer
 Maximale Dateigröße eines Uploads in Byte. Dieser Wert muss nur höher gesetzt werden, wenn sich eine Datei nicht hochladen lässt. 
 
 == pattern_stand ==
+
+Regulärer Ausdruck in PHP, der aus der hochgeladenen gp-Units Datei den Stand sucht. Normalerweise sollte sich dieser Ausdruck nicht ändern. Es kann jedoch erforderlich werden, den Ausdruck zu ändern, wenn sich die Exportdatei ändert. 
