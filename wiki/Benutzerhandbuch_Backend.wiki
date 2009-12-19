@@ -58,7 +58,18 @@ Version der Webapplication. Dieser Wert sollte normalerweise nicht geändert wer
 == max_file_size ==
 Maximale Dateigröße eines Uploads in Byte. Dieser Wert muss nur höher gesetzt werden, wenn sich eine Datei nicht hochladen lässt. 
 
+== allowed_filetypes ==
+Dateien mit diesen Endungen dürfen hochgeladen werden. 
+
 == pattern_stand ==
 Regulärer Ausdruck in PHP, der aus der hochgeladenen gp-Units Datei den Stand sucht. Normalerweise sollte sich dieser Ausdruck nicht ändern. Es kann jedoch erforderlich werden, den Ausdruck zu ändern, wenn sich die Exportdatei ändert. 
+Weitere Informationen: [http://php.net/manual/en/book.regex.php]
 
-==  ==
+== format_stand ==
+Dieser Ausdruck ist wichtig, damit der String mit dem Stand korrekt in ein Datum umgewandelt wird. Weitere Informationen: [http://php.net/manual/en/function.date-parse-from-format.php]
+
+== pattern_date ==
+Mit diesem Ausdruck wird der Datumsstring aus der Datei gesucht. 
+Dieser Ausdruck ist ähnlich einem regulären Ausdruck, doch man erhält direkten Zugriff auf das DOM. Dieser Ausdruck funktioniert mit dem [http://jacksleight.com/old/code JS_extractor Plugin]. 
+
+Weitere Informationen: [http://jacksleight.com/old/blog/tags/js-extractor], [http://uk2.php.net/dom]
