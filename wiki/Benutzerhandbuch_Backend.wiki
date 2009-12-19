@@ -37,3 +37,7 @@ Zurzeit werden nur gp-untis Dateien erkannt, welche mit dem Info-Stundenplan Mod
 == Optionen ==
 
 Hier kannst du einstellen, wie der Upload geschehen soll. *Ajax* sogt dafür, dass die Seite nicht neu geladen wird, wenn Einstellungen geändert werden. Normalerweise muss Ajax nicht abgeschaltet werden. Mit der Einstellung *Debug* kann man sich genau zeigen lassen, was nach dem Klick auf "Abschicken" passiert. Es ist eine Hilfe bei der Fehlererkennung und Beseitigung.
+
+== Datenbank bereinigen ==
+
+hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweise werden für jeden Upload die hochgeladenen Dateien und alle Daten gespeichert. Um Einträge zu löschen, musst du nur auf "Datenbank bereinigen" klicken. Vertretungspläne, die für die Zukunft gelten (Geltungsdatum > Jetzt), bleiben immer erhalten und werden nicht mitgezählt. 
