@@ -6,13 +6,12 @@
  * @license		GNU/GPL
  * @author      Created on 14-Sep-2009
  */
- 
 #logo_verplan {
 	margin-right: 20px;
 	margin-left: 10px;
 	float: left;
 }
- 
+
 .uploadbutton {
 	font-weight: bold;
 	font-size: 1.2em;
@@ -27,30 +26,66 @@
 	margin-left: 10px;
 }
 
-/*Ajax indikatoren der einzelnen einstellmöglichkeiten*/
+/*timepicker*/
+div.time-picker {
+	margin-top: 1.5em; 
+	position : absolute;
+	height: 200px;
+	width: 6em; /* needed for IE */
+	overflow: auto;
+	background: #fff;
+	border: 1px solid #000;
+	z-index: 99;
+	position: absolute;
+}
 
+div.time-picker-12hours {
+	width: 6em; /* needed for IE */
+}
+
+div.time-picker ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+div.time-picker li {
+	padding: 1px;
+	cursor: pointer;
+}
+
+div.time-picker li.selected {
+	background: #316AC5;
+	color: #fff;
+}
+
+/**/ /*Ajax indikatoren der einzelnen einstellmöglichkeiten*/
 #ajax_indicator_0 {
 	display: none;
 	color: transparent;
-	background: transparent url(../images/ajax-loader.gif) no-repeat 50% center;
+	background: transparent url(../images/ajax-loader.gif) no-repeat 50%
+		center;
 }
 
 #ajax_indicator_1 {
 	display: none;
 	color: transparent;
-	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
+	background: transparent url(../images/ajax-loader.gif) no-repeat 50%
+		center;
 }
 
 #ajax_indicator_2 {
 	display: none;
 	color: transparent;
-	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
+	background: transparent url(../images/ajax-loader.gif) no-repeat 50%
+		center;
 }
 
 #ajax_indicator_3 {
 	display: none;
 	color: transparent;
-	background: transparent url(../images/ajax-loader.gif) no-repeat 50%	center;
+	background: transparent url(../images/ajax-loader.gif) no-repeat 50%
+		center;
 }
 
 /*Ajaxnachrichten*/
@@ -70,7 +105,6 @@
 	display: none;
 }
 
-
 /*default value style*/
 td.def_td {
 	color: #999;
@@ -84,12 +118,12 @@ td.def_td {
 }
 
 #columntable {
-	border-collapse: collapse;	
+	border-collapse: collapse;
 }
 
-.highlight td{
+.highlight td {
 	color: #025A8D;
-	background-color: #C3D2E5 !important;	
+	background-color: #C3D2E5 !important;
 }
 
 /*plus and minus*/
@@ -103,23 +137,26 @@ td.def_td {
 }
 
 .plus {
-	background: transparent url(../images/plus_m.png) no-repeat scroll 0px 2px;
+	background: transparent url(../images/plus_m.png) no-repeat scroll 0px
+		2px;
 }
 
-.plus:hover{
-	background: transparent url(../images/plus_m_h.png) no-repeat scroll 0px 2px;
+.plus:hover {
+	background: transparent url(../images/plus_m_h.png) no-repeat scroll 0px
+		2px;
 }
 
 .minus {
-	background: transparent url(../images/minus_m.png) no-repeat scroll 0 2px;
+	background: transparent url(../images/minus_m.png) no-repeat scroll 0
+		2px;
 }
 
 .minus:hover {
-	background: transparent url(../images/minus_m_h.png) no-repeat scroll 0 2px;
+	background: transparent url(../images/minus_m_h.png) no-repeat scroll 0
+		2px;
 }
 
 /*Links in columns*/
-
 .links_do {
 	font-size: 1.2em;
 	margin: 0.2em 0 0.2em 2em;

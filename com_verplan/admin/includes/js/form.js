@@ -38,6 +38,10 @@ jQuery(document).ready(function(){
 	
 	//post-submit callback 
 	function showResponse_0(responseText, statusText)  { 
+		//eingabefeld leeren
+		jQuery('#file').val('');
+		
+		//erfolg melden
 		jQuery('.ajaxresmess_0').show('blind','normal').focus();
 		jQuery('#ajax_indicator_0').fadeOut('slow');
 	} 

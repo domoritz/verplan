@@ -8,9 +8,9 @@
  */
 
 jQuery(function() {
-	
+
 	//datepicker
-	
+
 	jQuery('#datepicker_date').datepicker({		
 		showOn: 'button', 
 		numberOfMonths: 2,
@@ -32,14 +32,14 @@ jQuery(function() {
 		buttonImageOnly: true,
 		changeMonth: false
 	},jQuery.datepicker.regional['de']);*/
-	
-	
+
+
 	//mit unter
 	/*
 	jQuery('#datepicker_stand').datetimepicker({
 		timeFormat: ' hh-ii-ss',
-		
-		
+
+
 		showOn: 'button', 
 		numberOfMonths: 1,
 		showButtonPanel: true,
@@ -49,18 +49,18 @@ jQuery(function() {
 		buttonImageOnly: true,
 		changeMonth: false
 	},jQuery.datepicker.regional['de']);
-	*/
-	
+	 */
+
 	jQuery('#datepicker_stand').datepicker({
 		//duration: '',
-        showTime: false,
-        constrainInput: false,
-        stepMinutes: 10,
-        stepHours: 10,
-        altTimeField: '',
-        time24h: true,
-		
-		
+		showTime: false,
+		constrainInput: false,
+		stepMinutes: 10,
+		stepHours: 10,
+		altTimeField: '',
+		time24h: true,
+
+
 		showOn: 'button', 
 		numberOfMonths: 1,
 		showButtonPanel: true,
@@ -70,27 +70,27 @@ jQuery(function() {
 		buttonImageOnly: true,
 		changeMonth: false
 	},jQuery.datepicker.regional['de']);
-	
+
 	/*
 	jQuery('#datepicker_stand_time').kmTimepicker({
 		time24h: true
 	});
-	*/
-	
+	 */
+
 	/*http://code.google.com/p/jquery-utils/wiki/UiTimepickr*/
-	$('#datepicker_stand_time').timepickr({
+	/*jQuery('#datepicker_stand_time').timepickr({
 		convention: 24,
 		//val: '00:00',
 		format24: '{h:02.d}:{m:02.d}' 
-	}); 
-	
+	}); */
+
 	//http://labs.perifer.se/timedatepicker/
 	jQuery("#datepicker_stand_time").timePicker({
-		startTime: "6.00",
-		endTime: "23.00",
+		startTime: new Date(0, 0, 0, 6, 0, 0), 
+		endTime: new Date(0, 0, 0, 23, 0, 0), // Using Date object here.
 		show24Hours: true,
 		separator: ':',
-		step: 15
+		step: 30
 	});
-	
+
 });
