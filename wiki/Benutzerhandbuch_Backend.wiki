@@ -78,4 +78,21 @@ Weitere Informationen: [http://jacksleight.com/old/blog/tags/js-extractor], [htt
 Siehe [#format_stand] nur nicht für den Stand, sondern das Geltungsdatum.
 
 == pattern_date ==
-Siehe [#format_stand]. Dieses Mal wird die Tabelle mit den Vertretungen gesucht. 
+Siehe [#fpattern_date]. Dieses Mal wird die Tabelle mit den Vertretungen gesucht. 
+
+== upload_dir_comp ==
+Verzeichnis, in das die Vertretungsplandateien geladen werden, ausgehend von: `/administrator/componentes/com_verplan/`. Die URL bezieht sich auf den Server. 
+
+== upload_dir ==
+Verzeichnis, in dem die Vertretungspläne liegen, auf die auch vom Frontend aus zugegriffen werden kann, ausgehend vom Webseiten Stammverzeichnis. Die URL bezieht sich auf die Webadresse. 
+
+== number_show ==
+Anzahl der in der Auswahlliste im Frontend anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt und zählen nicht mit zu dieser Zahl. 
+
+== load_jquery_* und load_jqueryui_* ==
+Einstellung, ob die Javascriptbibliothek [http://jquery.com/ jQuery]  bzw deren Oberflächenbibliothek [http://jqueryui.com/ jQueryUI] geladen werden soll. Normalerweise sollte dies aktiviert bleiben, außer, wenn jQuery anders geladen wird. Das Programm verwendet den [http://docs.jquery.com/Using_jQuery_with_Other_Libraries jQuery noConflict mode]. 
+
+== debug ==
+Mit dieser Einstellung lässt sich der Debugmode im Frontend an und ausschalten. Der Debugmode ermöglicht es, über eine JS Konsole (wie z.B.  in [http://getfirebug.comn Firebug]) das Programm zu überwachen. Normalerweise sollte dieser ausgeschaltet sein um Ressourcen zu sparen und die Sicherheit zu erhöhen. Sollte es Probleme mit JS geben, lassen diese sich schneller finden, wenn der Debugmode aktiv ist.
+
+== class_col ==
