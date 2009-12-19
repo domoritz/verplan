@@ -73,3 +73,9 @@ Mit diesem Ausdruck wird der Datumsstring aus der Datei gesucht.
 Dieser Ausdruck ist ähnlich einem regulären Ausdruck, doch man erhält direkten Zugriff auf das DOM. Dieser Ausdruck funktioniert mit dem [http://jacksleight.com/old/code JS_extractor Plugin]. 
 
 Weitere Informationen: [http://jacksleight.com/old/blog/tags/js-extractor], [http://uk2.php.net/dom]
+
+== format_date ==
+Siehe [#format_stand] nur nicht für den Stand, sondern das Geltungsdatum.
+
+== pattern_date ==
+Siehe [#format_stand]. Dieses Mal wird die Tabelle mit den Vertretungen gesucht. 
