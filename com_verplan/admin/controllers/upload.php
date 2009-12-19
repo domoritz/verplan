@@ -256,28 +256,14 @@ class VerplanControllerUpload extends verplanController
 		$pattern = $settingsmodel->getSetting('pattern_stand');
 		//$pattern = '/Stand:.*:[0-5][0-9]/U';
 		if(preg_match_all($pattern,$this->inhalt,$matches)){
-			//falls es mehr als zwei treffer gibt, sollte es eine fehlermeldung geben
-			if($matches[1] && !$ignore){
-				//debug
-				foreach ($matches as $y => $match) {
-					var_dump($match);
-				}
-				$msg = "Fehler beim Parsen (stand, regexp, zu viele entsprechungen, line: ".__LINE__.")";
-				$this->setRedirect( 'index.php?option=com_verplan', $msg );
-			} else {
-				foreach ($matches as $y => $match) {
-					//debug
-					//var_dump($match);
-					$standstring = $match[0];
-				}
-
-			}
+			//wählt die erste entsprechung
+			$standstring = $matches[0][0];
 		} else {
 			$msg = "Fehler beim Parsen (stand, regexp, nichts gefunden, line: ".__LINE__.")";
 			$this->setRedirect( 'index.php?option=com_verplan', $msg );
 		}
 
-		//strip "Stand:"
+		//strip "Stand:", wenn nötig, hier unnötig
 		$standstring = substr($standstring,0);
 
 		//Datumsformat parsen !!ACHTUNG, benoetigt >= PHP 5.3!!
@@ -303,6 +289,8 @@ class VerplanControllerUpload extends verplanController
 		/*foreach ($extractor->query("//div[@class='mon_title']") as $link) {
 		 $datestring = $link->nodeValue."<br>";
 		 }*/
+		
+		//http://jacksleight.com/old/blog/2008/02/10/js-extractor-and-the-death-of-table-extractor
 
 		//laedt alle passenden div mit class und class="mon_title"
 		$pattern = $settingsmodel->getSetting('pattern_date');
