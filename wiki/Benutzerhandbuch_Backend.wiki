@@ -30,6 +30,6 @@ Hier werden im Prinzip alle Dateitypen unterstützt. Bitte bedenke doch, dass di
 
 === Datenbank ===
 
-Wenn du die Daten in die Datenbank eintragen möchtest, dann lade einfach eine Unterstützte Datei hoch. Die Daten für den Stand, das Geltungsdatum und die Vertretungsplandaten selber sollten automatisch erkannt werden. 
+Wenn du die Daten in die Datenbank eintragen möchtest, dann lade einfach eine Unterstützte Datei hoch. Die Daten für den Stand, das Geltungsdatum und die Vertretungsplandaten selber sollten dann automatisch erkannt werden. 
 
 Zurzeit werden nur gp-untis Dateien erkannt, welche mit dem Info-Stundenplan Modul exportiert wurden. XML Dateien werden noch nicht unterstützt. 
