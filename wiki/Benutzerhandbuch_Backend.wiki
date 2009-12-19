@@ -22,13 +22,13 @@ Die einzelnen Arten lassen sich nicht auswählen, sondern werden einzeln erkannt
 
 Trage bitte das Geltungsdatum und den Stand ein, lasse aber die Datei leer. Das Datum sollte jeweils das Format 'YYYY-MM-DD' haben. Du kannst auch einfach auf das kleine Kalendericon rechts neben den Eingabefeldern klicken. Dann öffnet sich ein Kalender. 
 
-Meldung: 'Senden erfolgreich, ohne DB, keine Vertretungen '
+Meldung: `Senden erfolgreich, ohne DB, keine Vertretungen`
 
 == eine beliebige Datei  ==
 
 Hier werden im Prinzip alle Dateitypen unterstützt. Bitte bedenke doch, dass die Benutzer nicht alle Dateitypen öffnen können. Empfehlenswert sind: _htm, html, pfd, png, jpg, bmp, gif, txt, doc und xls_
 
-Meldung: 'Senden erfolgreich, ohne DB'
+Meldung: `Senden erfolgreich, ohne DB`
 
 == Datenbank ==
 
@@ -36,7 +36,7 @@ Wenn du die Daten in die Datenbank eintragen möchtest, dann lade einfach eine U
 
 Zurzeit werden nur gp-untis Dateien erkannt, welche mit dem Info-Stundenplan Modul exportiert wurden. XML Dateien werden noch nicht unterstützt. 
 
-Meldung: 'Senden und parsen erfolgreich'
+Meldung: `Senden und parsen erfolgreich`
 
 = Optionen =
 
