@@ -16,7 +16,7 @@ In dieser Anleitung findest du alle wichtigen Informationen, die du brauchst, um
 
 == Vertretungsplan hochladen ==
 
-Es gibt zurzeit drei verschiedenen Möglichkeiten, einen Vertretungsplan hochzuladen. Die erste Möglichkeit ist keine Daten hochzuladen, weil es keine Vertretungen gibt. Als zweites kann jede beliebige Datei hochgeladen werden. Im Frontend wird dann ein Link auf diese Datei angezeigt. Diese Möglichkeit ist für den Fall der Fälle da, wenn ein normaler Upload nicht funktioniert oder ein entsprechendes Dateiformat nicht vorhanden ist. Die dritte Möglichkeit ist, die Daten einer Datei in die Datenbank eintragen zu lassen. Auf die Daten des Vertretungsplanes kann dann über eine Tabelle im Frontend zugegriffen werden. 
+Es gibt zurzeit drei verschiedenen Möglichkeiten, einen Vertretungsplan hochzuladen. Die [#keine_Vertretungen erste Möglichkeit] ist keine Daten hochzuladen, weil es keine Vertretungen gibt. Als [#eine_beliebige_Datei zweites] kann jede beliebige Datei hochgeladen werden. Im Frontend wird dann ein Link auf diese Datei angezeigt. Diese Möglichkeit ist für den Fall der Fälle da, wenn ein normaler Upload nicht funktioniert oder ein entsprechendes Dateiformat nicht vorhanden ist. Die [#Datenbank dritte Möglichkeit] ist, die Daten einer Datei in die Datenbank eintragen zu lassen. Auf die Daten des Vertretungsplanes kann dann über eine Tabelle im Frontend zugegriffen werden. 
 
 Die einzelnen Arten lassen sich nicht auswählen, sondern werden einzeln erkannt. 
 
