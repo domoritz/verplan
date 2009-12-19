@@ -132,11 +132,11 @@ $which = $this->which;
 		<?php 
 		//auswahlmöglichkeiten zum sortieren aus den spalten
 		$array = $this->verplanArray;
-		foreach ($array[cols] as $key => $subarray) {
+		foreach ($array['cols'] as $key => $subarray) {
 			echo '<option value="';
-			print empty($subarray[label])? $subarray[name]: $subarray[label];
+			print empty($subarray['label'])? $subarray['name']: $subarray['label'];
 			echo '">';
-			print empty($subarray[label])? $subarray[name]: $subarray[label];			
+			print empty($subarray['label'])? $subarray['name']: $subarray['label'];			
 			echo '</option>';
 		}
 		?>
@@ -179,7 +179,7 @@ $which = $this->which;
 	var_dump($array);
 	//*/
 	
-	$anzahl = count($array[cols]);
+	$anzahl = count($array['cols']);
 	for ($i = 0; $i < $anzahl; $i++) {
 		echo "<col/>";
 	}
@@ -188,13 +188,13 @@ $which = $this->which;
 	<thead class="ui-widget-header">
 		<tr class="ui-state-default">
 		<?php
-		foreach ($array[cols] as $colname => $subarray) {
+		foreach ($array['cols'] as $colname => $subarray) {
 			echo '<th filter-type="ddl"';
-			print !empty($subarray[description])? ' title="'.$subarray[description].'"': '';
+			print !empty($subarray['description'])? ' title="'.$subarray['description'].'"': '';
 			echo '>';
 			
 			echo '<span class="ui-icon ui-icon-carat-2-n-s" style="float:right"></span>';
-			print empty($subarray[label])? $subarray[name]: $subarray[label];
+			print empty($subarray['label'])? $subarray['name']: $subarray['label'];
 			echo "</th>";
 		}
 		?>
@@ -202,8 +202,8 @@ $which = $this->which;
 	</thead>
 	<tbody>
 	<?php
-	if (!empty($array[rows])){
-		foreach ($array[rows] as $row) {
+	if (!empty($array['rows'])){
+		foreach ($array['rows'] as $row) {
 			echo "<tr>";
 			foreach ($row as $value) {
 				echo "<td>";
@@ -226,18 +226,18 @@ $which = $this->which;
 
 <?php 
 	//falls der typ nicht db ist, wird heir ein link angezeigt oder ein text
-	$last = count($array[infos])-1;
+	$last = count($array['infos'])-1;
 ?>
-<div id="no_db" <?php print $array[infos][$last][type] != 'db' ? 'style="display: block;"' : ''?>>
+<div id="no_db" <?php print $array['infos'][$last]['type'] != 'db' ? 'style="display: block;"' : ''?>>
 	<?php 
 	//nur, wenn auch ein Datun gewählt wurde
-	if (!empty($array[infos])) {
+	if (!empty($array['infos'])) {
 		//falls no_db oder kein plan
-		if ($array[infos][$last][type] != 'db') {
-			if ($array[infos][$last][type] == 'none') {
-				echo "Hurra, es gibt keine Vertretungen!<br>Stand: ".$array[infos][0][Stand];
+		if ($array['infos'][$last]['type'] != 'db') {
+			if ($array['infos'][$last]['type'] == 'none') {
+				echo "Hurra, es gibt keine Vertretungen!<br>Stand: ".$array['infos'][0]['Stand'];
 			} else {
-				echo '<a href="'.$array[infos][$last][url].'">zum Vertretungsplan</a><br>Stand: '.$array[infos][0][Stand];
+				echo '<a href="'.$array['infos'][$last]['url'].'">zum Vertretungsplan</a><br>Stand: '.$array['infos'][0]['Stand'];
 			}
 		}
 	} else {
