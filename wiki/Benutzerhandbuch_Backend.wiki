@@ -102,7 +102,8 @@ Hier sollte der Name der Spalte stehen, in der die Klassen stehen. Es geht um de
 Hier geht es um den Namen der Datenspalte mit den Klassen, wie er auch in der Datenbank vorkommt und wie er auch in der JSON Datei vorkommt. 
 
 = Spalten =
-coming soon...
+
+Hier lassen sich alle Einstellungen der Spalten der Vertretungsplantabelle des Frontends verändern. Wenn du hier etwas geändert hast, musst du die Änderungen speichern. Entweder die Spalte einzeln mit einem Klick auf "Speichern" ganz rechts in der Zeile oder "alle speichern" unter der Tabelle. Wenn etwas geändert wurde, wird die entsprechende Zeile in der Tabelle eingefärbt. Mit einem Klick auf "reset" können die Änderungen rückgängig gemacht werden. 
 
 = About =
 Daten und Info zum und über das Programm.
