@@ -50,7 +50,7 @@ hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweis
 
 Parameter sind Einstellungen (Settings), die für das Programm gelten. Einige gelten für das backend, andere für das Frontend. Die [Optionen Option Ajax] gilt auch für das Speichern dieser Daten. 
 
-Nachdem du hier etwas geändert hast, musst du auf *"Speichern*" klicken, damit die Einstellungen übernommen werden und nicht verloren gehen.
+Nachdem du hier etwas geändert hast, musst du auf *"Speichern"* klicken, damit die Einstellungen übernommen werden und nicht verloren gehen.
 
 == version ==
 Version der Webapplication. Dieser Wert sollte normalerweise nicht geändert werden müssen und wird automatisch gesetzt, wenn das Backend aufgerufen wird.
