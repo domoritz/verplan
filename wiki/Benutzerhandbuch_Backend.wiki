@@ -110,7 +110,7 @@ Hier eine kurze Erläuterung der einzelnen Einstellungen:
   * *id* - Nummer der Spalte; kann nicht bearbeitet werden
   * *name* - Name, wie er auch in der Datenbank vorkommt; sollte nicht geändert werden
   * *ordering* - Nummer für die Sortierung. Je kleiner die zahl ist, desto weiter links erscheint die Spalte
-  * *published* - 1->Spalte wird angezeigt, 0-> Spalte ist ausgeblendet
+  * *published* - 1->Spalte wird angezeigt; 0-> Spalte wird ausgeblendet
   * *label* - Spaltentitel, wie er in der Tabelle erscheint
   * *description* - Kurze Beschreibung, die beim überfahren mit dem Cursor erscheint (im Frontend)
   * *Speichern* - Speichern und zurücksetzen der Änderungen
