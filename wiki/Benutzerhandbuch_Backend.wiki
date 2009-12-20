@@ -103,7 +103,18 @@ Hier geht es um den Namen der Datenspalte mit den Klassen, wie er auch in der Da
 
 = Spalten =
 
-Hier lassen sich alle Einstellungen der Spalten der Vertretungsplantabelle des Frontends verändern. Wenn du hier etwas geändert hast, musst du die Änderungen speichern. Entweder die Spalte einzeln mit einem Klick auf "Speichern" ganz rechts in der Zeile oder "alle speichern" unter der Tabelle. Wenn etwas geändert wurde, wird die entsprechende Zeile in der Tabelle eingefärbt. Mit einem Klick auf "reset" können die Änderungen rückgängig gemacht werden. 
+Hier lassen sich alle Einstellungen der Spalten der Vertretungsplantabelle des Frontends verändern. Die Spalten kommen auch so in der Datenbank vor.  Wenn du hier etwas geändert hast, musst du die Änderungen speichern. Entweder die Spalte einzeln mit einem Klick auf "Speichern" ganz rechts in der Zeile oder "alle speichern" unter der Tabelle. Wenn etwas geändert wurde, wird die entsprechende Zeile in der Tabelle eingefärbt. Mit einem Klick auf "reset" können die Änderungen rückgängig gemacht werden. 
+
+Hier eine kurze Erläuterung der einzelnen Einstellungen:
+
+  * *id* - Nummer der Spalte; kann nicht bearbeitet werden
+  * *name* - Name, wie er auch in der Datenbank vorkommt; sollte nicht geändert werden
+  * *ordering* - Nummer für die Sortierung. Je kleiner die zahl ist, desto weiter links erscheint die Spalte
+  * *published* - 1->Spalte wird angezeigt, 0-> Spalte ist ausgeblendet
+  * *label* - Spaltentitel, wie er in der Tabelle erscheint
+  * *description* - Kurze Beschreibung, die beim überfahren mit dem Cursor erscheint (im Frontend)
+  * *Speichern* - Speichern und zurücksetzen der Änderungen
+
 
 = About =
 Daten und Info zum und über das Programm.
