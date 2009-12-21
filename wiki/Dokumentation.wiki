@@ -1,4 +1,3 @@
-#Einleitung über die Dokumentation
 
 = Einleitung =
 
