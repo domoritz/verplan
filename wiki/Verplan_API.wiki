@@ -2,6 +2,25 @@
 
 = Einleitung =
 
-Hier erfährst du, wie die Vertretungsplandaten übertragen werden. Die Daten können entweder innerhalb des Programms oder sogar außerhalb verwendet werden.
+Hier erfährst du, wie die Vertretungsplandaten übertragen werden. Die Daten können entweder innerhalb des Programms oder sogar außerhalb verwendet werden. Es ist nur möglich auf die Daten zuzugreifen, wenn man die entsprechenden Berechtigungen hat. 
+
+Über die API sind die Vertretungsplandaten (Datum, Stand, Lehrer usw.) erreichbar und können dann verwendet werden. das vertretungsplanprogramm verwendet intern diese Schnittstelle um die Daten per AJAX laden zu können. 
 
 <wiki:toc max_depth="3" />
+
+= API =
+
+Die Daten des Vertretungsplanes sind über folgende URL errichbar
+{{{
+<JOOMLA URL>/index.php?option=com_verplan&view=verplan&format=js&date=<DATUM>&stand=<STAND>&options=<MODEL>,<VIEW>
+}}}
+
+Hier eine Erklärung der einzelnen Elemente:
+
+* <JOOMLA URL> * 
+
+URL des Joomlaverzeichnisses der Website. 
+
+* <DATUM> * 
+
+Datum, für das die Vertretungen gesucht werden (Geltungsdatum). Bitte das Format beachten. z.B. _2009-09-24_. Wird nicht das gesamte Datum eingegeben, werden alle daten angezeigt, deren Datum mit der Zeichenkette beginnt. _2009-09_ Gilt also für den gesamten September 2009. 
