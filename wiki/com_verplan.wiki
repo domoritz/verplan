@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary Generelles zum Programm und Einleitung zum Bearbeiten
 
 = Einleitung =
 Dieses Programm ist eine Joomla Komponente. Komponenten sind komplexe Erweiterungen für das CMS Joomla. Auf dieser Seite siehst du eine Übersicht über wichtige Punkte, die du beachten solltest, wenn du etwas an dem Programm ändern möchtest oder generell etwas über das Programm wissen möchtest. 
