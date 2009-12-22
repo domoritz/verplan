@@ -1,8 +1,8 @@
 #summary Installation der com_verplan
 
-= Einleitung=
+= Einleitung =
 
-Add your content here.
+<wiki:toc max_depth="3" />
 
 
 = Installation =
