@@ -4,4 +4,9 @@
 
 Hier siehst du eine Übersicht über die Dokumentation der Joomla Vertretungsplankomponente. 
 
-  * [Verplan_API API]
+  * [Installation]
+  * [com_verplan Allgemeines zur Komponente]
+  * [Verplan_API Verplan API]
+  * [Datenbank]
+
+Solltest du das Programm bearbeiten wollen, weil ein Problem aufgetaucht ist oder du ein neues Feature schreiben möchtest, beginne am besten hier: [com_verplan].
