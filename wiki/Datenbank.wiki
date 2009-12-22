@@ -2,14 +2,18 @@
 
 = Einleitung =
 
-Add your content here.
+Die [http://www.mysql.de/ MySQL Datenbank] besteht aus vier Tabellen. 
 
 
 <wiki:toc max_depth="3" />
 
-= Details =
+= #__jos_com_verplan_settings =
+Diese Tabelle enthält die Einstellungen für das Vertretungsplanprogramm. Die Tabelle wird vom Backend aus bearbeitet (Über die [Benutzerhandbuch_Backend Parameter/ Einstellungen]) und vom Front- sowie Backend genutzt. Die Spalte `de` enthält die deutsche Beschreibung der Einstellung, wie sie im Backend zu sehen ist. 
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= #__jos_com_verplan_uploads =
+Hier stehen alle Uploads, also die einzelnen Vorgänge, bei denen ein Vertretungsplan abgeschickt wurde. `type` bezeichnet den Dateityp, der hochgeladenen Datei, falls es sich um keine parsbare Datei gehandelt hat, bzw `db` für Datenbank oder `none` für keine Vertretungen. `url` bezeichnet den Pfad zu hochgeladenen Datei. 
+
+= #__jos_com_verplan_columns =
+Diese Tabelle enthält die Daten aller Spalten. Ob sie angezeigt werden oder wie sie beschriftet sind usw. Die Daten können über das Backend verändert werden. 
+
+= #__jos_com_verplan_plan =
