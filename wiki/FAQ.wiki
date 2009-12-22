@@ -1,4 +1,4 @@
-#summary FAQ - *F*requently *A*sked *Q*uestions (Häufig gestellte Fragen)
+#summary FAQ - Frequently Asked Questions (Häufig gestellte Fragen)
 
 = Einleitung =
 
