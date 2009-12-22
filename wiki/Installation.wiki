@@ -6,5 +6,13 @@
 
 
 = Installation =
+Zur Installation einer Joomla Komponente, schau bitte hier nach: [http://docs.joomla.org/Installing_an_extension]. Das Installationspaket gibt es hier auf dieser Seite unter [http://code.google.com/p/verplan/downloads/list Downloads].
+
+Bei der Installation
 
 = Update =
+Damit beim Installieren einer neuen Version nicht alle Daten, wie die [Benutzerhandbuch_Backend#Parameter/_Einstellungen Einstellungen] verloren gehen, gibt es die Möglichkeit einfach die neue Version über die alte zu installieren. Probleme tauchen auf, wenn sich das Datenbankformat ändert. Dann solltest du versuchen, die Daten aus der MySQL Datenbank zu sichern und anschließend die Komponente deinstallieren und dann neu installieren. Danach kannst die die Sicherung wieder manuell einspielen. 
+
+= Deinstallation =
+
+Siehe hier: [http://docs.joomla.org/Uninstalling_an_extension]
