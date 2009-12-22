@@ -44,9 +44,11 @@ Code: plan.php (Controller Frontend)
 Optionen für das View, also wie die Daten ausgegeben werden. Es sind folgende Optionen möglich:
 
   * nichts angeben - Ausgabe als JSON, formatiert
-  * *arr* - Ausgabe des Arrays mit var_dump, zu Debug-Zwecken
+  * *arr* - Ausgabe des Arrays mit [http://php.net/manual/en/function.var-dump.php var_dump], zu Debug-Zwecken
   * *html* - JSON mit HTML formatiert, zu Debug-Zwecken
   * *min* - Ausgabe als JSON ohne Zeilenumbrüche und Einrückungen. 
+
+[http://www.json.org/ Was ist JSON?]
 
 Solltest du nur diese Option verwenden, schreibe trotzdem das Komma!
 
@@ -56,7 +58,7 @@ Code: default_json.php
 
 Die zurückgegebene Datei besteht aus drei Elementen, `infos`, `cols` und `rows`. 
 
-Ein Beispiel mit der Option (in`<VIEW>`): `arr`. 
+Ein Beispiel mit der Option (in `<VIEW>`): `arr`. 
 
 {{{
 array
@@ -185,6 +187,6 @@ array
 }}}
 
 Hier eine kurze Erklärung der Unterarrays
-  * *info* - Allgemeine Infos zu den Daten unterteilt in die verschiedenen Uploads
+  * *infos* - Allgemeine Infos zu den Daten unterteilt in die verschiedenen Uploads
   * *cols* - Informationen der Spalten
   * *rows* - Informationen der Zeilen (der einzelnen Vertretungen)
