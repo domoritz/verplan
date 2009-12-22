@@ -47,7 +47,7 @@ Hier kannst du einstellen, wie der Upload geschehen soll. *Ajax* sogt dafür, da
 
 hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweise werden für jeden Upload die hochgeladenen Dateien und alle Daten gespeichert. Um Einträge zu löschen, musst du nur auf *"Datenbank bereinigen"* klicken. Vertretungspläne, die für die Zukunft gelten (Geltungsdatum > Jetzt), bleiben immer erhalten und werden nicht mitgezählt. 
 
-= Parameter =
+= Parameter/ Einstellungen =
 
 Parameter sind Einstellungen (Settings), die für das Programm gelten. Einige gelten für das backend, andere für das Frontend. Die [Optionen Option Ajax] gilt auch für das Speichern dieser Daten. 
 
