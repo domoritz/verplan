@@ -4,4 +4,6 @@
   * [FAQ Häufig gestellte Fragen (FAQ)]
 
   * [Dokumentation]
+    * [Installation]
+    * [Joomla_Components Joomla Komponenten]
     * [Verplan_API Verplan API]
