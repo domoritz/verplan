@@ -1,3 +1,5 @@
+#summary FAQ - *F*requently *A*sked *Q*uestions (Häufig gestellte Fragen)
+
 = Einleitung =
 
 Hier siehst du häufig gestellte Fragen, vielleicht wurde deine Frage schon einmal gestellt. 
