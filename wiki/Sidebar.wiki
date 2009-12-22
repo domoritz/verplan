@@ -2,7 +2,6 @@
     * [Benutzerhandbuch_Frontend Frontend]
     * [Benutzerhandbuch_Backend Backend]
   * [FAQ Häufig gestellte Fragen (FAQ)]
-
   * [Dokumentation]
     * [Installation]
     * [Joomla_Components Joomla Komponenten]
