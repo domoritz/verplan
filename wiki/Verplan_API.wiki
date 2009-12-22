@@ -16,20 +16,20 @@ Hier erfährst du, wie die Vertretungsplandaten übertragen werden. Die Daten k�
 
 Die Daten des Vertretungsplanes sind über folgende URL errichbar
 {{{
-<JOOMLA URL>/index.php?option=com_verplan&view=verplan&format=js&date=<DATUM>&stand=<STAND>&options=<MODEL>,<VIEW>
+<JOOMLA_URL>/index.php?option=com_verplan&view=verplan&format=js&date=<DATUM>&stand=<STAND>&options=<MODEL>,<VIEW>
 }}}
 
 == Erklärung ==
 Hier eine Erklärung der einzelnen Elemente:
 
-*<JOOMLA URL>* 
+*<JOOMLA_URL>* 
 URL des Joomlaverzeichnisses der Website. 
 
 *<DATUM>* 
 Datum, für das die Vertretungen gesucht werden (Geltungsdatum). Bitte das Format beachten. z.B. _2009-09-24_. Wird nicht das gesamte Datum eingegeben, werden alle Daten angezeigt, deren Datum mit der Zeichenkette beginnt. _2009-09_ Gilt also für den gesamten September 2009. 
 
 *<STAND>*
-Ähnlich wie <DATUM>, betrifft jedoch das Erstellungdatum. 
+Ähnlich wie `<DATUM>`, betrifft jedoch das Erstellungdatum. 
 
 *<MODEL>*
 Optionen für das Model, also welche Daten angezeigt werden. Es sind folgende Optionen möglich:
@@ -48,6 +48,718 @@ Optionen für das View, also wie die Daten ausgegeben werden. Es sind folgende O
   * *html* - JSON mit HTML formatiert, zu Debug-Zwecken
   * *min* - Ausgabe als JSON ohne Zeilenumbrüche und Einrückungen. 
 
+Solltest du nur diese Option verwenden, schreibe trotzdem das Komma!
+
 Code: default_json.php
 
 = Die Daten =
+
+Die zurückgegebene Datei besteht aus drei Elementen, `infos`, `cols` und `rows`. 
+
+Ein Beispiel mit der Option (`<VIEW>`) `arr`
+
+{{{
+array
+  'infos' => 
+    array
+      0 => 
+        array
+          'id' => string '27' (length=2)
+          'timestamp' => string '2009-12-19 16:57:47' (length=19)
+          'Geltungsdatum' => string '2009-11-27 00:00:00' (length=19)
+          'Stand' => string '2009-11-26 10:31:00' (length=19)
+          'type' => string 'db' (length=2)
+          'url' => string '/workspace/Joomla 1.6 Core/administrator/components/com_verplan/uploads/20091219_1658_vertretungsplan.htm' (length=105)
+      1 => 
+        array
+          'id' => string '41' (length=2)
+          'timestamp' => string '2009-12-19 19:32:29' (length=19)
+          'Geltungsdatum' => string '2009-11-27 00:00:00' (length=19)
+          'Stand' => string '2009-11-26 10:31:00' (length=19)
+          'type' => string 'db' (length=2)
+          'url' => string '/workspace/Joomla 1.6 Core/administrator/components/com_verplan/uploads/20091219_1932_vertretungsplan.htm' (length=105)
+      2 => 
+        array
+          'id' => string '42' (length=2)
+          'timestamp' => string '2009-12-19 19:32:35' (length=19)
+          'Geltungsdatum' => string '2009-11-27 00:00:00' (length=19)
+          'Stand' => string '2009-11-26 10:31:00' (length=19)
+          'type' => string 'db' (length=2)
+          'url' => string '/workspace/Joomla 1.6 Core/administrator/components/com_verplan/uploads/20091219_1932_vertretungsplan.htm' (length=105)
+  'cols' => 
+    array
+      '(Klasse(n))' => 
+        array
+          'id' => string '6' (length=1)
+          'name' => string '(Klasse(n))' (length=11)
+          'ordering' => string '0' (length=1)
+          'published' => string '1' (length=1)
+          'label' => string '' (length=0)
+          'description' => string '' (length=0)
+      'Stunde' => 
+        array
+          'id' => string '7' (length=1)
+          'name' => string 'Stunde' (length=6)
+          'ordering' => string '0' (length=1)
+          'published' => string '1' (length=1)
+          'label' => string '' (length=0)
+          'description' => string '' (length=0)
+      '(Fach)' => 
+        array
+          'id' => string '8' (length=1)
+          'name' => string '(Fach)' (length=6)
+          'ordering' => string '0' (length=1)
+          'published' => string '1' (length=1)
+          'label' => string '' (length=0)
+          'description' => string '' (length=0)
+      'Fach' => 
+        array
+          'id' => string '9' (length=1)
+          'name' => string 'Fach' (length=4)
+          'ordering' => string '0' (length=1)
+          'published' => string '1' (length=1)
+          'label' => string '' (length=0)
+          'description' => string '' (length=0)
+      'id' => 
+        array
+          'id' => string '1' (length=1)
+          'name' => string 'id' (length=2)
+          'ordering' => string '1' (length=1)
+          'published' => string '1' (length=1)
+          'label' => string 'ID' (length=2)
+          'description' => string 'Fortlaufende Nummer' (length=19)
+  'rows' => 
+    array
+      0 => 
+        array
+          '(Klasse(n))' => string '7e' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '475' (length=3)
+      1 => 
+        array
+          '(Klasse(n))' => string '10d' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string '---' (length=3)
+          'id' => string '474' (length=3)
+      2 => 
+        array
+          '(Klasse(n))' => string '10d' (length=3)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string 'Sp' (length=2)
+          'id' => string '473' (length=3)
+      3 => 
+        array
+          '(Klasse(n))' => string '13a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'GKMu' (length=4)
+          'Fach' => string '---' (length=3)
+          'id' => string '472' (length=3)
+      4 => 
+        array
+          '(Klasse(n))' => string '13a' (length=3)
+          'Stunde' => string '8' (length=1)
+          '(Fach)' => string 'GKMu' (length=4)
+          'Fach' => string '---' (length=3)
+          'id' => string '471' (length=3)
+      5 => 
+        array
+          '(Klasse(n))' => string '13a' (length=3)
+          'Stunde' => string '3 - 4' (length=5)
+          '(Fach)' => string 'LK1De' (length=5)
+          'Fach' => string 'De' (length=2)
+          'id' => string '470' (length=3)
+      6 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'GK2De' (length=5)
+          'Fach' => string 'De' (length=2)
+          'id' => string '469' (length=3)
+      7 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'GK1Ge' (length=5)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '468' (length=3)
+      8 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'GK1De' (length=5)
+          'Fach' => string 'De' (length=2)
+          'id' => string '467' (length=3)
+      9 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'GK2Ge' (length=5)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '466' (length=3)
+      10 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'GK1Sp' (length=5)
+          'Fach' => string 'GK1Sp' (length=5)
+          'id' => string '465' (length=3)
+      11 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'GK3Sp' (length=5)
+          'Fach' => string 'GK3Sp' (length=5)
+          'id' => string '464' (length=3)
+      12 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'GK2Sp' (length=5)
+          'Fach' => string 'GK2Sp' (length=5)
+          'id' => string '463' (length=3)
+      13 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '1' (length=1)
+          '(Fach)' => string 'GK1En' (length=5)
+          'Fach' => string '---' (length=3)
+          'id' => string '462' (length=3)
+      14 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'GK1Bio' (length=6)
+          'Fach' => string '---' (length=3)
+          'id' => string '461' (length=3)
+      15 => 
+        array
+          '(Klasse(n))' => string '10b' (length=3)
+          'Stunde' => string '3' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'Bio' (length=3)
+          'id' => string '460' (length=3)
+      16 => 
+        array
+          '(Klasse(n))' => string '10b' (length=3)
+          'Stunde' => string '8' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string '---' (length=3)
+          'id' => string '459' (length=3)
+      17 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '4' (length=1)
+          '(Fach)' => string 'En' (length=2)
+          'Fach' => string 'En' (length=2)
+          'id' => string '458' (length=3)
+      18 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string '---' (length=3)
+          'id' => string '456' (length=3)
+      19 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '3' (length=1)
+          '(Fach)' => string 'En' (length=2)
+          'Fach' => string 'Geo' (length=3)
+          'id' => string '457' (length=3)
+      20 => 
+        array
+          '(Klasse(n))' => string '9b' (length=2)
+          'Stunde' => string '4' (length=1)
+          '(Fach)' => string 'Ch' (length=2)
+          'Fach' => string 'Ku' (length=2)
+          'id' => string '454' (length=3)
+      21 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string 'Ch' (length=2)
+          'id' => string '455' (length=3)
+      22 => 
+        array
+          '(Klasse(n))' => string '9b' (length=2)
+          'Stunde' => string '3' (length=1)
+          '(Fach)' => string 'Ch' (length=2)
+          'Fach' => string 'De' (length=2)
+          'id' => string '453' (length=3)
+      23 => 
+        array
+          '(Klasse(n))' => string '9a' (length=2)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Ge' (length=2)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '452' (length=3)
+      24 => 
+        array
+          '(Klasse(n))' => string '9a' (length=2)
+          'Stunde' => string '1' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string '---' (length=3)
+          'id' => string '450' (length=3)
+      25 => 
+        array
+          '(Klasse(n))' => string '9a' (length=2)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'En' (length=2)
+          'id' => string '451' (length=3)
+      26 => 
+        array
+          '(Klasse(n))' => string '8c' (length=2)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Ge' (length=2)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '449' (length=3)
+      27 => 
+        array
+          '(Klasse(n))' => string '8c' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string 'Bio' (length=3)
+          'id' => string '448' (length=3)
+      28 => 
+        array
+          '(Klasse(n))' => string '7c' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'Ch' (length=2)
+          'Fach' => string 'Ch' (length=2)
+          'id' => string '447' (length=3)
+      29 => 
+        array
+          '(Klasse(n))' => string '7b' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'De' (length=2)
+          'id' => string '446' (length=3)
+      30 => 
+        array
+          '(Klasse(n))' => string '7b' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'De' (length=2)
+          'id' => string '566' (length=3)
+      31 => 
+        array
+          '(Klasse(n))' => string '7c' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'Ch' (length=2)
+          'Fach' => string 'Ch' (length=2)
+          'id' => string '567' (length=3)
+      32 => 
+        array
+          '(Klasse(n))' => string '8c' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string 'Bio' (length=3)
+          'id' => string '568' (length=3)
+      33 => 
+        array
+          '(Klasse(n))' => string '8c' (length=2)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Ge' (length=2)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '569' (length=3)
+      34 => 
+        array
+          '(Klasse(n))' => string '9a' (length=2)
+          'Stunde' => string '1' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string '---' (length=3)
+          'id' => string '570' (length=3)
+      35 => 
+        array
+          '(Klasse(n))' => string '9a' (length=2)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'En' (length=2)
+          'id' => string '571' (length=3)
+      36 => 
+        array
+          '(Klasse(n))' => string '9a' (length=2)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Ge' (length=2)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '572' (length=3)
+      37 => 
+        array
+          '(Klasse(n))' => string '9b' (length=2)
+          'Stunde' => string '3' (length=1)
+          '(Fach)' => string 'Ch' (length=2)
+          'Fach' => string 'De' (length=2)
+          'id' => string '573' (length=3)
+      38 => 
+        array
+          '(Klasse(n))' => string '9b' (length=2)
+          'Stunde' => string '4' (length=1)
+          '(Fach)' => string 'Ch' (length=2)
+          'Fach' => string 'Ku' (length=2)
+          'id' => string '574' (length=3)
+      39 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string 'Ch' (length=2)
+          'id' => string '575' (length=3)
+      40 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string '---' (length=3)
+          'id' => string '576' (length=3)
+      41 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '3' (length=1)
+          '(Fach)' => string 'En' (length=2)
+          'Fach' => string 'Geo' (length=3)
+          'id' => string '577' (length=3)
+      42 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '4' (length=1)
+          '(Fach)' => string 'En' (length=2)
+          'Fach' => string 'En' (length=2)
+          'id' => string '578' (length=3)
+      43 => 
+        array
+          '(Klasse(n))' => string '10b' (length=3)
+          'Stunde' => string '8' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string '---' (length=3)
+          'id' => string '579' (length=3)
+      44 => 
+        array
+          '(Klasse(n))' => string '10b' (length=3)
+          'Stunde' => string '3' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'Bio' (length=3)
+          'id' => string '580' (length=3)
+      45 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'GK1Bio' (length=6)
+          'Fach' => string '---' (length=3)
+          'id' => string '581' (length=3)
+      46 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '1' (length=1)
+          '(Fach)' => string 'GK1En' (length=5)
+          'Fach' => string '---' (length=3)
+          'id' => string '582' (length=3)
+      47 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'GK2Sp' (length=5)
+          'Fach' => string 'GK2Sp' (length=5)
+          'id' => string '583' (length=3)
+      48 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'GK3Sp' (length=5)
+          'Fach' => string 'GK3Sp' (length=5)
+          'id' => string '584' (length=3)
+      49 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'GK1Sp' (length=5)
+          'Fach' => string 'GK1Sp' (length=5)
+          'id' => string '585' (length=3)
+      50 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'GK2Ge' (length=5)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '586' (length=3)
+      51 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'GK1De' (length=5)
+          'Fach' => string 'De' (length=2)
+          'id' => string '587' (length=3)
+      52 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'GK1Ge' (length=5)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '588' (length=3)
+      53 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'GK2De' (length=5)
+          'Fach' => string 'De' (length=2)
+          'id' => string '589' (length=3)
+      54 => 
+        array
+          '(Klasse(n))' => string '13a' (length=3)
+          'Stunde' => string '3 - 4' (length=5)
+          '(Fach)' => string 'LK1De' (length=5)
+          'Fach' => string 'De' (length=2)
+          'id' => string '590' (length=3)
+      55 => 
+        array
+          '(Klasse(n))' => string '13a' (length=3)
+          'Stunde' => string '8' (length=1)
+          '(Fach)' => string 'GKMu' (length=4)
+          'Fach' => string '---' (length=3)
+          'id' => string '591' (length=3)
+      56 => 
+        array
+          '(Klasse(n))' => string '13a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'GKMu' (length=4)
+          'Fach' => string '---' (length=3)
+          'id' => string '592' (length=3)
+      57 => 
+        array
+          '(Klasse(n))' => string '10d' (length=3)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string 'Sp' (length=2)
+          'id' => string '593' (length=3)
+      58 => 
+        array
+          '(Klasse(n))' => string '10d' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string '---' (length=3)
+          'id' => string '594' (length=3)
+      59 => 
+        array
+          '(Klasse(n))' => string '7e' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '595' (length=3)
+      60 => 
+        array
+          '(Klasse(n))' => string '7b' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'De' (length=2)
+          'id' => string '596' (length=3)
+      61 => 
+        array
+          '(Klasse(n))' => string '7c' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'Ch' (length=2)
+          'Fach' => string 'Ch' (length=2)
+          'id' => string '597' (length=3)
+      62 => 
+        array
+          '(Klasse(n))' => string '8c' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string 'Bio' (length=3)
+          'id' => string '598' (length=3)
+      63 => 
+        array
+          '(Klasse(n))' => string '8c' (length=2)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Ge' (length=2)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '599' (length=3)
+      64 => 
+        array
+          '(Klasse(n))' => string '9a' (length=2)
+          'Stunde' => string '1' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string '---' (length=3)
+          'id' => string '600' (length=3)
+      65 => 
+        array
+          '(Klasse(n))' => string '9a' (length=2)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'En' (length=2)
+          'id' => string '601' (length=3)
+      66 => 
+        array
+          '(Klasse(n))' => string '9a' (length=2)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Ge' (length=2)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '602' (length=3)
+      67 => 
+        array
+          '(Klasse(n))' => string '9b' (length=2)
+          'Stunde' => string '3' (length=1)
+          '(Fach)' => string 'Ch' (length=2)
+          'Fach' => string 'De' (length=2)
+          'id' => string '603' (length=3)
+      68 => 
+        array
+          '(Klasse(n))' => string '9b' (length=2)
+          'Stunde' => string '4' (length=1)
+          '(Fach)' => string 'Ch' (length=2)
+          'Fach' => string 'Ku' (length=2)
+          'id' => string '604' (length=3)
+      69 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string 'Ch' (length=2)
+          'id' => string '605' (length=3)
+      70 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string '---' (length=3)
+          'id' => string '606' (length=3)
+      71 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '3' (length=1)
+          '(Fach)' => string 'En' (length=2)
+          'Fach' => string 'Geo' (length=3)
+          'id' => string '607' (length=3)
+      72 => 
+        array
+          '(Klasse(n))' => string '10a' (length=3)
+          'Stunde' => string '4' (length=1)
+          '(Fach)' => string 'En' (length=2)
+          'Fach' => string 'En' (length=2)
+          'id' => string '608' (length=3)
+      73 => 
+        array
+          '(Klasse(n))' => string '10b' (length=3)
+          'Stunde' => string '8' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string '---' (length=3)
+          'id' => string '609' (length=3)
+      74 => 
+        array
+          '(Klasse(n))' => string '10b' (length=3)
+          'Stunde' => string '3' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'Bio' (length=3)
+          'id' => string '610' (length=3)
+      75 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'GK1Bio' (length=6)
+          'Fach' => string '---' (length=3)
+          'id' => string '611' (length=3)
+      76 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '1' (length=1)
+          '(Fach)' => string 'GK1En' (length=5)
+          'Fach' => string '---' (length=3)
+          'id' => string '612' (length=3)
+      77 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'GK2Sp' (length=5)
+          'Fach' => string 'GK2Sp' (length=5)
+          'id' => string '613' (length=3)
+      78 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'GK3Sp' (length=5)
+          'Fach' => string 'GK3Sp' (length=5)
+          'id' => string '614' (length=3)
+      79 => 
+        array
+          '(Klasse(n))' => string '11a' (length=3)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'GK1Sp' (length=5)
+          'Fach' => string 'GK1Sp' (length=5)
+          'id' => string '615' (length=3)
+      80 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'GK2Ge' (length=5)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '616' (length=3)
+      81 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'GK1De' (length=5)
+          'Fach' => string 'De' (length=2)
+          'id' => string '617' (length=3)
+      82 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'GK1Ge' (length=5)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '618' (length=3)
+      83 => 
+        array
+          '(Klasse(n))' => string '12a' (length=3)
+          'Stunde' => string '2' (length=1)
+          '(Fach)' => string 'GK2De' (length=5)
+          'Fach' => string 'De' (length=2)
+          'id' => string '619' (length=3)
+      84 => 
+        array
+          '(Klasse(n))' => string '13a' (length=3)
+          'Stunde' => string '3 - 4' (length=5)
+          '(Fach)' => string 'LK1De' (length=5)
+          'Fach' => string 'De' (length=2)
+          'id' => string '620' (length=3)
+      85 => 
+        array
+          '(Klasse(n))' => string '13a' (length=3)
+          'Stunde' => string '8' (length=1)
+          '(Fach)' => string 'GKMu' (length=4)
+          'Fach' => string '---' (length=3)
+          'id' => string '621' (length=3)
+      86 => 
+        array
+          '(Klasse(n))' => string '13a' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'GKMu' (length=4)
+          'Fach' => string '---' (length=3)
+          'id' => string '622' (length=3)
+      87 => 
+        array
+          '(Klasse(n))' => string '10d' (length=3)
+          'Stunde' => string '6' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string 'Sp' (length=2)
+          'id' => string '623' (length=3)
+      88 => 
+        array
+          '(Klasse(n))' => string '10d' (length=3)
+          'Stunde' => string '7' (length=1)
+          '(Fach)' => string 'Bio' (length=3)
+          'Fach' => string '---' (length=3)
+          'id' => string '624' (length=3)
+      89 => 
+        array
+          '(Klasse(n))' => string '7e' (length=2)
+          'Stunde' => string '5' (length=1)
+          '(Fach)' => string 'De' (length=2)
+          'Fach' => string 'Ge' (length=2)
+          'id' => string '625' (length=3)
+
+
+}}}
