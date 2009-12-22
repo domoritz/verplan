@@ -17,5 +17,5 @@ Hier stehen alle Uploads, also die einzelnen Vorgänge, bei denen ein Vertretung
 Diese Tabelle enthält die Daten aller Spalten. Ob sie angezeigt werden oder wie sie beschriftet sind usw. Die Daten können über das Backend verändert werden. 
 
 = #__jos_com_verplan_plan =
-Diese Tabelle enthält die einzelnen Vertretungen. Die Zeile id_upload ist mit der Spalte id der Tabelle uploads verbunden. 
+Diese Tabelle enthält die einzelnen Vertretungen. Die Zeile `id_upload` ist mit der Spalte `id` der Tabelle `uploads` verbunden. 
 Die einzelnen Zeilen und Spalten dieser Tabelle können sich verändern, da sie je nach den hochgeladenen Daten angepasst wird. 
