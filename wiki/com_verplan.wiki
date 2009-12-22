@@ -44,4 +44,4 @@ Alles ist hier genau erklärt: [http://docs.joomla.org/Developers#Components]
 Die Seite [http://docs.joomla.org/] kann ich generell sehr empfehlen, da dort die Joomla API erklärt ist und es viele hilfreiche Beispiele und Lösungsansätze gibt. 
 
 == Ich habe ein Problem und weiß nicht, was ich verändern muss, um mein Ziel zu erreichen. ==
-Schau dich erst einmal hier in der Dokumentation nach einer Lösung um, wenn es ein "komponentenspezifisches" Problem ist. Wenn nicht, ist Google (oder auch Bing, Yahoo oder jede andere Suchmaschine) dein Freund oder schau mal auf diesen [Das Programm bearbeiten Seiten] nach. Bei speziellen fragen hilft [http://stackoverflow.com/]
+Schau dich erst einmal hier in der Dokumentation nach einer Lösung um, wenn es ein "komponentenspezifisches" Problem ist. Wenn nicht, ist Google (oder auch Bing, Yahoo oder jede andere Suchmaschine) dein Freund oder schau mal auf diesen [Das Programm bearbeiten Seiten] nach. Bei speziellen Fragen hilft [http://stackoverflow.com/]
