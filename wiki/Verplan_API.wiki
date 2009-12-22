@@ -1,0 +1,7 @@
+#summary One-sentence summary of this page.
+
+= Einleitung =
+
+Hier erfährst du, wie die Vertretungsplandaten übertragen werden. Die Daten können entweder innerhalb des Programms oder sogar außerhalb verwendet werden.
+
+{toc}
