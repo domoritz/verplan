@@ -6,3 +6,4 @@
     * [Installation]
     * [Joomla_Components Joomla Komponenten]
     * [Verplan_API Verplan API]
+    * [Datenbank]
