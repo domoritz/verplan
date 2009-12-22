@@ -1,0 +1,19 @@
+#summary One-sentence summary of this page.
+
+= Einleitung =
+Dieses Programm ist eine Joomla Komponente. Komponenten sind komplexe Erweiterungen für das CMS Joomla. 
+
+<wiki:toc max_depth="3" />
+
+= Das Paket =
+Das Programmpaket besteht aus zwei Teilen. Ein Teil für das Frontend und ein Teil für das Backend. Diese teile sind jeweils in Model, View und Controller unterteilt. Hinzu kommen noch ein paar Einstellungs- und Installationsdateien. 
+
+Generelle Informationen, wie Joomla Komponenten funktionieren und wie die aufgebaut sind: [http://docs.joomla.org/Developers#Components]
+
+= Wie komme ich an die Daten und wie verändere ich etwas? =
+An die Daten kommst du mittels Subversion. Damit du das Programm bearbeiten kannst, empfiehlt sich, eine IDE zu benutzen. Ich habe dazu [http://www.eclipse.org/ Eclipse] benutzt. An die Daten kommst du dann über diese Seite: [http://code.google.com/p/verplan/source/checkout]. Wie du die Daten aus dem Repository nach Eclipse bekommst, wie man eine IDE benutzt und was du sonst noch alles wissen musst, steht hier: [http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development] und den folgenden Seiten. 
+
+= Wie Joomlakomponenten funktionieren? =
+Alles ist hier genau erklärt: [http://docs.joomla.org/Developers#Components]
+
+Die Seite [http://docs.joomla.org/] kann ich generell sehr empfehlen, da dort die Joomla API erklärt ist und es viele hilfreiche Beispiele und Lösungsansätze gibt. 
