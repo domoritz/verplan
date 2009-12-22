@@ -1,15 +1,3 @@
-#summary One-sentence summary of this page.
+#summary Überblick über das Programm und was eine Joomla Komponente ist
 
-= Einleitung =
-
-Add your content here.
-
-
-<wiki:toc max_depth="3" />
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Das Programm ist eine Joomla Komponente und wurde in Joomla 1.6 geschrieben, ist aber auch kompatibel zu joomla 1.5. Komponenten sind komplexe Erweiterungen für Joomla. 
