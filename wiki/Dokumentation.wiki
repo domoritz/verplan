@@ -1,4 +1,5 @@
-
 = Einleitung =
 
-Hier siehst du eine Übersicht über die Dokumentation des Programms. 
+Hier siehst du eine Übersicht über die Dokumentation der Joomla Vertretungsplankomponente. 
+
+  * [Verplan_API API]
