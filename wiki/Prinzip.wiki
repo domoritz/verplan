@@ -3,9 +3,15 @@
 = Einleitung =
 
 Diese Seite soll dir helfen, einen Überblick über die Funktionsweise zu bekommen, damit du weißt, wo du etwas verändern musst. Im Quelltext sind viele Teile kommentiert, sodass du dich dort schnell zurechtfinden kannst, es fehlen jedoch manchmal die Zusammenhänge, die aber nötig sind. 
+Bevor du anfängst, solltest du die [com_verplan Einleitung zum Bearbeiten] gelesen haben. 
 
 
 <wiki:toc max_depth="3" />
 
 = Überblick =
 das Programm besteht aus zwei Teilen, dem Front- und dem Backend. Das Frontend ist das, was die Benutzer sehen. Das Backend ist der Administratorbereich der Komponente. 
+Die Hauptaufgaben sind:
+
+<a href="http://picasaweb.google.com/lh/photo/Xz8My4LYUDMTwjxqbLVApw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_7now-UGMzi4/SzEZCy8GYKI/AAAAAAAAAVs/g7OY7lcqV3E/s800/2009-12-22_200658.png" width="300" /></a>
+
+Im Quellcode sind diese auch getrennt. 
