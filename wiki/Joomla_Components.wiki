@@ -1,3 +1,0 @@
-#summary Überblick über das Programm und was eine Joomla Komponente ist
-
-Das Programm ist eine Joomla Komponente und wurde in Joomla 1.6 geschrieben, ist aber auch kompatibel zu joomla 1.5. Komponenten sind komplexe Erweiterungen für Joomla. 
