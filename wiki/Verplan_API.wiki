@@ -10,17 +10,44 @@ Hier erfährst du, wie die Vertretungsplandaten übertragen werden. Die Daten k�
 
 = API =
 
+= Zugang zur API =
+
+== URL ==
+
 Die Daten des Vertretungsplanes sind über folgende URL errichbar
 {{{
 <JOOMLA URL>/index.php?option=com_verplan&view=verplan&format=js&date=<DATUM>&stand=<STAND>&options=<MODEL>,<VIEW>
 }}}
 
+== Erklärung ==
 Hier eine Erklärung der einzelnen Elemente:
 
-* <JOOMLA URL> * 
-
+*<JOOMLA URL>* 
 URL des Joomlaverzeichnisses der Website. 
 
-* <DATUM> * 
+*<DATUM>* 
+Datum, für das die Vertretungen gesucht werden (Geltungsdatum). Bitte das Format beachten. z.B. _2009-09-24_. Wird nicht das gesamte Datum eingegeben, werden alle Daten angezeigt, deren Datum mit der Zeichenkette beginnt. _2009-09_ Gilt also für den gesamten September 2009. 
 
-Datum, für das die Vertretungen gesucht werden (Geltungsdatum). Bitte das Format beachten. z.B. _2009-09-24_. Wird nicht das gesamte Datum eingegeben, werden alle daten angezeigt, deren Datum mit der Zeichenkette beginnt. _2009-09_ Gilt also für den gesamten September 2009. 
+*<STAND>*
+Ähnlich wie <DATUM>, betrifft jedoch das Erstellungdatum. 
+
+*<MODEL>*
+Optionen für das Model, also welche Daten angezeigt werden. Es sind folgende Optionen möglich:
+
+  * *all* - alle Spalten werden angezeigt (auch solche, die vom Backend aus ausgeblendet wurden)
+  * *none* - Es werden alle Daten (Info und Columns), bis auf die Vertretungsplandaten (Rows) übergeben
+  * nicht angeben - Alle Zeilen werden ausgegeben, aber nicht alle Spalten angezeigt (nicht alle Daten zu den einzelnen Vertretungen)
+
+Code: plan.php (Controller Frontend)
+
+*<VIEW>*
+Optionen für das View, also wie die Daten ausgegeben werden. Es sind folgende Optionen möglich:
+
+  * nichts angeben - Ausgabe als JSON, formatiert
+  * *arr* - Ausgabe des Arrays mit var_dump, zu Debug-Zwecken
+  * *html* - JSON mit HTML formatiert, zu Debug-Zwecken
+  * *min* - Ausgabe als JSON ohne Zeilenumbrüche und Einrückungen. 
+
+Code: default_json.php
+
+= Die Daten =
