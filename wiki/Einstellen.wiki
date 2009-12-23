@@ -5,3 +5,34 @@
 Hier wird erklärt, was passiert, nachdem auf den Button "Abschicken" geklickt wurde.
 
 <wiki:toc max_depth="3" />
+
+= Überblick =
+Die Daten werden per Post an den Controller `send` übergeben. Hier werden die Daten ausgewertet. Als erstes wird geschaut, ob überhaupt eine Datei angegeben wurde und welche daten sonst noch verfügbar sind. nach diesen Informationen wird dann entschieden, wie der Plan eingestellt wird. 
+
+Falls eine Datei angegeben wurde, wird diese hochgeladen. Dafür ist wiederum der Controller `upload` zuständig. 
+
+Falls die Datei geparst werden kann (gpUntis Datei), wird sie geparst und die Daten werden in die Datenbank geschrieben. Weiterhin werden die Spalten der [Datenbank Datenbanktabelle] `plan` angepasst (es werden noch nicht vorhandenen Spalten hinzugefügt). Dafür ist wiederum das Model `data` zuständig, welches sich um den gesamten Speichervorgang der geparsten Vertretungsplandaten kümmert. 
+
+Nachdem die Daten verarbeitet wurden, weist der Controller `send` noch das Model `data` dazu an, die Daten zum Upload zu speichert (Datum ,Stand, URL, Typ..:). Diese Daten tauchen dann wieder beim Übertragen an das Frontend oder beim Löschen von Daten auf. 
+
+= Parsen =
+das Parsen der Vertretungsplandatei passiert nur, wenn es sich um eine passende Datei handelt (Erkennung im Controller `send`) und geschieht mit dem PHP Plugin [http://jacksleight.com/old/code JS_Extractor], welches die HTML Daten in ein PHP Array umwandelt. Eine ausführliche Anleitung gibt es [http://jacksleight.com/old/blog/2008/02/10/js-extractor-and-the-death-of-table-extractor hier]. Den Aufruf findest du im Controller `upload` in der Funktion `parse_file_to_array()`. 
+
+{{{
+$pattern = $settingsmodel->getSetting('pattern_plan');
+//$pattern = "//table[@class='mon_list']";
+$table = $extractor->query($pattern)->item(0);
+$data = $table->extract(array(".//tr", "th|td"));
+}}}
+
+In dieser Funktion werden auch die Informationen zum Stand und das Datum ausgelesen. Das geschieht mit regulären Ausdrücken und DOM Zugriffen. Weitere Informationen: [Benutzerhandbuch_Backend], [http://php.net/manual/en/book.regex.php], [http://jacksleight.com/old/blog/tags/js-extractor], [http://uk2.php.net/dom]
+
+Nach dem Parsen werden die Daten in einer Klassenvariablen gespeichert. Der Controller `send` weist die Instanz der Klasse (des Controllers) `upload` an, etwas auszuführen. 
+
+= In die Datenbank =
+Das Speichern in die Datenbank geschieht im Model `data`
+== Vertretungsplan ==
+Dies geschieht in der Funktion `store` in die Tabelle `#__com_verplan_plan` der [Datenbank]. Dabei werden die einzelnen Informationen richtig in die jeweiligen Spalten eingeordnet. Diese sollten existieren. Falls die Spalten in der hochgeladenenn Datei vorher noch nicht bekannt waren, wurden sie mit der Funktion `heads` erzeugt, die vorher von der Funktion `store` aufgerufen wurde.
+
+== Uploadinfos ==
+Die Daten zum Upload werden mit der Funktion `log_in_uploads()` in die Tabelle `#__com_verplan_uploads` der [Datenbank] gespeichert. 
