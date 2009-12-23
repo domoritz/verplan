@@ -14,7 +14,9 @@ Die Hauptaufgaben sind:
 
 <a href="http://picasaweb.google.com/lh/photo/Xz8My4LYUDMTwjxqbLVApw?feat=embedwebsite"><img src="http://lh3.ggpht.com/_7now-UGMzi4/SzEZCy8GYKI/AAAAAAAAAVs/g7OY7lcqV3E/s800/2009-12-22_200658.png" width="300" /></a>
 
-Im Quellcode sind diese auch getrennt. 
+Im Quellcode sind diese auch getrennt. Außerdem ist die Speicherung, die Verarbeitung und die Anzeige im Programm getrennt. Das Programm arbeitet nach dem [http://de.wikipedia.org/wiki/Model_View_Controller Model-View-Controller (MCV)] Prinzip!
+
+Die unterste Basis des Programms ist die [Datenbank]. Die Daten werden beim Auslesen über das Model ausgelesen und an die Controller weitergegeben. Beim speichern werden die Daten vom Controller an das Model übergeben. Es existieren mehrere Controller, Views und Models, aber nur eine Datenbank. 
 
 = das Backend =
 Das Backend ist dafür da, die Daten des Vertretungsplanes in die Datenbank zu schreiben und Einstellungen anpassen. Was passiert, nachdem auf den Button "Abschicken" passiert ist auf der Seite [Einstellen] erklärt. Die Verwaltung der Einstellungen findest du auf der Seite [Paramater].  
