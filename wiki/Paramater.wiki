@@ -2,6 +2,10 @@
 
 = Einleitung=
 
-Hier wird erklärt, wie die Einstellungen gespeichert werden und wie sie dann wieder ausgelesen werden.
+Hier wird erklärt, wie die Einstellungen gespeichert werden und wie sie dann wieder ausgelesen werden. Die Einzelnen Parameter, die eingestellt werden können, findest du im [Benutzerhandbuch_Backend Handbuch des Backends]
 
 <wiki:toc max_depth="3" />
+
+= Einstellungen speichern =
+
+= Einstellungen laden =
