@@ -2,7 +2,7 @@
 
 = Einleitung=
 
-Hier wird erklärt, was passiert, nachdem auf den Button "Abschicken" geklickt wurde.
+Hier wird erklärt, was passiert, nachdem im [Benutzerhandbuch_Backend Backend] auf den Button "Abschicken" geklickt wurde.
 
 <wiki:toc max_depth="3" />
 
