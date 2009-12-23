@@ -1,0 +1,7 @@
+#summary Der Weg der Daten in die Datenbank
+
+= Einleitung=
+
+Hier wird erklärt, was passiert, nachdem auf den Button "Abschicken" geklickt wurde.
+
+<wiki:toc max_depth="3" />
