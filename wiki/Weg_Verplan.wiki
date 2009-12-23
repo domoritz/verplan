@@ -2,6 +2,8 @@
 
 = Einleitung=
 
-Add your content here.
+Der generelle Weg der Daten geht über das [Einstellen] vom Backend aus über die [Datenbank] und die [Verplan_API API] ins [Frontend]. 
+
+
 
 <wiki:toc max_depth="3" />
