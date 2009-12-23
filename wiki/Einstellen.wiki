@@ -36,3 +36,6 @@ Dies geschieht in der Funktion `store` in die Tabelle `#__com_verplan_plan` der 
 
 == Uploadinfos ==
 Die Daten zum Upload werden mit der Funktion `log_in_uploads()` in die Tabelle `#__com_verplan_uploads` der [Datenbank] gespeichert. 
+
+= nach dem Abschluss =
+Nachdem der Vertretungsplan (erfolgreich oder auch nicht) eingestellt wurde, wird eine Meldung angezeigt. Im Controller `send` ist ganz am Ende ein Aufruf zu sehen, der eine Weiterleitung auf ein leeres View ohne Template macht (wenn Ajax aktiv). Dadurch wird es möglich, dass nur die Antwort erscheint und nicht eine komplette Joomlaseite. 
