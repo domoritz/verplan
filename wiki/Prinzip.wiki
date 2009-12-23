@@ -22,4 +22,4 @@ Die unterste Basis des Programms ist die [Datenbank]. Die Daten werden beim Ausl
 Das Backend ist dafür da, die Daten des Vertretungsplanes in die Datenbank zu schreiben und Einstellungen anpassen. Was passiert, nachdem auf den Button "Abschicken" passiert ist auf der Seite [Einstellen] erklärt. Die Verwaltung der Einstellungen findest du auf der Seite [Paramater].  
 
 = das Frontend =
-Das Frontend soll die Daten anzeigen. Dazu nutzt es die [Verplan_API Vertretungsplan API] und Ajax. Der genaue Weg der daten ist auf der Seite [Frontend] erklärt. 
+Das [Frontend] soll die Daten anzeigen. Dazu nutzt es die [Verplan_API Vertretungsplan API] und Ajax. Der genaue Weg der Daten ist auf der Seite [Weg_Verplan "der Weg des Vertretungsplanes"] erklärt. 
