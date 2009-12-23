@@ -8,4 +8,7 @@ Hier wird erklärt, wie die Einstellungen gespeichert werden und wie sie dann wi
 
 = Einstellungen speichern =
 
+
+<a href="http://picasaweb.google.com/lh/photo/U6WZyOsJSDgx8z4Mrzjhzw?feat=embedwebsite"><img src="http://lh5.ggpht.com/_7now-UGMzi4/SzI_PeTdLAI/AAAAAAAAAWA/ZkM9VxrMtlM/s800/2009-12-23_164538.png" width="400"/></a>
+
 = Einstellungen laden =
