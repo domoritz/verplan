@@ -1,0 +1,7 @@
+#summary Der Weg der Einstellungen von und in die Datenbank
+
+= Einleitung=
+
+Hier wird erklärt, wie die Einstellungen gespeichert werden und wie sie dann wieder ausgelesen werden.
+
+<wiki:toc max_depth="3" />
