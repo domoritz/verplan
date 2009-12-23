@@ -2,7 +2,7 @@
 
 = Einleitung=
 
-Hier wird erklärt, wie die Einstellungen gespeichert werden und wie sie dann wieder ausgelesen werden. Die Einzelnen Parameter, die eingestellt werden können, findest du im [Benutzerhandbuch_Backend Handbuch des Backends]
+Hier wird erklärt, wie die Einstellungen gespeichert werden und wie sie dann wieder ausgelesen werden. Die einzelnen Parameter, die eingestellt werden können, findest du im [Benutzerhandbuch_Backend Handbuch des Backends]. 
 
 Die Speicherung der Spalteneinstellungen geschieht sehr ähnlich, nur dass die einzelnen Dateien anders heißen. 
 
