@@ -1,6 +1,8 @@
 <?php
 /**
  * hauptdatei für das einstellen des vertretungsplanes
+ * die funktion send() wird direkt aufgerufen, wenn ein vertretungsplan
+ * abgesendet wurde. hier wird dann entschieden, wie weiter verfahren wird.
  *
  * @version		$Id$
  * @package		verplan
@@ -140,6 +142,16 @@ class VerplanControllerSend extends verplanController
 
 				//und dann werden die daten noch gespeichert
 				$controller->execute('store');
+				
+				//nun noch die informationen über den upload speichern
+				$model = $this->getModel('data');
+				$model->log_in_uploads($controller->upload_arr);
+				
+				///*debug
+				echo '<br>==========<br>';
+				echo 'Daten zum Upload<br>';
+				var_dump($controller->upload_arr);
+				//*/
 
 				if (!JERROR::getError()) {
 					//Erfolg melden
@@ -181,6 +193,7 @@ class VerplanControllerSend extends verplanController
 					var_dump($upload_arr);
 					//*/
 
+					//speichere infos zum upload
 					$model = $this->getModel('data');
 					$model->log_in_uploads($upload_arr);
 

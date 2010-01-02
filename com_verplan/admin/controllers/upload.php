@@ -49,6 +49,14 @@ class VerplanControllerUpload extends verplanController
 	 * @var array
 	 */
 	public $data;
+	
+	/**
+	 * array mit informationen über den upload
+	 * darin sind z.b stand und datum vermerkt und über eine id erreichbar.
+ 	 * diese id taucht dann wieder in der plantabelle auf -> normalisierung
+	 * @var array
+	 */
+	public $upload_arr;
 
 	/**
 	 * lädt den die vertretungsplandatei hoch
@@ -348,20 +356,15 @@ class VerplanControllerUpload extends verplanController
 		$path = JURI::base(true).$upload_dir.JFile::makeSafe($file['name']);
 		$upload_arr[url] = $path; //url zur hochgeladenen datei
 
-		///*debug
+		/*debug
 		echo '<br>==========<br>';
 		echo 'Array für Uploads<br>';
 		var_dump($upload_arr);
 		//*/
 
 			
-		/*
-		 * hier wird das model aufgerufen und die tabelle mit den uploads wird beschrieben.
-		 * darin sind z.b stand und datum vermerkt und über eine id erreichbar.
-		 * diese id taucht dann wieder in der plantabelle auf -> normalisierung
-		 */
-		$model = $this->getModel('data');
-		$id = $model->log_in_uploads($upload_arr);
+		//speichere die uploaddaten in einer klassenvariablen zur weiteren verwendung
+		$this->upload_arr = $upload_arr;
 			
 			
 		//array mit plandaten zum uebergeben vorbereiten (datum und stand anhaengen)

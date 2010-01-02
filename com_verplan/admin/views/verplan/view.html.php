@@ -56,6 +56,11 @@ class verplanViewVerplan extends JView
 		parent::display($tpl);
 	}// function
 
+	/**
+	 * Funktion zum updaten der versionsnummer. 
+	 * dies geschieht automatisch, wenn die adminseite aufgerufen wird
+	 * @return unknown_type
+	 */
 	function updateVersion(){
 		/*
 		 * Update der versionsnummer, falls diese nicht bei der isntallation erkannt wurde

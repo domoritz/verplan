@@ -47,7 +47,7 @@ $which = $this->which;
 	<label for="select_date"></label> 
 	
 	<span class="ui-state-default" style="border: none;">
-	<select size="1" id="select_date" name="date">
+	<select size="1" id="select_date_verplan" name="date">
 		<?php	
 
 		//setlocale überprüfen (debug)
