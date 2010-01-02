@@ -8,6 +8,26 @@
  * http://docs.jquery.com/UI
  */
 
+function IsNumeric(sText){
+   var ValidChars = "0123456789.";
+   var IsNumber=true;
+   var Char;
+
+ 
+   for (i = 0; i < sText.length && IsNumber == true; i++) 
+      { 
+      Char = sText.charAt(i); 
+      if (ValidChars.indexOf(Char) == -1) 
+         {
+         IsNumber = false;
+         }
+      }
+   return IsNumber;
+   
+   }
+
+
+
 (function($) {
 
 $.widget("ui.selectmenu", {
@@ -131,10 +151,12 @@ $.widget("ui.selectmenu", {
 		
 		//write li's
 		for(var i in selectOptionData){
+			//dominik
+			if (IsNumeric(i)) {
 			var thisLi = $('<li><a href="#" tabindex="-1" role="option" aria-selected="false">'+ selectOptionData[i].text +'</a></li>')
 				.data('index',i)
 				.addClass(selectOptionData[i].classes)
-				.data('optionClasses', selectOptionData[i].classes)
+				.data('optionClasses', selectOptionData[i].classes|| '')
 				.mouseup(function(event){
 						if(self._safemouseup){
 							var changed = $(this).data('index') != self._selectedIndex();
@@ -192,6 +214,7 @@ $.widget("ui.selectmenu", {
 							.prepend('<span class="'+self.widgetBaseClass+'-item-icon ui-icon '+iconClass + '"></span>');
 					}
 				}
+			}
 			}
 		}	
 		

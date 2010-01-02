@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <install type="component" version="1.5.0" method="upgrade">
 	<name>verplan</name>
-	<version>0.9.8</version>
+	<version>0.9.10</version>
 	<description>Komponente zum Einstellen des Vertretungsplanes auf die
 		Website des MCG (http://www.marie-curie-gymnasium-dallgow.de/).
 	</description>
@@ -9,8 +9,7 @@
 	<author>Dominik Moritz</author>
 	<authoremail>dominikmoritz@gmail.com</authoremail>
 	<authorurl>http://www.dmoritz.bplaced.net</authorurl>
-	<copyright>Copyright (C) 2009 Dominik Moritz. All rights reserved.
-	</copyright>
+	<copyright>Copyright (C) 2009 Dominik Moritz. All rights reserved.</copyright>
 	<creationDate>06-Sep-2009</creationDate>
 
 	<files folder="site">
@@ -24,6 +23,14 @@
 
 	<administration>
 		<menu img="components/com_verplan/includes/images/icon_database.png">Verplan</menu>
+		 <submenu>
+                <!-- Note that all & must be escaped to &amp; for the file to be valid XML and be parsed by the installer-->
+                <menu link="option=com_verplan#options_header">Optionen</menu>
+                <menu link="option=com_verplan#settings_header">Parameter/ Einstellungen</menu>
+                <menu link="option=com_verplan#columns_header">Spalten</menu>
+                <menu link="option=com_verplan#about_header">About</menu>
+        </submenu>
+		
 
 		<files folder="admin">
 			<folder>includes</folder>

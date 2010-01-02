@@ -42,7 +42,7 @@ jQuery(document).ready(function(){
 	 * selectmenu plugin
 	 * http://www.filamentgroup.com/lab/jquery_ui_selectmenu_an_aria_accessible_plugin_for_styling_a_html_select/
 	 */
-	jQuery('#select_date').selectmenu({
+	jQuery('#select_date_verplan').selectmenu({
 		//style:'dropdown', 
 		//menuWidth: 300
 		change: function() {

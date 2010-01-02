@@ -62,7 +62,7 @@ jQuery(document).ready(function(){
 	
 	// setzt den hashwert, falls er noch nicht gesetzt ist
 	if (!hash) {
-		hash = jQuery('#select_date').val();
+		hash = jQuery('#select_date_verplan').val();
 		setHash(hash);
 	}
 	
@@ -78,11 +78,11 @@ function initverplan(hash) {
 	clearInterval(myInterval2);
 	
 	// bei select das richtige auswählen
-	jQuery("#select_date option").attr('selected', '');
-	jQuery("#select_date option[value='"+hash+"']").attr('selected', 'selected');
+	jQuery("#select_date_verplan option").attr('selected', '');
+	jQuery("#select_date_verplan option[value='"+hash+"']").attr('selected', 'selected');
 	
-	var selected = document.getElementById("select_date").selectedIndex;
-	jQuery('#select_date').selectmenu('value',selected); 
+	var selected = document.getElementById("select_date_verplan").selectedIndex;
+	jQuery('#select_date_verplan').selectmenu('value',selected); 
 	
 	
 	// json laden und tabelle anzeigen

@@ -40,7 +40,7 @@ class VerplanModelData extends JModel
 	 *
 	 * in die plantabelle kommen dann nur noch die ids
 	 *
-	 * @param $data
+	 * @param $data 
 	 * @return id für den stand, das geltungsdatum und den timestamp
 	 */
 	function log_in_uploads($data){
@@ -102,7 +102,7 @@ class VerplanModelData extends JModel
 	 * methode, zum speichern des planes in die datenbank
 	 * es werden nur die plandaten gespeichert
 	 *
-	 * @access	public
+	 * @param $data Vertretungsplanarray
 	 * @return	boolean	True on success
 	 */
 	function store($data)
@@ -166,6 +166,7 @@ class VerplanModelData extends JModel
 	 * methode zum vervollstaendigen der tabellekoepfe der
 	 * plantabelle und der spaltentabellen
 	 *
+	 * @param $data Vertretungsplanarray
 	 * @return anzahl der neuen tabellenkoepfe
 	 */
 	function heads($data){
