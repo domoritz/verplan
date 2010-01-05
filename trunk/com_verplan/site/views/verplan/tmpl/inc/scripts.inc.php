@@ -18,7 +18,8 @@
 $document =& JFactory::getDocument();
 
 //haupturl für includes
-$baseurl = JURI::root(true).'/components/com_verplan/';
+//$baseurl = JURI::root(true).'/components/com_verplan/';
+$baseurl = JURI::base().'components/com_verplan/';
 
 /*
  * css
