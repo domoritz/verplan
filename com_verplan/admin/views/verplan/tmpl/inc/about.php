@@ -18,7 +18,7 @@
 	<ul>
 		<li>Version: <?php echo $version;?></li>
 		<li>Lizenz: <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL</a></li>
-		<li>Autor: <a href="http://www.dmoritz.bplaced.net">Dominik Moritz</a></li>
+		<li>Autor: <a href="http://www.dmoritz.bplaced.net">Dominik Moritz, 2010</a></li>
 		<li>Code: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a></li>
 	</ul>
 	<p>Verwendete Bibliotheken/Programme/Grafiken</p>

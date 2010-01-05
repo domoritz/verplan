@@ -48,7 +48,7 @@ function ajaxCall() {
 		url : rooturl + "index.php",
 		data : 'option=com_verplan&view=verplan&format=js&date=' + ajax_date
 				+ '&stand=' + ajax_stand + '&options=' + ajax_options,
-		timeout : 4000,
+		timeout: (4 * 1000),
 		async : true,
 		global : true,
 		success : function(XMLHttpRequest, textStatus) {
@@ -60,7 +60,9 @@ function ajaxCall() {
 			}
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
-			alert(textStatus + '<br>' + errorThrown); 
+			if (errorThrown) {
+				alert('XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
+			}
 		},
 		complete: ajaxcomplete
 		
