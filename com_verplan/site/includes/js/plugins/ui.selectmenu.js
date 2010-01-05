@@ -113,7 +113,7 @@ $.widget("ui.selectmenu", {
 		this.list = $('<ul class="' + self.widgetBaseClass + '-menu ui-widget ui-widget-content'+cornerClass+'" aria-hidden="true" role="listbox" aria-multiselectable="false" aria-labelledby="'+this.ids[0]+'" id="'+this.ids[1]+'"></ul>').appendTo('body');				
 		
 		//serialize selectmenu element options	
-		var selectOptionData = [];
+		var selectOptionData = new Array();
 		this.element
 			.find('option')
 			.each(function(){
@@ -131,6 +131,10 @@ $.widget("ui.selectmenu", {
 		
 		//write li's
 		for(var i in selectOptionData){
+			//dominik
+			//http://stackoverflow.com/questions/1570572/mootools-strange-bug-conflict-with-jquery
+			if (selectOptionData.hasOwnProperty(i)) {
+				
 			var thisLi = $('<li><a href="#" tabindex="-1" role="option" aria-selected="false">'+ selectOptionData[i].text +'</a></li>')
 				.data('index',i)
 				.addClass(selectOptionData[i].classes)
@@ -193,7 +197,8 @@ $.widget("ui.selectmenu", {
 					}
 				}
 			}
-		}	
+		}
+		}
 		
 		//add corners to top and bottom menu items
 		this.list.find('li:last').addClass("ui-corner-bottom");
