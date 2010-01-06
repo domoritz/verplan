@@ -1,6 +1,7 @@
 <?php
 /**
  * versorgt das template des frontends mit den nötigen daten
+ * für mobile geräte
  * 
  * @version		$Id$
  * @package		verplan
@@ -17,36 +18,14 @@ jimport( 'joomla.application.component.view');
 
 /**
  * HTML View class for the verplan Component
- *
+ * view: mobile
  * @package    verplan
  */
 
-class verplanViewverplan extends JView
+class verplanViewMobile extends JView
 {
 	function display($tpl = null)
-	{
-		
-		//prüfen, ob die Seite mit einem Mobilen Endgerät aufgerufen wurde
-		require(JPATH_COMPONENT.DS.'includes'.DS.'php'.DS.'check_mobile.php');
-		if ((check_mobile() || JRequest::getVar('mobile') == 'true') && JRequest::getVar('mobile') != 'false'){
-			//$this->setRedirect( 'index.php?option=com_verplan&view=mobile', $msg );
-			//header( JURI::base().'/index.php?option=com_verplan&view=mobile' );
-			//TODO weiterleiten oder anders nutzen
-			$mobile = true;
-			$this->assignRef('mobile',$mobile);
-		}
-		
-		//Standardmodel laden
-		$model =& $this->getModel();
-
-		//kein js nachricht
-		$nojs = $model->getNojs(); 
-		$this->assignRef('nojs',$nojs);
-		
-		//einleitungstext
-		$einltext = $model->getText(); 		
-		$this->assignRef('einltext',$einltext);
-		
+	{		
 		//variablen, wichtig falls js deaktiviert
 		$date = JRequest::getVar('date','none');
 		$stand = JRequest::getVar('stand','latest');
@@ -155,14 +134,6 @@ class verplanViewverplan extends JView
 			//übegeben, welches datum ausgewählt werden soll
 			$this->assignRef( 'which', $which);
 		}
-
-		//jquery laden?
-		$load_jquery = $settingsmodel->getSetting('load_jquery_frontend');
-		$this->assignRef( 'load_jquery', $load_jquery);
-		
-		//jqueryUI laden?
-		$load_jqueryui = $settingsmodel->getSetting('load_jqueryui_frontend');
-		$this->assignRef( 'load_jqueryui', $load_jqueryui);
 		
 		//namen für klassenfilter
 		$classname = $settingsmodel->getSetting('class_col');
