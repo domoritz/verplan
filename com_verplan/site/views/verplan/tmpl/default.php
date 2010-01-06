@@ -28,6 +28,12 @@ $dates = $this->dates;
 $which = $this->which;			
 ?>
 
+<?php 
+if ($this->mobile == true) {
+	echo '<a href="'.JURI::base().'?option=com_verplan&view=mobile&tmpl=component">Zur mobilen Ansicht</a>';
+}
+?>
+
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
 	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
@@ -256,7 +262,7 @@ $which = $this->which;
 	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all">
 		<span class="ui-icon ui-icon-circle-arrow-n"></span>
 	</a>
-	<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2009</a></span>
+	<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2010</a></span>
 </div>
 
 </div>

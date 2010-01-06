@@ -1,0 +1,28 @@
+/**
+ * css für mobile geräte
+ * 
+ * @version		$Id$
+ * @package		verplan
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @link		http://code.google.com/p/verplan/
+ * @license		GNU/GPL
+ * @author      Created on 07-Sep-2009
+ */
+
+#select_rahmen {
+		
+}
+
+#verplantable {
+	width: 100%;
+ 	border: 1px solid black;
+ 	border-collapse: collapse;
+ }
+ 
+#verplantable th {
+	border: 1px solid black;
+}
+ 
+#verplantable td {
+ 	border: 1px solid black;
+ }
