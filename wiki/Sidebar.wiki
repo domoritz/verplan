@@ -1,5 +1,6 @@
   * [Benutzerhandbuch]
     * [Benutzerhandbuch_Frontend Frontend]
+        * [Benutzerhandbuch_Frontend_mobile Mobil]
     * [Benutzerhandbuch_Backend Backend]
   * [FAQ Häufig gestellte Fragen (FAQ)]
   * [Dokumentation]
