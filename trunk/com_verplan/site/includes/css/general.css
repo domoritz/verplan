@@ -189,7 +189,7 @@
 	text-align: right;
 	font-weight: bold;
 }
-
+	/*icons lampe*/
 #options_panel label span{
 	float: right;
 	margin-left: 5px;
@@ -217,6 +217,19 @@
 	cursor: pointer;
 }
 
+#link_mobile {
+	float: left;
+	clear: both;
+	width: 200px;
+	text-align: right;
+	color: inherit;	
+}
+	/*icons lampe*/
+#link_mobile span {
+	float: right;
+	margin-left: 5px;
+}
+
 /*kein js*/
 
 #select_date_nojs {
@@ -232,6 +245,10 @@
 	display: none;
 	font-size: normal;
 	margin: 1em 1em;
+}
+
+#no_db p{
+	font-weight: bold;
 }
 
 /*miniindikator gif*/

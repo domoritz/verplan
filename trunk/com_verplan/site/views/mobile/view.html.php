@@ -31,6 +31,7 @@ class verplanViewMobile extends JView
 		$stand = JRequest::getVar('stand','latest');
 		$options = JRequest::getVar('options',',min');
 		$format = JRequest::getVar('format','html');
+		$tmpl = JRequest::getVar('tmpl');
 
 		/*
 		 * verschiedene optionen möglich
@@ -44,6 +45,7 @@ class verplanViewMobile extends JView
 		$this->assignRef( 'date', $date);
 		$this->assignRef( 'stand', $stand);
 		$this->assignRef( 'options', $options);
+		$this->assignRef( 'tmpl', $tmpl);
 
 		//controller uploads laden
 		$name = 'uploads';
@@ -140,9 +142,6 @@ class verplanViewMobile extends JView
 		$this->assignRef( 'classname', $classname);
 		$varname = $settingsmodel->getSetting('class_name');
 		$this->assignRef( 'varname', $varname);
-		//debugmode
-		$debug = $settingsmodel->getSetting('debug');
-		$this->assignRef( 'debugmode', $debug);
 		
 		//versionsnummer
 		//version number
@@ -157,6 +156,42 @@ class verplanViewMobile extends JView
 
 		//array des vertretungsplanes und der spalten
 		$array = $controller->getVerplanarray($date,$stand,$optionsarray[0]);
+		
+		//vertretungsplan sortieren		
+		//var_dump($array);		
+		if ($array[rows]) {
+			$klassen = array();
+			foreach ($array[rows] as $key => $row) {
+				$klassen[] = $row[$classname];
+			}
+			
+			for ($i = 0; $i < count($klassen); $i++) {
+				
+				//echo $klassen[$i].'->';
+				
+				//wenn einstellig, dann 0 hinzufügen
+				$matches = preg_match("/^([0-9])[a-z]{0,}$/", $klassen[$i]);
+				//echo 'matches: '.$matches.' ';
+				if ($matches > 0 ) {
+					for ($o = 1; $o < 10; $o++) {
+						$klassen[$i] = str_replace($o,'0'.$o,$klassen[$i]);
+					}
+				}				
+				
+				//buchstaben durch zahlen ersetzen
+				$buchstaben = array('a','b','c','d','e','f','g','h','i');
+				$zahlen = array('1','2','3','4','5','6','7','8','9');
+				$klassen[$i] = str_replace($buchstaben,$zahlen,$klassen[$i]);
+
+				//echo $klassen[$i].'<br>';
+			}
+			//var_dump($klassen);
+			
+			//sortiert nach mehreren spalten
+			array_multisort($klassen, SORT_ASC, $array[rows]);
+		
+			//array_multisort($array['rows'][][$classname]);
+		}
 		$this->assignRef( 'verplanArray', $array);
 
 		$this->assignRef( 'format', $format);

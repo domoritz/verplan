@@ -34,7 +34,7 @@ $which = $this->which;
 	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
 	<p>
 		Anzeige des Vertretungsplanes für mobile Geräte, wie Handys, Smartphones oder Subnotebooks. 
-		<a href="<?php echo JURI::base(); ?>?option=com_verplan">Zur normalen Ansicht.</a><br>
+		<a href="<?php echo JURI::base(); ?>?option=com_verplan&mobile=false">Zur normalen Ansicht.</a><br>
 		<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" >Hilfe</a>
 	</p>
 	
@@ -98,7 +98,11 @@ $which = $this->which;
 	<input type="hidden" name="option" value="com_verplan" />
 	<input type="hidden" name="view" value="mobile" />
 	<?php //nur componente anzeigen?>
-	<input type="hidden" name="tmpl" value="component" />
+	<?php 
+	if ($this->tmpl) {
+		echo '<input type="hidden" name="tmpl" value="'.$this->tmpl.'">';
+	}
+	?>
 	
 	
 	
@@ -108,6 +112,7 @@ $which = $this->which;
 
 <br>
 
+<div id="verplan">
 <table id="verplantable">
 	<colgroup>
 	<?php
@@ -126,14 +131,16 @@ $which = $this->which;
 	<thead>
 		<tr>
 		<?php
-		foreach ($array['cols'] as $colname => $subarray) {
-			echo '<th filter-type="ddl"';
-			print !empty($subarray['description'])? ' title="'.$subarray['description'].'"': '';
-			echo '>';
-			
-			echo '<span class="ui-icon ui-icon-carat-2-n-s" style="float:right"></span>';
-			print empty($subarray['label'])? $subarray['name']: $subarray['label'];
-			echo "</th>";
+		if (!empty($array['rows'])){
+			foreach ($array['cols'] as $colname => $subarray) {
+				echo '<th filter-type="ddl"';
+				print !empty($subarray['description'])? ' title="'.$subarray['description'].'"': '';
+				echo '>';
+				
+				echo '<span class="ui-icon ui-icon-carat-2-n-s" style="float:right"></span>';
+				print empty($subarray['label'])? $subarray['name']: $subarray['label'];
+				echo "</th>";
+			}
 		}
 		?>
 		</tr>
@@ -141,22 +148,17 @@ $which = $this->which;
 	<tbody>
 	<?php
 	if (!empty($array['rows'])){
-		foreach ($array['rows'] as $row) {
-			echo "<tr>";
-			foreach ($row as $value) {
+		for ($i = 0; $i < count($array['rows']); $i++) {
+			print(($i%2 == 0)? '<tr class="even">' : '<tr class="odd">');
+			//echo "<tr>";
+			foreach ($array['rows'][$i] as $value) {
 				echo "<td>";
 				echo $value;
 				echo "</td>";
 			}
 			echo "</tr>";
 		}
-	} else {
-		//leere zellen, da es sonst fehler mit den plugins geben könnte
-		echo "<tr>";
-		for ($i = 0; $i < $anzahl; $i++) {
-			echo "<td></td>";
-		}
-		echo "</tr>";
+		
 	}
 	?>
 	</tbody>
@@ -173,16 +175,17 @@ $which = $this->which;
 		//falls no_db oder kein plan
 		if ($array['infos'][$last]['type'] != 'db') {
 			if ($array['infos'][$last]['type'] == 'none') {
-				echo "Hurra, es gibt keine Vertretungen!<br>Stand: ".$array['infos'][0]['Stand'];
+				echo "<p>Hurra, es gibt keine Vertretungen!</p>(Stand: ".$array['infos'][0]['Stand'].')';
 			} else {
-				echo '<a href="'.$array['infos'][$last]['url'].'">zum Vertretungsplan</a><br>Stand: '.$array['infos'][0]['Stand'];
+				echo '<p><a href="'.$array['infos'][$last]['url'].'">zum Vertretungsplan</a></p>(Stand: '.$array['infos'][0]['Stand'].')';
 			}
 		}
 	} else {
-		echo "Bitte ein Datum wählen!";
+		echo 'Bitte ein Datum wählen und "Abschicken" klicken!';
 	}
 	
 	?>
+</div>
 </div>
 <br><br>
 <span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2010</a></span>
