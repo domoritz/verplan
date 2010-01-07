@@ -13,16 +13,35 @@
 		
 }
 
+#verplan {
+	border: 1px solid black;
+	padding: 4px;
+}
+
 #verplantable {
 	width: 100%;
  	border: 1px solid black;
  	border-collapse: collapse;
- }
- 
+}
+
 #verplantable th {
 	border: 1px solid black;
+	background: #666;
+	color: white;
 }
- 
+
 #verplantable td {
  	border: 1px solid black;
- }
+}
+
+#verplantable tr.even{
+ 	
+}
+
+#verplantable tr.odd{
+	background: #E5E5E5;
+}
+
+ #no_db p{
+	font-weight: bold;
+}

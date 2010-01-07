@@ -29,9 +29,14 @@ $which = $this->which;
 ?>
 
 <?php 
+//mobile ansicht
 if ($this->mobile == true) {
-	echo '<a href="'.JURI::base().'?option=com_verplan&view=mobile&tmpl=component">Zur mobilen Ansicht</a>';
-}
+	//automatische weiterleitung
+	echo '
+	<script language ="JavaScript">
+		window.location.replace("'.JURI::base().'?option=com_verplan&view=mobile&tmpl=component");
+	</script>';
+	}
 ?>
 
 
@@ -154,6 +159,8 @@ if ($this->mobile == true) {
 		</select>
 	
 	</form>
+	
+	<a href="<?php echo JURI::base() ?>?option=com_verplan&view=mobile&tmpl=component" id="link_mobile" >Zur mobilen Ansicht <span class="ui-icon ui-icon-lightbulb"></span></a>
 </div>
 <!-- 
 <img style="margin-top: 6px; margin-left: 10px;" src="<?php echo $baseurl; ?>/components/com_verplan/includes/images/ajax/ajax-loader-spin_32.gif" id ="load_new"></img>
@@ -241,9 +248,9 @@ if ($this->mobile == true) {
 		//falls no_db oder kein plan
 		if ($array['infos'][$last]['type'] != 'db') {
 			if ($array['infos'][$last]['type'] == 'none') {
-				echo "Hurra, es gibt keine Vertretungen!<br>Stand: ".$array['infos'][0]['Stand'];
+				echo "<p>Hurra, es gibt keine Vertretungen!</p>(Stand: ".$array['infos'][0]['Stand'].')';
 			} else {
-				echo '<a href="'.$array['infos'][$last]['url'].'">zum Vertretungsplan</a><br>Stand: '.$array['infos'][0]['Stand'];
+				echo '<p><a href="'.$array['infos'][$last]['url'].'">zum Vertretungsplan</a></p>(Stand: '.$array['infos'][0]['Stand'].')';
 			}
 		}
 	} else {

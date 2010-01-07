@@ -185,6 +185,30 @@ function createTooltips() {
 	});
 	
 	
+	jQuery('#link_mobile').qtip( {
+		content : 'Zur mobilen Ansicht wechseln. Diese Ansicht ist für Handys, Smartphones und Subnoteboks optimiert.',
+		hide: {
+			when: 'mouseout',
+			fixed: true
+		},
+		show: 'mouseover',
+		position : {
+			corner : {
+				target : 'topRight',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle'
+		}
+	});
+	
+	//schließen bei click
+	jQuery('#link_mobile').click(function(){
+		jQuery(this).qtip("hide");
+	});
+	
+	
 	jQuery('.ui-selectmenu-status').qtip( {
 		content : 'Geltungsdatum wählen',
 		show : 'mouseover',
