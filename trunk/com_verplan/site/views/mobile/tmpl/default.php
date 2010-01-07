@@ -36,7 +36,7 @@ $which = $this->which;
 	<p>
 		Anzeige des Vertretungsplanes für mobile Geräte, wie Handys, Smartphones oder Subnotebooks. 
 		<a href="<?php echo JURI::base(); ?>?option=com_verplan&mobile=false">Zur normalen Ansicht.</a><br>
-		<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" >Hilfe</a>
+		<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend_mobile" >Hilfe</a>
 	</p>
 	
 	<br>
