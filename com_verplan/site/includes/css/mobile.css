@@ -9,6 +9,10 @@
  * @author      Created on 07-Sep-2009
  */
 
+#wrapper_verplan {
+	font-size: small;	
+}
+
 #select_rahmen {
 		
 }
@@ -28,10 +32,12 @@
 	border: 1px solid black;
 	background: #666;
 	color: white;
+	text-align: center;
 }
 
 #verplantable td {
  	border: 1px solid black;
+ 	padding-left: 2px;
 }
 
 #verplantable tr.even{

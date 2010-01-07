@@ -29,6 +29,7 @@ $dates = $this->dates;
 $which = $this->which;			
 ?>
 
+<div id="wrapper_verplan">
 
 <div id="header_verplan">
 	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
@@ -181,7 +182,7 @@ $which = $this->which;
 			}
 		}
 	} else {
-		echo 'Bitte ein Datum wählen und "Abschicken" klicken!';
+		echo 'Bitte ein Datum wählen und "Anzeigen" klicken!';
 	}
 	
 	?>
@@ -189,4 +190,6 @@ $which = $this->which;
 </div>
 <br><br>
 <span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2010</a></span>
+
+</div>
 

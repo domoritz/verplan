@@ -95,11 +95,11 @@ function JSONsuccess(json, textStatus) {
 		
 	} else if (json.infos[length].type == 'none') {
 		jQuery('#no_db')
-		.html('Hurra! Keine Vertretungen für diesen Tag <br>(Stand: '+ json.infos[length].Stand +')');
+		.html('<p>Hurra! Keine Vertretungen für diesen Tag </p>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
 	} else {
 		jQuery('#no_db')
-				.html('<a href="' + json.infos[length].url + '">zum Vertretungsplan...</a> <br>(Stand: '+ json.infos[length].Stand +')');
+				.html('<p><a href="' + json.infos[length].url + '">zum Vertretungsplan...</a> </p>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
 	}
 }
