@@ -25,10 +25,11 @@
 		<menu img="components/com_verplan/includes/images/icon_database.png">Verplan</menu>
 		 <submenu>
                 <!-- Note that all & must be escaped to &amp; for the file to be valid XML and be parsed by the installer-->
-                <menu link="option=com_verplan#options_header">Optionen</menu>
-                <menu link="option=com_verplan#settings_header">Parameter/ Einstellungen</menu>
-                <menu link="option=com_verplan#columns_header">Spalten</menu>
-                <menu link="option=com_verplan#about_header">About</menu>
+                <menu link="option=com_verplan&amp;dummy=1#options_header">Optionen</menu>
+                <menu link="option=com_verplan&amp;dummy=2#clean_header">Datenbank bereinigen</menu>
+                <menu link="option=com_verplan&amp;dummy=3#settings_header">Parameter/ Einstellungen</menu>
+                <menu link="option=com_verplan&amp;dummy=4#columns_header">Spalten</menu>
+                <menu link="option=com_verplan&amp;dummy=5#about_header">About</menu>
         </submenu>
 		
 
