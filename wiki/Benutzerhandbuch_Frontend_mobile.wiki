@@ -13,3 +13,6 @@ Diese Ansicht ist für Handy, Smartphones und Subnotebooks gedacht. Sie ist auch
 
 = Wie kann ich den Vertretungsplan sehen? =
 Du musst nur das Datum, für das du den Vertretungsplan sehen willst aus dem Auswahlfeld auswählen. Danach musst du noch auf "Anzeigen" klicken. 
+
+= Wie komme ich auf die Seite? =
+Normalerweise solltest du automatisch auf diese Seite weitergeleitet werden, wenn du den Vertretungsplan lädst. Falls dein gerät nicht automatisch erkannt wird, kannst du über "erweiterte Optionen"->"Zur mobilen Ansicht" manuell auf die mobile Seite wechseln. 
