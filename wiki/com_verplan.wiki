@@ -12,31 +12,7 @@ Das Programmpaket besteht aus zwei Teilen. Ein Teil für das Frontend und ein Te
 Generelle Informationen, wie Joomla Komponenten funktionieren und wie die aufgebaut sind: [http://docs.joomla.org/Developers#Components]
 
 == Über das Programm ==
-    * Lizenz: [http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL]
-    * Autor: [http://www.dmoritz.bplaced.net/ Dominik Moritz]
-    * Code: [http://code.google.com/p/verplan/]
-
-Verwendete Bibliotheken/Programme/Grafiken
-
-    * [http://jquery.com/ jQuery]
-    * [http://jqueryui.com/ jQuery UI]
-    * diverse [http://plugins.jquery.com/ jQuery Plugins]
-        * [http://tablesorter.com/docs/ Tablesorter 2.0]
-        * [http://gregweber.info/projects/uitablefilter uiTablefilter]
-        * [http://craigsworks.com/projects/qtip/ qTip]
-        * [http://franca.exofire.net/jq/colorize colorize]
-        * [http://www.filamentgroup.com/lab/jquery_ui_selectmenu_an_aria_accessible_plugin_for_styling_a_html_select/ UI Selectmenu]
-        * [http://plugins.jquery.com/project/history history]
-        * [http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/ prettyPhoto]
-        * [http://github.com/ono/clearable_text_field clearableTextField]
-        * [http://plugins.jquery.com/project/cookie cookie]
-    * [http://jacksleight.com/old/code JS Extractor]
-    * Icons aus dem [http://www.oxygen-icons.org/ Oxygen Package]
-    * [http://www.preloaders.net/ Ajax Indikatoren]
-
-Systemvoraussetzungen
-
-    * PHP >= 5.3.0
+    [About]
 
 
 = Das Programm bearbeiten =
