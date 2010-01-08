@@ -1,16 +1,46 @@
 #summary Über das Programm
 
-= Introduction =
+<wiki:toc max_depth="3" />
 
-Add your content here.
+= Über das Programm =
+    * Lizenz: [http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL]
+    * Autor: [http://www.dmoritz.bplaced.net/ Dominik Moritz]
+    * Code: [http://code.google.com/p/verplan/]
+
+= Verwendete Bibliotheken/Programme/Grafiken =
+
+    * [http://jquery.com/ jQuery]
+    * [http://jqueryui.com/ jQuery UI]
+    * diverse [http://plugins.jquery.com/ jQuery Plugins]
+        * [http://tablesorter.com/docs/ Tablesorter 2.0]
+        * [http://gregweber.info/projects/uitablefilter uiTablefilter]
+        * [http://craigsworks.com/projects/qtip/ qTip]
+        * [http://franca.exofire.net/jq/colorize colorize]
+        * [http://www.filamentgroup.com/lab/jquery_ui_selectmenu_an_aria_accessible_plugin_for_styling_a_html_select/ UI Selectmenu]
+        * [http://plugins.jquery.com/project/history history]
+        * [http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/ prettyPhoto]
+        * [http://github.com/ono/clearable_text_field clearableTextField]
+        * [http://plugins.jquery.com/project/cookie cookie]
+    * [http://jacksleight.com/old/code JS Extractor]
+    * Icons aus dem [http://www.oxygen-icons.org/ Oxygen Package]
+    * [http://www.preloaders.net/ Ajax Indikatoren]
+
+Systemvoraussetzungen
+
+    * PHP >= 5.3.0
+
 
 
 = Daten von Ohloh=
 
+== Statistik==
+<wiki:gadget url="http://www.ohloh.net/p/443882/widgets/project_basic_stats.xml" height="220" border="1"/>
+
+== Sprachen ==
 <wiki:gadget url="http://www.ohloh.net/p/443882/widgets/project_languages.xml"  width="340" height="200" border="1"/>
 
+== Fakten ==
 <wiki:gadget url="http://www.ohloh.net/p/443882/widgets/project_factoids.xml" width="340" height="170" border="0" />
 
+== Kosten ==
 <wiki:gadget url="http://www.ohloh.net/p/443882/widgets/project_cocomo.xml" height="240" border="0"/>
-
-<wiki:gadget url="http://www.ohloh.net/p/443882/widgets/project_basic_stats.xml" height="220" border="1"/>
