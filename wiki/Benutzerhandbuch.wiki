@@ -1,4 +1,4 @@
-#Summary Handbuch wählen
+#summary Handbuch wählen
 Wähle bitte das Handbuch aus:
   * [Benutzerhandbuch_Frontend Frontend]
   * [Benutzerhandbuch_Backend Backend]
