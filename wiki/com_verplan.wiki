@@ -19,7 +19,17 @@ Generelle Informationen, wie Joomla Komponenten funktionieren und wie die aufgeb
 Verwendete Bibliotheken/Programme/Grafiken
 
     * [http://jquery.com/ jQuery]
+    * [http://jqueryui.com/ jQuery UI]
     * diverse [http://plugins.jquery.com/ jQuery Plugins]
+        * [http://tablesorter.com/docs/ Tablesorter 2.0]
+        * [http://gregweber.info/projects/uitablefilter uiTablefilter]
+        * [http://craigsworks.com/projects/qtip/ qTip]
+        * [http://franca.exofire.net/jq/colorize colorize]
+        * [http://www.filamentgroup.com/lab/jquery_ui_selectmenu_an_aria_accessible_plugin_for_styling_a_html_select/ UI Selectmenu]
+        * [http://plugins.jquery.com/project/history history]
+        * [http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/ prettyPhoto]
+        * [http://github.com/ono/clearable_text_field clearableTextField]
+        * [http://plugins.jquery.com/project/cookie cookie]
     * [http://jacksleight.com/old/code JS Extractor]
     * Icons aus dem [http://www.oxygen-icons.org/ Oxygen Package]
     * [http://www.preloaders.net/ Ajax Indikatoren]
