@@ -1,6 +1,4 @@
 #summary Benutzerhandbuch für das Verplan Frontend
-#sidebar Sidebar
-#stars 5
 
 = Einleitung =
 
