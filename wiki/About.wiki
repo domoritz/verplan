@@ -17,7 +17,7 @@
         * [http://craigsworks.com/projects/qtip/ qTip]
         * [http://franca.exofire.net/jq/colorize colorize]
         * [http://www.filamentgroup.com/lab/jquery_ui_selectmenu_an_aria_accessible_plugin_for_styling_a_html_select/ UI Selectmenu]
-        * [http://plugins.jquery.com/project/history history]
+        * [http://www.mikage.to/jquery/jquery_history.html history]
         * [http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/ prettyPhoto]
         * [http://github.com/ono/clearable_text_field clearableTextField]
         * [http://plugins.jquery.com/project/cookie cookie]
