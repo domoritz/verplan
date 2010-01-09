@@ -20,6 +20,9 @@ Die Hauptdatei ist die Datei `general.js`. Diese enthält die Initialisierung un
 === Tableplugins ===
 Ganz am Anfang werden die jQuery Tabellen Plugins initialisiert (`table_init()`). Das ist wichtig, weil alle Plugins (auch wenn sie geladen wurden) noch einmal auf die Tabelle angewendet werden müssen. Falls sich etwas an der Tabelle ändert, müssen einige Plugins erneut angewendet werden oder eine bestimmte Funktion aufgerufen werden. Dies kann gesammelt mit `table_update()` durchgeführt werden (z.B. nach einem Ajax Request und dem Ändern der Tabellendaten). 
 
+=== Sortieren ===
+Zum Sortieren der Tabelle habe ich das Plugin [http://tablesorter.com/docs/ Tablesorter 2.0] verwendet. Damit auch Klassen (welche ein Format haben, welches normalerweise falsch sortiert wird) richtig sortiert werden, habe ich einen neuen Parser geschrieben. 
+
 === Ajax ===
 Das Programm verwendet das [http://www.mikage.to/jquery/jquery_history.html jQuery History Plugin], um trotz Ajaxfunktionalitäten noch ein Vor- und Zurückspringen zu ermöglichen (Browserhistory). 
 
@@ -92,6 +95,13 @@ myInterval2 = setInterval(function() {
 	}
 },100);
 }}}
+
+=== Filter ===
+In den erweiterten Optionen gibt es die Möglichkeit, die Tabelle zu filtern. Die erste Möglichkeit sollte selbst klärend sein. Bei dem Filter handelt es sich um einen Livefilter, der nicht extra bestätigt werden muss. Das entsprechend Plugin heißt [http://gregweber.info/projects/uitablefilter uiTablefilter]. 
+
+Die Möglichkeit eine Klasse direkt zu filtern hat ein paar Eigenheiten. Die Liste mit den Klassen wird nach einem Ajax Request erzeugt. Wenn eine Klasse ausgewählt wird, wird sie in das Filterfeld darüber übertragen und dann wird erst gefiltert. Das hat den Vorteil, dass nur ein richtiges Filtersystem genutzt wird und der User verstehen kann, welche Möglichkeiten das Filterfeld bietet. 
+
+Es gibt die Möglichkeit das Filtereingabefeld direkt zu leeren. Dazu habe ich das Plugin [http://github.com/ono/clearable_text_field clearableTextField] genutzt.
 
 === Die Dateien ".js.php" ===
 Um Daten (z.B. Einstellungen) von PHP nach JS zu bekommen, habe ich einige Extradateien geschrieben, die die Endung `js.php` haben. 
