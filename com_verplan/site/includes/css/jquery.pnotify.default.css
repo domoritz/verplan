@@ -15,7 +15,8 @@
 	height: auto;
 	/* Ensure that the notices are on top of everything else. */
 	z-index: 9999;
-	font-size: 0.95em !important;
+	font-size: 12px !important;
+	text-align: left;
 }
 
 .ui-pnotify a{

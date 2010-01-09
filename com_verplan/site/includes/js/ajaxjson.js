@@ -109,12 +109,14 @@ function JSONsuccess(json, textStatus) {
 		// update der plugins
 		table_update();
 		
-		note_db = jQuery.pnotify({
-		    pnotify_title: 'Vertretungsplan geladen',
-		    pnotify_text: 'Der Vertretungsplan für den '+ json.infos[length].Geltungsdatum.substring(0,10) +' (Stand: <strong>'+ json.infos[length].Stand +'</strong>) wurde erfolgreich geladen. ',
-		    pnotify_notice_icon: 'ui-icon ui-icon-info',
-		    pnotify_type: 'notice'
-		});
+		if (notify == 'pnotify' || notify == 'both') {
+			note_db = jQuery.pnotify({
+			    pnotify_title: 'Vertretungsplan geladen',
+			    pnotify_text: 'Der Vertretungsplan für den '+ json.infos[length].Geltungsdatum.substring(0,10) +' (Stand: <strong>'+ json.infos[length].Stand +'</strong>) wurde erfolgreich geladen. ',
+			    pnotify_notice_icon: 'ui-icon ui-icon-info',
+			    pnotify_type: 'notice'
+			});
+		}
 		
 		break;
 	case 'none':
@@ -124,13 +126,15 @@ function JSONsuccess(json, textStatus) {
 		.html('<p>Hurra! Keine Vertretungen für diesen Tag </p>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
 		
-		note_nodb = jQuery.pnotify({
-		    pnotify_title: 'keine Vertretungen',
-		    pnotify_text: 'Für den gewählten Tag gibt es keine Vertretungen. Das heißt, der Unterricht findet wie geplant statt. Bitte beachte, dass sich der Vertretungsplan ständig ändern kann.',
-		    pnotify_notice_icon: 'ui-icon ui-icon-lightbulb',
-		    pnotify_type: 'notice',
-		    pnotify_hide: false
-		});
+		if (notify == 'pnotify' || notify == 'both') {
+			note_nodb = jQuery.pnotify({
+			    pnotify_title: 'keine Vertretungen',
+			    pnotify_text: 'Für den gewählten Tag gibt es keine Vertretungen. Das heißt, der Unterricht findet wie geplant statt. Bitte beachte, dass sich der Vertretungsplan ständig ändern kann.',
+			    pnotify_notice_icon: 'ui-icon ui-icon-lightbulb',
+			    pnotify_type: 'notice',
+			    pnotify_hide: false
+			});
+		}
 		
 		break;
 	default:
@@ -140,13 +144,15 @@ function JSONsuccess(json, textStatus) {
 		.html('<p><a href="' + json.infos[length].url + '">zum Vertretungsplan...</a> </p>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
 		
-		note_nodb = jQuery.pnotify({
-		    pnotify_title: 'Datei',
-		    pnotify_text: 'Für den gewählten Tag wurde ein Vertretungsplan hochgeladen. Dieser liegt als "'+ json.infos[length].type +'" vor. Um den Vertretungsplan zu sehen, musst du die Datei öffnen. Klicke dazu auf den <a href="' + json.infos[length].url + '">Link</a>.',
-		    pnotify_notice_icon: 'ui-icon ui-icon-lightbulb',
-		    pnotify_type: 'notice',
-		    pnotify_hide: false
-		});
+		if (notify == 'pnotify' || notify == 'both') {
+			note_nodb = jQuery.pnotify({
+			    pnotify_title: 'Datei',
+			    pnotify_text: 'Für den gewählten Tag wurde ein Vertretungsplan hochgeladen. Dieser liegt als "'+ json.infos[length].type +'" vor. Um den Vertretungsplan zu sehen, musst du die Datei öffnen. Klicke dazu auf den <a href="' + json.infos[length].url + '">Link</a>.',
+			    pnotify_notice_icon: 'ui-icon ui-icon-lightbulb',
+			    pnotify_type: 'notice',
+			    pnotify_hide: false
+			});
+		}
 		break;
 	}
 }
@@ -163,28 +169,31 @@ function JSONfail(json, textStatus){
 	//no_db verstecken
 	jQuery('#no_db').hide();
 	
+	if (notify == 'pnotify' || notify == 'both') {
+		note_noplan = jQuery.pnotify({
+		    pnotify_title: 'Fehler',
+		    pnotify_text: 'Es wurdet kein Plan für das gewählte Datum gefunden. Bitte wähle ein anderes Datum!',
+		    pnotify_error_icon: 'ui-icon ui-icon-alert',
+		    pnotify_type: 'error',
+		    pnotify_hide: false
+		});
+	}
 	
-	note_noplan = jQuery.pnotify({
-	    pnotify_title: 'Fehler',
-	    pnotify_text: 'Es wurdet kein Plan für das gewählte Datum gefunden. Bitte wähle ein anderes Datum!',
-	    pnotify_error_icon: 'ui-icon ui-icon-alert',
-	    pnotify_type: 'error',
-	    pnotify_hide: false
-	});
-	
-	//intervall, warten, dass nachricht angezeigt werden kann
-	
-	/*clearInterval(myInterval2);
-	
-	console.log('start listener');
-	myInterval2 = setInterval(function() {
-		console.log('wait for hint');
-		if (hintshown == false) {
-			clearInterval(myInterval2);
-			hintshown == true;
-			setTimeout("showHint('Fehler. Es existiert kein Plan für das gewählte Datum.', 'warn', '400px', 'noplan');", 200);
-		}
-	},100);*/
+	if (notify == 'own' || notify == 'both') {
+		//intervall, warten, dass nachricht angezeigt werden kann
+		
+		clearInterval(myInterval2);
+		
+		console.log('start listener');
+		myInterval2 = setInterval(function() {
+			console.log('wait for hint');
+			if (hintshown == false) {
+				clearInterval(myInterval2);
+				hintshown == true;
+				setTimeout("showHint('Fehler. Es existiert kein Plan für das gewählte Datum.', 'warn', '400px', 'noplan');", 200);
+			}
+		},100);
+	}
 }
 
 /**

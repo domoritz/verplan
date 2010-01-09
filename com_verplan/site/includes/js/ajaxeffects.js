@@ -35,15 +35,18 @@ function showIndicator() {
 	if (effects_indi) {
 		jQuery('#loading').fadeIn('fast');
 		//jQuery('#loader_overlay').fadeIn('fast');
+		
 		showHint('Lade Daten...', 'info', '250px', 'loady');
 		
-		note_loader = jQuery.pnotify({
-			pnotify_title: "Lade Daten...",
-			pnotify_text: "Daten des Vertretungsplanes werden geladen. Bitte warten.",
-			//pnotify_notice_icon: '',
-			pnotify_hide: false,
-			pnotify_history: false
-		});
+		if (notify == 'pnotify' || notify == 'both') {
+			note_loader = jQuery.pnotify({
+				pnotify_title: "Lade Daten...",
+				pnotify_text: "Daten des Vertretungsplanes werden geladen. Bitte warten.",
+				//pnotify_notice_icon: '',
+				pnotify_hide: false,
+				pnotify_history: false
+			});
+		}
 
 	}
 }
@@ -57,7 +60,9 @@ function hideIndicator() {
 		
 		setTimeout(function(){
 			// Remove the loader.
-			note_loader.pnotify_remove();
+			if (note_loader) {
+				note_loader.pnotify_remove();
+			}			
 		}, 2000);
 
 	}

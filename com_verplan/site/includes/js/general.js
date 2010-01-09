@@ -43,17 +43,20 @@ var _alert;
  * initialisierung
  */
 jQuery(document).ready(function(){	
-	//Meldung
-	jQuery.pnotify({
-	    pnotify_title: 'Vorabversion',
-	    pnotify_text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <a title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA" target="_blank" id="feedy_oi"><strong>Feedback</strong></a> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
-	    pnotify_notice_icon: 'ui-icon ui-icon-star',
-	    pnotify_type: 'notice',
-	    pnotify_hide: false
-	});
+	if (notify == 'pnotify' || notify == 'both') {
+		//Meldung
+		jQuery.pnotify({
+		    pnotify_title: 'Vorabversion',
+		    pnotify_text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <a title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA" target="_blank" id="feedy_oi"><strong>Feedback</strong></a> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
+		    pnotify_notice_icon: 'ui-icon ui-icon-star',
+		    pnotify_type: 'notice',
+		    pnotify_hide: false
+		});
+		
+		//alerts umleiten
+		consume_alert();
+	}
 	
-	//alerts umleiten
-	consume_alert();
 	
 	// rooturl der joomlainstallation
 	rooturl = getURL();
@@ -68,8 +71,10 @@ jQuery(document).ready(function(){
 		window.location.href=window.location.href.slice(0, -1);
 	});
 	
-	//klicks anzeigen
-	clicks_notice();
+	if (notify == 'pnotify' || notify == 'both') {
+		//klicks anzeigen
+		clicks_notice();
+	}
 
 	/**
 	 * ajax
@@ -102,30 +107,32 @@ function loadverplan(hash) {
 	//clearInterval(myInterval);
 	//clearInterval(myInterval2);
 	
-	//kein plan nachricht ausblenden
-	if (note_noplan) {
-		note_noplan.pnotify_remove();
+	if (notify == 'pnotify' || notify == 'both') {
+		//kein plan nachricht ausblenden
+		if (note_noplan) {
+			note_noplan.pnotify_remove();
+		}
+		
+		//fehler nachricht ausblenden
+		if (note_error_load) {
+			note_error_load.pnotify_remove();
+		}
+		
+		//nodb nachricht ausblenden
+		if (note_nodb) {
+			note_nodb.pnotify_remove();
+		}
+		
+		//nodb nachricht ausblenden
+		if (note_filter_general) {
+			note_filter_general.pnotify_remove();
+		}
+		
+		//nodb nachricht ausblenden
+		if (note_db) {
+			note_db.pnotify_remove();
+		}	
 	}
-	
-	//fehler nachricht ausblenden
-	if (note_error_load) {
-		note_error_load.pnotify_remove();
-	}
-	
-	//nodb nachricht ausblenden
-	if (note_nodb) {
-		note_nodb.pnotify_remove();
-	}
-	
-	//nodb nachricht ausblenden
-	if (note_filter_general) {
-		note_filter_general.pnotify_remove();
-	}
-	
-	//nodb nachricht ausblenden
-	if (note_db) {
-		note_db.pnotify_remove();
-	}	
 	
 	// bei select das richtige auswählen
 	jQuery("#select_date_verplan option").attr('selected', '');
@@ -315,29 +322,31 @@ var hintshown = false;
  * @return
  */
 function showHint(text, type, width, name) {
-	hintshown = true;
-	
-	console.log('hintshown');
-	
-	if (!width) {
-		width = '400px';
-	}
-	
-	if (type == 'warn') {
-		text = '<span class="icon_verplan icon_warn">&nbsp;</span><strong>Achtung:</strong> ' + text;
-	}
-	
-	if (type == 'info') {
-		text = '<span class="icon_verplan icon_info">&nbsp;</span><strong>Info:</strong> ' + text;
-	}
+	if (notify == 'own' || notify == 'both') {
+		hintshown = true;
 		
-	if (type == 'critical') {
-		text = '<span class="icon_verplan icon_critical">&nbsp;</span><strong style="color: red; ">Kritischer Fehler:</strong> ' + text;
-	}
+		console.log('hintshown');
 		
-	jQuery('#notify #text').html(text).parent().css('width', width).css('left', 0).attr('name', name).show('slide', {direction: 'right'}, 500); 
-	
-	console.log(type+' '+text+' '+width+' '+name);
+		if (!width) {
+			width = '400px';
+		}
+		
+		if (type == 'warn') {
+			text = '<span class="icon_verplan icon_warn">&nbsp;</span><strong>Achtung:</strong> ' + text;
+		}
+		
+		if (type == 'info') {
+			text = '<span class="icon_verplan icon_info">&nbsp;</span><strong>Info:</strong> ' + text;
+		}
+			
+		if (type == 'critical') {
+			text = '<span class="icon_verplan icon_critical">&nbsp;</span><strong style="color: red; ">Kritischer Fehler:</strong> ' + text;
+		}
+			
+		jQuery('#notify #text').html(text).parent().css('width', width).css('left', 0).attr('name', name).show('slide', {direction: 'right'}, 500); 
+		
+		console.log(type+' '+text+' '+width+' '+name);
+	}
 }
 
 /**
@@ -345,10 +354,12 @@ function showHint(text, type, width, name) {
  * @return
  */
 function hideHint(time) {
-	if (hintshown == true) {
-		jQuery('#notify:visible').stop().pause(time).hide('slide', {direction: 'right'}, 1000, function() {
-			console.log('hinthidden');
-			hintshown = false;
-		});
+	if (notify == 'own' || notify == 'both') {
+		if (hintshown == true) {
+			jQuery('#notify:visible').stop().pause(time).hide('slide', {direction: 'right'}, 1000, function() {
+				console.log('hinthidden');
+				hintshown = false;
+			});
+		}
 	}
 }

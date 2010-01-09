@@ -96,14 +96,16 @@ function iniFilters() {
 			filterKlasse = this.value;
 			console.log('cookie gespeichert: ' + this.value);
 			
-			note_klasse = jQuery.pnotify({
-			    pnotify_title: 'Klasse',
-			    pnotify_text: 'Es werden nur die Spalten der Klasse '+this.value+' angezeigt. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter_-_Klassen" target="_blank">Hilfe</a>',
-			    pnotify_notice_icon: 'ui-icon ui-icon-search',
-			    pnotify_type: 'notice',
-			    pnotify_remove: true,
-			    pnotify_hide: false
-			});
+			if (notify == 'pnotify' || notify == 'both') {
+				note_klasse = jQuery.pnotify({
+				    pnotify_title: 'Klasse',
+				    pnotify_text: 'Es werden nur die Spalten der Klasse '+this.value+' angezeigt. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter_-_Klassen" target="_blank">Hilfe</a>',
+				    pnotify_notice_icon: 'ui-icon ui-icon-search',
+				    pnotify_type: 'notice',
+				    pnotify_remove: true,
+				    pnotify_hide: false
+				});
+			}
 		}
 		
 		//zeigt das rote icon und schreibt die klasse
@@ -131,21 +133,23 @@ function filterTable() {
 	//tabelle filtern
 	jQuery.uiTableFilter(jQuery('#jquerytable'), input, filter_this);
 	
-	if (input != '' & !(note_filter_general)) {
-		note_filter_general = jQuery.pnotify({
-		    pnotify_text: 'Ein Filter ist aktiv. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>',
-		    pnotify_notice_icon: 'ui-icon ui-icon-search',
-		    pnotify_type: 'notice',
-		    pnotify_remove: true,
-		    pnotify_hide: false
-		});
-	}
-	
-	if (input == '') {
-		if (note_filter_general) {
-			note_filter_general.pnotify_remove();
-			note_filter_general = null;
-		}	
+	if (notify == 'pnotify' || notify == 'both') {
+		if (input != '' & !(note_filter_general)) {
+			note_filter_general = jQuery.pnotify({
+			    pnotify_text: 'Ein Filter ist aktiv. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>',
+			    pnotify_notice_icon: 'ui-icon ui-icon-search',
+			    pnotify_type: 'notice',
+			    pnotify_remove: true,
+			    pnotify_hide: false
+			});
+		}
+		
+		if (input == '') {
+			if (note_filter_general) {
+				note_filter_general.pnotify_remove();
+				note_filter_general = null;
+			}	
+		}
 	}
 	
 	
@@ -190,42 +194,46 @@ function updateFilters() {
 	var input = jQuery('#filter_input').val();
 	jQuery.uiTableFilter(jQuery('#jquerytable'), input, filter_this);
 	
-	if (jQuery('#filter_input').val() != '') {	
-		if (note_filter) {
-			note_filter.pnotify_remove();
+	if (notify == 'pnotify' || notify == 'both') {
+		if (jQuery('#filter_input').val() != '') {	
+			if (note_filter) {
+				note_filter.pnotify_remove();
+			}
+			note_filter = jQuery.pnotify({
+			    pnotify_title: 'Filter aktiv',
+			    pnotify_text: 'Es werden Spalten ausgeblendet, weil ein Filter aktiv ist. Wenn du wieder alle Spalten sehen möchtest, klicke bitte <a href="javascript: clickOnClear()">hier</a>',
+			    pnotify_error_icon: 'ui-icon ui-icon-search',
+			    pnotify_type: 'error',
+			    pnotify_hide: false
+			});
+			
+			note_filter_general = jQuery.pnotify({
+			    pnotify_text: 'Ein Filter ist aktiv. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>',
+			    pnotify_notice_icon: 'ui-icon ui-icon-search',
+			    pnotify_type: 'notice',
+			    pnotify_remove: true,
+			    pnotify_hide: false
+			});
 		}
-		note_filter = jQuery.pnotify({
-		    pnotify_title: 'Filter aktiv',
-		    pnotify_text: 'Es werden Spalten ausgeblendet, weil ein Filter aktiv ist. Wenn du wieder alle Spalten sehen möchtest, klicke bitte <a href="javascript: clickOnClear()">hier</a>',
-		    pnotify_error_icon: 'ui-icon ui-icon-search',
-		    pnotify_type: 'error',
-		    pnotify_hide: false
-		});
-		
-		note_filter_general = jQuery.pnotify({
-		    pnotify_text: 'Ein Filter ist aktiv. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>',
-		    pnotify_notice_icon: 'ui-icon ui-icon-search',
-		    pnotify_type: 'notice',
-		    pnotify_remove: true,
-		    pnotify_hide: false
-		});
 	}
 	
 	//falls spalten gefiltert werden, soll darauf gewartet werden, dass kein hinweis 
 	//angezeigt wird und dann soll der eigene hinweis angezeigt werden
 	
 	if (jQuery('#filter_input').val() != '') {	
-		clearInterval(myInterval);
-		
-		console.log('start listener');
-		myInterval = setInterval(function() {
-			console.log('wait for hint');
-			if (hintshown == false) {
-				clearInterval(myInterval);
-				hintshown == true;
-				setTimeout("showHint('Es werden Spalten ausgeblendet, weil ein Filter aktiv ist', 'warn', '420px', 'filty');",500);
-			}
-		},100);
+		if (notify == 'own' || notify == 'both') {
+			clearInterval(myInterval);
+			
+			console.log('start listener');
+			myInterval = setInterval(function() {
+				console.log('wait for hint');
+				if (hintshown == false) {
+					clearInterval(myInterval);
+					hintshown == true;
+					setTimeout("showHint('Es werden Spalten ausgeblendet, weil ein Filter aktiv ist', 'warn', '420px', 'filty');",500);
+				}
+			},100);
+		}
 	}
 }
 

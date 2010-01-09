@@ -173,6 +173,9 @@ class verplanViewverplan extends JView
 		//debugmode
 		$debug = $settingsmodel->getSetting('debug');
 		$this->assignRef( 'debugmode', $debug);
+		//notify
+		$notify = $settingsmodel->getSetting('notify');
+		$this->assignRef( 'notify', $notify);
 		
 		//versionsnummer
 		//version number
