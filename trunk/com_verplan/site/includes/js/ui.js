@@ -1,4 +1,6 @@
 /**
+ * JS für jQuery UI Elemente
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -12,7 +14,9 @@ function show_hint(head, text) {
 		jQuery('#hint_table').show('blind', 'slow');
 }
 
-jQuery(document).ready(function(){ 
+jQuery(document).ready(function(){
+	
+	/*Themeswitcher, Design wechseln */
 	jQuery('#ui_themeswitcher').themeswitcher({
 		width: 200,
 		onSelect: function() {
@@ -39,7 +43,7 @@ jQuery(document).ready(function(){
 	 */
 	
 	/*
-	 * selectmenu plugin
+	 * selectmenu plugin, auswahlfeld im jqueryui style
 	 * http://www.filamentgroup.com/lab/jquery_ui_selectmenu_an_aria_accessible_plugin_for_styling_a_html_select/
 	 */
 	jQuery('#select_date_verplan').selectmenu({
@@ -51,7 +55,7 @@ jQuery(document).ready(function(){
 			//debug
 			console.log('Wert aus select: '+hash);
 			//lädt neue tabelle und setzt hash
-			jQuery.history.load(hash);	
+			jQuery.historyLoad(hash);	
 		}
 	});
 	
@@ -64,6 +68,7 @@ jQuery(document).ready(function(){
 	});
 	
 	//mouseover für die einzelnen spaltenköpfe mit den filtern
+	//gibt es nciht mehr
 	/*jQuery('.filterColumns td').mouseover(function(){
 		jQuery(this).addClass('ui-state-hover');
 	});
@@ -71,7 +76,7 @@ jQuery(document).ready(function(){
 		jQuery(this).removeClass('ui-state-hover');
 	});*/
 	
-	//mouseover für den expander für die optionen und den up button	
+	//mouseover für den expander (erweiterte optionen für das panel) für die optionen und den up button	(unten rechts)
 	jQuery('#up_btn, #expander_options').mouseenter(function(){
 		jQuery(this).addClass('ui-state-hover');
 	}).mouseleave(function(){

@@ -64,8 +64,7 @@ function ajaxCall() {
 				alert('XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
 			}
 		},
-		complete: ajaxcomplete
-		
+		complete: ajaxcomplete		
 	});
 }
 
@@ -75,10 +74,12 @@ function JSONsuccess(json, textStatus) {
 	// wert)
 	var infoarr = json.infos;
 	var length = infoarr.length - 1;
-
-	// wenn der typ datenbank ist
-	if (json.infos[length].type == 'db') {
-
+	
+	//vorgehen nach typ auswählen
+	switch (json.infos[length].type) {
+	case 'db':
+		// wenn der typ datenbank ist
+		
 		// falls bisher der link zum plan angezeigt wurde
 		hideNoDB();
 
@@ -92,18 +93,30 @@ function JSONsuccess(json, textStatus) {
 		
 		// update der plugins
 		table_update();
+		break;
+	case 'none':
+		//keine vertretungen
 		
-	} else if (json.infos[length].type == 'none') {
 		jQuery('#no_db')
 		.html('<p>Hurra! Keine Vertretungen für diesen Tag </p>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
-	} else {
+		break;
+	default:
+		//es wurde eine datei hichgeladen
+		
 		jQuery('#no_db')
-				.html('<p><a href="' + json.infos[length].url + '">zum Vertretungsplan...</a> </p>(Stand: '+ json.infos[length].Stand +')');
+		.html('<p><a href="' + json.infos[length].url + '">zum Vertretungsplan...</a> </p>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
+		break;
 	}
 }
 
+/**
+ * ex existiert kein plan für das datum
+ * @param json
+ * @param textStatus
+ * @return
+ */
 function JSONfail(json, textStatus){
 	// tabelle leeren
 	jQuery('#jquerytable tbody').html('');
@@ -125,6 +138,13 @@ function JSONfail(json, textStatus){
 	},100);
 }
 
+/**
+ * tabelle aus daten zusammensetzen
+ * 
+ * @param tbody
+ * @param json
+ * @return
+ */
 function buildTableFromJSON(tbody, json) {
 	console.time('tablebuild');
 	// tabelle leeren
@@ -149,6 +169,15 @@ function buildTableFromJSON(tbody, json) {
 	console.timeEnd('tablebuild');
 }
 
+/**
+ * filter für die klassen
+ * (klasse auswälen-> nur diese angezeigt)
+ * 
+ * hier wird die liste erzeugt
+ * 
+ * @param rows
+ * @return
+ */
 function filterKlassen(rows) {
 	console.time('filterklassen');
 	
