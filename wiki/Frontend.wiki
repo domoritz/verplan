@@ -12,5 +12,25 @@ Das Standardfrontend besteht aus dem Viewcontroller (`views/verplan/view.html.ph
 Bei der Datei `view.html.php` handelt es sich um eine Datei, in der eine Klasse existiert, welche GET Paramter einliest (vor allem wichtig, wenn js deaktiviert) und die Daten, die das Frontend benötigt (Einstellungen usw) bereitstellt. 
 Die Datei `tmpl/default.php` enthält das Template für das View. Das Tempalte sorgt für die HTML Ausgabe und lädt auch die benötigten Javascripte und Stylesheets (über /inc/scripts.inc.php). Die Scripte liegen in `includes/js` und die Stylesheets und `includes/css`. 
 
+== Javascript ==
+Das Fronetnd arbeitet mit sehr viel Javascript, wobei ich zum größten Teil das Javascriptframework [http://jquery.com/ jQuery] verwendet habe. Eine gute Dokumentation gibt es hier: [http://docs.jquery.com/]. 
+
+Die Hauptdatei ist die Datei `general.js`. Diese enthält die Initialisierung und viele kleine Hilfsfunktionen (z.B. für den Hash). 
+
+=== Tableplugins ===
+Ganz am Anfang werden die jQuery Tabellen Plugins initialisiert (`table_init()`). Das ist wichtig, weil alle Plugins (auch wenn sie geladen wurden) noch einmal auf die Tabelle angewendet werden müssen. Falls sich etwas an der Tabelle ändert, müssen einige Plugins erneut angewendet werden oder eine bestimmte Funktion aufgerufen werden. Dies kann gesammelt mit `table_update()` durchgeführt werden (z.B. nach einem Ajax Request und dem Ändern der Tabellendaten). 
+
+=== Ajax ===
+Das Programm verwendet das [http://www.mikage.to/jquery/jquery_history.html jQuery History Plugin], um trotz Ajaxfunktionalitäten noch ein Vor- und Zurückspringen zu ermöglichen (Browserhistory). 
+
+Aus diesem Grund findest du in der Datei `general.js` folgenden Code
+{{{
+jQuery.historyInit(loadverplan,'index.php');
+}}}
+Hier wird die Browserhistory initialisiert und die Funktion `loadverplan` aufgerufen, welche für die Verarbeitung des Hashwertes verantwortlich ist. 
+
+
+=== Die Dateien '.js.php' ===
+Um Daten (z.B. Einstellungen) von PHP nach JS zu bekommen, habe ich einige Extradateien geschrieben, die die Endung `js.php` haben. 
 
 = Das Frontend für mobile Geräte=
