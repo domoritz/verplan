@@ -21,7 +21,7 @@
         * [http://www.no-margin-for-errors.com/projects/prettyphoto-jquery-lightbox-clone/ prettyPhoto]
         * [http://github.com/ono/clearable_text_field clearableTextField]
         * [http://plugins.jquery.com/project/cookie cookie]
-        * [http://plugins.jquery.com/project/pnotify notify]
+        * [http://plugins.jquery.com/project/pnotify pnotify]
     * [http://jacksleight.com/old/code JS Extractor]
     * Icons aus dem [http://www.oxygen-icons.org/ Oxygen Package]
     * [http://www.preloaders.net/ Ajax Indikatoren]
