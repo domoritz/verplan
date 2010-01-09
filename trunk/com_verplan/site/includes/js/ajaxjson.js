@@ -23,6 +23,14 @@ var ajax_date;
 var ajax_stand;
 var ajax_options;
 
+/**
+ * notifications
+ */
+var note_noplan;
+var note_error_load;
+var note_nodb;
+var note_db;
+
 //intervall zum warten, dass keine nachricht angezeigt wird
 var myInterval2;
 
@@ -61,7 +69,14 @@ function ajaxCall() {
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			if (errorThrown) {
-				alert('XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
+				//alert('XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
+				note_error_load = jQuery.pnotify({
+				    pnotify_title: 'Fehler beim Laden',
+				    pnotify_text: 'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown,
+				    pnotify_error_icon: 'ui-icon ui-icon-signal-diag',
+				    pnotify_type: 'error',
+				    pnotify_hide: false
+				});
 			}
 		},
 		complete: ajaxcomplete		
@@ -93,6 +108,14 @@ function JSONsuccess(json, textStatus) {
 		
 		// update der plugins
 		table_update();
+		
+		note_db = jQuery.pnotify({
+		    pnotify_title: 'Vertretungsplan geladen',
+		    pnotify_text: 'Der Vertretungsplan für den '+ json.infos[length].Geltungsdatum.substring(0,10) +' (Stand: <strong>'+ json.infos[length].Stand +'</strong>) wurde erfolgreich geladen. ',
+		    pnotify_notice_icon: 'ui-icon ui-icon-info',
+		    pnotify_type: 'notice'
+		});
+		
 		break;
 	case 'none':
 		//keine vertretungen
@@ -100,6 +123,15 @@ function JSONsuccess(json, textStatus) {
 		jQuery('#no_db')
 		.html('<p>Hurra! Keine Vertretungen für diesen Tag </p>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
+		
+		note_nodb = jQuery.pnotify({
+		    pnotify_title: 'keine Vertretungen',
+		    pnotify_text: 'Für den gewählten Tag gibt es keine Vertretungen. Das heißt, der Unterricht findet wie geplant statt. Bitte beachte, dass sich der Vertretungsplan ständig ändern kann.',
+		    pnotify_notice_icon: 'ui-icon ui-icon-lightbulb',
+		    pnotify_type: 'notice',
+		    pnotify_hide: false
+		});
+		
 		break;
 	default:
 		//es wurde eine datei hichgeladen
@@ -107,6 +139,14 @@ function JSONsuccess(json, textStatus) {
 		jQuery('#no_db')
 		.html('<p><a href="' + json.infos[length].url + '">zum Vertretungsplan...</a> </p>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
+		
+		note_nodb = jQuery.pnotify({
+		    pnotify_title: 'Datei',
+		    pnotify_text: 'Für den gewählten Tag wurde ein Vertretungsplan hochgeladen. Dieser liegt als "'+ json.infos[length].type +'" vor. Um den Vertretungsplan zu sehen, musst du die Datei öffnen. Klicke dazu auf den <a href="' + json.infos[length].url + '">Link</a>.',
+		    pnotify_notice_icon: 'ui-icon ui-icon-lightbulb',
+		    pnotify_type: 'notice',
+		    pnotify_hide: false
+		});
 		break;
 	}
 }
@@ -123,9 +163,18 @@ function JSONfail(json, textStatus){
 	//no_db verstecken
 	jQuery('#no_db').hide();
 	
+	
+	note_noplan = jQuery.pnotify({
+	    pnotify_title: 'Fehler',
+	    pnotify_text: 'Es wurdet kein Plan für das gewählte Datum gefunden. Bitte wähle ein anderes Datum!',
+	    pnotify_error_icon: 'ui-icon ui-icon-alert',
+	    pnotify_type: 'error',
+	    pnotify_hide: false
+	});
+	
 	//intervall, warten, dass nachricht angezeigt werden kann
 	
-	clearInterval(myInterval2);
+	/*clearInterval(myInterval2);
 	
 	console.log('start listener');
 	myInterval2 = setInterval(function() {
@@ -135,7 +184,7 @@ function JSONfail(json, textStatus){
 			hintshown == true;
 			setTimeout("showHint('Fehler. Es existiert kein Plan für das gewählte Datum.', 'warn', '400px', 'noplan');", 200);
 		}
-	},100);
+	},100);*/
 }
 
 /**

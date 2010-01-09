@@ -20,6 +20,13 @@ jQuery(document).ready(function(){
 	jQuery('#ui_themeswitcher').themeswitcher({
 		width: 200,
 		onSelect: function() {
+			jQuery.pnotify({
+			    pnotify_title: 'Design',
+			    pnotify_text: 'Das Design wurde geändert.<br>'+jQuery('#ui_themeswitcher').text(),
+			    pnotify_notice_icon: 'ui-icon ui-icon-info',
+			    pnotify_type: 'notice',
+			    pnotify_delay: 4000
+			});
 		},
 		onOpen: function() {		
 		},

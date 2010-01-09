@@ -35,9 +35,26 @@ if (typeof console == "undefined") {
 var hash;
 
 /**
+ * für umleitung des alert
+ */
+var _alert;
+
+/**
  * initialisierung
  */
-jQuery(document).ready(function(){
+jQuery(document).ready(function(){	
+	//Meldung
+	jQuery.pnotify({
+	    pnotify_title: 'Vorabversion',
+	    pnotify_text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <a title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA" target="_blank" id="feedy_oi"><strong>Feedback</strong></a> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
+	    pnotify_notice_icon: 'ui-icon ui-icon-star',
+	    pnotify_type: 'notice',
+	    pnotify_hide: false
+	});
+	
+	//alerts umleiten
+	consume_alert();
+	
 	// rooturl der joomlainstallation
 	rooturl = getURL();
 	hash = getHash();
@@ -50,6 +67,9 @@ jQuery(document).ready(function(){
 		window.location.hash = '';
 		window.location.href=window.location.href.slice(0, -1);
 	});
+	
+	//klicks anzeigen
+	clicks_notice();
 
 	/**
 	 * ajax
@@ -79,15 +99,40 @@ jQuery(document).ready(function(){
  */
 function loadverplan(hash) {
 	//die intervalle beenden, die darauf warten, dass eine nachricht ausgeblendet wird
-	clearInterval(myInterval);
-	clearInterval(myInterval2);
+	//clearInterval(myInterval);
+	//clearInterval(myInterval2);
+	
+	//kein plan nachricht ausblenden
+	if (note_noplan) {
+		note_noplan.pnotify_remove();
+	}
+	
+	//fehler nachricht ausblenden
+	if (note_error_load) {
+		note_error_load.pnotify_remove();
+	}
+	
+	//nodb nachricht ausblenden
+	if (note_nodb) {
+		note_nodb.pnotify_remove();
+	}
+	
+	//nodb nachricht ausblenden
+	if (note_filter_general) {
+		note_filter_general.pnotify_remove();
+	}
+	
+	//nodb nachricht ausblenden
+	if (note_db) {
+		note_db.pnotify_remove();
+	}	
 	
 	// bei select das richtige auswählen
 	jQuery("#select_date_verplan option").attr('selected', '');
 	jQuery("#select_date_verplan option[value='"+hash+"']").attr('selected', 'selected');
 	
 	var selected = document.getElementById("select_date_verplan").selectedIndex;
-	jQuery('#select_date_verplan').selectmenu('value',selected); 
+	jQuery('#select_date_verplan').selectmenu('value',selected);
 	
 	
 	// json laden und tabelle anzeigen
@@ -112,6 +157,87 @@ function gup( name )
 		return false;
 	else
 		return results[1];
+}
+
+/**
+ * leitet alle alerts in pnotify um
+ * @return
+ */
+function consume_alert() {
+	if (_alert) return;
+	_alert = window.alert;
+	window.alert = function(message) {
+		jQuery.pnotify({
+			pnotify_title: 'Alert',
+			pnotify_text: message
+		});
+	};
+}
+
+/**
+ * macht consume_alert() rückgängig
+ * @return
+ */
+function release_alert() {
+	if (!_alert) return;
+	window.alert = _alert;
+	_alert = null;
+}
+
+
+function clicks_notice() {
+	//auf handbuch klicken
+	jQuery('#help_head').click(function() {
+		note_filter_general = jQuery.pnotify({
+			pnotify_title: 'Handbuch',
+		    pnotify_text: 'Das Handbuch wurde geöffnet.<br>Link: <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend">http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend</a>',
+		    pnotify_notice_icon: 'ui-icon ui-icon-link',
+		    pnotify_type: 'notice'
+		});
+	});
+	
+	//auf website klicken
+	jQuery('#link_homepage').click(function() {
+		note_filter_general = jQuery.pnotify({
+			pnotify_title: 'Website',
+		    pnotify_text: 'Die Homepage wurde aufgerufen.<br>Link: <a href="http://www.dmoritz.bplaced.net">http://www.dmoritz.bplaced.net</a>',
+		    pnotify_notice_icon: 'ui-icon ui-icon-link',
+		    pnotify_type: 'notice'
+		});
+	});
+	
+	//auf website klicken
+	jQuery('#link_project').click(function() {
+		note_filter_general = jQuery.pnotify({
+			pnotify_title: 'Projektseite',
+		    pnotify_text: 'Die Projektseite wurde geöffnet.<br>Link: <a href="http://verplan.googlecode.com">http://verplan.googlecode.com</a>',
+		    pnotify_notice_icon: 'ui-icon ui-icon-link',
+		    pnotify_type: 'notice'
+		});
+	});
+	
+	//auf feedback klicken
+	jQuery('#feedy_oi').click(function() {
+		note_filter_general = jQuery.pnotify({
+			pnotify_title: 'Feedbackbogen',
+		    pnotify_text: 'Der Feedbackbogen wurde geöffnet.<br>Link: <a href="http://verplan.googlecode.com">http://verplan.googlecode.com</a>',
+		    pnotify_notice_icon: 'ui-icon ui-icon-link',
+		    pnotify_type: 'notice'
+		});
+	});
+	
+	
+	//auf link klicken
+	/*jQuery('a').click(function() {
+		if (jQuery(this).attr('href') != '#') {
+			note_filter_general = jQuery.pnotify({
+				pnotify_title: 'Link',
+			    pnotify_text: 'Die Seite "'+jQuery(this).attr('href')+'" wurde geöffnet.',
+			    pnotify_notice_icon: 'ui-icon ui-icon-link',
+			    pnotify_type: 'notice'
+			});
+		}
+	});*/
 }
 
 /**
@@ -190,6 +316,7 @@ var hintshown = false;
  */
 function showHint(text, type, width, name) {
 	hintshown = true;
+	
 	console.log('hintshown');
 	
 	if (!width) {

@@ -29,7 +29,9 @@ $document->addStylesheet($baseurl.'includes/css/table.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.kiketable.colsizable.css');
 $document->addStylesheet($baseurl.'includes/css/ui.selectmenu.css');
 $document->addStylesheet($baseurl.'includes/css/prettyPhoto.css');
+$document->addStylesheet($baseurl.'includes/css/jquery.pnotify.default.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.clearableTextField.css');
+
 $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
 
 /*
@@ -62,6 +64,7 @@ $document->addScript($baseurl.'includes/js/plugins/ui.selectmenu.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.history.js');
 $document->addScript($baseurl.'includes/js/plugins/themeswitchertool.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.prettyPhoto.js');
+$document->addScript($baseurl.'includes/js/plugins/jquery.pnotify.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.clearableTextField.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.cookie.js');
 
