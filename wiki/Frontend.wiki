@@ -1,5 +1,16 @@
 #summary Erklärungen zur Arbeitsweise des Frontends
 
 = Einleitung=
+Das Frontend besteht aus zwei Teilen. Einer normalen Anzeige und einer für mobile Geräte. Beides sind verschiedene Views. 
 
 <wiki:toc max_depth="3" />
+
+= Das Standardfrontend =
+== Viewcontroller und Template==
+Das Standardfrontend besteht aus dem Viewcontroller (`views/verplan/view.html.php`), der Templatedatei (`views/verplan/tmpl/default.php`), und einigen zusätzlichen Dateien (`includes`). Da das Frontend mit Ajax arbeitet, werden die Daten (außer einmal am Anfang) über eine URL nachgeladen. Die Daten gelangen über die [Verplan_API] in das Frontend. 
+
+Bei der Datei `view.html.php` handelt es sich um eine Datei, in der eine Klasse existiert, welche GET Paramter einliest (vor allem wichtig, wenn js deaktiviert) und die Daten, die das Frontend benötigt (Einstellungen usw) bereitstellt. 
+Die Datei `tmpl/default.php` enthält das Template für das View. Das Tempalte sorgt für die HTML Ausgabe und lädt auch die benötigten Javascripte und Stylesheets (über /inc/scripts.inc.php). Die Scripte liegen in `includes/js` und die Stylesheets und `includes/css`. 
+
+
+= Das Frontend für mobile Geräte=
