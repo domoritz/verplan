@@ -3,6 +3,8 @@
 = Einleitung=
 Das Frontend besteht aus zwei Teilen. Einer normalen Anzeige und einer für mobile Geräte. Beides sind verschiedene Views. 
 
+In dieser Dokumentation ist längst nicht alles erklärt, dafür gibt es viele Kommentare im Quellcode. Hier gibt es einen Überblick über das Programm und besondere Knackpunkte. 
+
 <wiki:toc max_depth="3" />
 
 = Das Standardfrontend =
