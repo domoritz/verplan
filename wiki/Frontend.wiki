@@ -29,7 +29,7 @@ jQuery.historyInit(loadverplan,'index.php');
 }}}
 Hier wird die Browserhistory initialisiert und die Funktion `loadverplan()` aufgerufen, welche für die Verarbeitung des Hashwertes verantwortlich ist. Die Funktion `loadverplan()` wird immer aufgerufen, wenn entweder Vor und Zurück gesprungen oder die Funktion `jQuery.historyLoad(hash);` aufgerufen wird. 
 
-Der Ajaxaufruf, welcher auf die [Verplan_API Verplan API] zurückgreift, befindet sich in der Datei `ajaxjson.js`. Die effekte, die sich von und nach einem Ajaxrequest durchgeführt werden, findest du in der Datei `ajaxeffects`.
+Der Ajaxaufruf, welcher auf die [Verplan_API Verplan API] zurückgreift, befindet sich in der Datei `ajaxjson.js`. Die Effekte, die sich von und nach einem Ajaxrequest durchgeführt werden, findest du in der Datei `ajaxeffects`.
 
 Der Aufruf der Daten (die als json vorliegen), geschieht mit
 
@@ -59,7 +59,7 @@ jQuery.ajax( {
 });
 }}}
 
-Nachdem die Daten erfolgreich geladen wurden, werden sie an `JSONsuccess()` weitergegeben. Hier werden die Daten ausgewertet. Falls eine tabelle angezeigt werden soll, wird dies mit `buildTableFromJSON()` erledigt. Falls ein Link zum Vertretungsplan (oder ein Hinweis, dass es keinen gibt) angezeigt werden soll, wird das direkt in der Funktion erledigt. 
+Nachdem die Daten erfolgreich geladen wurden, werden sie an `JSONsuccess()` weitergegeben. Hier werden die Daten ausgewertet. Falls eine Tabelle angezeigt werden soll, wird dies mit `buildTableFromJSON()` erledigt. Falls ein Link zum Vertretungsplan (oder ein Hinweis, dass es keinen gibt) angezeigt werden soll, wird das direkt in der Funktion erledigt. 
 
 Die Auswahl des Vorgehens passiert mit einer Switch Anweiseung
 
@@ -77,6 +77,21 @@ default:
 }
 }}}
 
+=== Notification System ===
+Es ist möglich eigene Benachrichtigungen anzuzeigen. Dazu gibt es in der Datei `general.js` die Funktionen `showHint()` und `hideHint()`. Um eine Nachricht erst nach einer gerade noch angezeigt anzuzeigen sollte man ein Intervall starten, welches wartet, bis eine Nachricht ausgeblendet ist. Ein Bsp kann so aussehen:
+{{{
+clearInterval(myInterval2);
+
+console.log('start listener');
+myInterval2 = setInterval(function() {
+	console.log('wait for hint');
+	if (hintshown == false) {
+		clearInterval(myInterval2);
+		hintshown == true;
+		setTimeout("showHint('Fehler. Es existiert kein Plan für das gewählte Datum.', 'warn', '400px', 'noplan');", 200);
+	}
+},100);
+}}}
 
 === Die Dateien ".js.php" ===
 Um Daten (z.B. Einstellungen) von PHP nach JS zu bekommen, habe ich einige Extradateien geschrieben, die die Endung `js.php` haben. 
@@ -84,4 +99,5 @@ Um Daten (z.B. Einstellungen) von PHP nach JS zu bekommen, habe ich einige Extra
 == Das Design ==
 Das gesamte Template ist so gestaltet, dass es jQueryUI kompatibel ist und alle [http://jqueryui.com/themeroller/#themeGallery jQueryUI Themes] verwendet werden können. Es ist "Themeswitcherkompatibel".
 
-= Das Frontend für mobile Geräte=
+= Das Frontend für mobile Geräte =
+Diese Seite wird mit dem Parameter `view=mobile` aufgerufen und ist für mobile Endgeräte optimiert. Diese Seite hat keine Ajaxfunktionalitäten und arbeitet nur mit PHP. Diese Seite arbeitet genauso, wie die normale Anzeige, eignet sich also sehr gut, um zu verstehen, wie die Seite arbeitet, wenn JS deaktiviert ist. 
