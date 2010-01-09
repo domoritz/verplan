@@ -191,5 +191,5 @@ Hier eine kurze Erklärung der Unterarrays
   * *cols* - Informationen der Spalten
   * *rows* - Informationen der Zeilen (der einzelnen Vertretungen)
 
-= Woher kommen die Daten =
+= Woher kommen die Daten? =
 Die URL, welche aufgerufen wird, zeigt das View `verplan` und darin die Dateien `view.js.php` und `/tmpl/default_json` an. Die Parameter werden per GET an die Datei `view.js.php` übergeben und von dort aus an das Template weitergegeben. 
