@@ -193,3 +193,4 @@ Hier eine kurze Erklärung der Unterarrays
 
 = Woher kommen die Daten? =
 Die URL, welche aufgerufen wird, zeigt das View `verplan` und darin die Dateien `view.js.php` und `/tmpl/default_json` an. Die Parameter werden per GET an die Datei `view.js.php` übergeben und von dort aus an das Template weitergegeben. 
+Die Daten kommen aus dem Controller `plan`, der sie wiederum aus verschiedenen Controllern und Models zusammengesetzt hat.  
