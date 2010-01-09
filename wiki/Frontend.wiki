@@ -27,10 +27,61 @@ Aus diesem Grund findest du in der Datei `general.js` folgenden Code
 {{{
 jQuery.historyInit(loadverplan,'index.php');
 }}}
-Hier wird die Browserhistory initialisiert und die Funktion `loadverplan` aufgerufen, welche für die Verarbeitung des Hashwertes verantwortlich ist. 
+Hier wird die Browserhistory initialisiert und die Funktion `loadverplan()` aufgerufen, welche für die Verarbeitung des Hashwertes verantwortlich ist. Die Funktion `loadverplan()` wird immer aufgerufen, wenn entweder Vor und Zurück gesprungen oder die Funktion `jQuery.historyLoad(hash);` aufgerufen wird. 
+
+Der Ajaxaufruf, welcher auf die [Verplan_API Verplan API] zurückgreift, befindet sich in der Datei `ajaxjson.js`. Die effekte, die sich von und nach einem Ajaxrequest durchgeführt werden, findest du in der Datei `ajaxeffects`.
+
+Der Aufruf der Daten (die als json vorliegen), geschieht mit
+
+{{{
+jQuery.ajax( {
+	type : "GET",
+	dataType : "json",
+	url : rooturl + "index.php",
+	data : 'option=com_verplan&view=verplan&format=js&date=' + ajax_date
+			+ '&stand=' + ajax_stand + '&options=' + ajax_options,
+	timeout: (4 * 1000),
+	async : true,
+	global : true,
+	success : function(XMLHttpRequest, textStatus) {
+		if (XMLHttpRequest.infos == '') {
+			JSONfail(XMLHttpRequest, textStatus);
+		} else {
+			JSONsuccess(XMLHttpRequest, textStatus);
+		}
+	},
+	error : function(XMLHttpRequest, textStatus, errorThrown) {
+		if (errorThrown) {
+			alert('XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
+		}
+	},
+	complete: ajaxcomplete		
+});
+}}}
+
+Nachdem die Daten erfolgreich geladen wurden, werden sie an `JSONsuccess()` weitergegeben. Hier werden die Daten ausgewertet. Falls eine tabelle angezeigt werden soll, wird dies mit `buildTableFromJSON()` erledigt. Falls ein Link zum Vertretungsplan (oder ein Hinweis, dass es keinen gibt) angezeigt werden soll, wird das direkt in der Funktion erledigt. 
+
+Die Auswahl des Vorgehens passiert mit einer Switch Anweiseung
+
+{{{
+switch (json.infos[length].type) {
+	case 'db':
+		//Datenbank
+		break;
+	case 'none':
+                //kein plan
+		break;
+	default:
+                //eine datei
+		break;
+	}
+}}}
 
 
-=== Die Dateien '.js.php' ===
+=== Die Dateien ".js.php" ===
 Um Daten (z.B. Einstellungen) von PHP nach JS zu bekommen, habe ich einige Extradateien geschrieben, die die Endung `js.php` haben. 
+
+== Das Design ==
+Das gesamte Template ist so gestaltet, dass es jQueryUI kompatibel ist und alle [http://jqueryui.com/themeroller/#themeGallery jQueryUI Themes] verwendet werden können. Es ist "Themeswitcherkompatibel".
 
 = Das Frontend für mobile Geräte=
