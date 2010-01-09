@@ -65,16 +65,16 @@ Die Auswahl des Vorgehens passiert mit einer Switch Anweiseung
 
 {{{
 switch (json.infos[length].type) {
-	case 'db':
-		//Datenbank
-		break;
-	case 'none':
-                //kein plan
-		break;
-	default:
-                //eine datei
-		break;
-	}
+case 'db':
+	//Datenbank
+	break;
+case 'none':
+        //kein plan
+	break;
+default:
+        //eine datei
+	break;
+}
 }}}
 
 
