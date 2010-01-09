@@ -83,6 +83,7 @@ default:
 }}}
 
 === Notification System ===
+==== own ====
 Es ist möglich eigene Benachrichtigungen anzuzeigen. Dazu gibt es in der Datei `general.js` die Funktionen `showHint()` und `hideHint()`. Um eine Nachricht erst nach einer gerade noch angezeigt anzuzeigen sollte man ein Intervall starten, welches wartet, bis eine Nachricht ausgeblendet ist. Ein Bsp kann so aussehen:
 {{{
 clearInterval(myInterval2);
@@ -97,6 +98,9 @@ myInterval2 = setInterval(function() {
 	}
 },100);
 }}}
+
+==== pnotify ====
+[http://pines.svn.sourceforge.net/viewvc/pines/sandbox/notify/notify.html Pnotify] ist ein jQuery Notification System, welches viele Möglichkeiten bietet und stabil läuft. Mit diesem System ist es viel einfacher, mehrere Nachrichten zusammen anzuzeigen. Leider verbraucht es viel Platz und verdeckt andere Elemente. Damit ist es für viele Webseiten ungeeignet. 
 
 === Filter ===
 In den erweiterten Optionen gibt es die Möglichkeit, die Tabelle zu filtern. Die erste Möglichkeit sollte selbst klärend sein. Bei dem Filter handelt es sich um einen Livefilter, der nicht extra bestätigt werden muss. Das entsprechend Plugin heißt [http://gregweber.info/projects/uitablefilter uiTablefilter]. 
