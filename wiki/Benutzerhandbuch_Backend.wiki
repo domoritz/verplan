@@ -90,7 +90,7 @@ Verzeichnis, in dem die Vertretungspläne liegen, auf die auch vom Frontend aus 
 == number_show ==
 Anzahl der in der Auswahlliste im Frontend anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt und zählen nicht mit zu dieser Zahl. 
 
-== load_jquery_ und load_jqueryui_ ==
+== load_jquery und load_jqueryui ==
 Einstellung, ob die Javascriptbibliothek [http://jquery.com/ jQuery]  bzw deren Oberflächenbibliothek [http://jqueryui.com/ jQueryUI] geladen werden soll. Normalerweise sollte dies aktiviert bleiben, außer, wenn jQuery anders geladen wird. Das Programm verwendet den [http://docs.jquery.com/Using_jQuery_with_Other_Libraries jQuery noConflict mode]. 
 
 == debug ==
