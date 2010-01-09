@@ -168,7 +168,7 @@ if ($this->mobile == true) {
  
 <p id="expander_options" class="ui-state-default ui-corner-bottom">
 	<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
-				erweiterte Optionen
+				erweiterte Funktionen
 </p>
 </div>
 

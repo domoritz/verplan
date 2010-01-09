@@ -110,4 +110,5 @@ VALUES
 ('15' , 'load_jqueryui_backend', 'true', 'true','jQueryUI laden (Backend)'),
 ('16' , 'debug', 'false', 'false','Debug Mode für JS'),
 ('17' , 'class_col', '(Klasse(n))', '(Klasse(n))','Spaltenname der Klassenspalte'),
-('18' , 'class_name', '(Klasse(n))', '(Klasse(n))','Variablenname der Klassenspalte in JSON');
+('18' , 'class_name', '(Klasse(n))', '(Klasse(n))','Variablenname der Klassenspalte in JSON'),
+('19' , 'notify', 'own', 'own', 'Notificationsystem: own, pnotify oder both');
