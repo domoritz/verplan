@@ -260,7 +260,7 @@
 		// Display a pull down menu to redisplay previous notices, and place this notice in the history.
 		pnotify_history: true,
 		// Width of the notice.
-		pnotify_width: "300px",
+		pnotify_width: "250px",
 		// Minimum height of the notice. It will expand to fit content.
 		pnotify_min_height: "16px",
 		// Type of the notice. "notice" or "error".
@@ -272,7 +272,7 @@
 		// Speed at which the notice fades in and out. "slow", "def", "fast" or number of milliseconds.
 		pnotify_fade_speed: "slow",
 		// Opacity to fade to.
-		pnotify_opacity: 1,
+		pnotify_opacity: 0.95,
 		// Provide a button for the user to manually close a notice.
 		pnotify_closer: true,
 		// After a delay, make the notice disappear.
