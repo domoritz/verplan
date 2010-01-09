@@ -40,6 +40,7 @@ function table_init(){
     	
     	    //entfernt leerzeichen am anfang und ende
     		s = jQuery.trim(s);
+    		//regulärer ausdruck zum erkennen, ob die spalte als "klasse" behandelt werden soll
     		var reg = new RegExp("^[0-9]{0,2}( )*[a-z]{0,1}$", "i");
 	    	//alert(is!=-1);
 	    	//return false so this parser is not auto detected 

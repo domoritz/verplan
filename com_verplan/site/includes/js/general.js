@@ -67,12 +67,17 @@ jQuery(document).ready(function(){
 	}
 	
 	// Check if url hash value exists (for bookmark)
-	// und initialisierung
-	jQuery.history.init(initverplan);
+	// und initialisierung der historyfunktion
+	jQuery.historyInit(loadverplan,'index.php');
 
 });
 
-function initverplan(hash) {
+/**
+ * initialisierung (aufgerufen von history)
+ * @param hash
+ * @return
+ */
+function loadverplan(hash) {
 	//die intervalle beenden, die darauf warten, dass eine nachricht ausgeblendet wird
 	clearInterval(myInterval);
 	clearInterval(myInterval2);
@@ -164,6 +169,8 @@ jQuery.fn.chain = function(fn) {
   nextAction();
 };
 
+
+/*own notification system*/
 
 /**
  * variable, die anzeigt, ob ein hinweis angezeigt wird

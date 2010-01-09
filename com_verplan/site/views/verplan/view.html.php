@@ -33,7 +33,6 @@ class verplanViewverplan extends JView
 		if ((check_mobile() || JRequest::getVar('mobile') == 'true') && JRequest::getVar('mobile') != 'false'){
 			//$this->setRedirect( 'index.php?option=com_verplan&view=mobile', $msg );
 			//header( JURI::base().'/index.php?option=com_verplan&view=mobile' );
-			//TODO weiterleiten oder anders nutzen
 			$mobile = true;
 			$this->assignRef('mobile',$mobile);			
 		}

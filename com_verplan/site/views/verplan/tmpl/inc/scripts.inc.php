@@ -1,11 +1,11 @@
-<?php 
+<?php
 /**
  * in dieser php datei stehen alle includes für alle
  * css stylesheets und javascriptdateien
- * 
- * die reihenfolge ist oft wichtig, da einige scrite von 
+ *
+ * die reihenfolge ist oft wichtig, da einige scrite von
  * anderen abhängen
- * 
+ *
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -70,12 +70,8 @@ $document->addScript($baseurl.'includes/js/plugins/jquery.cookie.js');
 //$document->addCustomTag( "<script type=\"text/javascript\">google.load('visualization', '1', {packages: ['table']});</script>" );
 //$document->addScript($baseurl.'includes/dataTables-1.5/media/js/jQuery.dataTables.js');
 
+$min = false;
 
-//eigene scripts
-$document->addScript($baseurl.'includes/js/filters.js');
-$document->addScript($baseurl.'includes/js/tableplugins.js');
-$document->addScript($baseurl.'includes/js/hide_options.js');
-$document->addScript($baseurl.'includes/js/boxes.js');
 
 //schripts, die php beinhalten
 $document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
@@ -83,8 +79,19 @@ $document->addScript($baseurl.'includes/js/colname.js.php?col='.$this->classname
 $document->addScript($baseurl.'includes/js/varname.js.php?var='.$this->varname);
 $document->addScript($baseurl.'includes/js/debug.js.php?debug='.$this->debugmode);
 
-$document->addScript($baseurl.'includes/js/general.js');
-$document->addScript($baseurl.'includes/js/ajaxjson.js'); //ajax nach gereral, da hash
-$document->addScript($baseurl.'includes/js/ajaxeffects.js');
-$document->addScript($baseurl.'includes/js/ui.js'); //ui muss nach general, da select in general gesetzt
-$document->addScript($baseurl.'includes/js/tooltips.js');
+if ($min) {
+	$document->addScript($baseurl.'includes/js/final-min.js');
+}
+
+//eigene scripts
+if (!$min) {
+	$document->addScript($baseurl.'includes/js/filters.js');
+	$document->addScript($baseurl.'includes/js/tableplugins.js');
+	$document->addScript($baseurl.'includes/js/hide_options.js');
+	$document->addScript($baseurl.'includes/js/boxes.js');
+	$document->addScript($baseurl.'includes/js/general.js');
+	$document->addScript($baseurl.'includes/js/ajaxjson.js'); //ajax nach gereral, da hash
+	$document->addScript($baseurl.'includes/js/ajaxeffects.js');
+	$document->addScript($baseurl.'includes/js/ui.js'); //ui muss nach general, da select in general gesetzt
+	$document->addScript($baseurl.'includes/js/tooltips.js');
+}
