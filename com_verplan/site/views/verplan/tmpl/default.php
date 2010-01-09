@@ -42,7 +42,7 @@ if ($this->mobile == true) {
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
 	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
-	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head"><img alt="Hilfe" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/help_contents_32.png"></a>
+	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head"><img alt="Benutzerhandbuch" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p>
 		<?php echo $this->einltext?>
 	</p>
@@ -264,12 +264,12 @@ if ($this->mobile == true) {
 <div id ="miniindi" style="display: block" class="miniloader"></div>
 
 <div id="table_footer" class="ui-widget-header ui-corner-bottom ui-helper-clearfix">
-	<span id="hpvvp" class="left_float"><a href="http://code.google.com/p/verplan/" target="_blank">Verplan Web Application | Version:  <?php echo $version;?></a></span>
+	<span id="hpvvp" class="left_float"><a href="http://code.google.com/p/verplan/" target="_blank" id="link_project">Verplan Web Application | Version:  <?php echo $version;?></a></span>
 	
 	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all">
 		<span class="ui-icon ui-icon-circle-arrow-n"></span>
 	</a>
-	<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2010</a></span>
+	<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank" id="link_homepage">Dominik Moritz, 2010</a></span>
 </div>
 
 </div>

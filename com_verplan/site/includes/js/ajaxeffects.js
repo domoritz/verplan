@@ -11,6 +11,8 @@ var speed = 500;
 var effects = true;
 var effects_indi = true;
 
+var note_loader;
+
 function hideNoDB() {
 	if (jQuery('#no_db').css('display') != 'none') {
 		if (effects) {
@@ -34,6 +36,15 @@ function showIndicator() {
 		jQuery('#loading').fadeIn('fast');
 		//jQuery('#loader_overlay').fadeIn('fast');
 		showHint('Lade Daten...', 'info', '250px', 'loady');
+		
+		note_loader = jQuery.pnotify({
+			pnotify_title: "Lade Daten...",
+			pnotify_text: "Daten des Vertretungsplanes werden geladen. Bitte warten.",
+			//pnotify_notice_icon: '',
+			pnotify_hide: false,
+			pnotify_history: false
+		});
+
 	}
 }
 
@@ -43,6 +54,12 @@ function hideIndicator() {
 		//jQuery('#loader_overlay').pause(0).fadeOut(1500);		
 		
 		hideHint(1500);
+		
+		setTimeout(function(){
+			// Remove the loader.
+			note_loader.pnotify_remove();
+		}, 2000);
+
 	}
 }
 
