@@ -74,13 +74,18 @@ $document->addScript($baseurl.'includes/js/plugins/jquery.cookie.js');
 
 $min = false;
 
+//einstellungen
+$document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
+$document->addScript($baseurl.'includes/js/settings.js');
 
 //schripts, die php beinhalten
 $document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
-$document->addScript($baseurl.'includes/js/colname.js.php?col='.$this->classname);
+/*$document->addScript($baseurl.'includes/js/colname.js.php?col='.$this->classname);
 $document->addScript($baseurl.'includes/js/varname.js.php?var='.$this->varname);
 $document->addScript($baseurl.'includes/js/debug.js.php?debug='.$this->debugmode);
 $document->addScript($baseurl.'includes/js/notify.js.php?notify='.$this->notify);
+//$document->addScript($baseurl.'includes/js/message.js.php?message='.$this->message.'&message_title='.$this->message_title);
+*/
 
 if ($min) {
 	$document->addScript($baseurl.'includes/js/final-min.js');
