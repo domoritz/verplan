@@ -37,6 +37,10 @@ class verplanModelverplan extends JModel
 		return $nojs;
 	}// function
 	
+	/**
+	 * header text, wird nciht verwendet (sondern setting)
+	 * @return unknown_type
+	 */
 	function getText()
 	{
 		$einltext = '

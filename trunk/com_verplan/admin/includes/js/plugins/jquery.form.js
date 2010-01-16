@@ -432,7 +432,7 @@ $.fn.formToArray = function(semantic) {
 		if (semantic && form.clk && el.type == "image") {
 			// handle image inputs on the fly when semantic == true
 			if(!el.disabled && form.clk == el) {
-				a.push({name: n, value: $(el).val()});
+				a.push({name: n, value: $(el).val() });
 				a.push({name: n+'.x', value: form.clk_x}, {name: n+'.y', value: form.clk_y});
 			}
 			continue;

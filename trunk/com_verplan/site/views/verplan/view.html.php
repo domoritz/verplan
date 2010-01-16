@@ -44,10 +44,6 @@ class verplanViewverplan extends JView
 		$nojs = $model->getNojs(); 
 		$this->assignRef('nojs',$nojs);
 		
-		//einleitungstext
-		$einltext = $model->getText(); 		
-		$this->assignRef('einltext',$einltext);
-		
 		//variablen, wichtig falls js deaktiviert
 		$date = JRequest::getVar('date','none');
 		$stand = JRequest::getVar('stand','latest');
@@ -170,12 +166,24 @@ class verplanViewverplan extends JView
 		$this->assignRef( 'classname', $classname);
 		$varname = $settingsmodel->getSetting('class_name');
 		$this->assignRef( 'varname', $varname);
+		
 		//debugmode
 		$debug = $settingsmodel->getSetting('debug');
 		$this->assignRef( 'debugmode', $debug);
+		
 		//notify
 		$notify = $settingsmodel->getSetting('notify');
 		$this->assignRef( 'notify', $notify);
+		
+		//einleitungstext
+		$einltext = $settingsmodel->getSetting('head_text'); 		
+		$this->assignRef('einltext',$einltext);
+		
+		//message
+		$message = $settingsmodel->getSetting('message'); 		
+		$this->assignRef('message',$message);
+		$message_title = $settingsmodel->getSetting('message_title'); 		
+		$this->assignRef('message_title',$message_title);
 		
 		//versionsnummer
 		//version number

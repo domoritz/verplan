@@ -38,11 +38,16 @@ class VerplanControllerSettings extends verplanController
 	 * speichert die einstellungen
 	 * @return void
 	 */
-	function setSettings() {
-		//debug
-		//var_dump(JRequest::get('settings'));	
-		
+	function setSettings() {		
 		$arr_in = JRequest::get('settings');
+		
+		//Probleme mit getVar, weil html entfernt beheben
+		$arr_in['message'] = JRequest::getVar('message', '', '' , 'STRING', JREQUEST_ALLOWRAW);
+		$arr_in['head_text'] = JRequest::getVar('head_text', '', '' , 'STRING', JREQUEST_ALLOWRAW);
+		//echo htmlentities($arr_in['head_text']);
+		
+		//debug
+		var_dump($arr_in);
 		
 		$i = 0;
 		foreach ($arr_in as $setting => $value) {
