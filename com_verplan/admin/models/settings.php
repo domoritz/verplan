@@ -38,7 +38,7 @@ class VerplanModelSettings extends JModel
 	 * 		=> name
 	 * 		=> ...
 	 * zurueck
-	 * 
+	 *
 	 * @return array
 	 */
 	function getSettings(){
@@ -48,7 +48,7 @@ class VerplanModelSettings extends JModel
 		$query = 'SELECT * FROM `#__com_verplan_settings`';
 		$db->setQuery( $query );
 		$settingsarray = $db->loadAssocList('name');
-		
+
 		//debug
 		//var_dump($settingsarray);
 			
@@ -95,14 +95,38 @@ class VerplanModelSettings extends JModel
 	function setSettings($data){
 		//var_dump($data);
 
+		//$data = $this->array_htmlentities($data);
+		
+		//var_dump($data);
+
 		foreach ($data as $id => $subarray) {
 			$table =& $this->getTable();
 			if (!$table->save($subarray)){
 				JError::raiseWarning( 500, $table->getError() );
 			}
 		}
-		
+
 		return true;
 
 	}
+
+	/**
+	 * wandelt alle values eines arrays mit htmlentities um
+	 * 
+	 * @param $elem
+	 * @return unknown_type
+	 */
+	function array_htmlentities(&$elem)
+	{
+		if (!is_array($elem))
+		{
+			$elem=htmlentities($elem);
+		}
+		else
+		{
+			foreach ($elem as $key=>$value)
+			$elem[$key]=$this->array_htmlentities($value);
+		}
+		return $elem;
+	} // array_htmlentities()
 }

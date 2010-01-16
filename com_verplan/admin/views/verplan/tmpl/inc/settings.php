@@ -11,6 +11,7 @@
  */
 ?>
 
+
 <a href="#settings_header" id="settings_header" class="expander plus">Parameter/ Einstellungen<span id="ajax_indicator_1">loading...</span></a>
 <div id="admin_settings_div" class="verschwinder">
 
@@ -52,8 +53,18 @@
 			?>
 			<tr class="<?php echo $zebra ?>">
 				<td style="width: 20px"><?php echo $setting['id']; ?></td>	
-				<td style="width: 90px"><?php echo $setting['name']; ?></td>			
-				<td style="width: 130px"><input size="40" type="text" name="<?php echo $setting['name'] ?>" value="<?php echo $setting['value']; ?>" /></td>
+				<td style="width: 90px"><?php echo $setting['name']; ?></td>	
+				<?php 
+				if ($setting['name'] == 'message' || $setting['name'] == 'head_text' ) {
+					?>
+					<td style="width: 130px"><textarea name="<?php echo $setting['name'] ?>" cols="40" rows="5"><?php echo $setting['value']; ?></textarea></td>
+					
+					<?php
+				} else {
+					?>		
+					<td style="width: 130px"><input size="40" type="text" name="<?php echo $setting['name'] ?>" value="<?php echo $setting['value']; ?>" /></td>
+					<?php 
+				}?>
 				<td style="width: 130px" class="def_td"><?php echo $setting['default']; ?></td>
 				<td style="min-width: 300px;"><label><?php echo $setting['de']; ?></label></td>
 			</tr>
