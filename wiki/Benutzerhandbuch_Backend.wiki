@@ -106,13 +106,14 @@ Hier geht es um den Namen der Datenspalte mit den Klassen, wie er auch in der Da
 Auswahl des Notification (Benachrichtigungs) System. Es stehen mein eigenes own und das [http://pines.svn.sourceforge.net/viewvc/pines/sandbox/notify/notify.html pnotify] zur Auswahl.
 
 == head_text ==
-Text, der auf der Frontendseite ganz oben zwischen der Logo und dem Benutzerhanbuch-Icon steht. HTML ist möglich.
+Text, der auf der Frontendseite ganz oben zwischen der Logo und dem Benutzerhandbuch-Icon steht. HTML ist möglich.
 
 == message_title ==
 Titel einer benutzerdefinierten Notification (setzt pnotify voraus). Diese Einstellung (mit der nächsten zusammen) eröffnet die Möglichkeit, die User auf bestimmte Ereignisse oder Besonderheiten aufmerksam zu machen. Siehe auch [Benutzerhandbuch_Backend#message]
 
 == message ==
 Nachrichtentext der pnotify Nachricht. Siehe auch [Benutzerhandbuch_Backend#message_title]
+HTML ist möglich. 
 
 = Spalten =
 
