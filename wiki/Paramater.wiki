@@ -32,7 +32,7 @@ $load_jquery = $settingsmodel->getSetting('load_jquery_frontend');
 }}}
 
 == im Frontend ==
-Im Frontend können die Einstellungen mit den o.g. Funktionen geladen werden. Das Funktioniert allerdings nur solange man mit PHP arbeitet. Um die Einstellungen in Javascript zu laden muss man etwas anders vorgehen. Die Einstellungen werden beim Starten des Programmes per Ajay geladen. Das geschieht in der Datei `settings.js`. Eine bestimmte Einstellung wird über 
+Im Frontend können die Einstellungen mit den o.g. Funktionen geladen werden. Das Funktioniert allerdings nur solange man mit PHP arbeitet. Um die Einstellungen in Javascript zu laden muss man etwas anders vorgehen. Die Einstellungen werden beim Starten des Programmes per Ajax geladen. Das geschieht in der Datei `settings.js`. Eine bestimmte Einstellung wird über 
 {{{
 settings.<NAME DER EINSTELLUNG>.value
 }}}
