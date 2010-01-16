@@ -109,10 +109,10 @@ Auswahl des Notification (Benachrichtigungs) System. Es stehen mein eigenes own 
 Text, der auf der Frontendseite ganz oben zwischen der Logo und dem Benutzerhandbuch-Icon steht. HTML ist möglich.
 
 == message_title ==
-Titel einer benutzerdefinierten Notification (setzt pnotify voraus). Diese Einstellung (mit der nächsten zusammen) eröffnet die Möglichkeit, die User auf bestimmte Ereignisse oder Besonderheiten aufmerksam zu machen. Siehe auch [Benutzerhandbuch_Backend#message]
+Titel einer benutzerdefinierten Notification (setzt pnotify voraus). Diese Einstellung (mit der nächsten zusammen) eröffnet die Möglichkeit, die User auf bestimmte Ereignisse oder Besonderheiten aufmerksam zu machen. Siehe auch [#message]
 
 == message ==
-Nachrichtentext der pnotify Nachricht. Siehe auch [Benutzerhandbuch_Backend#message_title]
+Nachrichtentext der pnotify Nachricht. Siehe auch [#message_title]
 HTML ist möglich. 
 
 = Spalten =
