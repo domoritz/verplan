@@ -32,7 +32,7 @@ $document->addStylesheet($baseurl.'includes/css/prettyPhoto.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.pnotify.default.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.clearableTextField.css');
 
-$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
+$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/themes/ui-darkness/jquery-ui.css');
 
 /*
  * scripts
@@ -40,8 +40,7 @@ $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/th
 
 //jQuery hinzufügen
 if ($this->load_jquery == 'true') {
-	//$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.js');
-	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js');
+	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js');
 }
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
