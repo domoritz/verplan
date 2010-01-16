@@ -18,7 +18,7 @@ $document =& JFactory::getDocument();
 //jQuery support
 $settings = $this->settings;
 if ($settings['load_jquery_backend']['value'] == 'true') {
-	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js');
+	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js');
 }
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
@@ -26,7 +26,7 @@ $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</s
 
 if ($settings['load_jqueryui_backend']['value'] == 'true') {
 	$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
-	$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/ui-darkness/jquery-ui.css');
+	$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/themes/ui-darkness/jquery-ui.css');
 }
 
 $document->addScript('http://jqueryui.com/ui/i18n/ui.datepicker-de.js');
