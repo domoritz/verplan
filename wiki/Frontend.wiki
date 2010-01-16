@@ -111,6 +111,7 @@ Es gibt die Möglichkeit das Filtereingabefeld direkt zu leeren. Dazu habe ich d
 
 === Die Dateien ".js.php" ===
 Um Daten (z.B. Einstellungen) von PHP nach JS zu bekommen, habe ich einige Extradateien geschrieben, die die Endung `js.php` haben. 
+Einen Großen Teil der Dateien konnte ich durch die Datei `settinge.js` ersetzen, die alle Einstellungen per Ajax lädt. Weitere Informationen: [Paramater#im_Frontend]
 
 == Das Design ==
 Das gesamte Template ist so gestaltet, dass es jQueryUI kompatibel ist und alle [http://jqueryui.com/themeroller/#themeGallery jQueryUI Themes] verwendet werden können. Es ist "Themeswitcherkompatibel".
