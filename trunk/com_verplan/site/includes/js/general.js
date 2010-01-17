@@ -21,7 +21,7 @@ if (typeof console == "undefined") {
 		time: function() {},
 		timeEnd: function() {} 
 	};
-} else if (!debugging || typeof console.log == "undefined") {
+} else if (!debugging && typeof console.log != "undefined") {
 	console.log = function() {};
 	console.time = function() {};
 	console.timeEnd = function() {};
@@ -39,15 +39,32 @@ var hash;
  */
 var _alert;
 
+jQuery(document).ready(function(){
+	
+	// setzt den hashwert, falls er noch nicht gesetzt ist
+	hash = getHash();
+	if (!hash) {
+		hash = jQuery('#select_date_verplan').val();
+		setHash(hash);
+	}
+	
+	// startet anschließend initiate_everything
+	getSettings();
+});
+
 /**
- * initialisierung
+ * initialisierung, gestartet von settings.js aus
  */
-jQuery(document).ready(function(){	
-	if (notify == 'pnotify' || notify == 'both') {
+function initiate_everything(){	
+	console.log('initiate everything');
+	
+	if ((notify == 'pnotify' || notify == 'both') && settings.message_title.value != '') {
 		//Meldung
 		jQuery.pnotify({
-		    pnotify_title: 'Vorabversion',
-		    pnotify_text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <a title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA" target="_blank" id="feedy_oi"><strong>Feedback</strong></a> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
+			pnotify_title: settings.message_title.value,
+			pnotify_text: settings.message.value,
+		    //pnotify_title: 'Vorabversion',
+		    //pnotify_text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <a title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA" target="_blank" id="feedy_oi"><strong>Feedback</strong></a> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
 		    pnotify_notice_icon: 'ui-icon ui-icon-star',
 		    pnotify_type: 'notice',
 		    pnotify_hide: false
@@ -55,8 +72,7 @@ jQuery(document).ready(function(){
 		
 		//alerts umleiten
 		consume_alert();
-	}
-	
+	}	
 	
 	// rooturl der joomlainstallation
 	rooturl = getURL();
@@ -86,16 +102,16 @@ jQuery(document).ready(function(){
 	 */
 	
 	// setzt den hashwert, falls er noch nicht gesetzt ist
-	if (!hash) {
+	/*if (!hash) {
 		hash = jQuery('#select_date_verplan').val();
 		setHash(hash);
-	}
+	}*/
 	
 	// Check if url hash value exists (for bookmark)
 	// und initialisierung der historyfunktion
 	jQuery.historyInit(loadverplan,'index.php');
 
-});
+}
 
 /**
  * initialisierung (aufgerufen von history)
@@ -103,6 +119,8 @@ jQuery(document).ready(function(){
  * @return
  */
 function loadverplan(hash) {
+	console.log('loadverplan');
+	
 	//die intervalle beenden, die darauf warten, dass eine nachricht ausgeblendet wird
 	//clearInterval(myInterval);
 	//clearInterval(myInterval2);
@@ -118,20 +136,25 @@ function loadverplan(hash) {
 			note_error_load.pnotify_remove();
 		}
 		
-		//nodb nachricht ausblenden
-		if (note_nodb) {
-			note_nodb.pnotify_remove();
-		}
-		
-		//nodb nachricht ausblenden
+		//filter nachricht ausblenden
 		if (note_filter_general) {
 			note_filter_general.pnotify_remove();
 		}
 		
 		//nodb nachricht ausblenden
+		if (note_nodb) {
+			note_nodb.pnotify_remove();
+		}
+		
+		//db nachricht ausblenden
 		if (note_db) {
 			note_db.pnotify_remove();
-		}	
+		}
+		
+		//lade nachricht ausblenden
+		if (note_loader) {
+			note_loader.pnotify_remove();
+		}
 	}
 	
 	// bei select das richtige auswählen
@@ -148,7 +171,6 @@ function loadverplan(hash) {
 	
 	getAndUseJSON(hash, ajax_stand, ajax_options);
 }
-
 
 /**
  * funktion, die urlparameter ausliest
@@ -191,7 +213,10 @@ function release_alert() {
 	_alert = null;
 }
 
-
+/**
+ * zeigt benachrichtigungen bei clicks auf links
+ * @return
+ */
 function clicks_notice() {
 	//auf handbuch klicken
 	jQuery('#help_head').click(function() {

@@ -11,14 +11,6 @@
  * @author Created on 21-Nov-2009
  */
 
-jQuery(document).ajaxSend(function() {
-	showIndicator();
-});
-
-jQuery(document).ajaxStop(function() {
-	hideIndicator();
-});
-
 var ajax_date;
 var ajax_stand;
 var ajax_options;
@@ -35,9 +27,16 @@ var note_db;
 var myInterval2;
 
 function getAndUseJSON(date, stand, options) {
+	//console.log('getAndUseJSON'+date+stand+options);
+	
 	ajax_date = date;
 	ajax_stand = stand;
 	ajax_options = options;
+	
+	//zeige meldung
+	showIndicator();
+	
+	jQuery('#miniindi').show();
 	
 	/*
 	 * hidetable hat als Callback ajaxCall, welches wiederum JSONsuccsss
@@ -46,17 +45,17 @@ function getAndUseJSON(date, stand, options) {
 	 * hideTable()->ajaxCall()->JSONsuccess()+buildTable->showTable()
 	 */
 	hideTable();
-
 }
 
-function ajaxCall() {
+function ajaxCall() {	
+	//starte ajax
 	jQuery.ajax( {
 		type : "GET",
 		dataType : "json",
 		url : rooturl + "index.php",
 		data : 'option=com_verplan&view=verplan&format=js&date=' + ajax_date
 				+ '&stand=' + ajax_stand + '&options=' + ajax_options,
-		timeout: (4 * 1000),
+		timeout: (4000),
 		async : true,
 		global : true,
 		success : function(XMLHttpRequest, textStatus) {
@@ -68,23 +67,26 @@ function ajaxCall() {
 			}
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			//
 			if (errorThrown) {
-				//alert('XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
-				note_error_load = jQuery.pnotify({
-				    pnotify_title: 'Fehler beim Laden',
-				    pnotify_text: 'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown,
-				    pnotify_error_icon: 'ui-icon ui-icon-signal-diag',
-				    pnotify_type: 'error',
-				    pnotify_hide: false
-				});
+				if (notify == 'pnotify' || notify == 'both') {
+					note_error_load = jQuery.pnotify({
+					    pnotify_title: 'Fehler beim Laden',
+					    pnotify_text: 'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown,
+					    pnotify_error_icon: 'ui-icon ui-icon-signal-diag',
+					    pnotify_type: 'error',
+					    pnotify_hide: false
+					});
+				} else {
+					alert('XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
+				}
 			}
 		},
-		complete: ajaxcomplete		
+		complete: hideIndicator		
 	});
 }
 
-function JSONsuccess(json, textStatus) {
-	
+function JSONsuccess(json, textStatus) {		
 	// holt aus dem array immer die neuesten infos (höchster
 	// wert)
 	var infoarr = json.infos;
@@ -138,7 +140,7 @@ function JSONsuccess(json, textStatus) {
 		
 		break;
 	default:
-		//es wurde eine datei hichgeladen
+		//es wurde eine datei hochgeladen
 		
 		jQuery('#no_db')
 		.html('<p><a href="' + json.infos[length].url + '">zum Vertretungsplan...</a> </p>(Stand: '+ json.infos[length].Stand +')');
@@ -155,6 +157,8 @@ function JSONsuccess(json, textStatus) {
 		}
 		break;
 	}
+	
+	jQuery('#miniindi').hide();
 }
 
 /**
@@ -242,7 +246,7 @@ function filterKlassen(rows) {
 	//select leeren
 	jQuery('#klasse').html('');
 	
-	var klassehead = getVarname();
+	var klassehead = settings.class_name.value;
 	
 	var klassenArray = new Array();
 	var klasse = null;
