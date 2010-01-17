@@ -11,7 +11,19 @@ var speed = 500;
 var effects = true;
 var effects_indi = true;
 
+//notification
 var note_loader;
+
+//diese funktionen werden bei jeder ajaxanfrage ausgelöst (mit global)
+jQuery(document).ajaxSend(function() {
+	jQuery('#loading').fadeIn('fast');
+	//showIndicator();
+});
+
+jQuery(document).ajaxStop(function() {
+	jQuery('#loading').pause(500).fadeOut(1000);
+	//hideIndicator();
+});
 
 function hideNoDB() {
 	if (jQuery('#no_db').css('display') != 'none') {
@@ -31,9 +43,10 @@ function showNoDB() {
 	}
 }
 
+//zeigt großen indikator bzw meldung, dass daten geladen werden
 function showIndicator() {
 	if (effects_indi) {
-		jQuery('#loading').fadeIn('fast');
+		//jQuery('#loading').fadeIn('fast');
 		//jQuery('#loader_overlay').fadeIn('fast');
 		
 		showHint('Lade Daten...', 'info', '250px', 'loady');
@@ -53,7 +66,7 @@ function showIndicator() {
 
 function hideIndicator() {
 	if (effects_indi) {
-		jQuery('#loading').pause(500).fadeOut(1000);
+		//jQuery('#loading').pause(500).fadeOut(1000);
 		//jQuery('#loader_overlay').pause(0).fadeOut(1500);		
 		
 		hideHint(1500);
@@ -63,11 +76,12 @@ function hideIndicator() {
 			if (note_loader) {
 				note_loader.pnotify_remove();
 			}			
-		}, 2000);
+		}, 1500);
 
 	}
 }
 
+//lässt tabelle einblenden
 function showTable() {
 	if (effects) {
 		jQuery('#jquerytable tbody')
@@ -75,10 +89,10 @@ function showTable() {
 		//.show('blind',speed)
 		.fadeIn(speed)
 		;
-		jQuery('#miniindi').hide();
 	}
 }
 
+//lässt tabelle ausblenden
 function hideTable() {
 	if (effects) {
 		jQuery('#jquerytable tbody')
@@ -86,11 +100,5 @@ function hideTable() {
 		//.hide('blind',speed)
 		.fadeOut(speed,ajaxCall)
 		;
-		jQuery('#miniindi').show();
 	}
 }
-
-function ajaxcomplete() {
-	jQuery('#miniindi').hide();
-}
-

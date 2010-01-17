@@ -76,6 +76,7 @@ $min = false;
 
 //einstellungen
 $document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
+$document->addScript($baseurl.'includes/js/debug.js.php?debug='.$this->debugmode);
 $document->addScript($baseurl.'includes/js/settings.js');
 
 //schripts, die php beinhalten

@@ -15,19 +15,22 @@ function show_hint(head, text) {
 }
 
 jQuery(document).ready(function(){
-	
+	//counter verhindert, dass die nachricht über themewechsel beim start angezeigt wird
+	var counter = 0;
+		
 	/*Themeswitcher, Design wechseln */
 	jQuery('#ui_themeswitcher').themeswitcher({
 		width: 200,
 		onSelect: function() {
-			if (notify == 'pnotify' || notify == 'both') {
+			if ((notify == 'pnotify' || notify == 'both') && counter > 0) {
 				jQuery.pnotify({
 				    pnotify_title: 'Design',
 				    pnotify_text: 'Das Design wurde geändert.<br>'+jQuery('#ui_themeswitcher').text(),
 				    pnotify_notice_icon: 'ui-icon ui-icon-info',
 				    pnotify_type: 'notice',
-				    pnotify_delay: 4000
+				    //pnotify_delay: 6000
 				});
+				counter = 1;
 			}
 		},
 		onOpen: function() {		
@@ -40,6 +43,7 @@ jQuery(document).ready(function(){
 	
 	jQuery('#ui_themeswitcher').append(''); 
 	
+	counter = 1;
 	
 	/*
 	<li>
@@ -77,7 +81,7 @@ jQuery(document).ready(function(){
 	});
 	
 	//mouseover für die einzelnen spaltenköpfe mit den filtern
-	//gibt es nciht mehr
+	//gibt es nicht mehr
 	/*jQuery('.filterColumns td').mouseover(function(){
 		jQuery(this).addClass('ui-state-hover');
 	});

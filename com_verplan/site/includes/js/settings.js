@@ -10,12 +10,20 @@
  */
 
 var settings;
+var notify;
 
 
 //einstellungen laden und dann in general init starten (bei erfolg)
-jQuery(document).ready(function(){	
+/*jQuery(document).ready(function(){
+	
+	// setzt den hashwert, falls er noch nicht gesetzt ist
+	hash = getHash();
+	if (!hash) {
+		hash = jQuery('#select_date_verplan').val();
+		setHash(hash);
+	}
 	getSettings();
-});
+});*/
 	
 function getSettings(){
 	//?option=com_verplan&view=settings&format=raw
@@ -33,10 +41,13 @@ function getSettings(){
 				alert('Fehler beim Laden der Einstellungen !<br>'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus);
 			} else {
 				settings = XMLHttpRequest;
+				
+				//notifications system setzen
+				notify = settings.notify.value;
+				
 				//in general initialisierung
 				initiate_everything();
 			}
-			
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			if (errorThrown) {

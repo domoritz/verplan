@@ -90,7 +90,7 @@ function iniFilters() {
 			jQuery("#filter_this").val('');
 			removeCookie();
 		} else {
-			jQuery("#filter_this").val(getColname());
+			jQuery("#filter_this").val(settings.class_col.value);
 			//speichere cookie und variable
 			jQuery.cookie('Klasse', this.value, {expires: 7});
 			filterKlasse = this.value;
@@ -182,7 +182,7 @@ function updateFilters() {
 	jQuery("#klasse").val(filterKlasse);
 	if (filterKlasse == '') {
 	} else {
-		jQuery("#filter_this").val(getColname());
+		jQuery("#filter_this").val(settings.class_col.value);
 		jQuery("#filter_input").val(filterKlasse);
 	}
 	
