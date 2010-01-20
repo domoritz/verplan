@@ -27,7 +27,17 @@ defined('_JEXEC') or die('=;)');
 ?>
 
 <?php
-header('Content-type: application/json');
+//http header setzen, nicht notwendig, aber besser
+
+/*header('Cache-Control: no-cache, must-revalidate');
+header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+header('Content-type: application/json');*/
+
+// Get the document object.
+$document =& JFactory::getDocument();
+ 
+// Set the MIME type for JSON output.
+$document->setMimeEncoding( 'application/json' );
 ?>
 
 <?php
