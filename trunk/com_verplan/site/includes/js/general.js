@@ -7,25 +7,6 @@
  * @author Created on 14-Nov-2009
  */
 
-/**
- * It will cause Javascript errors, terminating the execution of the block of Javascript containing the error. 
- * You could, however, define a dummy function that's a no-op when Firebug is not active:
- * 
- * diese zeilen lenken die consolenausgaben ins leere, falls keine console vorhanden ist. 
- * das ist wichtig, weil es sonst zu js fehlern kommt. 
- */
-var debugging = getDebug(); // true -> an; false -> aus
-if (typeof console == "undefined") { 
-	var console = { 
-		log: function() {},
-		time: function() {},
-		timeEnd: function() {} 
-	};
-} else if (!debugging && typeof console.log != "undefined") {
-	console.log = function() {};
-	console.time = function() {};
-	console.timeEnd = function() {};
-}
 
 /**
  * hash ist der teil der url nach dem #
@@ -55,9 +36,7 @@ jQuery(document).ready(function(){
 /**
  * initialisierung, gestartet von settings.js aus
  */
-function initiate_everything(){	
-	console.log('initiate everything');
-	
+function initiate_everything(){		
 	if ((notify == 'pnotify' || notify == 'both') && settings.message_title.value != '') {
 		//Meldung
 		jQuery.pnotify({
@@ -110,7 +89,6 @@ function initiate_everything(){
 	// Check if url hash value exists (for bookmark)
 	// und initialisierung der historyfunktion
 	jQuery.historyInit(loadverplan,'index.php');
-
 }
 
 /**

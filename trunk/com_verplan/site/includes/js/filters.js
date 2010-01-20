@@ -62,7 +62,7 @@ function iniFilters() {
 	
 	//falls sich bei filter this etwas ändert
 	jQuery('#filter_this').change(function(){
-		console.log('filter_this change');
+		//console.log('filter_this change');
 		
 		jQuery('#klasse').val('');
 		removeCookie();
@@ -78,7 +78,7 @@ function iniFilters() {
 	
 	//falls sich etwas in der select klasse ändert
 	jQuery('#klasse').change(function(){
-		console.log('klasse change ' + this.value);
+		//console.log('klasse change ' + this.value);
 		
 		//note ausblenden
 		if (note_klasse) {
@@ -128,7 +128,7 @@ function filterTable() {
 	var input = jQuery('#filter_input').val();
 	
 	//debug
-	console.log('Filter: '+filter_this+' '+ input);
+	//console.log('Filter: '+filter_this+' '+ input);
 	
 	//tabelle filtern
 	jQuery.uiTableFilter(jQuery('#jquerytable'), input, filter_this);
@@ -176,7 +176,6 @@ function removeCookie(){
  * @return
  */
 function updateFilters() {
-	console.log('updateFilters');
 	
 	//lädt die klasse in die auswahlliste klasse
 	jQuery("#klasse").val(filterKlasse);

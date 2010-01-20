@@ -36,7 +36,6 @@ function getSettings(){
 		async : true,
 		global : false,
 		success : function(XMLHttpRequest, textStatus) {
-			console.log('Settings: '+textStatus);
 			if (!(XMLHttpRequest.version.name=='version')) {
 				alert('Fehler beim Laden der Einstellungen !<br>'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus);
 			} else {

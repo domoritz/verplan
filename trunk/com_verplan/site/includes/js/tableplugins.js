@@ -18,9 +18,7 @@
  * initialisiert die tabelle
  * @return
  */
-function table_init(){
-	console.log('table init');
-	
+function table_init(){	
 	/*
 	 * tablesorter plugin
 	 * http://tablesorter.com/docs/
@@ -114,7 +112,6 @@ function table_init(){
  * @return
  */
 function table_update() {
-	console.log('table update');
 	
 	if (jQuery('#hint_table').css('display') != 'none') {
 		//hint ausblenden
