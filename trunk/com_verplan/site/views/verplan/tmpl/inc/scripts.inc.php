@@ -26,7 +26,7 @@ $baseurl = JURI::base().'components/com_verplan/';
  */
 $document->addStylesheet($baseurl.'includes/css/general.css');
 $document->addStylesheet($baseurl.'includes/css/table.css');
-$document->addStylesheet($baseurl.'includes/css/jquery.kiketable.colsizable.css');
+//$document->addStylesheet($baseurl.'includes/css/jquery.kiketable.colsizable.css');
 $document->addStylesheet($baseurl.'includes/css/ui.selectmenu.css');
 $document->addStylesheet($baseurl.'includes/css/prettyPhoto.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.pnotify.default.css');
@@ -77,11 +77,13 @@ $min = false;
 //einstellungen
 $document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
 $document->addScript($baseurl.'includes/js/debug.js.php?debug='.$this->debugmode);
-$document->addScript($baseurl.'includes/js/settings.js');
+if (!$min) {
+	$document->addScript($baseurl.'includes/js/settings.js');
+}
 
 //schripts, die php beinhalten
-$document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
-/*$document->addScript($baseurl.'includes/js/colname.js.php?col='.$this->classname);
+/*$document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
+$document->addScript($baseurl.'includes/js/colname.js.php?col='.$this->classname);
 $document->addScript($baseurl.'includes/js/varname.js.php?var='.$this->varname);
 $document->addScript($baseurl.'includes/js/debug.js.php?debug='.$this->debugmode);
 $document->addScript($baseurl.'includes/js/notify.js.php?notify='.$this->notify);
