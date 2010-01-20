@@ -108,10 +108,9 @@ VALUES
 ('13' , 'load_jquery_backend', 'true', 'true','jQuery laden (Backend)'),
 ('14' , 'load_jqueryui_frontend', 'true', 'true','jQueryUI laden (Frontend)'),
 ('15' , 'load_jqueryui_backend', 'true', 'true','jQueryUI laden (Backend)'),
-('16' , 'debug', 'false', 'false','Debug Mode für JS'),
-('17' , 'class_col', '(Klasse(n))', '(Klasse(n))','Spaltenname der Klassenspalte'),
-('18' , 'class_name', '(Klasse(n))', '(Klasse(n))','Variablenname der Klassenspalte in JSON'),
-('19' , 'notify', 'own', 'own', 'Notificationsystem: own, pnotify oder both'),
-('20' , 'head_text', 'Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. Weitere Informationen: <a href="http://verplan.googlecode.com" target="_blank" id="link_project" title="Projektseite">verplan.googlecode.com</a>. Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=90%&height=100%">Feedback</a>!', '', 'Text, der im Frontend erscheint'),
-('21' , 'message_title', 'Vorabversion', '', 'Überschrift der Benachrichtigung im Frontend. Nur mit pnotify (leer lassen für keine)'),
-('22' , 'message', 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <a href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA"><strong>Feedback</strong></a> ab. Jedes einzelne ist wichtig für mich. Vielen Dank und viel Spaß', '', 'Benachrichtigung');
+('16' , 'class_col', '(Klasse(n))', '(Klasse(n))','Spaltenname der Klassenspalte'),
+('17' , 'class_name', '(Klasse(n))', '(Klasse(n))','Variablenname der Klassenspalte in JSON'),
+('18' , 'notify', 'own', 'own', 'Notificationsystem: own, pnotify oder both'),
+('19' , 'head_text', 'Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. Weitere Informationen: <a href="http://verplan.googlecode.com" target="_blank" id="link_project" title="Projektseite">verplan.googlecode.com</a>. Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=90%&height=100%">Feedback</a>!', '', 'Text, der im Frontend erscheint'),
+('20' , 'message_title', 'Vorabversion', '', 'Überschrift der Benachrichtigung im Frontend. Nur mit pnotify (leer lassen für keine)'),
+('21' , 'message', 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <a href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA"><strong>Feedback</strong></a> ab. Jedes einzelne ist wichtig für mich. Vielen Dank und viel Spaß', '', 'Benachrichtigung');

@@ -47,7 +47,7 @@ function getAndUseJSON(date, stand, options) {
 	hideTable();
 }
 
-function ajaxCall() {	
+function ajaxCall() {
 	//starte ajax
 	jQuery.ajax( {
 		type : "GET",
@@ -59,7 +59,6 @@ function ajaxCall() {
 		async : true,
 		global : true,
 		success : function(XMLHttpRequest, textStatus) {
-			console.log(textStatus);
 			if (XMLHttpRequest.infos == '') {
 				JSONfail(XMLHttpRequest, textStatus);
 			} else {
@@ -67,7 +66,7 @@ function ajaxCall() {
 			}
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
-			//
+			//fehler bei ajax
 			switch (textStatus) {
 			case 'timeout':
 				var reload = confirm('Timeout Fehler beim Laden der Einstellungen.\n Willst du die Seite neu laden?');
