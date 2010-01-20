@@ -32,7 +32,7 @@ function getSettings(){
 		dataType : "json",
 		url : getURL() + "index.php",
 		data : 'option=com_verplan&view=settings&format=raw&options=min',
-		timeout: (1000),
+		timeout: (5000),
 		async : true,
 		global : false,
 		success : function(XMLHttpRequest, textStatus) {
@@ -49,9 +49,16 @@ function getSettings(){
 				initiate_everything();
 			}
 		},
-		error : function(XMLHttpRequest, textStatus, errorThrown) {
-			if (errorThrown) {
-				alert('Fataler Fehler beim Laden der Einstellungen (AJAX)!<br>'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
+		error : function(XMLHttpRequest, textStatus, errorThrown) {			
+			switch (textStatus) {
+			case 'timeout':
+				var reload = confirm('Timeout Fehler beim Laden der Einstellungen.\n Willst du die Seite neu laden?');
+				if (reload) {
+					location.reload();
+				}
+				break;
+			default:
+				alert('Ajax fehler beim Laden der Einstellungen!\n'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
 			}
 		}	
 	});
