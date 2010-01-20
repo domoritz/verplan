@@ -70,8 +70,8 @@ function initiate_everything(){
 		    pnotify_hide: false
 		});
 		
-		//alerts umleiten
-		consume_alert();
+		//alerts auf pnotify umleiten
+		//consume_alert();
 	}	
 	
 	// rooturl der joomlainstallation

@@ -55,7 +55,7 @@ function ajaxCall() {
 		url : rooturl + "index.php",
 		data : 'option=com_verplan&view=verplan&format=js&date=' + ajax_date
 				+ '&stand=' + ajax_stand + '&options=' + ajax_options,
-		timeout: (4000),
+		timeout: (5000),
 		async : true,
 		global : true,
 		success : function(XMLHttpRequest, textStatus) {
@@ -68,18 +68,15 @@ function ajaxCall() {
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			//
-			if (errorThrown) {
-				if (notify == 'pnotify' || notify == 'both') {
-					note_error_load = jQuery.pnotify({
-					    pnotify_title: 'Fehler beim Laden',
-					    pnotify_text: 'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown,
-					    pnotify_error_icon: 'ui-icon ui-icon-signal-diag',
-					    pnotify_type: 'error',
-					    pnotify_hide: false
-					});
-				} else {
-					alert('XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
+			switch (textStatus) {
+			case 'timeout':
+				var reload = confirm('Timeout Fehler beim Laden der Einstellungen.\n Willst du die Seite neu laden?');
+				if (reload) {
+					location.reload();
 				}
+				break;
+			default:
+				alert('Ajax Fehler beim Laden des Vertretungsplanes!\n'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
 			}
 		},
 		complete: hideIndicator		
