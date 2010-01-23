@@ -10,7 +10,7 @@
     * [Weg_Verplan der Weg des Vertretungsplanes]
       * [Einstellen Vertretungsplan einstellen]
       * [Verplan_API Verplan API]
-    * [Das Frontend]
+    * [Frontend Das Frontend]
     * [Paramater Parameter/Einstellungen]
     * [Datenbank]
   * [About]
