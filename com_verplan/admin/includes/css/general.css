@@ -137,24 +137,24 @@ td.def_td {
 }
 
 .plus {
-	background: transparent url(../images/plus_m.png) no-repeat scroll 0px
+	background: transparent url(../images/zip_plus_blau.png) no-repeat scroll 0px
 		2px;
 }
 
 .plus:hover {
-	background: transparent url(../images/plus_m_h.png) no-repeat scroll 0px
+	background: transparent url(../images/zip_plus_blau_a.png) no-repeat scroll 0px
 		2px;
 }
 
 .minus {
-	background: transparent url(../images/minus_m.png) no-repeat scroll 0
+	background: transparent url(../images/zip_minus_blau_a.png) no-repeat scroll 0
 		2px;
 }
 
-.minus:hover {
-	background: transparent url(../images/minus_m_h.png) no-repeat scroll 0
+/*.minus:active {
+	background: transparent url(../images/zip_minus_blau_a.png) no-repeat scroll 0
 		2px;
-}
+}*/
 
 /*Links in columns*/
 .links_do {

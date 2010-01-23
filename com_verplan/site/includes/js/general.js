@@ -96,12 +96,10 @@ function initiate_everything(){
  * @param hash
  * @return
  */
-function loadverplan(hash) {
-	console.log('loadverplan');
-	
+function loadverplan(hash) {	
 	//die intervalle beenden, die darauf warten, dass eine nachricht ausgeblendet wird
-	//clearInterval(myInterval);
-	//clearInterval(myInterval2);
+	clearInterval(myInterval);
+	clearInterval(myInterval2);
 	
 	if (notify == 'pnotify' || notify == 'both') {
 		//kein plan nachricht ausblenden
