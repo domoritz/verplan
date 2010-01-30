@@ -52,7 +52,7 @@ function utf8(&$value, &$key) {
 
 //codiert das array in utf-8
 array_walk_recursive($arr,utf8);
-*/
+//*/
 
 //optionen für view
 $options = $this->options;

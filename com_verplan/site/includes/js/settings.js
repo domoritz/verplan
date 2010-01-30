@@ -30,11 +30,13 @@ function getSettings(){
 	jQuery.ajax( {
 		type : "GET",
 		dataType : "json",
+		contentType: "application/json; charset=utf-8",
 		url : getURL() + "index.php",
 		data : 'option=com_verplan&view=settings&format=raw&options=min',
 		timeout: (5000),
 		async : true,
 		global : false,
+		cache: false,
 		success : function(XMLHttpRequest, textStatus) {
 			if (!(XMLHttpRequest.version.name=='version')) {
 				alert('Fehler beim Laden der Einstellungen !<br>'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus);
@@ -56,8 +58,20 @@ function getSettings(){
 					location.reload();
 				}
 				break;
+			case '404':
+				alert('Angeforderte URL nicht gefunden.\n Code 404\n(bei Einstellungen)');
+				break;
+			case '500':
+				alert('Interner Servererror!\n Code 500\n(bei Einstellungen)');
+				break;
+			case '0':
+				alert('Du bist offline. Bitte überprüfe dein Netzwerk.');
+				break;
+			case 'parsererror':
+				alert('Error\nParsen des JSON fehlgeschlagen!\n(bei Einstellungen)');
+				break;
 			default:
-				alert('Ajax fehler beim Laden der Einstellungen!\n'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
+				alert('Unbekannter Fehler beim Laden der Einstellungen!\n'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
 			}
 		}	
 	});

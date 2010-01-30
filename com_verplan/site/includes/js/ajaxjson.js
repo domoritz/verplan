@@ -52,6 +52,8 @@ function ajaxCall() {
 	jQuery.ajax( {
 		type : "GET",
 		dataType : "json",
+		contentType: "application/json; charset=utf-8",
+		cache: false,
 		url : rooturl + "index.php",
 		data : 'option=com_verplan&view=verplan&format=js&date=' + ajax_date
 				+ '&stand=' + ajax_stand + '&options=' + ajax_options,
@@ -74,8 +76,20 @@ function ajaxCall() {
 					location.reload();
 				}
 				break;
+			case '404':
+				alert('Angeforderte URL nicht gefunden.\n Code 404\n(beim Vertretungsplan)');
+				break;
+			case '500':
+				alert('Interner Servererror!\n Code 500\n(beim Vertretungsplan)');
+				break;
+			case '0':
+				alert('Du bist offline. Bitte überprüfe dein Netzwerk.');
+				break;
+			case 'parsererror':
+				alert('Error\nParsen des JSON fehlgeschlagen!\n(beim Vertretungsplan)');
+				break;
 			default:
-				alert('Ajax Fehler beim Laden des Vertretungsplanes!\n'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
+				alert('Unbekannter Fehler beim Laden des Vertretungsplanes!\n'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
 			}
 		},
 		complete: hideIndicator		

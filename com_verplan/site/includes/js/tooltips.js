@@ -46,6 +46,7 @@ jQuery(document).ready(function() {
 });
 
 function defaultStyle() {
+	
 	jQuery.fn.qtip.styles.domstyle = { // Last part is the name of the style
 	   tip: { 
 	      corner: true, 
@@ -53,8 +54,8 @@ function defaultStyle() {
 	   }, 
 	   'font-size': 'small',
 	   border: { 
-	      width: 5, 
-	      radius: 3 
+	      width: 3, 
+	      radius: 2 
 	   },
 //	   classes: { 
 //	      tooltip: 'ui-widget', 
@@ -70,8 +71,10 @@ function defaultStyle() {
 	jQuery.fn.qtip.styles.own = { // Last part is the name of the style
 		color: '#000',
 		background: '#DCEDFF',
+		//background: '#ffffff',
 	   	border: {
 			color: '#59B4D4'
+			//color: '#CCCCCC'
 		},
 	   
 	   	name: 'blue' // Inherit the rest of the attributes from the preset style
