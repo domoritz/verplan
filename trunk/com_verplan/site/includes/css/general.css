@@ -9,7 +9,7 @@
  * @author      Created on 07-Sep-2009
  */
 
-/*helpers*/
+/*********** helpers ***********/
 .full_width {
 	width: 100%;
 	max-width: 100%;
@@ -23,7 +23,7 @@
 	float: right;
 }
 
-/*wichtig für z.b beez template*/
+/*********** wichtig für z.b beez template ***********/
 #verplanwrapper {
 	display: inline-block;
 	color: black;
@@ -37,16 +37,16 @@
 	text-decoration: inherit;
 }
 
-/*all panels*/
+/*********** all panels ***********/
 .panel {
 	width: 100%;
 	max-width: 100%;
 	margin-bottom: 1em;
 }
 
-/*tooltips*/
+/*********** tooltips ***********/
 
-/*header*/
+/*********** header ***********/
 
 #logo_verplan {
 	margin-right: 20px;
@@ -68,7 +68,7 @@
 }
 
 
-/*select*/
+/*********** select ***********/
 
 #verplan_form {
 	
@@ -89,7 +89,7 @@
 	vertical-align: middle;
 }
 
-/*notification area / nachrichtenbereich*/
+/*********** notification area / nachrichtenbereich ***********/
 #platzhalter {
 	position: relative;
 	z-index: 2;
@@ -138,7 +138,7 @@
 
 
 
-/*indicators*/
+/*********** indicators ***********/
 
 #loading {
 	position: relative;
@@ -168,7 +168,7 @@
 	
 }
 
-/*panel*/
+/*********** panel ***********/
 
 #options_panel{
 	width: 80%;
@@ -230,7 +230,7 @@
 	margin-left: 5px;
 }
 
-/*kein js*/
+/*********** kein js ***********/
 
 #select_date_nojs {
 	margin-top: 30px;
@@ -251,7 +251,7 @@
 	font-weight: bold;
 }
 
-/*miniindikator gif*/
+/*********** miniindikator gif ***********/
 .miniloader {
 	width: 100%;
 	margin: 1em 0;
@@ -264,3 +264,20 @@
 #ajaxdiv {
 	clear: both;
 }
+
+
+/*********** schatten test ***********/
+/*.qtip-wrapper {
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+}*/
+
+.ui-pnotify-container {
+	-moz-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
+}
+
+/*#select_rahmen{
+	-moz-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
+}*/
