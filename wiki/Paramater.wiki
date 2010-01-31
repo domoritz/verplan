@@ -23,7 +23,7 @@ $newmodel = JModel::getInstance('Settings', 'VerplanModel');
 $settings = $newmodel->getSettings();
 }}}
 
-oder nur einzelne Einstellungen über ihre Bezeichnung in der Datenbank (siehe [Benutzerhandbuch_Backend]):
+oder nur einzelne Einstellungen über ihre Bezeichnung in der Datenbank (siehe [Settings]):
 
 z.B.
 {{{
