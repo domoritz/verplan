@@ -15,7 +15,7 @@ Für das Speichern der Einstellungen sind der Controller und das Model `settings
 <a href="http://picasaweb.google.com/lh/photo/g53OJJi9_auCpaCDazjvrA?feat=embedwebsite"><img src="http://lh6.ggpht.com/_7now-UGMzi4/SzJArMCnIWI/AAAAAAAAAWI/60WUcKZnQGc/s400/2009-12-23_164538.png" width="400"/></a>
 
 = Einstellungen laden =
-Das gleiche Model, welches auch zum Speichern der Einstellungen gebraucht wird, dient auch zu auslesen. Die Einstellungen werden sowohl im Frontend, als auch im backend genutzt. Es können entweder alle Einstellungen zusammen als Array geladen werden:
+Das gleiche Model, welches auch zum Speichern der Einstellungen gebraucht wird, dient auch zu auslesen. Die Einstellungen werden sowohl im Frontend, als auch im Backend genutzt. Es können entweder alle Einstellungen zusammen als Array geladen werden:
 
 z.B.
 {{{
@@ -32,9 +32,10 @@ $load_jquery = $settingsmodel->getSetting('load_jquery_frontend');
 }}}
 
 == im Frontend ==
-Im Frontend können die Einstellungen mit den o.g. Funktionen geladen werden. Das Funktioniert allerdings nur solange man mit PHP arbeitet. Um die Einstellungen in Javascript zu laden muss man etwas anders vorgehen. Die Einstellungen werden beim Starten des Programmes per Ajax geladen. Das geschieht in der Datei `settings.js`. Eine bestimmte Einstellung wird über 
+Im Frontend können die Einstellungen mit den o.g. Funktionen geladen werden. Das Funktioniert allerdings nur solange man mit PHP arbeitet. Damit die Einstellungen auch unter JavaScript verfügbar sind, gibt es ein extra View `settings` im Frontend, welches als JavaScript Datei eingebunden wird. Die Url ist `?option=com_verplan&view=settings&format=js`. 
+
+Eine bestimmte Einstellung wird mit
 {{{
 settings.<NAME DER EINSTELLUNG>.value
 }}}
-
-geladen. ACHTUNG: Die Einstellungen stehen nicht immer zur Verfügung, da einige Dateien früher, andere später geladen werden.  
+geladen. 
