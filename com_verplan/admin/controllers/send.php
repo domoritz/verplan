@@ -152,6 +152,24 @@ class VerplanControllerSend extends verplanController
 				echo 'Daten zum Upload<br>';
 				var_dump($controller->upload_arr);
 				//*/
+				
+				//datei löschen, wenn aktiviert
+				$settingsmodel = $this->getModel('settings');
+				$keep = $settingsmodel->getSetting('keep_files');
+				if ($keep == 'false') {
+					//datei löschen
+					$success = $controller->execute('remove');
+					
+					
+					///*debug
+					echo '<br>==========<br>';
+					echo 'Datei vom Server entfernen: ';
+					print($success ? 'erfolgreich': 'Fehler');
+					echo '<br>';
+
+					//*/
+
+				}
 
 				if (!JERROR::getError()) {
 					//Erfolg melden
@@ -207,6 +225,7 @@ class VerplanControllerSend extends verplanController
 
 		}
 		
+		echo '<br>==========<br>';
 		echo "<strong>Nachricht:</strong> ".$msg;
 		echo '<br><a href="?option=com_verplan">OK</a>';
 
