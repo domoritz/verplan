@@ -74,10 +74,10 @@ class VerplanControllerSend extends verplanController
 
 			if (empty($upload_arr['Geltungsdatum'])) {
 				$msg .= "Bitte Geltungsdatum angeben oder eine Datei wählen";
-				$this->setRedirect( 'index.php?option=com_verplan', $msg );
+				//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 			} elseif (empty($stand_date)) {
 				$msg .= "Bitte Stand angeben oder eine Datei wählen";
-				$this->setRedirect( 'index.php?option=com_verplan', $msg );
+				//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 			} else {
 
 				///*debug
@@ -91,7 +91,7 @@ class VerplanControllerSend extends verplanController
 
 				if (!JERROR::getError()) {
 					$msg .= "Senden erfolgreich, ohne DB, keine Vertretungen";
-					$this->setRedirect( 'index.php?option=com_verplan', $msg );
+					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 			}
 				
@@ -157,7 +157,7 @@ class VerplanControllerSend extends verplanController
 					//Erfolg melden
 					//zu bebuggzwecken kann man dies auskommentieren und kann sich dann den ablauf ansehen
 					$msg .= "Senden und parsen erfolgreich";
-					$this->setRedirect( 'index.php?option=com_verplan', $msg );
+					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 
 			} elseif ($file['type'] == 'text/xml') {
@@ -181,10 +181,10 @@ class VerplanControllerSend extends verplanController
 
 				if (empty($upload_arr['Geltungsdatum'])) {
 					$msg .= "Bitte Geltungsdatum angeben";
-					$this->setRedirect( 'index.php?option=com_verplan', $msg );
+					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				} elseif (empty($stand_date)) {
 					$msg .= "Bitte Stand angeben";
-					$this->setRedirect( 'index.php?option=com_verplan', $msg );
+					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				} else {
 
 					///*debug
@@ -199,25 +199,23 @@ class VerplanControllerSend extends verplanController
 
 					if (!JERROR::getError()) {
 						$msg .= "Senden erfolgreich, ohne DB";
-						$this->setRedirect( 'index.php?option=com_verplan', $msg );
+						//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 					}
 				}
 			}
 
 
 		}
+		
+		echo "<strong>Nachricht:</strong> ".$msg;
+		echo '<br><a href="?option=com_verplan">OK</a>';
 
-
-		//für ajax
-		$ajax = JRequest::getVar('ajax', false);
 
 		if ($debug == 'true') {
-			echo $msg.'<br>==========<br>';
-			$mainframe =& JFactory::getApplication();
-			$mainframe->close();
-		} elseif ($ajax == 'true') {
-			//weiterreichen an ajax view/template
-			$this->setRedirect( "index.php?option=com_verplan&format=js&msg=$msg", $msg);
+			echo '<br>==========<br>';
+		} else {
+			//weiterreichen an view/template
+			$this->setRedirect( "index.php?option=com_verplan", $msg);
 		}
 
 	}

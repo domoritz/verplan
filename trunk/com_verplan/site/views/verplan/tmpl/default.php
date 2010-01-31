@@ -16,6 +16,11 @@ defined('_JEXEC') or die('=;)');
 //fügt die gesamten scripts und stylesheets hinzu
 require_once('inc/scripts.inc.php');
 
+// page title
+/*$document =& JFactory::getDocument();
+$title = $document->getTitle();
+$document->setTitle('Vertretungsplan @ '.$title);*/
+
 ?>
 
 <div id="verplanwrapper" class="full_width">

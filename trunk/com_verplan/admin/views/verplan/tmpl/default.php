@@ -35,14 +35,11 @@ $document->addScript('http://jqueryui.com/ui/i18n/ui.datepicker-de.js');
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
 
 //Plugins
-$document->addScript('components/com_verplan/includes/js/plugins/jquery.form.js');
 $document->addScript('components/com_verplan/includes/js/plugins/jquery.timePicker.js');
 
 //Javascript
 $document->addScript('components/com_verplan/includes/js/hide_admin.js');
-$document->addScript('components/com_verplan/includes/js/form.js');
 $document->addScript('components/com_verplan/includes/js/datepicker.js');
-$document->addScript('components/com_verplan/includes/js/tables.js');
 
 ?>
 
@@ -65,7 +62,7 @@ $version = $settings[version]['default'];
 	<p style="">
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
 		Weitere Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
-		Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA">Feedback</a>!
+		Bitte sende dein <a id="feedy" title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA">Feedback</a>!
 		Version: <?php echo $version;?>
 	</p>
 	<br>
@@ -75,13 +72,84 @@ $version = $settings[version]['default'];
 
 <p><?php echo $this->link; ?></p>
 
-<?php require_once('inc/upload.php');?>
+<form id="form_verplan" name="upload" method="post" enctype="multipart/form-data" action="index.php">
+<table class="admin_table">
+	<tbody>
+		<tr>
+			<td class="key"><label for="file">Datei</label></td>
+			<td colspan="2">
+				<input size="40" type="file" id="file" name="file" class="inputbox" />
+			</td>
+		</tr>
+		<tr>
+			<th colspan="3"><br>Optional</th>
+		</tr>
+		<tr>
+			<td class="key"><label for="date">Geltungsdatum</label></td>
+			<td  colspan="2">
+				<input size="40" type="text" id="datepicker_date" name="date" class="inputbox" />
+			</td>
+		</tr>
+		<tr>
+			<td class="key"><label for="stand">Stand</label></td>
+			<td>
+				<?php 
+					$time = date('H:i');						
+					$date = date('Y-m-d');
+				?>
+				<input size="40" type="text" id="datepicker_stand" name="stand" value="<?php echo $date; ?>"/>
+				<input size="40" type="text" id="datepicker_stand_time" name="stand_time" value="<?php echo $time; ?>" />
+			</td>
+			<!-- <td>
+				<input size="40" type="stand_time" id="datepicker_stand_time" name="stand" class="inputbox" /><br>
+			</td> -->
+		</tr>
+	</tbody>
+</table>
+	
+<br>
+<input type="submit" name="upload" class="uploadbutton" value="Abschicken" id="send" />
 
-<?php require_once('inc/settings.php');?>
+<!-- sollen fehler in den regulaeren ausdrücken ignoriert werden? (empfohlen) --> 
+<input type="hidden" name="ignore" value="true" /> 
 
-<?php require_once('inc/columns.php');?>
+<!-- damit die Komponente wieder aufgerufen wird --> 
+<input type="hidden" name="option" value="com_verplan" /> 
+<!-- task laden (in verplanControllrupload -->
+<input type="hidden" name="task" value="send" />
+<input type="hidden" name="boxchecked" value="0" />
+<!-- richtiger Controller --> 
+<input type="hidden" name="controller" value="send" /> 
+<!-- debug -->
+<input type="hidden" name="debug" value="<?php echo JRequest::getVar('debug', false)?>" />
 
-<?php require_once('inc/about.php');?>
+</form>
+
+
+<br><br>
+<a href="#clean_header" id="clean_header" class="expander plus">Datenbank bereinigen</a>
+<div id="admin_clean_div" class="verschwinder">
+	<br>
+	<form id="form_clean" name="form_clean" method="post" enctype="multipart/form-data"	action="index.php?option=com_verplan">
+	
+			<label for="keep">Anzahl der Einträge, die erhalten bleiben sollen</label>
+			<input type="text" name="keep" value="10" /><br>
+
+			<input type="submit" name="clean" value="Datenbank bereinigen"/>
+		
+			<!-- damit die Komponente wieder aufgerufen wird --> 
+			<input type="hidden" name="option" value="com_verplan" /> 
+			<!-- task laden (in verplanControllrupload -->
+			<input type="hidden" name="task" value="clean" />
+			<input type="hidden" name="boxchecked" value="0" />
+			<!-- richtiger Controller --> 
+			<input type="hidden" name="controller" value="clean" /> 
+			<!-- debug -->
+			<input type="hidden" name="debug" value="<?php echo JRequest::getVar('debug', false)?>" />
+	</form>
+	<br>
+</div>
+
 
 
 <?php 
