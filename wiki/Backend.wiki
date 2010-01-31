@@ -1,0 +1,12 @@
+#summary Erklärungen zur Arbeitsweise des Backends
+
+= Einleitung=
+Das Backend besteht aus mehreren Views, die jeweils für eine bestimmte Aufgabe zuständig sind. 
+
+Mehr Informationen und Hilfen: http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_4_-_Creating_an_Administrator_Interface
+
+
+<wiki:toc max_depth="3" />
+
+= Home =
+Hauptseite des Frontends. Erklärungen zu den einzelnen Funktionen findest du hier: [Benutzerhandbuch_Backend#Vertretungsplan_hochladen] und [Benutzerhandbuch_Backend#Datenbank_bereinigen]
