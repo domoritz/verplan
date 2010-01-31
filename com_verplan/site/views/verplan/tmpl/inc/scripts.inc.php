@@ -75,11 +75,13 @@ $document->addScript($baseurl.'includes/js/plugins/jquery.cookie.js');
 $min = false;
 
 //einstellungen
-$document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
-$document->addScript($baseurl.'includes/js/debug.js.php?debug='.$this->debugmode);
+$document->addScript(JURI::root().'?option=com_verplan&view=settings&format=js');
+
+
+//$document->addScript($baseurl.'includes/js/ajax.js.php?url='.JURI::root());
+//$document->addScript($baseurl.'includes/js/debug.js.php?debug='.$this->debugmode);
 if (!$min) {
 	$document->addScript($baseurl.'includes/js/debug.js');
-	$document->addScript($baseurl.'includes/js/settings.js');
 }
 
 //schripts, die php beinhalten
