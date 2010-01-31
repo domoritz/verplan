@@ -25,6 +25,10 @@ class verplanViewverplan extends JView
 {
 	function display($tpl = null)
 	{
+		/*$weiche = JRequest::getVar('weiche','html');
+		if ($weiche == 'js') {
+			$tpl = 'json';
+		}*/
 		
 		//prüfen, ob die Seite mit einem Mobilen Endgerät aufgerufen wurde
 		require(JPATH_COMPONENT.DS.'includes'.DS.'php'.DS.'check_mobile.php');

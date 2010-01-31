@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<layout title="Layout: default">
+		<message>
+        	default Layout
+		</message>
+	</layout>
+	<state>
+		<name>Frontend View</name>
+		<description>
+			Frontend View für das Vertretungsplanprogramm. 
+			Die mobile Seite wird automatisch aufgerufen, wenn man die Seite mit einem mobilen Btowser ansurft. 
+		</description>
+		<url>
+		</url>
+		<params>
+		</params>
+		<advanced>
+		</advanced>
+	</state>
+</metadata>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+	<layout title="Layout: default">
+		<message>
+        	default Layout 
+		</message>
+	</layout>
+	<state>
+		<name>mobile Frontend View</name>
+		<description>
+			Frontend View des Vertretungsplanprogramms für mobile Endgeräte, wie Handys, Smartphones und Netbooks. 
+			Diese Ansicht wird automatisch vom normalen Frontend View aufgerufen, wenn man die Seite mit einem mobilen Browser ansurft. </description>
+		<url>
+		</url>
+		<params>
+		</params>
+		<advanced>
+		</advanced>
+	</state>
+</metadata>
