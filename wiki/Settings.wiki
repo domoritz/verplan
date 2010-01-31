@@ -53,9 +53,6 @@ Anzahl der in der Auswahlliste im Frontend anzuzeigenden Daten. Daten in der Zuk
 == load_jquery und load_jqueryui ==
 Einstellung, ob die Javascriptbibliothek [http://jquery.com/ jQuery]  bzw deren Oberflächenbibliothek [http://jqueryui.com/ jQueryUI] geladen werden soll. Normalerweise sollte dies aktiviert bleiben, außer, wenn jQuery anders geladen wird. Das Programm verwendet den [http://docs.jquery.com/Using_jQuery_with_Other_Libraries jQuery noConflict mode]. 
 
-== debug ==
-Mit dieser Einstellung lässt sich der Debugmode im Frontend an und ausschalten. Der Debugmode ermöglicht es, über eine JS Konsole (wie z.B.  in [http://getfirebug.comn Firebug]) das Programm zu überwachen. Normalerweise sollte dieser ausgeschaltet sein um Ressourcen zu sparen und die Sicherheit zu erhöhen. Sollte es Probleme mit JS geben, lassen diese sich schneller finden, wenn der Debugmode aktiv ist.
-
 == class_col ==
 Hier sollte der Name der Spalte stehen, in der die Klassen stehen. Es geht um den Titel der Spalte im Tabellenkopf. 
 
