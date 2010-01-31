@@ -1,4 +1,4 @@
-#Übersicht über die möglichen Einstellungen
+#summary Übersicht über die möglichen Einstellungen
 
 = Einleitung =
 Die meisten Parameter des Programms lassen sich zentral über das Bachend aufrufen und bearbeiten. In den meisten Fällen sollte es so möglich sein, Quellcodeveränderungen zu vermeiden. 
