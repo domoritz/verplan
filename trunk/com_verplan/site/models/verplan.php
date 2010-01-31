@@ -38,7 +38,7 @@ class verplanModelverplan extends JModel
 	}// function
 	
 	/**
-	 * header text, wird nciht verwendet (sondern setting)
+	 * header text, wird nicht verwendet (sondern setting)
 	 * @return unknown_type
 	 */
 	function getText()

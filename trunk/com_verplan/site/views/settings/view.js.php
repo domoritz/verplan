@@ -33,9 +33,6 @@ class verplanViewSettings extends JView
 		
 		$settingsarray = $settingsmodel->getSettings();
 		$this->assignRef( 'settings', $settingsarray);
-		
-		$options = JRequest::getVar('options');
-		$this->assignRef( 'options', $options);
 
 		//template laden
 		parent::display($tpl);
