@@ -72,7 +72,7 @@ $version = $settings[version]['default'];
 
 <p><?php echo $this->link; ?></p>
 
-<form id="form_verplan" name="upload" method="post" enctype="multipart/form-data" action="index.php">
+<form id="form_verplan" name="upload" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
 <table class="admin_table">
 	<tbody>
 		<tr>

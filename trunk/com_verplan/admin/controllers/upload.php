@@ -97,7 +97,7 @@ class VerplanControllerUpload extends verplanController
 		
 		
 		//$upload_dir_comp = "uploads";
-		$dest = JPATH_COMPONENT . DS . $upload_dir_comp . DS . $filename;
+		$dest = JPATH_ADMINISTRATOR . DS . $upload_dir_comp . DS . $filename;
 
 		//bestimmungsort
 		$file[dest] = $dest;
@@ -137,6 +137,14 @@ class VerplanControllerUpload extends verplanController
 			JError::raiseWarning(0,$msg);
 			//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 		}
+	}
+	
+	/**
+	 * löscht die datei
+	 * @return unknown_type
+	 */
+	function remove() {
+		return JFile::delete($this->file[dest]);		
 	}
 
 	/**
