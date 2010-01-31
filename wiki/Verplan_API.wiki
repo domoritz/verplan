@@ -16,7 +16,7 @@ Hier erf채hrst du, wie die Vertretungsplandaten 체bertragen werden. Die Daten k�
 
 Die Daten des Vertretungsplanes sind 체ber folgende URL errichbar
 {{{
-<JOOMLA_URL>/index.php?option=com_verplan&view=verplan&format=js&date=<DATUM>&stand=<STAND>&options=<MODEL>,<VIEW>
+<JOOMLA_URL>/index.php?option=com_verplan&view=data&format=json&date=<DATUM>&stand=<STAND>&options=<MODEL>,<VIEW>
 }}}
 
 == Erkl채rung ==
@@ -36,7 +36,8 @@ Optionen f체r das Model, also welche Daten angezeigt werden. Es sind folgende Op
 
   * *all* - alle Spalten werden angezeigt (auch solche, die vom Backend aus ausgeblendet wurden)
   * *none* - Es werden alle Daten (Info und Columns), bis auf die Vertretungsplandaten (Rows) 체bergeben
-  * nicht angeben - Alle Zeilen werden ausgegeben, aber nicht alle Spalten angezeigt (nicht alle Daten zu den einzelnen Vertretungen)
+  * *cols* - Es werden nur die Spalte ausgegeben. Dabei werden nur die Spalten angezeigt, die wirklich angezeigt werden sollen und diese auch in der richtigen Reihenfolge.  
+  * nichts angeben - Alle Zeilen werden ausgegeben, bei denen die Daten mit dem eingegebenen Datum und dem Stand 체bereinstimmen. Es werden nicht alle Spalten angezeigt (nicht alle Daten zu den einzelnen Vertretungen), sondern nur die, die auch im Backend festgelegt wurden. 
 
 Code: plan.php (Controller Frontend)
 
