@@ -18,10 +18,10 @@ Hauptseite des Backends. Erklärungen zu den einzelnen Funktionen findest du im 
 Dieses View ist für die Anzeige der Informationen zuständig, die zum Upload eines Vertretungsplanes oder zum bereinigen der Datenbank nötig sind. 
 
 = Settings =
-Hier können alle Einstellungen verändert werden. Erklärungen zu den einzelnen Einstellungen findest du im [Benutzerhandbuch_Backend Benutzerhandbuch des Backends]. 
+Hier können alle Einstellungen verändert werden. Erklärungen zu den einzelnen Einstellungen findest du im [Settings Benutzerhandbuch des Backends]. 
 
 = Columns =
-In diesem View kannst du die Einstellungen der Spalten bearbeiten. Erklärungen zu den einzelnen Einstellungen findest du im [Benutzerhandbuch_Backend Benutzerhandbuch des Backends]. 
+In diesem View kannst du die Einstellungen der Spalten bearbeiten. Erklärungen zu den einzelnen Einstellungen findest du im [Columns Benutzerhandbuch des Backends]. 
 
 Das Formular in diesem Template weißt eine besonderheit auf. So hat der Name von allen Felder des Formulars immer die ID der jeweiligen Spalte im Namen, um die daten nach dem Abschicken sauber trennen zu können. 
 
