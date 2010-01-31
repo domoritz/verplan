@@ -193,5 +193,4 @@ Hier eine kurze Erklärung der Unterarrays
   * *rows* - Informationen der Zeilen (der einzelnen Vertretungen)
 
 = Woher kommen die Daten? =
-Die URL, welche aufgerufen wird, zeigt das View `verplan` und darin die Dateien `view.js.php` und `/tmpl/default_json` an. Die Parameter werden per GET an die Datei `view.js.php` übergeben und von dort aus an das Template weitergegeben. 
-Die Daten kommen aus dem Controller `plan`, der sie wiederum aus verschiedenen Controllern und Models zusammengesetzt hat.  
+Die URL, welche aufgerufen wird, zeigt das View `data` angezeigt. Durch `format=json` wird dafür gesorgt, dass die JSOn Daten ihne Template angezeigt werden. Es wird die Datei `views/data/view.json.php` angezeigt, welche das Template `views/data/tmpl/default` lädt. Die Daten, die hier angezeigt werden, werden wiederum über den Controller `plan` und das Model `plan` aus der Datenbank geladen. 
