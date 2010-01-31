@@ -39,19 +39,17 @@ Zurzeit werden nur gp-untis Dateien erkannt, welche mit dem Info-Stundenplan Mod
 
 Meldung: `Senden und parsen erfolgreich`
 
-= Optionen =
-
-Hier kannst du einstellen, wie der Upload geschehen soll. *Ajax* sogt dafür, dass die Seite nicht neu geladen wird, wenn Einstellungen geändert werden. Normalerweise muss Ajax nicht abgeschaltet werden. Mit der Einstellung *Debug* kann man sich genau zeigen lassen, was nach dem Klick auf "Abschicken" passiert. Es ist eine Hilfe bei der Fehlererkennung und Beseitigung.
-
 = Datenbank bereinigen =
 
 hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweise werden für jeden Upload die hochgeladenen Dateien und alle Daten gespeichert. Um Einträge zu löschen, musst du nur auf *"Datenbank bereinigen"* klicken. Vertretungspläne, die für die Zukunft gelten (Geltungsdatum > Jetzt), bleiben immer erhalten und werden nicht mitgezählt. 
 
 = Parameter/ Einstellungen =
 
-Parameter sind Einstellungen (Settings), die für das Programm gelten. Einige gelten für das backend, andere für das Frontend. Die [Optionen Option Ajax] gilt auch für das Speichern dieser Daten. 
+Parameter sind Einstellungen (Settings), die für das Programm gelten. Einige gelten für das Backend, andere für das Frontend. 
 
-Nachdem du hier etwas geändert hast, musst du auf *"Speichern"* klicken, damit die Einstellungen übernommen werden und nicht verloren gehen.
+Nachdem du hier etwas geändert hast, musst du auf *"Speichern"* klicken, damit die Einstellungen übernommen werden und nicht verloren gehen.vMit einem Klick auf *"Reset"* können die Änderungen rückgängig gemacht werden. 
+
+Die einzelnen Spalten lassen sich sortieren, indem man auf den Titel in der Tabelle klickt. 
 
 == version ==
 Version der Webapplication. Dieser Wert sollte normalerweise nicht geändert werden müssen und wird automatisch gesetzt, wenn das Backend aufgerufen wird.
@@ -120,7 +118,7 @@ Siehe auch [#message_title]
 
 = Spalten =
 
-Hier lassen sich alle Einstellungen der Spalten der Vertretungsplantabelle des Frontends verändern. Die Spalten kommen auch so in der Datenbank vor.  Wenn du hier etwas geändert hast, musst du die Änderungen speichern. Entweder die Spalte einzeln mit einem Klick auf *"Speichern"* ganz rechts in der Zeile oder *"alle speichern"* unter der Tabelle. Wenn etwas geändert wurde, wird die entsprechende Zeile in der Tabelle eingefärbt. Mit einem Klick auf *"reset"* können die Änderungen rückgängig gemacht werden. 
+Hier lassen sich alle Einstellungen der Spalten der Vertretungsplantabelle des Frontends verändern. Die Spalten kommen auch so in der Datenbank vor.  Wenn du hier etwas geändert hast, musst du die Änderungen speichern. Klicke dazu auf dem Button *"Speichern"*. Mit einem Klick auf *"Reset"* können die Änderungen rückgängig gemacht werden. 
 
 Die einzelnen Spalten lassen sich sortieren, indem man auf den Titel in der Tabelle klickt. 
 
@@ -132,18 +130,17 @@ Hier eine kurze Erläuterung der einzelnen Einstellungen:
   * *published* - 1->Spalte wird angezeigt; 0-> Spalte wird ausgeblendet
   * *label* - Spaltentitel, wie er in der Tabelle erscheint
   * *description* - Kurze Beschreibung, die beim überfahren mit dem Cursor erscheint (im Frontend)
-  * *Speichern* - Speichern und zurücksetzen der Änderungen
 
 == Sortierung verändern ==
 
 Das verändern der Sortierung/ Reihenfolge der Spalten im Frontend über das Backend ist nicht immer ganz einfach. Normalerweise sollte man versuchen, die Zahlen in einer aufsteigenden Reihenfolge einzutragen. Dabei kann die Sortierfunktion sehr hilfreich sein, um z.B. die Spalten die angezeigt werden, von denen zu trennen, die nicht angezeigt werden. Wichtig ist es, alle Änderungen zu speichern!
 
-Hast du einen Reihenfolge aufgestellt kann es sein, dass Lücken entstanden sind. Hier hilft die Funktion *"Sortierung neu aufbauen"*. Diese sogt dafür, dass jede zahl nur einmal vorkommt und setzt die zahlen so, dass keine Lücken mehr vorhanden sind. Ein Beispiel:
+Hast du einen Reihenfolge aufgestellt kann es sein, dass Lücken entstanden sind. Hier hilft die Funktion *"Sortierung neu aufbauen"*. Diese sogt dafür, dass jede Zahl nur einmal vorkommt und setzt die zahlen so, dass keine Lücken mehr vorhanden sind. Ein Beispiel:
 
   *Vor dem neu Aufbauen: 1,2,3,6,7,99,345
   *Nach dem neu Aufbauen: 1,2,3,4,5,6,7
 
-Wichtig: bevor du die Sortierung neu aufbaust, solltest du die Änderungen speichern.
+Wichtig: bevor du die Sortierung neu aufbaust, solltest du eventuelle Änderungen speichern.
 
 = About =
 Daten und Info zum und über das Programm.
