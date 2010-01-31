@@ -114,3 +114,7 @@ Das gesamte Template ist so gestaltet, dass es jQueryUI kompatibel ist und alle 
 
 = Das Frontend für mobile Geräte =
 Diese Seite wird mit dem Parameter `view=mobile` aufgerufen und ist für mobile Endgeräte optimiert. Diese Seite hat keine Ajaxfunktionalitäten und arbeitet nur mit PHP. Diese Seite arbeitet genauso, wie die normale Anzeige, eignet sich also sehr gut, um zu verstehen, wie die Seite arbeitet, wenn JS deaktiviert ist. 
+
+Wenn ein Benutzer die normale Fronendseite mit einem mobilen Browser ansurft, wird er automatisch auf die mobile Seite weitergeleitet.
+
+Einem Benutzer wird vorgeschlagen, die mobile Seite zu nutzen, wenn er Javascript deaktiviert hat und es nicht aktivieren kann/möchte. 
