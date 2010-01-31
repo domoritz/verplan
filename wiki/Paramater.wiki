@@ -32,7 +32,7 @@ $load_jquery = $settingsmodel->getSetting('load_jquery_frontend');
 }}}
 
 == im Frontend ==
-Im Frontend können die Einstellungen mit den o.g. Funktionen geladen werden. Das Funktioniert allerdings nur solange man mit PHP arbeitet. Damit die Einstellungen auch unter JavaScript verfügbar sind, gibt es ein extra View `settings` im Frontend, welches als JavaScript Datei eingebunden wird. Die Url ist `?option=com_verplan&view=settings&format=js`. 
+Im Frontend können die Einstellungen mit den o.g. Funktionen geladen werden. Das Funktioniert allerdings nur solange man mit PHP arbeitet. Damit die Einstellungen auch unter Javascript verfügbar sind, gibt es ein extra View `settings` im Frontend, welches als Javascript Datei eingebunden wird. Die Url ist `?option=com_verplan&view=settings&format=js`. 
 
 Eine bestimmte Einstellung wird mit
 {{{
