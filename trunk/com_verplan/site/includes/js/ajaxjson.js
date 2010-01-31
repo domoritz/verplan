@@ -55,7 +55,7 @@ function ajaxCall() {
 		contentType: "application/json; charset=utf-8",
 		cache: false,
 		url : rooturl + "index.php",
-		data : 'option=com_verplan&view=verplan&format=js&date=' + ajax_date
+		data : 'option=com_verplan&view=data&format=json&date=' + ajax_date
 				+ '&stand=' + ajax_stand + '&options=' + ajax_options,
 		timeout: (5000),
 		async : true,

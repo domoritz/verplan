@@ -126,13 +126,6 @@ if ($this->mobile == true) {
 
 <div id="options_panel" class="ui-helper-clearfix ui-widget-content ui-corner-bottom">
 	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
-		<?php // nur den neuesten stand ?>
-		<!-- <label for="input_stand" id="stand_label">Stand<span class="ui-icon ui-icon-lightbulb"></span></label> -->
-		<input id="input_stand" type="hidden" name="stand" value="<?php print $this->stand;?>" />
-		
-		<?php // view optionen nur für ajax interessant ?>
-		<!--<label for="input_options" id="options_label">Options [model,view]<span class="ui-icon ui-icon-lightbulb"></span></label> -->
-		<input id="input_options" type="hidden" name="options" value="<?php echo $this->options;?>" />
 	
 		<?php // filter?>			
 		<label for="filter_input" id="filter_label">Filter nach einer Spalte<span class="ui-icon ui-icon-lightbulb"></span></label>
@@ -215,49 +208,18 @@ if ($this->mobile == true) {
 	</thead>
 	<tbody>
 	<?php
-	if (!empty($array['rows'])){
-		foreach ($array['rows'] as $row) {
-			echo "<tr>";
-			foreach ($row as $value) {
-				echo "<td>";
-				echo $value;
-				echo "</td>";
-			}
-			echo "</tr>";
-		}
-	} else {
-		//leere zellen, da es sonst fehler mit den plugins geben könnte
-		echo "<tr>";
-		for ($i = 0; $i < $anzahl; $i++) {
-			echo "<td></td>";
-		}
-		echo "</tr>";
+	//leere zellen, da es sonst fehler mit den plugins geben könnte
+	/*echo "<tr>";
+	for ($i = 0; $i < $anzahl; $i++) {
+		echo "<td></td>";
 	}
+	echo "</tr>";*/
 	?>
 	</tbody>
 </table>
 
-<?php 
-	//falls der typ nicht db ist, wird heir ein link angezeigt oder ein text
-	$last = count($array['infos'])-1;
-?>
-<div id="no_db" <?php print $array['infos'][$last]['type'] != 'db' ? 'style="display: block;"' : ''?>>
-	<?php 
-	//nur, wenn auch ein Datun gewählt wurde
-	if (!empty($array['infos'])) {
-		//falls no_db oder kein plan
-		if ($array['infos'][$last]['type'] != 'db') {
-			if ($array['infos'][$last]['type'] == 'none') {
-				echo "<p>Hurra, es gibt keine Vertretungen!</p>(Stand: ".$array['infos'][0]['Stand'].')';
-			} else {
-				echo '<p><a href="'.$array['infos'][$last]['url'].'">zum Vertretungsplan</a></p>(Stand: '.$array['infos'][0]['Stand'].')';
-			}
-		}
-	} else {
-		echo "Bitte warten oder ein Datum wählen!";
-	}
-	
-	?>
+<div id="no_db">
+
 </div>
 
 <?php //kleiner indikator ?>

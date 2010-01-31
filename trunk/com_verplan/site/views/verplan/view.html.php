@@ -25,10 +25,6 @@ class verplanViewverplan extends JView
 {
 	function display($tpl = null)
 	{
-		/*$weiche = JRequest::getVar('weiche','html');
-		if ($weiche == 'js') {
-			$tpl = 'json';
-		}*/
 		
 		//prüfen, ob die Seite mit einem Mobilen Endgerät aufgerufen wurde
 		require(JPATH_COMPONENT.DS.'includes'.DS.'php'.DS.'check_mobile.php');
@@ -40,32 +36,6 @@ class verplanViewverplan extends JView
 			$mobile = true;
 			$this->assignRef('mobile',$mobile);			
 		}
-		
-		//Standardmodel laden
-		$model =& $this->getModel();
-
-		//kein js nachricht
-		$nojs = $model->getNojs(); 
-		$this->assignRef('nojs',$nojs);
-		
-		//variablen, wichtig falls js deaktiviert
-		$date = JRequest::getVar('date','none');
-		$stand = JRequest::getVar('stand','latest');
-		$options = JRequest::getVar('options',',min');
-		$format = JRequest::getVar('format','html');
-
-		/*
-		 * verschiedene optionen möglich
-		 * 0. : optionen für das controller
-		 * 1. : optionen für den view
-		 * die optionen sind mit komma getrennt
-		 */
-		$optionsarray = explode(',',$options);
-
-		//stand und datum und options aus get
-		$this->assignRef( 'date', $date);
-		$this->assignRef( 'stand', $stand);
-		$this->assignRef( 'options', $options);
 
 		//controller uploads laden
 		$name = 'uploads';
@@ -165,29 +135,9 @@ class verplanViewverplan extends JView
 		$load_jqueryui = $settingsmodel->getSetting('load_jqueryui_frontend');
 		$this->assignRef( 'load_jqueryui', $load_jqueryui);
 		
-		//namen für klassenfilter
-		$classname = $settingsmodel->getSetting('class_col');
-		$this->assignRef( 'classname', $classname);
-		$varname = $settingsmodel->getSetting('class_name');
-		$this->assignRef( 'varname', $varname);
-		
-		//debugmode
-		$debug = $settingsmodel->getSetting('debug');
-		$this->assignRef( 'debugmode', $debug);
-		
-		//notify
-		$notify = $settingsmodel->getSetting('notify');
-		$this->assignRef( 'notify', $notify);
-		
 		//einleitungstext
 		$einltext = $settingsmodel->getSetting('head_text'); 		
 		$this->assignRef('einltext',$einltext);
-		
-		//message
-		$message = $settingsmodel->getSetting('message'); 		
-		$this->assignRef('message',$message);
-		$message_title = $settingsmodel->getSetting('message_title'); 		
-		$this->assignRef('message_title',$message_title);
 		
 		//versionsnummer
 		//version number
@@ -201,7 +151,7 @@ class verplanViewverplan extends JView
 		$controller = new $controllerName();
 
 		//array des vertretungsplanes und der spalten
-		$array = $controller->getVerplanarray($date,$stand,$optionsarray[0]);
+		$array = $controller->getVerplanarray('','','cols');
 		$this->assignRef( 'verplanArray', $array);
 
 		$this->assignRef( 'format', $format);

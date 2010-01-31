@@ -16,6 +16,11 @@
 var hash;
 
 /**
+ * variable, welche zeigt, welches benachrichtigungssystem benutzt werden soll
+ */
+var notify;
+
+/**
  * für umleitung des alert
  */
 var _alert;
@@ -30,13 +35,17 @@ jQuery(document).ready(function(){
 	}
 	
 	// startet anschließend initiate_everything
-	getSettings();
+	//getSettings();
+	initiate_everything();
 });
 
 /**
  * initialisierung, gestartet von settings.js aus
  */
-function initiate_everything(){		
+function initiate_everything(){	
+	
+	notify = settings.notify.value;
+	
 	if ((notify == 'pnotify' || notify == 'both') && settings.message_title.value != '') {
 		//Meldung
 		jQuery.pnotify({
@@ -53,8 +62,6 @@ function initiate_everything(){
 		//consume_alert();
 	}	
 	
-	// rooturl der joomlainstallation
-	rooturl = getURL();
 	hash = getHash();
 	
 	// tabellenplugins initialiseren
@@ -142,8 +149,10 @@ function loadverplan(hash) {
 	
 	
 	// json laden und tabelle anzeigen
-	ajax_stand = jQuery('#verplan_form [name=stand]').val();
-	ajax_options = jQuery('#verplan_form [name=options]').val();
+	
+	//einstellungen für verplan api
+	ajax_stand = 'latest';
+	ajax_options = ',min';
 	
 	getAndUseJSON(hash, ajax_stand, ajax_options);
 }

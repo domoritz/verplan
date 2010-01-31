@@ -4,7 +4,7 @@
  * dise daten kann man natürlich auch in anderen programmen 
  * nutzen, indem man einfach die daten über die URL abruft.
  * die syntax ist
- * ?option=com_verplan&view=verplan&format=js&date=<mySQL Timestamp>&stand=<mySQL Timestamp>&options=<Optionen für das model>,<Optionen für die anzeige>
+ * ?option=com_verplan&view=data&format=json&date=<mySQL Timestamp>&stand=<mySQL Timestamp>&options=<Optionen für das model>,<Optionen für die anzeige>
  * 
  * Timestamps
  * 
@@ -19,7 +19,7 @@
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
  * @link		http://code.google.com/p/verplan/
  * @license		GNU/GPL
- * @author      Created on 07-Okt-2009
+ * @author      Created on 31-Jan-2010
  */
 
 //-- No direct access
@@ -38,6 +38,7 @@ $document =& JFactory::getDocument();
  
 // Set the MIME type for JSON output.
 $document->setMimeEncoding( 'application/json' );
+
 ?>
 
 <?php
