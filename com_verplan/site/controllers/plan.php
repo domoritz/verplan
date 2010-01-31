@@ -156,10 +156,30 @@ class VerplanControllerPlan extends verplanController
 				$array[cols] = $assozArray_cols;
 				$array[rows] = $assozArray_rows;
 				break;
-
+			
+			//nur infos und cols
 			case none:
 				$array[infos] = $infosarray;
 				$array[cols] = $assozArray_cols;
+				break;
+				
+			//nur spalten, aber nur die richtigen
+			case cols:
+				//nur bestimmte spalten sollen angezeigt werden
+				//erzeugt ein array mit den spaltennamen, die richtig sind
+				$richtigeSpaltenArray = array();
+				foreach ($assozArray_cols as $key => $subarray) {
+					if ($subarray[published] == 1) {
+						$richtigeSpaltenArray[] = $subarray[name];
+					}
+				}
+
+				//sort($richtigeSpaltenArray);
+
+				//läuft durch alle spalten durch
+				foreach ($richtigeSpaltenArray as $key => $colname) {
+					$array[cols][$colname] = $assozArray_cols[$colname];
+				}
 				break;
 					
 			default:

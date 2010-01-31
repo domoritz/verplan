@@ -1,13 +1,13 @@
 <?php
 /**
- * versorgt das template für den vertretungsplan mit daten
+ * versorgt das template für die JSON Datei mit Daten (Vertretungsplan API)
  * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
  * @link		http://code.google.com/p/verplan/
  * @license		GNU/GPL
- * @author      Created on 07-Okt-2009
+ * @author      Created on 31-Jan-2010
  */
 
 //-- No direct access
@@ -17,13 +17,13 @@ jimport( 'joomla.application.component.view');
 
 /**
  * HTML View class for the verplan Component
- *
+ * view: mobile
  * @package    verplan
  */
 
-class verplanViewverplan extends JView
+class verplanViewData extends JView
 {
-	function display($tpl = json)
+	function display($tpl = null)
 	{
 		//Model laden
 		$model =& $this->getModel();
