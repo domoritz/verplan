@@ -41,8 +41,12 @@ class VerplanControllerClean extends verplanController
 	 * @return boolean
 	 */
 	function clean() {
-		//debug
-		//var_dump(JRequest::get('settings'));	
+		
+		//für debug
+		$debug = JRequest::getVar('debug', false);
+		if ($debug == 'true') {
+			echo 'Debug mode<br>==========<br>';
+		}	
 		
 		
 		//parameter für clean: anzahl der uploads, die behalten werden
@@ -53,13 +57,11 @@ class VerplanControllerClean extends verplanController
 		
 		$msg = 'Datenbank bereinigt '.$anzGel.' Einträge gelöscht';
 		
-		//für ajax
-		$ajax = JRequest::getVar('ajax', false);
-		if ($ajax == 'true') {
-			//weiterreichen an ajax view/template
-			$this->setRedirect( "index.php?option=com_verplan&format=js&msg=$msg", $msg);
+		if ($debug == 'true') {
+			echo '<br>==========<br>';
 		} else {
-			$this->setRedirect( 'index.php?option=com_verplan', $msg );			
-		}
+			//weiterreichen an view/template
+			$this->setRedirect( "index.php?option=com_verplan", $msg);
+		}			
 	}
 }

@@ -83,6 +83,8 @@ class VerplanModelColumns extends JModel
 		if (!$table->save($data)){
 			JError::raiseWarning( 500, $table->getError() );
 		}
+		
+		return true;
 
 	}// function
 
@@ -94,7 +96,7 @@ class VerplanModelColumns extends JModel
 	 * @return	boolean	True on success
 	 */
 	function setColumns($data){
-		//var_dump($data);
+		var_dump($data);
 
 		foreach ($data as $id => $subarray) {
 			$table =& $this->getTable('columns');
@@ -119,9 +121,9 @@ class VerplanModelColumns extends JModel
 		$response = $table->reorder();
 		
 		if (!$response){
-				JError::raiseWarning( 500, $table->getError() );
+			JError::raiseWarning( 500, $table->getError() );
 		}
 		
-		return "Sortierung neu aufgebaut ".$response;
+		return $response;
 	}
 }

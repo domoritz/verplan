@@ -83,6 +83,8 @@ class VerplanModelSettings extends JModel
 			JError::raiseWarning( 500, $table->getError() );
 		}
 
+		return true;
+
 	}// function
 
 

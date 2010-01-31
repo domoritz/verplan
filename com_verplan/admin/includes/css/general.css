@@ -59,52 +59,6 @@ div.time-picker li.selected {
 	color: #fff;
 }
 
-/**/ /*Ajax indikatoren der einzelnen einstellmöglichkeiten*/
-#ajax_indicator_0 {
-	display: none;
-	color: transparent;
-	background: transparent url(../images/ajax-loader.gif) no-repeat 50%
-		center;
-}
-
-#ajax_indicator_1 {
-	display: none;
-	color: transparent;
-	background: transparent url(../images/ajax-loader.gif) no-repeat 50%
-		center;
-}
-
-#ajax_indicator_2 {
-	display: none;
-	color: transparent;
-	background: transparent url(../images/ajax-loader.gif) no-repeat 50%
-		center;
-}
-
-#ajax_indicator_3 {
-	display: none;
-	color: transparent;
-	background: transparent url(../images/ajax-loader.gif) no-repeat 50%
-		center;
-}
-
-/*Ajaxnachrichten*/
-.ajaxresmess_0 {
-	display: none;
-}
-
-.ajaxresmess_1 {
-	display: none;
-}
-
-.ajaxresmess_2 {
-	display: none;
-}
-
-.ajaxresmess_3 {
-	display: none;
-}
-
 /*default value style*/
 td.def_td {
 	color: #999;

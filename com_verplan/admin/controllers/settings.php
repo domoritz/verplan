@@ -38,7 +38,13 @@ class VerplanControllerSettings extends verplanController
 	 * speichert die einstellungen
 	 * @return void
 	 */
-	function setSettings() {		
+	function setSettings() {
+		//für debug
+		$debug = JRequest::getVar('debug', false);
+		if ($debug == 'true') {
+			echo 'Debug mode<br>==========<br>';
+		}
+				
 		$arr_in = JRequest::get('settings');
 		
 		//Probleme mit getVar, weil html entfernt beheben
@@ -57,17 +63,24 @@ class VerplanControllerSettings extends verplanController
 		}
 		
 		$model = $this->getModel('settings');
-		$model->setSettings($arr_out);
 		
-		$msg = 'Einstellungen gespeichert';
 		
-		//für ajax
-		$ajax = JRequest::getVar('ajax', false);
-		if ($ajax == 'true') {
-			//weiterreichen an ajax view/template
-			$this->setRedirect( "index.php?option=com_verplan&format=js&msg=$msg", $msg);
+				
+
+		if ($model->setSettings($arr_out)) {
+			$msg = 'Einstellungen gespeichert';
 		} else {
-			$this->setRedirect( 'index.php?option=com_verplan', $msg );			
+			$msg = 'Fehler beim Speichern';
 		}
+		
+		echo $msg;
+		
+		if ($debug == 'true') {
+			echo '<br>==========<br>';
+		} else {
+			//weiterreichen an view/template
+			$this->setRedirect( 'index.php?option=com_verplan&view=settings', $msg );
+		}
+
 	}
 }

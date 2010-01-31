@@ -42,23 +42,46 @@ class VerplanControllerColumns extends verplanController
 	 * @return void
 	 */
 	function setColumns() {
-		//debug
-		var_dump(JRequest::get('columns'));
-
-		/*$arr_in = JRequest::get('columns');
-
-		$i = 0;
-		foreach ($arr_in as $setting => $value) {
-		$arr_out[$i][name] = $setting;
-		$arr_out[$i][value] = $value;
-		$i++;
+		
+		//für debug
+		$debug = JRequest::getVar('debug', false);
+		if ($debug == 'true') {
+			echo 'Debug mode<br>==========<br>';
 		}
-
-		$model = $this->getModel('settings');
-		$model->setSettings($arr_out);
-
-		$msg = 'Einstellungen gespeichert';
-		$this->setRedirect( 'index.php?option=com_verplan', $msg );*/
+		
+		$columns = JRequest::get('columns');
+		
+		//debug
+		var_dump($columns);
+		
+		$data = array();
+		
+		foreach ($columns as $name => $value) {
+			$pair = explode('#',$name);
+			if (count($pair) == 2) {
+				$data[$pair[0]][$pair[1]] = $value;
+			}
+		}
+		
+		//var_dump($data);
+		
+		//an model weiterreichen
+		$model = $this->getModel('columns');
+		
+		if ($model->setColumns($data)) {
+			$msg = 'Spalten gespeichert';
+		} else {
+			$msg = 'Fehler beim Speichern';
+		}
+		
+		echo $msg;
+		
+		if ($debug == 'true') {
+			echo '<br>==========<br>';
+		} else {
+			//weiterreichen an view/template
+			$this->setRedirect( "index.php?option=com_verplan&view=columns", $msg);
+		}
 	}
 
 	/**
@@ -67,26 +90,35 @@ class VerplanControllerColumns extends verplanController
 	 * @return void
 	 */
 	function setColumn() {
-		//debug
-		//var_dump(JRequest::get('columns'));
-
+		//für debug
+		$debug = JRequest::getVar('debug', false);
+		if ($debug == 'true') {
+			echo 'Debug mode<br>==========<br>';
+		}
+		
 		//get variable
-		$column = JRequest::get('columns');
+		$column = JRequest::get('column');
+		
+		//debug
+		var_dump($column);
 
 		//an model weiterreichen
 		$model = $this->getModel('columns');
-		$model->setColumn($column);
 
-		$msg = 'Spalte gespeichert';
-		
-		//für ajax
-		$ajax = JRequest::getVar('ajax', false);
-		if ($ajax == 'true') {
-			//weiterreichen an ajax view/template
-			$this->setRedirect( "index.php?option=com_verplan&format=js&msg=$msg", $msg);
+		if ($model->setColumn($column)) {
+			$msg = 'Spalte gespeichert';
 		} else {
-			$this->setRedirect( 'index.php?option=com_verplan', $msg );			
+			$msg = 'Fehler beim Speichern';
 		}
+		
+		echo $msg;
+		
+		if ($debug == 'true') {
+			echo '<br>==========<br>';
+		} else {
+			//weiterreichen an view/template
+			$this->setRedirect( "index.php?option=com_verplan&view=columns", $msg);
+		}			
 	}
 	
 	/**
@@ -94,12 +126,27 @@ class VerplanControllerColumns extends verplanController
 	 * @return unknown_type
 	 */
 	function reorder () {
+		//für debug
+		$debug = JRequest::getVar('debug', false);
+		if ($debug == 'true') {
+			echo 'Debug mode<br>==========<br>';
+		}
 		
 		$model = $this->getModel('columns');
-		$msg = $model->reorder();
+			
+		if ($model->reorder()) {
+			$msg = 'Sortierung neu aufgebaut';
+		} else {
+			$msg = 'Fehler beim Sortieren';
+		}
 		
 		echo $msg;
-			
-		$this->setRedirect( 'index.php?option=com_verplan', $msg );			
+		
+		if ($debug == 'true') {
+			echo '<br>==========<br>';
+		} else {
+			//weiterreichen an view/template
+			$this->setRedirect( "index.php?option=com_verplan&view=columns", $msg);
+		}			
 	}
 }
