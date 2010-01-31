@@ -5,8 +5,25 @@ Das Backend besteht aus mehreren Views, die jeweils für eine bestimmte Aufgabe 
 
 Mehr Informationen und Hilfen: http://docs.joomla.org/Developing_a_Model-View-Controller_Component_-_Part_4_-_Creating_an_Administrator_Interface
 
+In der regel existiert zu jedem View ein (oder mehrere) Controller mit dazugehörigem Model. Welche zusammengehören ist aus dem Quellcode ersichtlich. 
+
+Für dich als Entwickler gibt es einen Debugmode. Du musst nur ein `&debug=true` an die URL hängen und kannst dann nach dem Abschicken eines Formulars sehen, wie die Daten verarbeitet werden. 
+
 
 <wiki:toc max_depth="3" />
 
 = Home =
-Hauptseite des Frontends. Erklärungen zu den einzelnen Funktionen findest du hier: [Benutzerhandbuch_Backend#Vertretungsplan_hochladen] und [Benutzerhandbuch_Backend#Datenbank_bereinigen]
+Hauptseite des Backends. Erklärungen zu den einzelnen Funktionen findest du im [Benutzerhandbuch_Backend Benutzerhandbuch des Backends]. 
+
+Dieses View ist für die Anzeige der Informationen zuständig, die zum Upload eines Vertretungsplanes oder zum bereinigen der Datenbank nötig sind. 
+
+= Settings =
+Hier können alle Einstellungen verändert werden. Erklärungen zu den einzelnen Einstellungen findest du im [Benutzerhandbuch_Backend Benutzerhandbuch des Backends]. 
+
+= Columns =
+In diesem View kannst du die Einstellungen der Spalten bearbeiten. Erklärungen zu den einzelnen Einstellungen findest du im [Benutzerhandbuch_Backend Benutzerhandbuch des Backends]. 
+
+Das Formular in diesem Template weißt eine besonderheit auf. So hat der Name von allen Felder des Formulars immer die ID der jeweiligen Spalte im Namen, um die daten nach dem Abschicken sauber trennen zu können. 
+
+= About =
+Selbstklärend. 
