@@ -44,10 +44,10 @@ Meldung: `Senden und parsen erfolgreich`
 hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweise werden für jeden Upload die hochgeladenen Dateien und alle Daten gespeichert. Um Einträge zu löschen, musst du nur auf *"Datenbank bereinigen"* klicken. Vertretungspläne, die für die Zukunft gelten (Geltungsdatum > Jetzt), bleiben immer erhalten und werden nicht mitgezählt. 
 
 = Einstellungen/ Parameter=
-[settings zum Wikieintrag]
+[Settings zum Wikieintrag]
 
 = Spalten =
-[columns zum Wikieintrag]
+[Columns zum Wikieintrag]
 
 = About =
 Daten und Info zum und über das Programm.
