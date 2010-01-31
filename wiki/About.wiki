@@ -28,7 +28,12 @@
 
 Systemvoraussetzungen
 
-    * PHP >= 5.3.0
+    * auf dem Server
+        * PHP >= 5.3.0
+
+    * beim Client
+        * Browser besser als IE6
+        * wenn möglich JavaScript Unterstützung
 
 
 
