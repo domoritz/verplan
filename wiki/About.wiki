@@ -33,7 +33,7 @@ Systemvoraussetzungen
 
     * beim Client
         * Browser besser als IE6
-        * wenn möglich JavaScript Unterstützung
+        * wenn möglich Javascript Unterstützung
 
 
 
