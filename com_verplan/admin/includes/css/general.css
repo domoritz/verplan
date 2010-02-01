@@ -6,11 +6,29 @@
  * @license		GNU/GPL
  * @author      Created on 14-Sep-2009
  */
+ 
+/*********** header ***********/
+
 #logo_verplan {
 	margin-right: 20px;
 	margin-left: 10px;
 	float: left;
+	cursor: pointer;
 }
+
+#help_head {
+	float: right;
+	margin-left: 0px;
+	border: none;
+	background: none;	
+}
+
+#help_head img{
+	border: none;
+	background: none;	
+}
+
+/*********** miscellaneous ***********/
 
 .key {
 	font-weight: bold;	
@@ -30,7 +48,7 @@
 	margin-left: 10px;
 }
 
-/*timepicker*/
+/*********** timepicker ***********/
 div.time-picker {
 	margin-top: 1.5em; 
 	position : absolute;
@@ -63,7 +81,7 @@ div.time-picker li.selected {
 	color: #fff;
 }
 
-/*default value style*/
+/* default value style */
 td.def_td {
 	color: #999;
 	font-size: smaller;
@@ -79,12 +97,7 @@ td.def_td {
 	border-collapse: collapse;
 }
 
-.highlight td {
-	color: #025A8D;
-	background-color: #C3D2E5 !important;
-}
-
-/*plus and minus*/
+/*********** plus and minus ***********/
 .expander {
 	padding-left: 16px;
 	cursor: pointer;
@@ -114,7 +127,7 @@ td.def_td {
 		2px;
 }*/
 
-/*Links in columns*/
+/*********** Links in columns ***********/
 .links_do {
 	font-size: 1.2em;
 	margin: 0.2em 0 0.2em 2em;

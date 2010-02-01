@@ -9,7 +9,7 @@
  * @author      Created on 10-Okt-2009
  */
 
-/*tabelle*/
+/*********** tabelle ***********/
 #jquerytable {
 	border-collapse:collapse;
 }
@@ -19,7 +19,7 @@
 	font-size: 1em;
 }
 
-/*überschrift der verplantabelle*/
+/*********** überschrift der verplantabelle ***********/
 #table_header .left_float{
 	padding-top: 0.2em;
 	padding-left: 0.4em;
@@ -37,7 +37,7 @@
 	align: right;
 }
 
-/*thead*/
+/*********** thead ***********/
 #jquerytable thead, #jquerytable thead td, #jquerytable thead div{
 	border-left: none;
 	border-right: none;
@@ -59,6 +59,7 @@
 	cursor: pointer; 
 	font-weight: bold !important;
 	padding: 4px 0px 4px 4px;
+	font-size: small;
 }
 
 #jquerytable th span{
@@ -81,6 +82,7 @@
 
 #jquerytable tbody td {
 	padding:0px;
+	font-size: small;
 }
 
 .filterColumns td {
@@ -108,7 +110,7 @@
 	color:#000000;
 }
 
-/*tbody*/
+/*********** tbody ***********/
 #jquerytable tbody {
 	display: table-row-group;
 }
