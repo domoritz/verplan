@@ -87,7 +87,7 @@ $version = $settings[version]['default'];
 		<tr>
 			<td class="key"><label for="date">Geltungsdatum</label></td>
 			<td  colspan="2">
-				<input size="40" type="text" id="datepicker_date" name="date" class="inputbox" />
+				<input size="40" type="date" id="datepicker_date" name="date" class="inputbox" />
 			</td>
 		</tr>
 		<tr>
@@ -97,8 +97,8 @@ $version = $settings[version]['default'];
 					$time = date('H:i');						
 					$date = date('Y-m-d');
 				?>
-				<input size="40" type="text" id="datepicker_stand" name="stand" value="<?php echo $date; ?>"/>
-				<input size="40" type="text" id="datepicker_stand_time" name="stand_time" value="<?php echo $time; ?>" />
+				<input size="40" type="date" id="datepicker_stand" name="stand" value="<?php echo $date; ?>"/>
+				<input size="40" type="time" id="datepicker_stand_time" name="stand_time" value="<?php echo $time; ?>" />
 			</td>
 			<!-- <td>
 				<input size="40" type="stand_time" id="datepicker_stand_time" name="stand" class="inputbox" /><br>

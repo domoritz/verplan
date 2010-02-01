@@ -96,6 +96,7 @@ class VerplanControllerSend extends verplanController
 			}
 				
 		} else {
+			//normal parsen
 
 			// upload controller laden
 			$name = 'upload';
@@ -140,18 +141,29 @@ class VerplanControllerSend extends verplanController
 				//umlaute austauschen (htmlentities auf array)
 				//$controller->execute('umlaute');
 
-				//und dann werden die daten noch gespeichert
-				$controller->execute('store');
 				
-				//nun noch die informationen über den upload speichern
+				// noch die informationen über den upload speichern
 				$model = $this->getModel('data');
-				$model->log_in_uploads($controller->upload_arr);
+				$controller->id = $model->log_in_uploads($controller->upload_arr);
 				
 				///*debug
 				echo '<br>==========<br>';
 				echo 'Daten zum Upload<br>';
 				var_dump($controller->upload_arr);
 				//*/
+				
+				//id_upload an geparste daten anhängen
+				$controller->execute('append_id');
+				
+				///*debug
+				echo '<br>==========<br>';
+				echo 'id_upload<br>';
+				var_dump($controller->id);
+				//*/
+				
+				//und dann werden die daten noch gespeichert
+				$controller->execute('store');
+				
 				
 				//datei löschen, wenn aktiviert
 				$settingsmodel = $this->getModel('settings');
