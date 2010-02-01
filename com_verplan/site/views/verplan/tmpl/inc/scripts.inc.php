@@ -80,6 +80,9 @@ if ($min) {
 
 //eigene scripts
 if (!$min) {
+	//debug
+	$document->addScript($baseurl.'includes/js/debug.js');
+	
 	//einstellungen
 	$document->addScript(JURI::root().'?option=com_verplan&view=settings&format=js');
 

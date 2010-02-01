@@ -65,14 +65,11 @@ $version = $settings[version]['default'];
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
 		Weitere Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
 		Bitte sende dein <a id="feedy" title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA">Feedback</a>!
-		Version: <?php echo $version;?>
+		<br>Version: <?php echo $version;?><br>
+		Zur <a target="_blank" href="../index.php?option=com_verplan" target="_blank">Frontpage</a>
 	</p>
 	<br>
 </div>
-
-<p><?php echo $this->description?></p>
-
-<p><?php echo $this->link; ?></p>
 
 <form id="form_verplan" name="upload" method="post" enctype="multipart/form-data" action="index.php?option=com_verplan">
 <table class="admin_table">
