@@ -1,6 +1,6 @@
 <?php
 /**
- * TODO
+ * Template für die js datei, die die einstellungen enthält
  * 
  * @version		$Id$
  * @package		verplan

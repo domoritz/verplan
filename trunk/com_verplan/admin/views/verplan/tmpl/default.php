@@ -59,15 +59,17 @@ $settings = $this->settings;
 $version = $settings[version]['default'];
 ?>
 
-<div>
-	<a href=""><img alt="logo vertretungsplan" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/></a>
-	<p style="">
+<div id="header_verplan" class="ui-helper-clearfix panel">
+	<a href="/index.php?option=com_verplan"><img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/></a>
+	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/help_contents_32.png"></a>
+	<p>
 		Dies ist eine Vorschauversion der neuen Vertretungsplankomponente. 
 		Weitere Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
 		Bitte sende dein <a id="feedy" title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA">Feedback</a>!
 		<br>Version: <?php echo $version;?><br>
 		Zur <a target="_blank" href="../index.php?option=com_verplan" target="_blank">Frontpage</a>
 	</p>
+	
 	<br>
 </div>
 
