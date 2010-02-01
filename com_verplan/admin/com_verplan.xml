@@ -2,8 +2,7 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>verplan</name>
 	<version>0.9.22</version>
-	<description>Komponente zum Einstellen des Vertretungsplanes auf die
-		Website des MCG (http://www.marie-curie-gymnasium-dallgow.de/).
+	<description>Komponente zum Hochladen und Anzeigen des Vertretungsplanes.
 	</description>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<author>Dominik Moritz</author>
