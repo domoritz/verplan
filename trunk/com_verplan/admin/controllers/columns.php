@@ -63,6 +63,13 @@ class VerplanControllerColumns extends verplanController
 			}
 		}
 		
+		foreach ($data as $id => $subarray) {
+			$data[$id]['id'] = $id;
+			if (!$data[$id]['published']) {
+				$data[$id]['published'] = 0;
+			}
+		}
+		
 		//var_dump($data);
 		
 		//an model weiterreichen

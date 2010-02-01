@@ -15,6 +15,8 @@ defined('_JEXEC') or die('=;)');
 
 $document =& JFactory::getDocument();
 
+$baseurl = JURI::base().'components/com_verplan/';
+
 //jQuery support
 $settings = $this->settings;
 if ($settings['load_jquery_backend']['value'] == 'true') {
@@ -32,14 +34,14 @@ if ($settings['load_jqueryui_backend']['value'] == 'true') {
 $document->addScript('http://jqueryui.com/ui/i18n/ui.datepicker-de.js');
 
 //stylesheets
-$document->addStylesheet('components/com_verplan/includes/css/general.css');
+$document->addStylesheet($baseurl.'includes/css/general.css');
 
 //Plugins
-$document->addScript('components/com_verplan/includes/js/plugins/jquery.timePicker.js');
+$document->addScript($baseurl.'includes/js/plugins/jquery.timePicker.js');
 
 //Javascript
-$document->addScript('components/com_verplan/includes/js/hide_admin.js');
-$document->addScript('components/com_verplan/includes/js/datepicker.js');
+$document->addScript($baseurl.'includes/js/hide_admin.js');
+$document->addScript($baseurl.'includes/js/datepicker.js');
 
 ?>
 

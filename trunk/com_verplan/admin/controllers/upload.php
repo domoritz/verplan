@@ -63,6 +63,13 @@ class VerplanControllerUpload extends verplanController
 	 * @var unknown_type
 	 */
 	public $id;
+	
+	/**
+	 * stand und geltungsdatum, nur bei geparsten daten
+	 * @var unknown_type
+	 */
+	public $stand;
+	public $date;
 
 	/**
 	 * lädt den die vertretungsplandatei hoch
@@ -296,6 +303,8 @@ class VerplanControllerUpload extends verplanController
 		//array in unix timestamp wandeln
 		$stand = mktime($stand_array[hour],$stand_array[minute],$stand_array[second],$stand_array[month],$stand_array[day],$stand_array[year]);
 
+		$this->stand = $stand;
+		
 		///*debug
 		echo '<br>==========<br>';
 		echo 'Stand<br>';
@@ -328,6 +337,7 @@ class VerplanControllerUpload extends verplanController
 		//array in unix timestamp wandeln
 		$date = mktime($date_array[hour],$date_array[minute],$date_array[second],$date_array[month],$date_array[day],$date_array[year]);
 
+		$this->date = $date;
 
 		///*debug
 		echo '<br>==========<br>';
