@@ -29,10 +29,8 @@ if ($settings['load_jqueryui_backend']['value'] == 'true') {
 	$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/themes/ui-darkness/jquery-ui.css');
 }
 
-
 //stylesheets
 $document->addStylesheet('components/com_verplan/includes/css/general.css');
-
 
 ?>
 
@@ -106,13 +104,9 @@ array_multisort($sortarr, SORT_ASC, $ordering, SORT_ASC, $columns);
 						echo $value;
 						break;
 					case 'published':
-						echo "<select name=".$name.">";
-						for ($i = 0; $i < 2; $i++) {
-							echo "<option";
-							echo ($i == $value ? " selected=\"selected\"" : "");
-							echo ">$i</option>";
-						}
-						//echo "</select><span class=\"min_f_sort\">".$value."</span>";
+						echo '<input type="checkbox" value="1" name="'.$name.'"';
+						echo ($value == '1' ? ' checked="checked"' : "");
+						echo '>';
 						break;
 					case ($key == 'label'):
 						echo '<input name="'.$name.'" type="text" value="'.$value.'"></input>';
