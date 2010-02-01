@@ -12,6 +12,10 @@
 	float: left;
 }
 
+.key {
+	font-weight: bold;	
+}
+
 .uploadbutton {
 	font-weight: bold;
 	font-size: 1.2em;

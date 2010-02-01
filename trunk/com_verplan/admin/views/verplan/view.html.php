@@ -28,14 +28,6 @@ class verplanViewVerplan extends JView
 		//model laden
 		$model =& $this->getModel();
 
-		//Link zu Frontpage laden
-		$link = $model->getLinkFrontpage();
-		$this->assignRef('link', $link);
-
-		//Beschreibung
-		$description = $model->getDescription();
-		$this->assignRef('description', $description);
-
 		//lade Settings
 		$newmodel = JModel::getInstance('Settings', 'VerplanModel');
 		$settings =& $newmodel->getSettings();
