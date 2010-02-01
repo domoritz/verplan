@@ -7,7 +7,7 @@
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
  * @link		http://code.google.com/p/verplan/
  * @license		GNU/GPL
- * @author      Created on 07-Okt-2009
+ * @author      Created on 30-Jan-2010
  */
 
 //-- No direct access

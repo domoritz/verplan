@@ -57,6 +57,12 @@ class VerplanControllerUpload extends verplanController
 	 * @var array
 	 */
 	public $upload_arr;
+	
+	/**
+	 * id des uploads aus der tabelle uploads
+	 * @var unknown_type
+	 */
+	public $id;
 
 	/**
 	 * lädt den die vertretungsplandatei hoch
@@ -373,11 +379,6 @@ class VerplanControllerUpload extends verplanController
 			
 		//speichere die uploaddaten in einer klassenvariablen zur weiteren verwendung
 		$this->upload_arr = $upload_arr;
-			
-			
-		//array mit plandaten zum uebergeben vorbereiten (datum und stand anhaengen)
-		//tabellenkopf
-		$data[0][] = "id_upload";
 
 		/*
 		 * umwandeln der timestamps in mysql timestamps
@@ -393,11 +394,6 @@ class VerplanControllerUpload extends verplanController
 		 *
 		 */
 
-		//tabellenzellen
-		for ($i = 1; $i < count($data); $i++) {
-			$data[$i][] = $id;
-		}
-
 		//debug
 		//var_dump($data);
 
@@ -407,6 +403,23 @@ class VerplanControllerUpload extends verplanController
 
 		//gibt array data zurück
 		return $data;
+	}
+	
+	/**
+	 * hängt die id_upload an das array mit den daten an,
+	 * um zu speichern, zu welchem upload die daten gehören 
+	 * (und damit zu welchem datum und stand) 
+	 * 
+	 * @return unknown_type
+	 */
+	function append_id() {
+		//tabellenkopf für id_upload
+		$this->data[0][] = "id_upload";
+
+		//tabellenzellen
+		for ($i = 1; $i < count($this->data); $i++) {
+			$this->data[$i][] = $this->id;
+		}
 	}
 
 
