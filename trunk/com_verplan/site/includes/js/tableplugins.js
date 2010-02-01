@@ -39,7 +39,7 @@ function table_init(){
     	    //entfernt leerzeichen am anfang und ende
     		s = jQuery.trim(s);
     		//regulärer ausdruck zum erkennen, ob die spalte als "klasse" behandelt werden soll
-    		var reg = new RegExp("^[0-9]{0,2}( )*[a-z]{0,1}$", "i");
+    		var reg = new RegExp("^[0-9]{1,2}( )*[a-z]{0,1}$", "i");
 	    	//alert(is!=-1);
 	    	//return false so this parser is not auto detected 
             return s.search(reg)!=-1;
@@ -72,11 +72,11 @@ function table_init(){
     
     //plugin
 	jQuery('#jquerytable').tablesorter({
-		dateFormat:'de',
+		dateFormat: 'de',
 		decimal: ',',
-		debug:false,
-		sortMultiSortKey:'ctrlKey',
-		textExtraction:'complex',
+		debug: false,
+		sortMultiSortKey: 'ctrlKey',
+		textExtraction: 'complex',
 		cssDesc: 'ui-state-active headerSortUp',
 		cssAsc: 'ui-state-active headerSortDown',
 		//zebra
