@@ -29,7 +29,7 @@ $document->addStylesheet($baseurl.'includes/css/table.css');
 //$document->addStylesheet($baseurl.'includes/css/jquery.kiketable.colsizable.css');
 $document->addStylesheet($baseurl.'includes/css/ui.selectmenu.css');
 $document->addStylesheet($baseurl.'includes/css/prettyPhoto.css');
-$document->addStylesheet($baseurl.'includes/css/jquery.pnotify.default.css');
+$document->addStylesheet($baseurl.'includes/css/jquery.pnotify.black.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.clearableTextField.css');
 
 $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/themes/ui-darkness/jquery-ui.css');
@@ -52,25 +52,17 @@ if ($this->load_jqueryui == 'true') {
 
 
 //plugins
+$document->addScript($baseurl.'includes/js/plugins/jquery.history.min.js');
+$document->addScript($baseurl.'includes/js/plugins/jquery.cookie.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.tablesorter.min.js');
-//$document->addScript($baseurl.'includes/js/plugins/jquery.columnfilters.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.uitablefilter.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.colorize-2.0.0.js');
-//$document->addScript($baseurl.'includes/js/plugins/jquery.kiketable.colsizable-1.1.js');
-//$document->addScript($baseurl.'includes/js/plugins/jquery.event.drag-1.4.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.qtip-1.0.0-rc3.js');
+$document->addScript($baseurl.'includes/js/plugins/jquery.qtip-1.0.0-rc3.min.js');
 $document->addScript($baseurl.'includes/js/plugins/ui.selectmenu.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.history.js');
 $document->addScript($baseurl.'includes/js/plugins/themeswitchertool.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.prettyPhoto.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.pnotify.js');
+$document->addScript($baseurl.'includes/js/plugins/jquery.pnotify.min.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.clearableTextField.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.cookie.js');
-
-//$document->addScript('http://www.google.com/jsapi');
-//$document->addScript($baseurl.'includes/js/googletable.js');
-//$document->addCustomTag( "<script type=\"text/javascript\">google.load('visualization', '1', {packages: ['table']});</script>" );
-//$document->addScript($baseurl.'includes/dataTables-1.5/media/js/jQuery.dataTables.js');
 
 $min = false;
 
@@ -92,7 +84,7 @@ if (!$min) {
 	$document->addScript($baseurl.'includes/js/hide_options.js');
 	$document->addScript($baseurl.'includes/js/boxes.js');
 	$document->addScript($baseurl.'includes/js/general.js');
-	$document->addScript($baseurl.'includes/js/ajaxjson.js'); //ajax nach gereral, da hash
+	$document->addScript($baseurl.'includes/js/ajaxjson.js'); //ajax nach general, da hash
 	$document->addScript($baseurl.'includes/js/ajaxeffects.js');
 	$document->addScript($baseurl.'includes/js/ui.js'); //ui muss nach general, da select in general gesetzt
 	$document->addScript($baseurl.'includes/js/tooltips.js');

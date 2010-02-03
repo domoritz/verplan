@@ -1,9 +1,9 @@
 /* 
 	Document   : jquery.pnotify.default.css
 	Created on : Nov 23, 2009, 3:14:10 PM
-	Author     : Hunter Perrin
+	Author     : Hunter Perrin edited by dominik
 	Description:
-		Default styling for Pines Notify jQuery plugin.
+		Black style for pnotify 
 */
 
 /* Notice
@@ -11,21 +11,28 @@
 .ui-pnotify {
 	top: 18px;
 	right: 18px;
-	position: absolute;
+	position: fixed;
 	height: auto;
 	/* Ensure that the notices are on top of everything else. */
 	z-index: 9999;
+	font-size: 12px !important;
+	text-align: left;
 }
 
-/* This hides position: fixed from IE6, which doesn't understand it. */
-html > body .ui-pnotify {
-	position: fixed;
+.ui-pnotify a{
+	text-decoration: underline !important;
+	
+	color: #fff !important;
 }
 
 .ui-pnotify-container {
 	background-position: 0 0;
 	padding: 8px;
 	height: 100%;
+	
+	background: #333 !important;
+	color: #fff !important;
+	border-color: #000 !important;
 }
 
 .ui-pnotify-closer {
@@ -42,6 +49,7 @@ html > body .ui-pnotify {
 
 .ui-pnotify-text {
 	display: block;
+	font-size: 1em;
 }
 
 .ui-pnotify-icon, .ui-pnotify-icon span {
@@ -57,7 +65,6 @@ html > body .ui-pnotify {
 	position: absolute;
 	top: 0;
 	right: 18px;
-	width: 70px;
 	border-top: none;
 	/* Ensure that the history container is on top of the notices. */
 	z-index: 10000;
