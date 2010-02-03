@@ -7,6 +7,8 @@
   * Dual licensed under the MIT and GPL licenses:
   *   http://www.opensource.org/licenses/mit-license.php
   *   http://www.gnu.org/licenses/gpl.html
+  *   
+  * modified!!!
   */
 (function($) {
   $.fn.clearableTextField = function() {
@@ -56,7 +58,8 @@
       clear_button.click(function(){
         input.val('');
         
-        //filter updaten        
+        //filter updaten 
+        //modification von dominik
         clickOnClear();
         
         trigger(input);

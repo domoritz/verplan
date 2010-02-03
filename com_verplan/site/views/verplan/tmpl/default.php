@@ -46,7 +46,7 @@ if ($this->mobile == true) {
 
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
-	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo_preview_32.png" id="logo_verplan"/>
+	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_beta_32.png" id="logo_verplan"/>
 	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p>
 		<?php echo $this->einltext?>
@@ -55,7 +55,22 @@ if ($this->mobile == true) {
 	<br>
 </div>
 
-<?php require_once('inc/messages.inc.php');?>
+<?php 
+//kein js
+?>
+<noscript class="panel">
+	<div class="ui-widget">
+		<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em; margin-bottom: 2em;">
+			<p>
+			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span>
+				<strong>Achtung:</strong><br>
+				Du musst JavaScript aktivieren, um den Vrtretungsplan sehen zu können.<br>
+				Falls du Javascript nicht aktivieren möchtest oder kannst, klicke bitte <a href="<?php echo JURI::base()?>?option=com_verplan&view=mobile">hier</a>
+			</p>
+		</div>
+	</div>
+</noscript>
+
 
 <div class="panel ui-helper-clearfix">
 <div id="select_rahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
