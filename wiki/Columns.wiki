@@ -26,7 +26,7 @@ Das verändern der Sortierung/ Reihenfolge der Spalten im Frontend über das Bac
 
 Hast du einen Reihenfolge aufgestellt kann es sein, dass Lücken entstanden sind. Hier hilft die Funktion *"Sortierung neu aufbauen"*. Diese sogt dafür, dass jede Zahl nur einmal vorkommt und setzt die zahlen so, dass keine Lücken mehr vorhanden sind. Ein Beispiel:
 
-  *Vor dem neu Aufbauen: 1,2,3,6,7,99,345
-  *Nach dem neu Aufbauen: 1,2,3,4,5,6,7
+  * Vor dem neu Aufbauen: 1,2,3,6,7,99,345
+  * Nach dem neu Aufbauen: 1,2,3,4,5,6,7
 
 Wichtig: bevor du die Sortierung neu aufbaust, solltest du eventuelle Änderungen speichern.
