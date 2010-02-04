@@ -38,6 +38,9 @@ $document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/them
  * scripts
  */
 
+//$document->addScript('http://getfirebug.com/releases/lite/1.2/firebug-lite-compressed.js');
+
+
 //jQuery hinzufügen
 if ($this->load_jquery == 'true') {
 	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js');

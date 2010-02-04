@@ -34,7 +34,7 @@ jQuery(document).ready(function(){
 		setHash(hash);
 	}
 	
-	// startet anschließend initiate_everything
+	//startet anschließend initiate_everything
 	//getSettings();
 	initiate_everything();
 });

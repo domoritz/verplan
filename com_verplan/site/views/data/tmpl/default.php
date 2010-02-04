@@ -37,7 +37,8 @@ header('Content-type: application/json');*/
 $document =& JFactory::getDocument();
  
 // Set the MIME type for JSON output.
-$document->setMimeEncoding( 'application/json' );
+$document->setMimeEncoding('application/json');
+//$document->setCharset('utf-8');
 
 ?>
 
