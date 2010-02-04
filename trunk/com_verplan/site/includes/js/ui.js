@@ -27,21 +27,16 @@ jQuery(document).ready(function(){
 				    pnotify_title: 'Design',
 				    pnotify_text: 'Das Design wurde geändert.<br>'+jQuery('#ui_themeswitcher').text(),
 				    pnotify_notice_icon: 'ui-icon ui-icon-info',
-				    pnotify_type: 'notice',
+				    pnotify_type: 'notice'
 				    //pnotify_delay: 6000
 				});
 				counter = 1;
 			}
 		},
-		onOpen: function() {		
-		},
-		onClose: function() {		
-		},
 		initialText: 'Theme wechseln'
-		//loadTheme: 'ui-darkness'
 	}); 
 	
-	jQuery('#ui_themeswitcher').append(''); 
+	jQuery('#ui_themeswitcher').append('');
 	
 	counter = 1;
 	

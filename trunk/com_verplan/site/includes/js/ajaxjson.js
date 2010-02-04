@@ -50,8 +50,8 @@ function getAndUseJSON(date, stand, options) {
 function ajaxCall() {
 	//starte ajax
 	jQuery.ajax( {
-		type : "GET",
-		dataType : "json",
+		type : "GET",			 
+		dataType: (jQuery.browser.msie) ? "text" : "json",
 		contentType: "application/json; charset=utf-8",
 		cache: false,
 		url : rooturl + "index.php",
@@ -96,10 +96,16 @@ function ajaxCall() {
 	});
 }
 
-function JSONsuccess(json, textStatus) {		
-	// holt aus dem array immer die neuesten infos (höchster
-	// wert)
-	var infoarr = json.infos;
+function JSONsuccess(json, textStatus) {
+	
+	//problem mit ie beheben
+	if (jQuery.browser.msie) {
+		var json = eval("(" + json + ")");
+	}
+	
+	// holt aus dem array immer die neuesten infos (höchster wert)
+	infoarr = json.infos;
+	
 	var length = infoarr.length - 1;
 	
 	//vorgehen nach typ auswählen
