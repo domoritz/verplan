@@ -37,4 +37,4 @@ Wenn du nicht so gerne programmierst oder anders helfen möchtest, dann schreibe
 Bitte [http://code.google.com/p/verplan/issues/entry hier] melden oder mir eine Nachricht schreiben!
 
 = Frage stellen! =
-Wenn du eine Frage stellen möchtest, dann schreibe einfach einen Kommentar. 
+Wenn du eine Frage stellen möchtest, dann stelle sie einfach [http://groups.google.com/group/verplan hier].
