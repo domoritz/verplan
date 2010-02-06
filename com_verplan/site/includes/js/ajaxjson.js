@@ -297,6 +297,21 @@ function sortfunction(first, second) {
 	//Less than 0: Sort "a" to be a lower index than "b" 
 	//Zero: "a" and "b" should be considered equal, and no sorting performed
 	//Greater than 0: Sort "b" to be a lower index than "a".
+	
+	//entfernt alles nach ,
+	//wichtig bei 7a, 7b, 7c, 
+	var komma = first.search(',');
+	if (komma<0){
+	    komma=first.length;
+	}
+	first = first.substring(0,komma);
+	
+	var komma = second.search(',');
+	if (komma<0){
+	    komma=second.length;
+	}
+	second = second.substring(0,komma);
+	
 	//entfernt leerzeichen am anfang und ende
 	a = jQuery.trim(first);
 	a = a.toLowerCase();
@@ -305,6 +320,8 @@ function sortfunction(first, second) {
 	b = b.toLowerCase();
 	
 	var replace = null;
+	var replaced_a = false;
+	var replaced_b = false;
 	//array mit alles buchstaben
 	var array = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
 	//alle buchstaben werden durch zahlen mit führenden nullen ersetzt
@@ -312,13 +329,30 @@ function sortfunction(first, second) {
 		if (int >= 10){
 			replace = int;
 		} else {
-			replace = "0" + int;
+			replace = "0" + (int + 1);
 		}
-		a = a.replace(RegExp(array[int], "g"),replace);
-		b = b.replace(RegExp(array[int], "g"),replace);
+		//a
+		if (a.search(RegExp(array[int], "g"),replace) > 0) {
+			a = a.replace(RegExp(array[int], "g"),replace);
+			replaced_a = true;
+		}   
+		//b
+		if (b.search(RegExp(array[int], "g"),replace) > 0) {
+			b = b.replace(RegExp(array[int], "g"),replace);
+			replaced_b = true;
+		}  
 	}
-	//console.log(first+a);
-	//console.log(second+b);
+	
+	//falls nichts ersetzt
+	if (!replaced_a){
+		a = a+'00';
+	}
+	if (!replaced_b){
+		b = b+'00';
+	}
+	
+	//console.log(first+' '+a);
+	//console.log(second+' '+b);
 	//console.log(a-b);
 	
 	return(a - b);

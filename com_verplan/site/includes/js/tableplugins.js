@@ -45,26 +45,48 @@ function table_init(){
             return s.search(reg)!=-1;
         }, 
         format: function(s) { 
-            // format your data for normalization
+        	// format your data for normalization
         	
-        	//entfernt leerzeichen am anfang und ende
+        	//entfernt alles nach ,
+        	//wichtig bei 7a, 7b, 7c, 
+        	var komma = s.search(',');
+        	if (komma<0){
+        	    komma=s.length;
+        	}
+        	s = s.substring(0,komma);
+        	
+        	//entfernt leerzeichen
         	s = jQuery.trim(s);
+        	//console.log(s);
         	s = s.toLowerCase();
+        	//console.log(s);
         	//leeres, durch das ersetzt wird
         	var replace = null;
+        	//wurde ausgetauscht?
+        	var replaced = false;
         	//array mit alles buchstaben
         	var array = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
         	//alle buchstaben werden durch zahlen mit führenden nullen ersetzt
-        	for ( var int = 0; int < array.length; int++) {
+        	//wenn && !replaced entfern wird, dann wird immer das gesamte array durch gegangen
+        	for ( var int = 0; int < array.length && !replaced; int++) {
+        		//führende 0
         		if (int >= 10){
         			replace = int;
         		} else {
-        			replace = "0" + int;
+        			replace = "0" + (int + 1);
         		}
-        		s = s.replace(RegExp(array[int], "g"),replace);
-			}
+        		
+        		if (s.search(RegExp(array[int], "g"),replace) > 0) {
+        			s = s.replace(RegExp(array[int], "g"),replace);
+        			replaced = true;
+        		}        	    
+        	}
+        	//falls kein buchstabe drin war (z.b bei 7,8... ohne a,b,c...)
+        	if (!replaced){
+        		s = s+'00';
+        	}
         	//alert(s);
-            return s;
+        	return s;
         }, 
         // set type, either numeric or text 
         type: 'numeric' 
