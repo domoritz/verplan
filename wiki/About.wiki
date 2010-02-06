@@ -32,7 +32,7 @@ Systemvoraussetzungen
         * PHP >= 5.3.0
 
     * beim Client
-        * Browser besser als IE6
+        * Browser wenn möglich besser als IE6
         * wenn möglich Javascript Unterstützung
 
 
