@@ -3,6 +3,8 @@
 <wiki:toc max_depth="3" />
 
 = Über das Programm =
+Das Programm ist eine Joomlakomponente, bestehend aus einem Backend- und einem Frontendbereich. Im Frontend kann man sich den Vertretungsplan ansehen, welcher über das Backend hochgeladen wurde. Im Backend hat man Zugang zu verschiedenen Einstellungsmöglichkeiten. 
+
     * Lizenz: [http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL]
     * Autor: [http://www.dmoritz.bplaced.net/ Dominik Moritz]
     * Code: [http://code.google.com/p/verplan/]
