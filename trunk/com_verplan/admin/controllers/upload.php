@@ -1,5 +1,8 @@
 <?php
 /**
+ * klasse für den upload. der erzeugte controller wird mit datengefüllt. 
+ * anschließend können die verschiedenen methoden ausgeführt werden.
+ * die daten werden an die models weitergegeben. 
  *
  * @version		$Id$
  * @package		verplan

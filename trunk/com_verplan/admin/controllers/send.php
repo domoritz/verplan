@@ -58,7 +58,14 @@ class VerplanControllerSend extends verplanController
 		echo 'Fileinfos aus getVar<br>';
 		var_dump($file);
 		//*/
-
+		
+		/*
+		 * Es gibt drei mögliche scenarien:
+		 * 1. kein vertretungsplan (nur geltungsdatum und stand angegeben)
+		 * 2. alternative datei (datei, die nicht geparst werden kann+ geltungsdatum und stand) 
+		 * 3. parsbare datei (geltunsdatum und stand ignoriert)
+		 */
+		
 		if (empty($file[name])) {
 
 			//keine Vertretungen
@@ -73,10 +80,12 @@ class VerplanControllerSend extends verplanController
 			$stand_date = JRequest::getVar('stand', null);
 
 			if (empty($upload_arr['Geltungsdatum'])) {
-				$msg .= "Bitte Geltungsdatum angeben oder eine Datei wählen";
+				$notice = "Bitte Geltungsdatum angeben oder eine Datei wählen";
+				JError::raiseNotice( 100, $notice);
 				//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 			} elseif (empty($stand_date)) {
-				$msg .= "Bitte Stand angeben oder eine Datei wählen";
+				$notice = "Bitte Stand angeben oder eine Datei wählen";
+				JError::raiseNotice( 100, $notice);
 				//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 			} else {
 
@@ -90,7 +99,8 @@ class VerplanControllerSend extends verplanController
 				$model->log_in_uploads($upload_arr);
 
 				if (!JERROR::getError()) {
-					$msg .= "Senden erfolgreich, ohne DB, keine Vertretungen";
+					$msg = "Senden erfolgreich, keine Vertretungen";
+					$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan#'.$upload_arr['Geltungsdatum'].'" style="margin-left: 30px;">zum Plan</a>';
 					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 			}
@@ -186,7 +196,7 @@ class VerplanControllerSend extends verplanController
 				if (!JERROR::getError()) {
 					//Erfolg melden
 					//zu bebuggzwecken kann man dies auskommentieren und kann sich dann den ablauf ansehen
-					$msg .= "Senden und parsen erfolgreich";					
+					$msg = "Senden und parsen erfolgreich";					
 					$date = date('Y-m-d',$controller->date);
 					$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan#'.$date.'" style="margin-left: 30px;">zum Plan</a>';
 					
@@ -213,10 +223,12 @@ class VerplanControllerSend extends verplanController
 				$stand_date = JRequest::getVar('stand', null);
 
 				if (empty($upload_arr['Geltungsdatum'])) {
-					$msg .= "Bitte Geltungsdatum angeben";
+					$notice = "Bitte Geltungsdatum angeben";
+					JError::raiseNotice( 100, $notice);
 					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				} elseif (empty($stand_date)) {
-					$msg .= "Bitte Stand angeben";
+					$notice = "Bitte Stand angeben";
+					JError::raiseNotice( 100, $notice);
 					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				} else {
 
@@ -231,7 +243,8 @@ class VerplanControllerSend extends verplanController
 					$model->log_in_uploads($upload_arr);
 
 					if (!JERROR::getError()) {
-						$msg .= "Senden erfolgreich, ohne DB";
+						$msg = "Senden erfolgreich, ohne DB";
+						$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan#'.$upload_arr['Geltungsdatum'].'" style="margin-left: 30px;">zum Plan</a>';
 						//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 					}
 				}
@@ -243,8 +256,7 @@ class VerplanControllerSend extends verplanController
 		echo '<br>==========<br>';
 		echo "<strong>Nachricht:</strong> ".$msg;
 		echo '<br><a href="?option=com_verplan">OK</a>';
-
-
+		
 		if ($debug == 'true') {
 			echo '<br>==========<br>';
 		} else {
