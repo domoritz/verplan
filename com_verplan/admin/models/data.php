@@ -1,5 +1,8 @@
 <?php
 /**
+ * model für den vertretungsplanupload
+ * das model wird z.b. vom controller send aus aufgerufen
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}

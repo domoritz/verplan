@@ -57,7 +57,7 @@ function ajaxCall() {
 		url : rooturl + "index.php",
 		data : 'option=com_verplan&view=data&format=json&date=' + ajax_date
 				+ '&stand=' + ajax_stand + '&options=' + ajax_options,
-		timeout: (10000),
+		timeout: (15000),
 		async : true,
 		global : true,
 		success : function(XMLHttpRequest, textStatus) {
