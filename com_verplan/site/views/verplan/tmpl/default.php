@@ -79,7 +79,7 @@ if ($this->mobile == true) {
 	
 	<span class="ui-state-default" style="border: none;">
 	<select size="1" id="select_date_verplan" name="date">
-		<?php	
+		<?php
 
 		//setlocale überprüfen (debug)
 		if(!setlocale(LC_TIME, 'de_DE')) echo "<!--setlocale () konnte nicht ausgeführt werden-->";
