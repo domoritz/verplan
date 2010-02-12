@@ -145,35 +145,51 @@ if ($this->mobile == true) {
 
 
 <div id="options_panel" class="ui-helper-clearfix ui-widget-content ui-corner-bottom">
-	<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
-	
-		<?php // filter?>			
-		<label for="filter_input" id="filter_label">Filter nach einer Spalte<span class="ui-icon ui-icon-lightbulb"></span></label>
-		<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input"/>
-		<select id="filter_this" style="width: 100px" name="filter_this">
-			<?php // value="" ist wichtig, da sonst nach der spalte alle gesucht wird ?>
-			<option value="">alle</option>
-		<?php 
-		//auswahlmöglichkeiten zum sortieren aus den spalten
-		$array = $this->verplanArray;
-		foreach ($array['cols'] as $key => $subarray) {
-			echo '<option value="';
-			print empty($subarray['label'])? $subarray['name']: $subarray['label'];
-			echo '">';
-			print empty($subarray['label'])? $subarray['name']: $subarray['label'];			
-			echo '</option>';
-		}
-		?>
-		</select>
-		
-		<label for="klasse" id="filter_label_klassen">Filter nach Klasse<span class="ui-icon ui-icon-lightbulb"></span></label>
-		<select id="klasse" style="width: 100px" name="klasse">
-			<option value="">alle</option>
-		</select>
-	
-	</form>
-	
-	<a href="<?php echo JURI::base() ?>?option=com_verplan&view=mobile&tmpl=component" id="link_mobile" >Zur mobilen Ansicht <span class="ui-icon ui-icon-lightbulb"></span></a>
+		<form id="verplan_form" method="get" enctype="multipart/form-data" action="#">
+		<table id="optionstable">
+			<tbody>
+				<tr>
+					<td>
+						<label for="filter_input" id="filter_label"><span class="ui-icon ui-icon-lightbulb"></span><span>Filter nach einer Spalte</span></label>
+					</td>
+					<td>
+						<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input" /> 
+						<select id="filter_this" style="width: 100px" name="filter_this">
+						<?php // value="" ist wichtig, da sonst nach der spalte alle gesucht wird ?>
+						<option value="">alle</option>
+						<?php
+						//auswahlmöglichkeiten zum sortieren aus den spalten
+						$array = $this->verplanArray;
+						foreach ($array['cols'] as $key => $subarray) {
+							echo '<option value="';
+							print empty($subarray['label'])? $subarray['name']: $subarray['label'];
+							echo '">';
+							print empty($subarray['label'])? $subarray['name']: $subarray['label'];
+							echo '</option>';
+						}
+						?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="klasse" id="filter_label_klassen"><span class="ui-icon ui-icon-lightbulb"></span><span>Filter nach Klasse</span></label>
+					</td>
+					<td>
+						<select id="klasse" style="width: 100px" name="klasse">
+							<option value="">alle</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="<?php echo JURI::base() ?>?option=com_verplan&view=mobile&tmpl=component" id="link_mobile" ><span class="ui-icon ui-icon-lightbulb"></span><span>Zur mobilen Ansicht</span></a>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>	
+		</form>
 </div>
 <!-- 
 <img style="margin-top: 6px; margin-left: 10px;" src="<?php echo $baseurl; ?>/components/com_verplan/includes/images/ajax/ajax-loader-spin_32.gif" id ="load_new"></img>

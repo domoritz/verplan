@@ -173,7 +173,7 @@
 #options_panel{
 	width: 80%;
 	float:right;
-	padding: 2em 5px;
+	padding: 1em 5px;
 	border-top: none;
 	position: relative;
 	right: 1em;
@@ -181,21 +181,24 @@
 	/*height: 120px;*/
 }
 
-#options_panel label{
-	float: left;
-	clear: both;
-	width: 200px;
-	margin-right: 10px;
-	text-align: right;
+#optionstable {
+	border-collapse: collapse;
+}
+
+#optionstable td{
+	padding: 3px 2px;
+}
+
+#optionstable label{
 	font-weight: bold;
 }
-	/*icons lampe*/
-#options_panel label span{
+	/*icons lampe und text*/
+#optionstable label span{
 	float: right;
 	margin-left: 5px;
 }
 
-#options_panel input, #options_panel select{
+#optionstable input, #options_panel select{
 	float: left;
 	margin: 0px;
 }
@@ -218,10 +221,8 @@
 }
 
 #link_mobile {
-	float: left;
-	clear: both;
+	float: right;
 	width: 200px;
-	text-align: right;
 	color: inherit;	
 }
 	/*icons lampe*/
