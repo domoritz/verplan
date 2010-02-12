@@ -14,6 +14,8 @@
  * MySQL -> PHP
  * $date = strtotime($date);
  * 
+ * ACHTUNG: keine leerzeichen oder -zeilen vor JSON
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
@@ -23,12 +25,11 @@
  */
 
 //-- No direct access
-defined('_JEXEC') or die('=;)');
+//defined('_JEXEC') or die('=;)');
 ?>
-
 <?php
 //http header setzen, nicht notwendig, aber besser
-
+ 
 /*header('Cache-Control: no-cache, must-revalidate');
 header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 header('Content-type: application/json');*/
@@ -38,10 +39,9 @@ $document =& JFactory::getDocument();
  
 // Set the MIME type for JSON output.
 $document->setMimeEncoding('application/json');
-//$document->setCharset('utf-8');
+$document->setCharset('utf-8');
 
 ?>
-
 <?php
 //holt das array
 $arr = $this->verplanarray;
@@ -60,23 +60,26 @@ array_walk_recursive($arr,utf8);
 $options = $this->options;
 
 switch ($options) {
-	
+	//arr nur zu debugzwecken
 	case arr:
 		//array direkt
 		var_dump($arr);
 		break;
-
+		
+	//wie arr
 	case html:
 		//lesbares json mit html
 		$json = json_encode($arr);
 		echo jsonReadable($json,true);
 		break;
-
+		
+	//minimiertes json
 	case min:
 		//wandelt das assoziative array direkt in json um
 		echo json_encode($arr);
 		break;
 
+	//standard
 	default:
 		//lesbares json
 		$json = json_encode($arr);
@@ -172,6 +175,6 @@ function jsonReadable($json, $html) {
         }
     }
 
-    return $new_json;
+    return trim($new_json);
 }
 ?>
