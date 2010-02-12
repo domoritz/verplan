@@ -1,5 +1,6 @@
 /**
  * JS für jQuery UI Elemente
+ * wichtig ist das selectmenu
  * 
  * @version		$Id$
  * @package		verplan
@@ -8,11 +9,6 @@
  * @license		GNU/GPL
  * @author      Created on 22-Okt-2009
  */
-
-function show_hint(head, text) {
-		jQuery('#hint_table div').html('<p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span><p><strong>'+head+'</strong><br>'+text+'</p></p>');
-		jQuery('#hint_table').show('blind', 'slow');
-}
 
 jQuery(document).ready(function(){
 	//counter verhindert, dass die nachricht über themewechsel beim start angezeigt wird
@@ -41,16 +37,6 @@ jQuery(document).ready(function(){
 	counter = 1;
 	
 	/*
-	<li>
-    	<a href="?ffDefault=Trebuchet+MS...[full theme path]">
-      	<img src="theme image" alt="UI Lightness" title="UI Lightness" /
-
-      	<span class="themeName">UI lightness</span>
-    	</a>
- 	</li>
-	 */
-	
-	/*
 	 * selectmenu plugin, auswahlfeld im jqueryui style
 	 * http://www.filamentgroup.com/lab/jquery_ui_selectmenu_an_aria_accessible_plugin_for_styling_a_html_select/
 	 */
@@ -60,8 +46,10 @@ jQuery(document).ready(function(){
 		change: function() {
 	    	//hashwert über das dropdown
 			hash = jQuery(this).val();
+			
 			//debug
-			console.log('Wert aus select: '+hash);
+			//console.log('Wert aus select: '+hash);
+			
 			//lädt neue tabelle und setzt hash
 			jQuery.historyLoad(hash);	
 		}
@@ -75,14 +63,6 @@ jQuery(document).ready(function(){
 		jQuery(this).removeClass('ui-state-hover');
 	});
 	
-	//mouseover für die einzelnen spaltenköpfe mit den filtern
-	//gibt es nicht mehr
-	/*jQuery('.filterColumns td').mouseover(function(){
-		jQuery(this).addClass('ui-state-hover');
-	});
-	jQuery('.filterColumns td').mouseout(function(){
-		jQuery(this).removeClass('ui-state-hover');
-	});*/
 	
 	//mouseover für den expander (erweiterte optionen für das panel) für die optionen und den up button	(unten rechts)
 	jQuery('#up_btn, #expander_options').mouseenter(function(){

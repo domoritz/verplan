@@ -52,11 +52,17 @@ function ajaxCall() {
 	jQuery.ajax( {
 		type : "GET",		
 		dataType: (jQuery.browser.msie) ? "text" : "json",
-		contentType: "application/json",
+		contentType: "application/json; charset=utf-8",
 		cache: false,
 		url : rooturl + "index.php",
-		data : 'option=com_verplan&view=data&format=json&date=' + ajax_date
-				+ '&stand=' + ajax_stand + '&options=' + ajax_options,
+		data : {
+			'option':'com_verplan',
+			'view':'data', 
+			'format':'json', 
+			'date':ajax_date, 
+			'stand':ajax_stand, 
+			'options':ajax_options
+		},
 		timeout: (15000),
 		async : true,
 		global : true,
@@ -77,16 +83,16 @@ function ajaxCall() {
 				}
 				break;
 			case '404':
-				alert('Angeforderte URL nicht gefunden.\n Code 404\n(beim Vertretungsplan)');
+				alert('Angeforderte URL nicht gefunden.\n Code 404');
 				break;
 			case '500':
-				alert('Interner Servererror!\n Code 500\n(beim Vertretungsplan)');
+				alert('Interner Servererror!\n Code 500');
 				break;
 			case '0':
 				alert('Du bist offline. Bitte überprüfe dein Netzwerk.');
 				break;
 			case 'parsererror':
-				alert('Error\nParsen des JSON fehlgeschlagen!\n(beim Vertretungsplan)');
+				alert('Error\nParsen des JSON fehlgeschlagen!\n'.textStatus);
 				break;
 			default:
 				alert('Unbekannter Fehler beim Laden des Vertretungsplanes!\n'+'XMLHttpRequest:'+XMLHttpRequest+'\n'+'textStatus: '+textStatus+'\n'+"Error: " +errorThrown);
