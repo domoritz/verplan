@@ -50,9 +50,9 @@ function getAndUseJSON(date, stand, options) {
 function ajaxCall() {
 	//starte ajax
 	jQuery.ajax( {
-		type : "GET",			 
+		type : "GET",		
 		dataType: (jQuery.browser.msie) ? "text" : "json",
-		contentType: "application/json; charset=utf-8",
+		contentType: "application/json",
 		cache: false,
 		url : rooturl + "index.php",
 		data : 'option=com_verplan&view=data&format=json&date=' + ajax_date
@@ -100,7 +100,7 @@ function JSONsuccess(json, textStatus) {
 	
 	//problem mit ie beheben
 	if (jQuery.browser.msie) {
-		var json = eval("(" + json + ")");
+		json = eval("(" + json + ")");
 	}
 	
 	// holt aus dem array immer die neuesten infos (höchster wert)
@@ -325,20 +325,20 @@ function sortfunction(first, second) {
 	//array mit alles buchstaben
 	var array = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
 	//alle buchstaben werden durch zahlen mit führenden nullen ersetzt
-	for ( var int = 0; int < array.length; int++) {
-		if (int >= 10){
-			replace = int;
+	for ( var i = 0; i < array.length; i++) {
+		if (i >= 10){
+			replace = i;
 		} else {
-			replace = "0" + (int + 1);
+			replace = "0" + (i + 1);
 		}
 		//a
-		if (a.search(RegExp(array[int], "g"),replace) > 0) {
-			a = a.replace(RegExp(array[int], "g"),replace);
+		if (a.search(RegExp(array[i], "g"),replace) > 0) {
+			a = a.replace(RegExp(array[i], "g"),replace);
 			replaced_a = true;
 		}   
 		//b
-		if (b.search(RegExp(array[int], "g"),replace) > 0) {
-			b = b.replace(RegExp(array[int], "g"),replace);
+		if (b.search(RegExp(array[i], "g"),replace) > 0) {
+			b = b.replace(RegExp(array[i], "g"),replace);
 			replaced_b = true;
 		}  
 	}
