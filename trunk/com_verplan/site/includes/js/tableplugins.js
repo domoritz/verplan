@@ -68,16 +68,16 @@ function table_init(){
         	var array = new Array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
         	//alle buchstaben werden durch zahlen mit führenden nullen ersetzt
         	//wenn && !replaced entfern wird, dann wird immer das gesamte array durch gegangen
-        	for ( var int = 0; int < array.length && !replaced; int++) {
+        	for ( var i = 0; i < array.length && !replaced; i++) {
         		//führende 0
-        		if (int >= 10){
-        			replace = int;
+        		if (i >= 10){
+        			replace = i;
         		} else {
-        			replace = "0" + (int + 1);
+        			replace = "0" + (i + 1);
         		}
         		
-        		if (s.search(RegExp(array[int], "g"),replace) > 0) {
-        			s = s.replace(RegExp(array[int], "g"),replace);
+        		if (s.search(RegExp(array[i], "g"),replace) > 0) {
+        			s = s.replace(RegExp(array[i], "g"),replace);
         			replaced = true;
         		}        	    
         	}
