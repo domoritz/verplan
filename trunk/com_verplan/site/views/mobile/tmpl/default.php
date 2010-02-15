@@ -189,7 +189,7 @@ $which = $this->which;
 </div>
 </div>
 <br><br>
-<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank">Dominik Moritz, 2010</a></span>
+<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.de/" target="_blank">Dominik Moritz, 2010</a></span>
 
 </div>
 

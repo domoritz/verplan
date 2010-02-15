@@ -267,7 +267,7 @@ if ($this->mobile == true) {
 	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all">
 		<span class="ui-icon ui-icon-circle-arrow-n"></span>
 	</a>
-	<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.net/" target="_blank" id="link_homepage">Dominik Moritz, 2010</a></span>
+	<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.de/" target="_blank" id="link_homepage">Dominik Moritz, 2010</a></span>
 </div>
 
 </div>

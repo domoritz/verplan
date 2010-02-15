@@ -1,7 +1,7 @@
 /**
  * @version $Id$
  * @package verplan
- * @author Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @author Dominik Moritz {@link http://www.dmoritz.bplaced.de}
  * @link http://code.google.com/p/verplan/
  * @license GNU/GPL
  * @author Created on 14-Nov-2009
@@ -217,7 +217,7 @@ function clicks_notice() {
 	jQuery('#link_homepage').click(function() {
 		note_filter_general = jQuery.pnotify({
 			pnotify_title: 'Website',
-		    pnotify_text: 'Die Homepage wurde aufgerufen.<br>Link: <a href="http://www.dmoritz.bplaced.net">http://www.dmoritz.bplaced.net</a>',
+		    pnotify_text: 'Die Homepage wurde aufgerufen.<br>Link: <a href="http://www.dmoritz.bplaced.de">http://www.dmoritz.bplaced.de</a>',
 		    pnotify_notice_icon: 'ui-icon ui-icon-link',
 		    pnotify_type: 'notice'
 		});
