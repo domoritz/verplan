@@ -25,6 +25,7 @@ var notify;
  */
 var _alert;
 
+//initialisiert alles, nachdem das dokument fertig geladen wurde
 jQuery(document).ready(function(){
 	
 	// setzt den hashwert, falls er noch nicht gesetzt ist
@@ -51,16 +52,14 @@ function initiate_everything(){
 		jQuery.pnotify({
 			pnotify_title: settings.message_title.value,
 			pnotify_text: settings.message.value,
-		    //pnotify_title: 'Vorabversion',
-		    //pnotify_text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <a title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA" target="_blank" id="feedy_oi"><strong>Feedback</strong></a> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß',
-		    pnotify_notice_icon: 'ui-icon ui-icon-star',
+			pnotify_notice_icon: 'ui-icon ui-icon-star',
 		    pnotify_type: 'notice',
 		    pnotify_hide: false
 		});
 		
 		//alerts auf pnotify umleiten
 		//consume_alert();
-	}	
+	}
 	
 	hash = getHash();
 	
@@ -81,17 +80,6 @@ function initiate_everything(){
 	/**
 	 * ajax
 	 */
-
-	/*
-	 * lade tabelle falls url nicht gestezt if (!gup('date')) {
-	 * loadJsonTable(false, true); }//
-	 */
-	
-	// setzt den hashwert, falls er noch nicht gesetzt ist
-	/*if (!hash) {
-		hash = jQuery('#select_date_verplan').val();
-		setHash(hash);
-	}*/
 	
 	// Check if url hash value exists (for bookmark)
 	// und initialisierung der historyfunktion
@@ -199,7 +187,7 @@ function release_alert() {
 }
 
 /**
- * zeigt benachrichtigungen bei clicks auf links
+ * zeigt benachrichtigungen bei klicks auf links
  * @return
  */
 function clicks_notice() {
