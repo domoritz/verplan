@@ -236,19 +236,17 @@ function buildTableFromJSON(tbody, json) {
 
 	var table = '';
 	jQuery.each(json, function() {
-		table = '<tr>';
+		table += '<tr>';
 		jQuery.each(this, function(name, content) {
 			table += '<td title="' + name + '">';
-			//table += '<td>';
-			// console.log(a,b);
 				table += (content) ? content : '';
 				table += '</td>';
-			});
-		table += '</tr>';
-
-		// tabellenzeile anhängen
-		tbody.append(table);
+		});
+		table += '</tr>';		
 	});
+	
+	// tabelle in DOM setzen
+	tbody.append(table);
 	
 	console.timeEnd('tablebuild');
 }
