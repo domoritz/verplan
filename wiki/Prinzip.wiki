@@ -1,5 +1,5 @@
 #summary Übersicht über die Funktionsweise
-#labels Phase-Design,Phase-Implementation
+#labels Phase-Design
 
 = Einleitung =
 
