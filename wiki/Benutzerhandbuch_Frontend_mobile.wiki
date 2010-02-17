@@ -6,13 +6,11 @@
 Dies ist die Anleitung für die mobile Ansicht des Vertretungsplanes. Das Benutzerhandbuch für das normale Frontend findest du [Benutzerhandbuch_Frontend hier].
 
 <wiki:toc max_depth="3" />
-
-= Wofür ist diese Seite gedacht? =
-
-Diese Ansicht ist für Handy, Smartphones und Subnotebooks gedacht. Sie ist auch auf kleinen Displays gut nutzbar, sehr klein und kompatibel. Dafür hat man in dieser Ansicht nur sehr begrenzte Möglichkeiten. 
+= Besonderheiten der Ansicht =
+Diese Ansicht ist für Handy, Smartphones und Subnotebooks gedacht. Sie ist auch auf kleinen Displays gut nutzbar, sehr klein und kompatibel. Dafür hat man in dieser Ansicht nur sehr begrenzte Möglichkeiten, was z.B. Filter usw. angeht. 
 
 = Wie kann ich den Vertretungsplan sehen? =
 Du musst nur das Datum, für das du den Vertretungsplan sehen willst aus dem Auswahlfeld auswählen. Danach musst du noch auf "Anzeigen" klicken. 
 
 = Wie komme ich auf die Seite? =
-Normalerweise solltest du automatisch auf diese Seite weitergeleitet werden, wenn du den Vertretungsplan lädst. Falls dein gerät nicht automatisch erkannt wird, kannst du über "erweiterte Optionen"->"Zur mobilen Ansicht" manuell auf die mobile Seite wechseln. 
+Normalerweise solltest du automatisch auf diese Seite weitergeleitet werden, wenn du den Vertretungsplan lädst. Falls dein Gerät nicht automatisch erkannt wird, kannst du über "erweiterte Optionen"->"Zur mobilen Ansicht" manuell auf die mobile Seite wechseln. 
