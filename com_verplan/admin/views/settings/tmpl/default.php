@@ -4,7 +4,7 @@
  * 
  * @version		$Id$
  * @package		verplan
- * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.net}
+ * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.de}
  * @link		http://code.google.com/p/verplan/
  * @license		GNU/GPL
  * @author      CCreated on 31-Jan-2010
