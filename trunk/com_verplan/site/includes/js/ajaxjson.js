@@ -11,17 +11,12 @@
  * @author Created on 21-Nov-2009
  */
 
-var ajax_date;
-var ajax_stand;
-var ajax_options;
+var ajax_date, ajax_stand, ajax_options;
 
 /**
  * notifications
  */
-var note_noplan;
-var note_error_load;
-var note_nodb;
-var note_db;
+var note_noplan, note_error_load, note_nodb, note_db;
 
 //intervall zum warten, dass keine nachricht angezeigt wird
 var myInterval2;
@@ -347,7 +342,7 @@ function sortfunction(first, second) {
 		}  
 	}
 	
-	//falls nichts ersetzt
+	//falls nichts ersetzt wurde
 	if (!replaced_a){
 		a = a+'00';
 	}
