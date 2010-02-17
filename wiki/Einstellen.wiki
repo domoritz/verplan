@@ -2,12 +2,12 @@
 
 = Einleitung=
 
-Hier wird erklärt, was passiert, nachdem im [Benutzerhandbuch_Backend Backend] auf den Button "Abschicken" geklickt wurde.
+Hier wird erklärt, was passiert, nachdem im [Benutzerhandbuch_Backend Backend] auf den Button "Abschicken" geklickt wurde. Es geht darum, dass die Daten in der Datenbank gespeichert werden. "Einstellen" ist hier im Sinne von "Hochladen" oder "in die Datenbank laden" gemeint.
 
 <wiki:toc max_depth="3" />
 
 = Überblick =
-Die Daten werden per Post an den Controller `send` übergeben. Hier werden die Daten ausgewertet. Als erstes wird geschaut, ob überhaupt eine Datei angegeben wurde und welche daten sonst noch verfügbar sind. nach diesen Informationen wird dann entschieden, wie der Plan eingestellt wird. 
+Die Daten werden per Post an den Controller `send` übergeben. Hier werden die Daten ausgewertet. Als erstes wird geschaut, ob überhaupt eine Datei angegeben wurde und welche Daten sonst noch verfügbar sind. nach diesen Informationen wird dann entschieden, wie der Plan eingestellt wird. 
 
 Falls eine Datei angegeben wurde, wird diese hochgeladen. Dafür ist wiederum der Controller `upload` zuständig. 
 
