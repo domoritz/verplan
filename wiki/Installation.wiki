@@ -1,4 +1,5 @@
 #summary Installation der com_verplan
+#labels Phase-Deploy
 
 = Einleitung =
 
