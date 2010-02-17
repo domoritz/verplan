@@ -1,4 +1,5 @@
 #summary Benutzerhandbuch für das Verplan Frontend
+#labels Featured
 
 = Einleitung =
 
