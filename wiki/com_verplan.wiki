@@ -1,4 +1,5 @@
 #summary Generelles zum Programm und Einleitung zum Bearbeiten
+#labels Phase-Implementation
 
 = Einleitung =
 Dieses Programm ist eine Joomla Komponente. Komponenten sind komplexe Erweiterungen für das CMS Joomla. Auf dieser Seite siehst du eine Übersicht über wichtige Punkte, die du beachten solltest, wenn du etwas an dem Programm ändern möchtest oder generell etwas über das Programm wissen möchtest. 
@@ -22,7 +23,7 @@ Um das Programm bearbeiten zu können, solltest du je nach Problem wenigstens ei
 Du solltest dir im klaren sein, was du verändern möchtest. Das ist die Grundvoraussetzung. Danach solltest du wissen, ob du die Fähigkeiten dazu hast (z.B. HTML-, PHP- oder jQuery Kenntnisse) oder ob du sie dir z.B. beim Ansehen des Quellcodes erwerben kannst. 
 
 == Wie komme ich an die Daten und wie verändere ich etwas? ==
-An die Daten kommst du mittels Subversion. Damit du das Programm bearbeiten kannst, empfiehlt sich, eine IDE zu benutzen. Ich habe dazu [http://www.eclipse.org/ Eclipse] benutzt. An die Daten kommst du dann über diese Seite: [http://code.google.com/p/verplan/source/checkout]. Wie du die Daten aus dem Repository nach Eclipse bekommst, wie man eine IDE benutzt und was du sonst noch alles wissen musst, steht hier: [http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development] und den folgenden Seiten. 
+An die Daten kommst du mittels Subversion. Damit du das Programm bearbeiten kannst, empfiehlt sich, eine IDE zu benutzen. Ich habe zum Entwickeln [http://www.eclipse.org/ Eclipse] benutzt. An die Daten kommst du dann über diese Seite: [http://code.google.com/p/verplan/source/checkout]. Wie du die Daten aus dem Repository nach Eclipse bekommst, wie man eine IDE benutzt und was du sonst noch alles wissen musst, findest du hier: [http://docs.joomla.org/Setting_up_your_workstation_for_Joomla!_development]. 
 
 == Wie Joomlakomponenten funktionieren? ==
 Alles ist hier genau erklärt: [http://docs.joomla.org/Developers#Components]
@@ -30,4 +31,4 @@ Alles ist hier genau erklärt: [http://docs.joomla.org/Developers#Components]
 Die Seite [http://docs.joomla.org/] kann ich generell sehr empfehlen, da dort die Joomla API erklärt ist und es viele hilfreiche Beispiele und Lösungsansätze gibt. 
 
 == Ich habe ein Problem und weiß nicht, was ich verändern muss, um mein Ziel zu erreichen. ==
-Schau dich erst einmal hier in der Dokumentation nach einer Lösung um, wenn es ein "komponentenspezifisches" Problem ist. Wenn nicht, ist Google (oder auch Bing, Yahoo oder jede andere Suchmaschine) dein Freund oder schau mal auf diesen [Das Programm bearbeiten Seiten] nach. Bei speziellen Fragen hilft [http://stackoverflow.com/]
+Schau dich erst einmal hier in der Dokumentation nach einer Lösung um, wenn es ein "komponentenspezifisches" Problem ist. Wenn nicht, benutze Google (oder auch Bing, Yahoo oder jede andere Suchmaschine) um eine Lösung für das Problem zu finden oder schau mal auf diesen [Das Programm bearbeiten Seiten] nach. Bei speziellen Fragen hilft manchmal auch [http://stackoverflow.com/]. 
