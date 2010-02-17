@@ -30,7 +30,7 @@ In dieser Funktion werden auch die Informationen zum Stand und das Datum ausgele
 Nach dem Parsen werden die Daten in einer Klassenvariablen gespeichert. Der Controller `send` weist die Instanz der Klasse (des Controllers) `upload` an, etwas auszuführen. 
 
 = In die Datenbank =
-Das Speichern in die Datenbank geschieht im Model `data`
+Das Speichern in die Datenbank geschieht im Model `data`.
 == Vertretungsplan ==
 Dies geschieht in der Funktion `store` in die Tabelle `#__com_verplan_plan` der [Datenbank]. Dabei werden die einzelnen Informationen richtig in die jeweiligen Spalten eingeordnet. Diese sollten existieren. Falls die Spalten in der hochgeladenenn Datei vorher noch nicht bekannt waren, wurden sie mit der Funktion `heads` erzeugt, die vorher von der Funktion `store` aufgerufen wurde.
 
