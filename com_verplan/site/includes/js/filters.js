@@ -29,10 +29,7 @@ var myInterval;
 /**
  * für notify
  */
-var note_filter;
-var note_filter_general;
-var note_klasse;
-
+var note_filter, note_filter_general, note_klasse;
 
 function iniFilters() {
 	

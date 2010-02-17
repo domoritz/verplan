@@ -5,6 +5,12 @@
  *
  * die reihenfolge ist oft wichtig, da einige scrite von
  * anderen abhängen
+ * 
+ * diese datei wird in das template includiert
+ * 
+ * es gibt die Möglichkeit, ansatt der einzelnen scripte (eigene js)
+ * nur eine einzige komprimierte (yui komprimiert) laden zu lassen
+ * um die ladezeiten zu minimieren
  *
  * @version		$Id$
  * @package		verplan
@@ -22,7 +28,7 @@ $document =& JFactory::getDocument();
 $baseurl = JURI::base().'components/com_verplan/';
 
 /*
- * css
+ * stylesheets
  */
 $document->addStylesheet($baseurl.'includes/css/general.css');
 $document->addStylesheet($baseurl.'includes/css/table.css');
@@ -69,17 +75,14 @@ $document->addScript($baseurl.'includes/js/plugins/jquery.clearableTextField.js'
 
 $min = false;
 
-if ($min) {
-	$document->addScript($baseurl.'includes/js/final-min.js');
-}
-
 //eigene scripts
+
+//einstellungen laden (ist ein extra view)
+$document->addScript(JURI::root().'?option=com_verplan&view=settings&format=js');
+	
 if (!$min) {
 	//debug
 	$document->addScript($baseurl.'includes/js/debug.js');
-	
-	//einstellungen
-	$document->addScript(JURI::root().'?option=com_verplan&view=settings&format=js');
 
 	//andere scripts
 	$document->addScript($baseurl.'includes/js/filters.js');
@@ -91,4 +94,6 @@ if (!$min) {
 	$document->addScript($baseurl.'includes/js/ajaxeffects.js');
 	$document->addScript($baseurl.'includes/js/ui.js'); //ui muss nach general, da select in general gesetzt
 	$document->addScript($baseurl.'includes/js/tooltips.js');
+} else {
+	$document->addScript($baseurl.'includes/js/final-min.js');
 }
