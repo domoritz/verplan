@@ -28,7 +28,7 @@ Das Programm ist eine Joomlakomponente, bestehend aus einem Backend- und einem F
     * Icons aus dem [http://www.oxygen-icons.org/ Oxygen Package]
     * [http://www.preloaders.net/ Ajax Indikatoren]
 
-Systemvoraussetzungen
+= Systemvoraussetzungen =
 
     * auf dem Server
         * PHP >= 5.3.0
@@ -37,7 +37,11 @@ Systemvoraussetzungen
         * Browser wenn möglich besser als IE6
         * wenn möglich Javascript Unterstützung
 
-
+das Programm wurde mit folgenden Browsern erfolgreich getestet:
+    * Mozialla Firefox ab Version 3.0 und 3.6
+    * Microsoft Internetexplorer 6 (mit Einschränkungen), 7 und 8
+    * Google Chrome 4
+    * Apple Safari 4
 
 = Daten von Ohloh=
 
