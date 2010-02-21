@@ -2,7 +2,6 @@
 #labels Phase-Design
 
 = Einleitung =
-
 Diese Seite soll dir helfen, einen Überblick über die Funktionsweise zu bekommen, damit du weißt, wo du etwas verändern musst. Im Quelltext sind viele Teile kommentiert, sodass du dich dort schnell zurechtfinden kannst, es fehlen jedoch manchmal die Zusammenhänge, die aber nötig sind. 
 Bevor du anfängst, solltest du die [com_verplan Einleitung zum Bearbeiten] gelesen haben. 
 

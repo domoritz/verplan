@@ -1,7 +1,6 @@
 #summary Der Weg der Daten in die Datenbank
 
 = Einleitung=
-
 Hier wird erklärt, was passiert, nachdem im [Benutzerhandbuch_Backend Backend] auf den Button "Abschicken" geklickt wurde. Es geht darum, dass die Daten in der Datenbank gespeichert werden. "Einstellen" ist hier im Sinne von "Hochladen" oder "in die Datenbank laden" gemeint.
 
 <wiki:toc max_depth="3" />

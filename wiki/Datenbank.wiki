@@ -1,7 +1,6 @@
-#summary One-sentence summary of this page.
+#summary Übersicht über die MySQL Datenbanktabellen
 
 = Einleitung =
-
 Die [http://www.mysql.de/ MySQL Datenbank] besteht aus vier Tabellen. Die drei letzten sind untereinander verknüpft. 
 
 

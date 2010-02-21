@@ -1,7 +1,6 @@
 #summary Vertretungsplan API
 
 = Einleitung =
-
 Hier erfährst du, wie die Vertretungsplandaten übertragen werden. Die Daten können entweder innerhalb des Programms oder sogar außerhalb verwendet werden. Es ist nur möglich auf die Daten zuzugreifen, wenn man die entsprechenden Berechtigungen hat. 
 
 Über die API sind die Vertretungsplandaten (Datum, Stand, Lehrer usw.) erreichbar und können dann verwendet werden. das vertretungsplanprogramm verwendet intern diese Schnittstelle um die Daten per AJAX laden zu können. 
@@ -9,11 +8,8 @@ Hier erfährst du, wie die Vertretungsplandaten übertragen werden. Die Daten k�
 <wiki:toc max_depth="3" />
 
 = API =
-
 = Zugang zur API =
-
 == URL ==
-
 Die Daten des Vertretungsplanes sind über folgende URL errichbar
 {{{
 <JOOMLA_URL>/index.php?option=com_verplan&view=data&format=json&date=<DATUM>&stand=<STAND>&options=<MODEL>,<VIEW>
@@ -56,7 +52,6 @@ Solltest du nur diese Option verwenden, schreibe trotzdem das Komma!
 Code: default_json.php
 
 = Die Daten =
-
 Die zurückgegebene Datei besteht aus drei Elementen, `infos`, `cols` und `rows`. 
 
 Ein Beispiel mit der Option (in `<VIEW>`): `arr`. 

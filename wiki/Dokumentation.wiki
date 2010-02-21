@@ -1,7 +1,6 @@
 #summary Quelltext- und API-Dokumentation
 
 = Einleitung =
-
 Hier siehst du eine Übersicht über die Dokumentation der Joomla Vertretungsplankomponente. 
 
   * [Installation]
