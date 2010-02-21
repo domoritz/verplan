@@ -25,15 +25,15 @@ Zurzeit ist es nicht möglich, den Unterricht ferngesteuert ausfallen zu lassen.
 
 == Wer hat das Programm entwickelt? ==
 
-Das Programm ist eine 5.Prüfungskomponente und wurde von [http://www.dmoritz.bplaced.net Dominik Moritz] entwickelt. 
+Das Programm wurde im Rahmen einer 5.Prüfungskomponente von [http://www.dmoritz.bplaced.de Dominik Moritz] entwickelt.
 
 == Kann ich mithelfen, dass Programm zu verbessern? ==
 
-Klar! Wenn du richtig mit programmieren willst, dann gehe bitte auf [http://code.google.com/p/verplan/source/checkout diese Seite] und schau dir an, wie du an den Code kommst. Du kannst mir auch gerne eine Nachricht schicken.
+Natürlich! Wenn du richtig mit programmieren willst, dann gehe bitte auf [http://code.google.com/p/verplan/source/checkout diese Seite] und schau dir an, wie du an den Code kommst. Du kannst mir (Dominik) auch gerne eine Nachricht schicken.
 
 Wenn du nicht so gerne programmierst oder anders helfen möchtest, dann schreibe mir ein [http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA Feedback]! Die Feedbacks helfen mir sehr das Programm ständig zu verbessern.
 
-== Ich habe einen Fehler gefunden ==
+== Ich habe einen Fehler gefunden! Wo kann ich den Fehler melden? ==
 Bitte [http://code.google.com/p/verplan/issues/entry hier] melden oder mir eine Nachricht schreiben!
 
 = Frage stellen! =
