@@ -49,4 +49,4 @@ Nachdem du eine Klasse gewählt hast, kannst du die Filterung noch bearbeiten, i
 <a href="http://picasaweb.google.com/lh/photo/-Br_IXZggcvYfTCtcqMPEg?feat=embedwebsite"><img src="http://lh5.ggpht.com/_7now-UGMzi4/SxgFk3ZtOCI/AAAAAAAAARU/YNgrCg3awrw/s400/2009-12-03_193738.png" /></a>
 
 == mobile Ansicht ==
-Hier kannst du zur [Benutzerhandbuch_Frontend_mobile mobilen Ansicht] des Vertretungsplanes für Handys, Smartphones oder Subnotebooks wechseln.
+Hier kannst du zur [Benutzerhandbuch_Frontend_mobile mobilen Ansicht] des Vertretungsplanes für Handys, Smartphones oder Subnotebooks wechseln. 
