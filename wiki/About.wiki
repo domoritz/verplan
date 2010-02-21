@@ -40,8 +40,8 @@ Das Programm ist eine Joomlakomponente, bestehend aus einem Backend- und einem F
 Das Programm wurde mit folgenden Browsern erfolgreich getestet:
     * Mozialla Firefox ab Version 3.0 und 3.6
     * Microsoft Internetexplorer 6 (mit Einschränkungen), 7 und 8
-    * Google Chrome 4
-    * Apple Safari 4
+    * Google Chrome 4.0
+    * Apple Safari 4.0
 
 = Daten von Ohloh=
 
