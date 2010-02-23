@@ -196,7 +196,7 @@ class VerplanControllerSend extends verplanController
 				if (!JERROR::getError()) {
 					//Erfolg melden
 					//zu bebuggzwecken kann man dies auskommentieren und kann sich dann den ablauf ansehen
-					$msg = "Senden und parsen erfolgreich";					
+					$msg = "Senden und Parsen erfolgreich";					
 					$date = date('Y-m-d',$controller->date);
 					$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan#'.$date.'" style="margin-left: 30px;">zum Plan</a>';
 					

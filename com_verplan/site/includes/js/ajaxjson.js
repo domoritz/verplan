@@ -58,7 +58,7 @@ function ajaxCall() {
 			'stand':ajax_stand, 
 			'options':ajax_options
 		},
-		timeout: (15000),
+		timeout: (20000),
 		async : true,
 		global : true,
 		success : function(XMLHttpRequest, textStatus) {

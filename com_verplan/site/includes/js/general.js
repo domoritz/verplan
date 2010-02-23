@@ -28,6 +28,15 @@ var _alert;
 //initialisiert alles, nachdem das dokument fertig geladen wurde
 jQuery(document).ready(function(){
 	
+	//ie6 erkennung
+	/*function browserLessThanIE7(){
+	   return (/MSIE ((5\\.5)|6)/.test(navigator.userAgent) && navigator.platform == "Win32");
+	}
+
+	function IsThisBrowserIE6() {
+	    return ((window.XMLHttpRequest == undefined) && (ActiveXObject != undefined))
+	}*/
+	
 	// setzt den hashwert, falls er noch nicht gesetzt ist
 	hash = getHash();
 	if (!hash) {
