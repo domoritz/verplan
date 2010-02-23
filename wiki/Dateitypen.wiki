@@ -13,6 +13,10 @@ Das Info-Stundenplan Modul ist nicht Teil der Software Untis.
 
 == Export der Daten aus gp-Untis ==
 ..to be continued
+=== Ansicht erstellen ===
+Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme zu vermeiden.
+
+=== Exportieren ===
 
 = weitere Dateitypen =
 Zurzeit ist keine Unterstützung für weitere Dateitypen geplant, es sei denn, es kommen Vorschläge. 
