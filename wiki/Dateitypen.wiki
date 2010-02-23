@@ -1,0 +1,18 @@
+#summary Informationen zu den parsbaren Dateiformaten
+#sidebar Sidebar
+
+= Einleitung =
+Damit die Daten einer Datei in die Datenbank gelesen werden können, müssen Sie bestimmten Vorgaben entsprechen. Zurzeit ist nur die Möglichkeit für gp-Untis Dateien implementiert. 
+
+<wiki:toc max_depth="3" />
+
+= gp-Untis =
+Das Programm wurde mit Dateien aus dem Info-Stundenplan Modul von Untis der Versionen 2009 und 2010 erfolgreich getestet. Untis ist eine weit verbreitete Software zum Erstellen von Stunden-, Raum- und Vertretungsplänen der Firma [http://www.grupet.at Gruber & Petters]. 
+
+Das Info-Stundenplan Modul ist nicht Teil der Software Untis. 
+
+== Export der Daten aus gp-Untis ==
+..to be continued
+
+= weitere Dateitypen =
+Zurzeit ist keine Unterstützung für weitere Dateitypen geplant, es sei denn, es kommen Vorschläge. 
