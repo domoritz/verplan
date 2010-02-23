@@ -1,4 +1,4 @@
-#summary Inhaltsverzeichnis 
+#summary Inhaltsverzeichnis
   * [Benutzerhandbuch]
     * [Benutzerhandbuch_Frontend Frontend]
         * [Benutzerhandbuch_Frontend_mobile Mobil]
@@ -12,6 +12,7 @@
     * [Prinzip Allgemeines Funktionsprinzip]
     * [Weg_Verplan der Weg des Vertretungsplanes]
       * [Einstellen Vertretungsplan einstellen]
+      * [Dateitypen Dateiformate zum Importieren]
       * [Verplan_API Verplan API]
     * [Frontend Das Frontend]
     * [Backend Das Backend]
