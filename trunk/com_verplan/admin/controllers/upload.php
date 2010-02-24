@@ -286,7 +286,7 @@ class VerplanControllerUpload extends verplanController
 
 		$settingsmodel = $this->getModel('settings');
 		$pattern = $settingsmodel->getSetting('pattern_stand');
-		//$pattern = '/Stand:.*:[0-5][0-9]/U';
+		//$pattern = '/Stand:.*:[0-5][0-9]/msU';
 		if(preg_match_all($pattern,$this->inhalt,$matches)){
 			//wählt die erste entsprechung
 			$standstring = $matches[0][0];
@@ -316,6 +316,8 @@ class VerplanControllerUpload extends verplanController
 		$format="Stand: %A %d.%m.%Y %H:%M";
 		$strf=strftime($format,$stand);
 		echo "$strf <br>";
+		//gibt ergebnisse des regulären ausdrucks zurück
+		var_dump($matches);
 		//*/
 
 
@@ -349,7 +351,7 @@ class VerplanControllerUpload extends verplanController
 		setlocale(LC_TIME, "de_DE");
 		$format="Date: %A %d.%m.%Y %H:%M";
 		$strf=strftime($format,$date);
-		echo "$strf <br>";
+		echo "$strf <br>";	
 		//*/
 
 
