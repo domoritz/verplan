@@ -96,7 +96,7 @@ VALUES
 ('1' , 'version', '', '','nicht verändern'),
 ('2' , 'max_file_size', '2097152', '2097152','maximale Dateigröße'),
 ('3' , 'allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls', 'html,htm,gif,jpg,png,pdf,doc,odf,xls','erlaubte Dateitypen'),
-('4' , 'pattern_stand', '/Stand:.*:[0-5][0-9]/U', '/Stand:.*:[0-5][0-9]/U','Pattern Stand'),
+('4' , 'pattern_stand', '/Stand:.*:[0-5][0-9]/msU', '/Stand:.*:[0-5][0-9]/msU','Pattern Stand'),
 ('5' , 'format_stand', 'd.m.Y H:i', 'd.m.Y H:i','Format Stand'),
 ('6' , 'pattern_date', '//div[@class=\'mon_title\']', '//div[@class=\'mon_title\']','Pattern Geltungsdatum'),
 ('7' , 'format_date', 'j.n.Y w', 'j.n.Y w','Format Geltungsdatum'),
