@@ -38,6 +38,8 @@ class VerplanModelClean extends JModel
 	 * 
 	 * @param anzahl der uploads, die behalten werden
 	 * uploads der zukunft bleiben immer erhalten
+	 * 
+	 * bei keep = -1 werden alle gelöscht
 	 */
 	function clean($anzahl){
 		
@@ -65,20 +67,31 @@ class VerplanModelClean extends JModel
 		
 		$uploads = $this->getUploads();		
 		
-		foreach ($uploads as $nummer => $subarray) {
-			$geltungsdatum = strtotime($subarray[Geltungsdatum]);
-			$now = time();			
-			
-			//falls das geltungsdatum größer ist, als jetzt, dann soll die löschung übersprungen werden
-			if ($geltungsdatum > $now || $anzahl > 0) {
-				if ($anzahl > 0) {
+		if ($anzahl < 0) {
+			//alle einträge löschen
+			foreach ($uploads as $nummer => $subarray) {
+				$this->remove($subarray);
+			}
+			$gel = "alle";
+						
+		} else {
+			//nur bestimmte einträge löschen
+			foreach ($uploads as $nummer => $subarray) {
+				$geltungsdatum = strtotime($subarray[Geltungsdatum]);
+				$now = time();			
+				
+				//falls das geltungsdatum größer ist, als jetzt, dann soll die löschung übersprungen werden
+				if ($geltungsdatum > $now || $anzahl > 0) {
+					if ($anzahl > 0) {
+						$anzahl--;
+					}
+				} else {
+					$gel += $this->remove($subarray);
 					$anzahl--;
 				}
-			} else {
-				$gel += $this->remove($subarray);
-				$anzahl--;
 			}
 		}
+		
 		
 		
 		
