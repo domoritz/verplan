@@ -72,9 +72,9 @@ function ajaxCall() {
 			//fehler bei ajax
 			switch (textStatus) {
 			case 'timeout':
-				var reload = confirm('Timeout Fehler beim Laden der Einstellungen.\n Willst du die Seite neu laden?');
-				if (reload) {
-					location.reload();
+				var load = confirm('Timeout Fehler beim Laden des Vertretungsplans.\n Willst du auf eine alternative Seite weitergeleitet werden?');
+				if (load) {
+					window.location.replace(rooturl+'?option=com_verplan&view=mobile');
 				}
 				break;
 			case '404':

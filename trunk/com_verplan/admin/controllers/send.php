@@ -100,7 +100,7 @@ class VerplanControllerSend extends verplanController
 
 				if (!JERROR::getError()) {
 					$msg = "Senden erfolgreich, keine Vertretungen";
-					$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan#'.$upload_arr['Geltungsdatum'].'" style="margin-left: 30px;">zum Plan</a>';
+					$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan&view=mobile&date='.$upload_arr['Geltungsdatum'].'" style="margin-left: 30px;">zum Plan</a>';
 					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
 			}
@@ -198,7 +198,7 @@ class VerplanControllerSend extends verplanController
 					//zu bebuggzwecken kann man dies auskommentieren und kann sich dann den ablauf ansehen
 					$msg = "Senden und Parsen erfolgreich";					
 					$date = date('Y-m-d',$controller->date);
-					$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan#'.$date.'" style="margin-left: 30px;">zum Plan</a>';
+					$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan&view=mobile&date='.$date.'" style="margin-left: 30px;">zum Plan</a>';
 					
 					//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 				}
@@ -244,7 +244,7 @@ class VerplanControllerSend extends verplanController
 
 					if (!JERROR::getError()) {
 						$msg = "Senden erfolgreich, ohne DB";
-						$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan#'.$upload_arr['Geltungsdatum'].'" style="margin-left: 30px;">zum Plan</a>';
+						$msg = $msg. ' <br><a href="'.JURI::root().'?option=com_verplan&view=mobile&date='.$upload_arr['Geltungsdatum'].'" style="margin-left: 30px;">zum Plan</a>';
 						//$this->setRedirect( 'index.php?option=com_verplan', $msg );
 					}
 				}

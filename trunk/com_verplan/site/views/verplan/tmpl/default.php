@@ -64,7 +64,7 @@ if ($this->mobile == true) {
 			<p>
 			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span>
 				<strong>Achtung:</strong><br>
-				Du musst JavaScript aktivieren, um den Vrtretungsplan sehen zu können.<br>
+				Du musst JavaScript aktivieren, um den Vertretungsplan sehen zu können.<br>
 				Falls du Javascript nicht aktivieren möchtest oder kannst, klicke bitte <a href="<?php echo JURI::base()?>?option=com_verplan&view=mobile">hier</a>
 			</p>
 		</div>
@@ -183,7 +183,7 @@ if ($this->mobile == true) {
 				</tr>
 				<tr>
 					<td>
-						<a href="<?php echo JURI::base() ?>?option=com_verplan&view=mobile&tmpl=component" id="link_mobile" ><span class="ui-icon ui-icon-lightbulb"></span><span>Zur mobilen Ansicht</span></a>
+						<a href="<?php echo JURI::base() ?>?option=com_verplan&view=mobile" id="link_mobile" ><span class="ui-icon ui-icon-lightbulb"></span><span>Zur mobilen Ansicht</span></a>
 					</td>
 					<td></td>
 				</tr>
