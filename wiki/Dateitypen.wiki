@@ -29,7 +29,7 @@ Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme
 
 === Export vorbereiten ===
   * gehe in  *Module*->*Info-Stundenplan*
-  * Im Tab *Monitor HTML* kannst du über *Einstellungen* die zu exportierende Ansicht (wahrscheinlich die neu erstellte) auswählen. Klicke dazu auf den Button oben rechts und wähle dann die entsprechende Ansicht. Die ausgewählte Ansicht wird dann auf dem Button angezeigt (hier "Website")
+  * Im Tab *Monitor HTML* kannst du über *Bearbeiten* die zu exportierende Ansicht (wahrscheinlich die neu erstellte) auswählen. Klicke dazu auf den Button oben rechts und wähle dann die entsprechende Ansicht. Die ausgewählte Ansicht wird dann auf dem Button angezeigt (hier "Website").
   * In den Einstellungen kannst du verschiedene Parameter der Exportdatei verändern (siehe Screenshot).
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_6.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_6.jpg"/></a> 
   * im Tab Monitor HTML musst du nun noch das erstellte Exportprofil (hier "Einstellung genannt") aktivieren indem du den Haken bei *aktiv* setzt.
@@ -38,8 +38,10 @@ Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme
 == Exportieren ==
   * erstelle den Vertretungsplan wie gewohnt
   * klicke im Menü *Module*->*Info-Stundenplan*
+<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_8.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_8.jpg"/></a>
   * Achte darauf, dass das Startdatum stimmt (sollte es aber im Normalfall)
   * klicke auf *Exportieren*
+<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_9.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_9.jpg"/></a>
 
 = weitere Dateitypen =
 Zurzeit ist keine Unterstützung für weitere Dateitypen geplant, es sei denn, es kommen Vorschläge. 
