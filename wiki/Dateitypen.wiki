@@ -26,6 +26,10 @@ Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme
   * Im Tab *Monitor HTML* kannst du über *Einstellungen* die zu exportierende Ansicht (wahrscheinlich die neu erstellte) auswählen. Klicke dazu auf den Button oben rechts und wähle dann die entsprechende Ansicht.
 
 == Exportieren ==
+  * erstelle den Vertretungsplan wie gewohnt
+  * klicke im Menü *Module*->*Info-Stundenplan*
+  * Achte darauf, dass das Startdatum stimmt (sollte es aber im Normalfall)
+  * klicke auf *Exportieren*
 
 = weitere Dateitypen =
 Zurzeit ist keine Unterstützung für weitere Dateitypen geplant, es sei denn, es kommen Vorschläge. 
