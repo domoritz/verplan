@@ -95,7 +95,7 @@ function table_init(){
     //plugin
 	jQuery('#jquerytable').tablesorter({
 		//anfangssortierung
-		sortList: [[0,0]],
+		sortList: eval(settings.init_sort.value),
 		dateFormat: 'de',
 		decimal: ',',
 		//debug: true,
