@@ -4,6 +4,8 @@
 = Einleitung =
 Das Programm wurde mit Dateien aus dem Info-Stundenplan Modul von Untis der Versionen 2009 und 2010 erfolgreich getestet. Untis ist eine weit verbreitete Software zum Erstellen von Stunden-, Raum- und Vertretungsplänen der Firma [http://www.grupet.at Gruber & Petters]. 
 
+Diese Anleitung hat weniger mit dem Programm selber zu tun, sondern befasst sich mit externer Software. Für das Programm Untis ist alleine die Firma Gruber und Petters verantwortlich. 
+
 Das Info-Stundenplan Modul ist nicht Teil der Software Untis. 
 
 <wiki:toc max_depth="3" />
