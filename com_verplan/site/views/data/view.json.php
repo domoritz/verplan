@@ -14,6 +14,7 @@
 defined('_JEXEC') or die('=;)');
 
 jimport( 'joomla.application.component.view');
+jimport( 'joomla.factory' );
 
 /**
  * HTML View class for the verplan Component
@@ -25,6 +26,12 @@ class verplanViewData extends JView
 {
 	function display($tpl = null)
 	{
+		//Benutzerrechte überprüfen
+		/*$acl =& JFactory::getACL();
+		var_dump($scl);
+		$user =& JFactory::getUser();
+		var_dump($user);*/
+		
 		//Model laden
 		$model =& $this->getModel();
 		
