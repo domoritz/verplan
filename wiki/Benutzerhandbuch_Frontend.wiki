@@ -10,7 +10,7 @@ In dieser Anleitung findest du alle wichtigen Informationen, die du brauchst um 
 = Datum wählen =
 Damit du dir einen bestimmten Vertretungsplan ansehen kannst, musst du dessen Datum wählen. Das Datum wählst du, indem du auf das Feld links im oberen Block klickst. Dann öffnet sich ein Popup, in dem du das gewünschte Datum (wieder  mit einem Klick) auswählen kannst. Danach wird automatisch der Vertretungsplan geladen und angezeigt. 
 
-<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192412.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192412.png" /></a>
+<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192412.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192412.png" width="450px" /></a>
 
 Bei der Anzeige gibt es drei verschiedene Möglichkeiten:
   # Es wird eine Tabelle mit den Vertretungen angezeigt.
@@ -25,7 +25,7 @@ Diese Funktion gibt es in diesem Programm bewusst nicht mehr.
 
 Um die erweiterten Funktionen anzuzeigen, musst du auf den entsprechenden Button klicken. Danach öffnet sich eine Box mit mit den Funktionen. 
 
-<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192538.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192538.png" /></a>
+<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192538.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192538.png" width="450px" /></a>
 
 Diese Funktionen kannst du nur benutzen, wenn eine Tabelle angezeigt wird
 
@@ -39,14 +39,14 @@ Du kannst in dem Auswahlfeld rechts neben dem Eingabefeld festlegen, in welcher 
 
 Wenn du eine Spalte gewählt hast, und ein Wort zum Filtern eingegeben hast, werden nur noch die Zeilen angezeigt, in denen in der gewählten Spalte das gesuchte Wort vorkommt. 
 
-<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193738.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193738.png" /></a>
+<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193738.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193738.png" width="450px" /></a>
 
 == Filter - Klassen ==
 
 Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filtern]. Du musst nur eine Klasse (wahrscheinlich deine eigene) aus der Liste auswählen und schon werden nur noch die Spalten angezeigt, die für die gewählte Klasse gelten. 
 Nachdem du eine Klasse gewählt hast, kannst du die Filterung noch bearbeiten, indem du den Text in dem Eingabefeld für den Filter veränderst. 
 
-<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193925.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193925.png" /></a>
+<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193925.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193925.png" width="450px" /></a>
 
 == mobile Ansicht ==
 Hier kannst du zur [Benutzerhandbuch_Frontend_mobile mobilen Ansicht] des Vertretungsplanes für Handys, Smartphones oder Subnotebooks wechseln. 
