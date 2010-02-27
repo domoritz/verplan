@@ -23,8 +23,9 @@ Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_2.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_2.jpg"/></a>
   * klicke auf *Felder der Ansicht*
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_3.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_3.jpg"/></a>
-  * stelle die Felder der Ansicht nach Belieben ein. Wichtig ist hierbei, dass nur die in *Druck* markierten Spalten exportiert werden. 
-<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_4.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_4.jpg"/></a>
+  * Stelle die Felder der Ansicht nach Belieben ein. Achte darauf, dass nur die in *Druck* markierten Spalten exportiert werden. 
+<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_4.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_4.jpg" width="200px" style="float:left;"/></a>
+<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_4.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_4.jpg" width="200px"/></a>
 
 === Export vorbereiten ===
   * gehe in  *Module*->*Info-Stundenplan*
