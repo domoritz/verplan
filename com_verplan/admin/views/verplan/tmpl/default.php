@@ -20,18 +20,19 @@ $baseurl = JURI::base().'components/com_verplan/';
 //jQuery support
 $settings = $this->settings;
 if ($settings['load_jquery_backend']['value'] == 'true') {
-	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js');
+	$document->addScript($baseurl.'includes/js/jquery-1.4.2.min.js');
 }
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
 $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 
+//jQuery UI support
 if ($settings['load_jqueryui_backend']['value'] == 'true') {
-	$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
-	$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/themes/ui-darkness/jquery-ui.css');
+	//ACHTUNG! jQueryUI ist nicht vollständig
+	$document->addScript($baseurl.'includes/js/jquery-ui/js/jquery-ui-1.7.2.custom.min.js');
+	$document->addScript($baseurl.'includes/js/jquery-ui/js/jquery.ui.datepicker-de.js');
+	$document->addStylesheet($baseurl.'includes/js/jquery-ui/css/ui-darkness/jquery-ui-1.8rc2.css');
 }
-
-$document->addScript('http://jqueryui.com/ui/i18n/ui.datepicker-de.js');
 
 //stylesheets
 $document->addStylesheet($baseurl.'includes/css/general.css');
@@ -60,7 +61,7 @@ $version = $settings[version]['default'];
 ?>
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
-	<a href="/index.php?option=com_verplan"><img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo/logo_beta_32.png" id="logo_verplan"/></a>
+	<a href="<?php echo JURI::base() ?>index.php?option=com_verplan"><img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo/logo_beta_32.png" id="logo_verplan"/></a>
 	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Backend" target="_blank" id="help_head"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p> 
 		Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
