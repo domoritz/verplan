@@ -94,9 +94,11 @@ function table_init(){
     
     //plugin
 	jQuery('#jquerytable').tablesorter({
+		//anfangssortierung
+		sortList: [[0,0]],
 		dateFormat: 'de',
 		decimal: ',',
-		debug: false,
+		//debug: true,
 		sortMultiSortKey: 'ctrlKey',
 		textExtraction: 'complex',
 		cssDesc: 'ui-state-active headerSortUp',
