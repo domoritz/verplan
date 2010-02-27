@@ -28,8 +28,10 @@ Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_4.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_4.jpg" width="200px"/></a>
 
 === Export vorbereiten ===
-  * gehe in  *Module*->*Info-Stundenplan*
+  gehe in  *Module*->*Info-Stundenplan*
   * Im Tab *Monitor HTML* kannst du über *Einstellungen* die zu exportierende Ansicht (wahrscheinlich die neu erstellte) auswählen. Klicke dazu auf den Button oben rechts und wähle dann die entsprechende Ansicht.
+  * In den Einstellungen kannst du verschiedene Parameter der Exportdatei verändern (siehe Screenshot). 
+  * im Tab Monitor HTML musst du nun noch das erstellte Exportprofil (hier "Einstellung genannt") aktivieren indem du den Haken bei *aktiv* setzt.
 
 == Exportieren ==
   * erstelle den Vertretungsplan wie gewohnt
