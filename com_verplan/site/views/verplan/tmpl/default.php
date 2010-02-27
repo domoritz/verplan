@@ -245,11 +245,11 @@ if ($this->mobile == true) {
 	<tbody>
 	<?php
 	//leere zellen, da es sonst fehler mit den plugins geben könnte
-	/*echo "<tr>";
+	echo "<tr>";
 	for ($i = 0; $i < $anzahl; $i++) {
 		echo "<td></td>";
 	}
-	echo "</tr>";*/
+	echo "</tr>";
 	?>
 	</tbody>
 </table>
