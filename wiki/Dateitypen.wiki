@@ -11,12 +11,21 @@ Das Programm wurde mit Dateien aus dem Info-Stundenplan Modul von Untis der Vers
 
 Das Info-Stundenplan Modul ist nicht Teil der Software Untis. 
 
-== Export der Daten aus gp-Untis ==
-..to be continued
-=== Ansicht erstellen ===
-Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme zu vermeiden.
+== Vorbereitungen ==
+Bevor ein Vertretungsplan exportiert wird, sollten einige Vorbereitungen getroffen werden. 
 
-=== Exportieren ===
+=== Ansicht erstellen ===
+Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme mit anderen Ansichten zu vermeiden und mehr Kontrolle über die Daten zu haben.
+
+  * gehe in *Module*->*Vertretungsplanung*->*Vertretungsansichten*
+  * erstelle eine neue Ansicht
+  * stelle die Felder der Ansicht nach Belieben ein. Wichtig ist hierbei, dass nur die in *Druck* markierten Spalten exportiert werden. 
+
+=== Export vorbereiten ===
+  * gehe in  *Module*->*Info-Stundenplan*
+  * Im Tab *Monitor HTML* kannst du über *Einstellungen* die zu exportierende Ansicht (wahrscheinlich die neu erstellte) auswählen. Klicke dazu auf den Button oben rechts und wähle dann die entsprechende Ansicht.
+
+== Exportieren ==
 
 = weitere Dateitypen =
 Zurzeit ist keine Unterstützung für weitere Dateitypen geplant, es sei denn, es kommen Vorschläge. 
