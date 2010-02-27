@@ -18,6 +18,7 @@ Bevor ein Vertretungsplan exportiert wird, sollten einige Vorbereitungen getroff
 Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme mit anderen Ansichten zu vermeiden und mehr Kontrolle über die Daten zu haben.
 
   * gehe in *Module*->*Vertretungsplanung*->*Vertretungsansichten*
+<a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_1.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_1.jpg" width="400px" /></a>
   * erstelle eine neue Ansicht
   * stelle die Felder der Ansicht nach Belieben ein. Wichtig ist hierbei, dass nur die in *Druck* markierten Spalten exportiert werden. 
 
