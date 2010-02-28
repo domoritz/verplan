@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `#__com_verplan_columns` (
 `published` BOOL NULL DEFAULT '0',
 `label` TEXT NULL COMMENT 'alternativer name',
 `description` TEXT NULL
-) ENGINE = MYISAM CHARACTER SET utf8 COLLATE utf8_bin;
+) ENGINE = MYISAM CHARACTER SET utf8;
 
 INSERT IGNORE `#__com_verplan_columns` (
 `id` ,
@@ -78,21 +78,34 @@ VALUES
 -- DROP TABLE IF EXISTS `#__com_verplan_settings`;
 
 CREATE TABLE IF NOT EXISTS `#__com_verplan_settings` (
-`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT 'primary key',
-`name` TEXT NOT NULL COMMENT 'key',
-`value` TEXT NOT NULL COMMENT 'value',
-`default` TEXT NOT NULL COMMENT 'default value',
-`de` TEXT NOT NULL COMMENT 'description'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+`id` INT NOT NULL AUTO_INCREMENT ,
+`name` VARCHAR( 255 ) NOT NULL ,
+`value` TEXT NOT NULL ,
+`default` TEXT NULL ,
+`de` TEXT NULL COMMENT 'description',
+PRIMARY KEY ( `name` ) ,
+UNIQUE (
+`id`
+)
+) ENGINE = MYISAM CHARACTER SET utf8; 
 
 INSERT IGNORE INTO `#__com_verplan_settings` (
-`name` ,
-`value` ,
+`id`,
+`name`,
+`value`,
 `default`, 
 `de`
 )
 VALUES
-('version', '', '','nicht verändern'),
+('1', 'version', '', '','nicht verändern');
+
+INSERT IGNORE INTO `#__com_verplan_settings` (
+`name`,
+`value`,
+`default`, 
+`de`
+)
+VALUES
 ('max_file_size', '2097152', '2097152','maximale Dateigröße'),
 ('allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls', 'html,htm,gif,jpg,png,pdf,doc,odf,xls','erlaubte Dateitypen'),
 ('pattern_stand', '/Stand:.*:[0-5][0-9]/msU', '/Stand:.*:[0-5][0-9]/msU','Pattern Stand'),
@@ -108,9 +121,9 @@ VALUES
 ('load_jquery_backend', 'true', 'true','jQuery laden (Backend)'),
 ('load_jqueryui_frontend', 'true', 'true','jQueryUI laden (Frontend)'),
 ('load_jqueryui_backend', 'true', 'true','jQueryUI laden (Backend)'),
-('class_col', '(Klasse(n))', '(Klasse(n))','Spaltenname der Klassenspalte'),
-('class_name', '(Klasse(n))', '(Klasse(n))','Variablenname der Klassenspalte in JSON'),
-('init_sort', '[[0,0]]', '[[0,0]]','Anfangssortierung (< href="http://tablesorter.com/docs/example-option-sort-list.html">http://tablesorter.com/docs/example-option-sort-list.html</a>)'),
+('class_col', 'Klasse(n)', 'Klasse(n)','Spaltenname der Klassenspalte'),
+('class_name', 'Klasse(n)', 'Klasse(n)','Variablenname der Klassenspalte in JSON'),
+('init_sort', '[[0,0]]', '[[0,0]]','Anfangssortierung (<a href="http://tablesorter.com/docs/example-option-sort-list.html">http://tablesorter.com/docs/example-option-sort-list.html</a>)'),
 ('notify', 'pnotify', 'pnotify', 'Notificationsystem: own, pnotify, both oder none'),
 ('head_text', 'Das hier ist die Betaversion der neuen Vertretungsplankomponente. Weitere Informationen: <a href="http://verplan.googlecode.com" target="_blank" id="link_project" title="Projektseite">verplan.googlecode.com</a>. Bitte sende dein <a id="feedy" title="Feedbackbogen" rel="prettyPhoto[iframes]" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA&iframe=true&width=90%&height=100%">Feedback</a>!', '', 'Text, der im Frontend erscheint'),
 ('message_title', 'Betaversion', '', 'Überschrift der Benachrichtigung im Frontend. Nur mit pnotify (leer lassen für keine)'),
