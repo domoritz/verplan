@@ -147,6 +147,21 @@ class verplanViewMobile extends JView
 		//version number
 		$version = $settingsmodel->getSetting('version');
 		$this->assignRef( 'version', $version);
+		
+		//Benutzerrechte überprüfen
+		$public = $settingsmodel->getSetting('public');		
+		//zugang gewährt
+		$access = true;		
+		//wenn nicht öffentlich, dann überprüfen
+		if ($public == "false") {
+			$user =& JFactory::getUser();		
+			if ($user->guest) {    
+			     $access = false;
+			}
+		}	
+
+		$this->assignRef( 'access', $access);
+		$this->assignRef( 'public', $public);
 
 		//controller plan laden
 		$name = 'plan';

@@ -117,6 +117,7 @@ VALUES
 ('upload_dir', '/components/com_verplan/uploads/', '/components/com_verplan/uploads/','Verzeichnis der Vertretungsplandateien (in Administrator)'),
 ('keep_files', 'false', 'false','Dateien nach dem Parsen behalten'),
 ('number_show', '5', '5','Anzahl der anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt.'),
+('public', 'true', 'true', 'Setze die Option auf false, wenn Gäste den Vertretungsplan nicht sehen dürfen'),
 ('load_jquery_frontend', 'true', 'true','jQuery laden (Frontend)'),
 ('load_jquery_backend', 'true', 'true','jQuery laden (Backend)'),
 ('load_jqueryui_frontend', 'true', 'true','jQueryUI laden (Frontend)'),

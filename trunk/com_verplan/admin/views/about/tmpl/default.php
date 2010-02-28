@@ -15,6 +15,8 @@ defined('_JEXEC') or die('=;)');
 
 $document =& JFactory::getDocument();
 
+$baseurl = JURI::base().'components/com_verplan/';
+
 //get version
 $version = $this->settings[version]['default'];
 ?>

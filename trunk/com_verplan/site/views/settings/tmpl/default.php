@@ -38,3 +38,15 @@ var settings = <?php echo json_encode($this->settings); ?>;
 //rooturl der joomlainstallation
 ?>
 var rooturl = "<?php echo JURI::root()?>";
+
+<?php 
+jimport( 'joomla.version' );
+if ( defined( 'JVERSION' ) ) {
+     $version = new JVersion();
+     define( 'JVERSION', $version->getShortVersion()); 
+}
+
+$joomlaversion = substr(JVERSION,0,3);
+
+?>
+var joomlaversion = <?php echo $joomlaversion?>;

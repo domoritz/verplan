@@ -20,7 +20,6 @@ require_once('inc/scripts.inc.php');
 /*$document =& JFactory::getDocument();
 $title = $document->getTitle();
 $document->setTitle('Vertretungsplan @ '.$title);*/
-
 ?>
 
 <div id="verplanwrapper" class="full_width">

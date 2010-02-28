@@ -46,45 +46,58 @@ $document->setCharset('utf-8');
 //holt das array
 $arr = $this->verplanarray;
 
-/*codiert einen wert um
-function utf8(&$value, &$key) {
-	utf8_encode($value);
-	utf8_encode($key);
-}
-
-//codiert das array in utf-8
-array_walk_recursive($arr,utf8);
-*/
-
-//optionen für view
-$options = $this->options;
-
-switch ($options) {
-	//arr nur zu debugzwecken
-	case arr:
-		//array direkt
-		var_dump($arr);
-		break;
-		
-	//wie arr
-	case html:
-		//lesbares json mit html
-		$json = json_encode($arr);
-		echo jsonReadable($json,true);
-		break;
-		
-	//minimiertes json
-	case min:
-		//wandelt das assoziative array direkt in json um
-		echo json_encode($arr);
-		break;
-
-	//standard
-	default:
-		//lesbares json
-		$json = json_encode($arr);
-		echo jsonReadable($json,false);
-		break;
+//$arr['access'] = $this->access;
+//$arr['public'] = $this->public;
+	
+//nur, wenn zugang gewährt
+if ($this->access) {
+	
+	/*codiert einen wert um
+	function utf8(&$value, &$key) {
+		utf8_encode($value);
+		utf8_encode($key);
+	}
+	
+	//codiert das array in utf-8
+	array_walk_recursive($arr,utf8);
+	*/
+	
+	//optionen für view
+	$options = $this->options;
+	
+	switch ($options) {
+		//arr nur zu debugzwecken
+		case arr:
+			//array direkt
+			var_dump($arr);
+			break;
+			
+		//wie arr
+		case html:
+			//lesbares json mit html
+			$json = json_encode($arr);
+			echo jsonReadable($json,true);
+			break;
+			
+		//minimiertes json
+		case min:
+			//wandelt das assoziative array direkt in json um
+			echo json_encode($arr);
+			break;
+	
+		//standard
+		default:
+			//lesbares json
+			$json = json_encode($arr);
+			echo jsonReadable($json,false);
+			break;
+	}
+} else {
+	$arr['rows'] = null;
+	$arr['infos'] = null;
+	$arr['infos'][0][type] = 'no_access';
+	
+	echo json_encode($arr);
 }
 
 
