@@ -42,7 +42,10 @@ $which = $this->which;
 	<br>
 </div>
 
-
+<?php //anfang access
+if ($this->access == "true"){ 
+	//falls zugang erlaubt
+?>
 <div id="select_rahmen">
 	<form id="select_form" method="get" enctype="multipart/form-data" action="">
 	<label for="select_date">Datum wählen</label> 
@@ -182,12 +185,35 @@ $which = $this->which;
 			}
 		}
 	} else {
-		echo 'Bitte ein Datum wählen und "Anzeigen" klicken!';
-	}
-	
+		echo '<p>Bitte ein Datum wählen und "Anzeigen" klicken!</p>';
+	}	
 	?>
 </div>
 </div>
+
+<?php //ende access
+} else {
+	//falls zugang verweigert
+	
+	echo '<div id="verplan"><div id="no_db">';
+	jimport( 'joomla.version' );
+	if ( defined( 'JVERSION' ) ) {
+	     $version = new JVersion();
+	     define( 'JVERSION', $version->getShortVersion()); 
+	}
+
+	$joomlaversion = substr(JVERSION,0,3);
+	
+	$logincomponent = 'com_users';
+	if ($joomlaversion < 1.6) {
+		$logincomponent = 'com_user';
+	}
+	
+	echo '<p>Zugang verweigert! Bitte logge dich ein. </p>zum <a href="'.JURI::base().'/index.php?option='.$logincomponent.'&view=login">Login</a>';
+	echo '</div></div>';
+}
+?>
+
 <br><br>
 <span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.de/" target="_blank">Dominik Moritz, 2010</a></span>
 

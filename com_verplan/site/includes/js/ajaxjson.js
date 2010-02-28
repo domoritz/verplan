@@ -111,6 +111,28 @@ function JSONsuccess(json, textStatus) {
 	
 	//vorgehen nach typ auswählen
 	switch (json.infos[length].type) {
+	case 'no_access':
+		
+		//sucht die richtige loginkomponente für joomla 1.5 oder 1.6
+		var component = "com_users";		
+		if (joomlaversion == 1.5) {
+			component = "com_user";
+		}
+		
+		jQuery('#no_db')
+		.html('<p>Zugang verweigert! Bitte logge dich ein. </p>zum <a href="'+rooturl+'index.php?option='+component+'&view=login">Login</a>');
+		showNoDB();
+		
+		if (notify == 'pnotify' || notify == 'both') {
+			note_db = jQuery.pnotify({
+			    pnotify_title: 'Zugang verweigert',
+			    pnotify_text: 'Der Vertretungsplan ist nicht öffentlich. Bitte logge dich ein. ',
+			    pnotify_notice_icon: 'ui-icon ui-icon-error',
+			    pnotify_type: 'error',
+			    pnotify_hide: false
+			});
+		}
+		break;
 	case 'db':
 		// wenn der typ datenbank ist
 		

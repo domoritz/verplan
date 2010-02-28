@@ -25,13 +25,7 @@ jimport( 'joomla.factory' );
 class verplanViewData extends JView
 {
 	function display($tpl = null)
-	{
-		//Benutzerrechte überprüfen
-		/*$acl =& JFactory::getACL();
-		var_dump($scl);
-		$user =& JFactory::getUser();
-		var_dump($user);*/
-		
+	{		
 		//Model laden
 		$model =& $this->getModel();
 		
@@ -46,7 +40,6 @@ class verplanViewData extends JView
 		 * 1. : optionen für den view
 		 */
 		$optionsarray = explode(',',$options);
-
 		
 		//stand und datum aus get options für view
 		$this->assignRef( 'date', $date);
@@ -62,6 +55,27 @@ class verplanViewData extends JView
 		//verplanarray laden und an template übergeben
 		$array = $controller->getVerplanarray($date,$stand,$optionsarray[0]);
 		$this->assignRef( 'verplanarray', $array);
+		
+		
+		
+		//Benutzerrechte überprüfen
+		//settingsmodel
+		$settingsmodel = JModel::getInstance('Settings', 'VerplanModel');
+		$public = $settingsmodel->getSetting('public');
+		
+		//zugang gewährt
+		$access = true;
+		
+		//wenn nicht öffentlich, dann überprüfen
+		if ($public == "false") {
+			$user =& JFactory::getUser();		
+			if ($user->guest) {    
+			     $access = false;
+			}
+		}	
+
+		$this->assignRef( 'access', $access);
+		$this->assignRef( 'public', $public);
 		
 		//lädt das template json, welches dann den vertretungsplan als json anzeigt
 		parent::display($tpl);

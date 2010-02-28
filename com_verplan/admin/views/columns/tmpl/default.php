@@ -15,6 +15,8 @@ defined('_JEXEC') or die('=;)');
 
 $document =& JFactory::getDocument();
 
+$baseurl = JURI::base().'components/com_verplan/';
+
 //jQuery support
 $settings = $this->settings;
 if ($settings['load_jquery_backend']['value'] == 'true') {
