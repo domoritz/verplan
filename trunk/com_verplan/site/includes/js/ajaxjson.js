@@ -120,7 +120,7 @@ function JSONsuccess(json, textStatus) {
 		}
 		
 		jQuery('#no_db')
-		.html('<p>Zugang verweigert! Bitte logge dich ein. </p>zum <a href="'+rooturl+'index.php?option='+component+'&view=login">Login</a>');
+		.html('<p>Zugang verweigert! Bitte logge dich ein. </p>zum <a href="'+rooturl+'index.php?option='+component+'&view=login&return=aW5kZXgucGhwP29wdGlvbj1jb21fdmVycGxhbiZ2aWV3PXZlcnBsYW4=">Login</a>');
 		showNoDB();
 		
 		if (notify == 'pnotify' || notify == 'both') {
