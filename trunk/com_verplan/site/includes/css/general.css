@@ -160,7 +160,7 @@
 	left: 50%;
 	height: 100px;
 	width: 150px;
-	background: #fff url(../images/ajax/ajax-loader-spin_32.gif) 50% 50% no-repeat;
+	background: #fff url(../images/ajax/weelthrobber_32.gif) 50% 50% no-repeat;
 	border: 3px solid #999;
 }
 

@@ -107,7 +107,7 @@ INSERT IGNORE INTO `#__com_verplan_settings` (
 )
 VALUES
 ('max_file_size', '2097152', '2097152','maximale Dateigröße'),
-('allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls', 'html,htm,gif,jpg,png,pdf,doc,odf,xls','erlaubte Dateitypen'),
+('allowed_filetypes', 'html,htm,gif,jpg,png,pdf,doc,odf,xls,txt', 'html,htm,gif,jpg,png,pdf,doc,odf,xls,txt','erlaubte Dateitypen'),
 ('pattern_stand', '/Stand:.*:[0-5][0-9]/msU', '/Stand:.*:[0-5][0-9]/msU','Pattern Stand'),
 ('format_stand', 'd.m.Y H:i', 'd.m.Y H:i','Format Stand'),
 ('pattern_date', '//div[@class=\'mon_title\']', '//div[@class=\'mon_title\']','Pattern Geltungsdatum'),

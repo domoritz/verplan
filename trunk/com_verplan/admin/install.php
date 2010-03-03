@@ -89,7 +89,7 @@ Deinstallieren werden <strong>alle</strong> Daten der Komponente
 entfernt. Beim Upgrade (Neuinstallation ohne vorherige Deinstallation)
 bleiben die Datenbankeinträge erhalten.</p>
 
-<p>Um alle Daten aus Der Datenbank zu löschen, führe dieses SQL-Script
+<p>Um alle Daten aus der Datenbank zu löschen, führe alternativ dieses SQL-Script
 aus:</p>
 <pre>
 DROP TABLE IF EXISTS `<?php echo $db->getPrefix();?>com_verplan_settings`;
@@ -116,7 +116,7 @@ function com_uninstall() {
 <p>Du hast dich entschlossen, die Komponente com_verplan zu entfernen.
 Dabei wurden alle Einträge aus der Datenbank und alle Dateien entfernt.
 Falls du dies beim nächsten Mal nicht möchtest, solltest du eine
-Instaaltion ohne vorherige Deinstallation (Upgrade) durchführen.</p>
+Instalation ohne vorherige Deinstallation (Upgrade) durchführen.</p>
 
 
 	<?php
