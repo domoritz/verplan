@@ -61,7 +61,7 @@ Mit dieser Einstellung lässt sich der Zugriff auf die Daten des Vertretungsplan
 Einstellung, ob die Javascriptbibliothek [http://jquery.com/ jQuery]  bzw deren Oberflächenbibliothek [http://jqueryui.com/ jQueryUI] geladen werden soll. Normalerweise sollte dies aktiviert bleiben, außer, wenn jQuery anders geladen wird. Das Programm verwendet den [http://docs.jquery.com/Using_jQuery_with_Other_Libraries jQuery noConflict mode]. 
 
 == class_col ==
-Hier sollte der Name der Spalte stehen, in der die Klassen stehen. Es geht um den Titel der Spalte im Tabellenkopf. 
+Hier sollte der Name der Spalte stehen, in der die Klassen stehen. Es geht um den Titel der Spalte im Tabellenkopf. Diese und die folgende Option sind wichtig für die direkte Filterung nach einer Klasse. 
 
 == class_name ==
 Hier geht es um den Namen der Datenspalte mit den Klassen, wie er auch in der Datenbank vorkommt und wie er auch in der JSON Datei vorkommt. 
