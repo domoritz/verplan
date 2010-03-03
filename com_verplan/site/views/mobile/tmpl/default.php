@@ -209,7 +209,7 @@ if ($this->access == "true"){
 		$logincomponent = 'com_user';
 	}
 	
-	echo '<p>Zugang verweigert! Bitte logge dich ein. </p>zum <a href="'.JURI::base().'/index.php?option='.$logincomponent.'&view=login">Login</a>';
+	echo '<p>Zugang verweigert! Bitte logge dich ein. </p>zum <a href="'.JURI::base().'/index.php?option='.$logincomponent.'&view=login&return=aW5kZXgucGhwP29wdGlvbj1jb21fdmVycGxhbiZ2aWV3PXZlcnBsYW4=">Login</a>';
 	echo '</div></div>';
 }
 ?>
