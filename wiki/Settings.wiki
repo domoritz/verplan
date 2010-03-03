@@ -1,4 +1,5 @@
 #summary Übersicht über die möglichen Einstellungen
+#labels Phase-Implementation
 
 = Einleitung =
 Die meisten Parameter des Programms lassen sich zentral über das Bachend aufrufen und bearbeiten. In den meisten Fällen sollte es so möglich sein, Quellcodeveränderungen zu vermeiden. 
@@ -42,13 +43,19 @@ Siehe [#format_stand] nur nicht für den Stand, sondern das Geltungsdatum.
 Siehe [#fpattern_date]. Dieses Mal wird die Tabelle mit den Vertretungen gesucht. 
 
 == upload_dir_comp ==
-Verzeichnis, in das die Vertretungsplandateien geladen werden, ausgehend von: `/administrator/componentes/com_verplan/`. Die URL bezieht sich auf den Server. 
+Verzeichnis, in das die Vertretungsplandateien geladen werden. Die URL bezieht sich auf den Server. 
 
 == upload_dir ==
-Verzeichnis, in dem die Vertretungspläne liegen, auf die auch vom Frontend aus zugegriffen werden kann, ausgehend vom Webseiten Stammverzeichnis. Die URL bezieht sich auf die Webadresse. 
+Verzeichnis, in dem die Vertretungspläne liegen, auf die auch vom Frontend aus zugegriffen werden kann, ausgehend vom Webseiten Stammverzeichnis. Die URL bezieht sich auf die Webadresse.
+
+== keep_files ==
+Diese Option kann die Werte `true` und `false` annehmen. Sie steuert, ob die hochgeladenen Vertretungsplandateien (deren Daten in der Datenbank abgelegt wurden) noch auf dem Server belassen werden sollen. Zu Debugzwecken kann man diese Option auf `true` setzten. Dateien, die nicht in die Datenbank eingelesen wurden, bleiben natürlich immer erhalten. 
 
 == number_show ==
 Anzahl der in der Auswahlliste im Frontend anzuzeigenden Daten. Daten in der Zukunft werden immer zusätztlich angezeigt und zählen nicht mit zu dieser Zahl. 
+
+== public ==
+Mit dieser Einstellung lässt sich der Zugriff auf die Daten des Vertretungsplans steuern. Ist die Option auf `true` gesetzt, kann jeder auf die Daten zugreifen. Bei `false` haben nur angemeldete Benutzer Zugriff. Auch ein Zugriff auf die API ist dann nur mit einem gültigen Zugang möglich. 
 
 == load_jquery und load_jqueryui ==
 Einstellung, ob die Javascriptbibliothek [http://jquery.com/ jQuery]  bzw deren Oberflächenbibliothek [http://jqueryui.com/ jQueryUI] geladen werden soll. Normalerweise sollte dies aktiviert bleiben, außer, wenn jQuery anders geladen wird. Das Programm verwendet den [http://docs.jquery.com/Using_jQuery_with_Other_Libraries jQuery noConflict mode]. 
@@ -58,6 +65,9 @@ Hier sollte der Name der Spalte stehen, in der die Klassen stehen. Es geht um de
 
 == class_name ==
 Hier geht es um den Namen der Datenspalte mit den Klassen, wie er auch in der Datenbank vorkommt und wie er auch in der JSON Datei vorkommt. 
+
+== init_sort ==
+Mit dieser Einstellung lässt sich die Anfangssortierung des normalen Frontends steuern. Die Syntax richtet sich nach der Vorgabe des [http://tablesorter.com/docs/example-option-sort-list.html jQuery Tablesorter 2.0 Plugin]. 
 
 == notify ==
 Auswahl des Notification (Benachrichtigungs) System. Es stehen mein eigenes own und das [http://pines.svn.sourceforge.net/viewvc/pines/sandbox/notify/notify.html pnotify] zur Auswahl.
