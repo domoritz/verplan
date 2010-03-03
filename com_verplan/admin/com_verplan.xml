@@ -2,7 +2,7 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>Verplan</name>
 	<version>1.0b5</version>
-	<description>Komponente zum Hochladen und Anzeigen des Vertretungsplanes.
+	<description>Komponente zum Hochladen und Anzeigen des Vertretungsplans.
 	</description>
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<author>Dominik Moritz</author>
