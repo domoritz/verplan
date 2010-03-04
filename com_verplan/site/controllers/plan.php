@@ -53,6 +53,17 @@ class VerplanControllerPlan extends verplanController
 	 * @return	array
 	 */
 	function getVerplanarray($date,$stand,$options){
+		
+		//date muss auch noch als string die 00:00:00 am ende erhalten
+		$date = $date.' 00:00:00';
+		
+		/*debug
+		 echo "controller plan";
+		 var_dump($date);
+		 var_dump($stand);
+		 var_dump($options);
+		 //*/
+		
 		$db =& JFactory::getDBO();
 
 		//leeres array
@@ -93,10 +104,18 @@ class VerplanControllerPlan extends verplanController
 		
 
 		/*debug
-		 echo "query für infos";
-		 echo $query;
-		 var_dump($infosarray);
-		 //*/
+		echo "infosarray";
+		var_dump($infosarray);
+		//*/
+		 
+		//sucht nach doppelten uploads mit dem gleichen stand
+		for ($i = 0; $i < count($infosarray)-1; $i++) {
+			if ($infosarray[$i]['stand'] == $infosarray[$i+1]['stand']) {
+				//kann gelöscht werden array
+				$loeschen[] = $infosarray[$i+1]['id'];
+				unset($infosarray[$i+1]);
+			}
+		}
 
 		/*ROWS*/
 		
@@ -109,10 +128,34 @@ class VerplanControllerPlan extends verplanController
 		 */
 
 		/*debug
-		 echo "query für rows";
-		 echo $query;
-		 var_dump($assozArray_rows);
-		 //*/
+		echo "assozArray_rows";
+		var_dump($assozArray_rows);
+		//*/
+		 
+		//löscht einträge, die von einem doppelten upload kommen
+		if (!empty($loeschen)) {
+			foreach ($loeschen as $loesche_mich) {
+				for ($i = 0; $i < count($assozArray_rows); $i++) {
+					if ($assozArray_rows[$i]['id_upload'] == $loesche_mich) {
+						unset($assozArray_rows[$i]);
+					}
+				}
+			}
+			
+			//schreibt die indexeinträge neu
+			foreach ($assozArray_rows as $row) {
+				$assozArray_rows_new[] = $row;
+			}
+			$assozArray_rows = $assozArray_rows_new;
+			unset($assozArray_rows_new);
+		}
+		
+		//jetzt stimmen die indexeinträge nicht mehr
+		
+		/*debug
+		echo "assozArray_rows";
+		var_dump($assozArray_rows_new);
+		//*/
 
 
 		/*COLUMNS*/
