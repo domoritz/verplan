@@ -36,7 +36,7 @@ class VerplanModelPlan extends JModel
 	 * lädt die daten der zeilen als assoziatives array aus der datenbank,
 	 * dabei werden nur die zeilen geladen, in denen der richtige stand und
 	 * das richtige datum sind. das wird erreicht, indem die tabellen uploads und
-	 * plan in beziehung gesetzt werden. datum und stand werden sehr liberal beahndelt.
+	 * plan in beziehung gesetzt werden. datum und stand werden sehr liberal behandelt.
 	 * so heißt "2009-02", dass alle stände aus dem februar 2009 geladen werden
 	 *
 	 *
@@ -51,6 +51,8 @@ class VerplanModelPlan extends JModel
 	 */
 	function getRows($date, $stand){
 		$db =& JFactory::getDBO();
+		
+		//führe abfrage aus
 		$query = 'SELECT uploads.*, plan.*
 					FROM '.$db->nameQuote('#__com_verplan_plan').' AS plan,
 						'.$db->nameQuote('#__com_verplan_uploads').' AS uploads

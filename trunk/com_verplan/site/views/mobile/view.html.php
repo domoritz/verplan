@@ -29,7 +29,7 @@ class verplanViewMobile extends JView
 		//variablen, wichtig falls js deaktiviert
 		$date = JRequest::getVar('date','none');
 		$stand = JRequest::getVar('stand','latest');
-		$options = JRequest::getVar('options',',min');
+		$options = JRequest::getVar('options',',');
 		$format = JRequest::getVar('format','html');
 		$tmpl = JRequest::getVar('tmpl');
 

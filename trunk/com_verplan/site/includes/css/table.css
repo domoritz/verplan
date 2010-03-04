@@ -124,8 +124,8 @@
 
 
 #jquerytable tr.odd { 
-	/*background-color: #e1e1e1;*/
-	background-color: #F9F9F9;
+	/*background-color: #e1e1e1 / #F9F9F9;*/
+	background-color: #eee;
 }
 
 #jquerytable tr.even { 
