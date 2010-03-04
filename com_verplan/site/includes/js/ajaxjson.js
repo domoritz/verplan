@@ -333,6 +333,10 @@ function sortfunction(first, second) {
 	}
 	second = second.substring(0,komma);
 	
+	//entfernt klammern und anders störendes
+	first = first.replace(/[^a-zA-Z 0-9]+/g,'');
+	second = second.replace(/[^a-zA-Z 0-9]+/g,'');
+	
 	//entfernt leerzeichen am anfang und ende
 	a = jQuery.trim(first);
 	a = a.toLowerCase();

@@ -55,6 +55,10 @@ function table_init(){
         	}
         	s = s.substring(0,komma);
         	
+        	//entfernt klammern und anders störendes
+        	s = s.replace(/[^a-zA-Z 0-9]+/g,'');
+        	
+        	
         	//entfernt leerzeichen
         	s = jQuery.trim(s);
         	//console.log(s);
