@@ -53,10 +53,7 @@ class VerplanControllerPlan extends verplanController
 	 * @return	array
 	 */
 	function getVerplanarray($date,$stand,$options){
-		
-		//date muss auch noch als string die 00:00:00 am ende erhalten
-		$date = $date.' 00:00:00';
-		
+
 		/*debug
 		 echo "controller plan";
 		 var_dump($date);
@@ -82,25 +79,27 @@ class VerplanControllerPlan extends verplanController
 		//falls nur der neueste stand zurückgegeben werden soll
 		if ($stand == "latest") {
 			//nimmt nur das passende subarray
+			//date muss auch noch als string die 00:00:00 am ende erhalten
+			$date = $date.' 00:00:00';
 			$stands = $dates_stands[$date];
 			/*
 			 * sortiert
-			 * 0 = DESC nach oben hin
-			 * 1 = ASC nach oben hin
+			 * sort oder rsort für reihenfolge
 			 */
 			if (is_array($stands)) {
-				sort($stands,1);
+				rsort($stands);
 				//weist den stand zu
 				$stand = $stands[0];
 			} else {
 				$stand = $stands;
-			}
+			}			
+			
 			//debug
 			//var_dump($stands);
 		}
 
 		/*INFOS*/		
-		$infosarray = $controller->getInfos($date);
+		$infosarray = $controller->getInfos($date,$stand);
 		
 
 		/*debug
@@ -109,13 +108,17 @@ class VerplanControllerPlan extends verplanController
 		//*/
 		 
 		//sucht nach doppelten uploads mit dem gleichen stand
+		//es wird ein array mit den zu löschenden einträgen erstellt
 		for ($i = 0; $i < count($infosarray)-1; $i++) {
-			if ($infosarray[$i]['stand'] == $infosarray[$i+1]['stand']) {
+			if ($infosarray[$i]['Stand'] == $infosarray[$i+1]['Stand'] && $infosarray[$i]['Geltungsdatum'] == $infosarray[$i+1]['Geltungsdatum']) {
 				//kann gelöscht werden array
-				$loeschen[] = $infosarray[$i+1]['id'];
-				unset($infosarray[$i+1]);
+				$loeschen_id[] = $infosarray[$i+1]['id'];
 			}
 		}
+		/*debug
+		echo "loeschen_id";
+		var_dump($loeschen_id);
+		//*/
 
 		/*ROWS*/
 		
@@ -133,28 +136,34 @@ class VerplanControllerPlan extends verplanController
 		//*/
 		 
 		//löscht einträge, die von einem doppelten upload kommen
-		if (!empty($loeschen)) {
-			foreach ($loeschen as $loesche_mich) {
-				for ($i = 0; $i < count($assozArray_rows); $i++) {
-					if ($assozArray_rows[$i]['id_upload'] == $loesche_mich) {
-						unset($assozArray_rows[$i]);
-					}
+		if (!empty($loeschen_id)) {
+			//überträgt nur richtige spalten			
+			for ($i = 0; $i < count($assozArray_rows); $i++) {
+				if (!in_array($assozArray_rows[$i]['id_upload'],$loeschen_id)) {
+					$assozArray_rows_new[] = $assozArray_rows[$i];
 				}
 			}
-			
-			//schreibt die indexeinträge neu
-			foreach ($assozArray_rows as $row) {
-				$assozArray_rows_new[] = $row;
-			}
+
 			$assozArray_rows = $assozArray_rows_new;
-			unset($assozArray_rows_new);
+		}
+		
+		//lösche doppelte aus infos
+		if (!empty($loeschen_id)) {
+			//überträgt nur richtige spalten			
+			for ($i = 0; $i < count($infosarray); $i++) {
+				if (!in_array($infosarray[$i]['id'],$loeschen_id)) {
+					$infosarray_new[] = $infosarray[$i];
+				}
+			}
+
+			$infosarray = $infosarray_new;
 		}
 		
 		//jetzt stimmen die indexeinträge nicht mehr
 		
 		/*debug
 		echo "assozArray_rows";
-		var_dump($assozArray_rows_new);
+		var_dump($assozArray_rows);
 		//*/
 
 

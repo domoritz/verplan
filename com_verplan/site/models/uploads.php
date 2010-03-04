@@ -64,10 +64,10 @@ class VerplanModelUploads extends JModel
 	 * @param $date Geltungsdatum, für das die infos gesucht werden
 	 * @return array
 	 */
-	function getInfos($date){
+	function getInfos($date, $stand){
 		$db =& JFactory::getDBO();
 		
-		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_uploads').'WHERE `Geltungsdatum` LIKE '.$db->quote($date."%");
+		$query = 'SELECT * FROM '.$db->nameQuote('#__com_verplan_uploads').'WHERE `Geltungsdatum` LIKE '.$db->quote($date."%").'AND `Stand` LIKE '.$db->quote($stand."%");
 		$db->setQuery($query);
 		$infosarray = $db->loadAssocList();
 		if ($db->getErrorNum()) {

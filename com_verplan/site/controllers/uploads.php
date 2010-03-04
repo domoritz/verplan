@@ -76,9 +76,9 @@ class VerplanControllerUploads extends verplanController
 	 * @param $date Geltungsdatum, für das die infos gesucht werden
 	 * @return array
 	 */
-	function getInfos($date) {
+	function getInfos($date,$stand) {
 		$model = $this->getModel('uploads');
-		$infos = $model->getInfos($date);
+		$infos = $model->getInfos($date,$stand);
 		return $infos;
 	}
 
