@@ -45,7 +45,7 @@ if ($this->mobile == true) {
 
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
-	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_beta_32.png" id="logo_verplan"/>
+	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_rc_32.png" id="logo_verplan"/>
 	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p>
 		<?php echo $this->einltext?>

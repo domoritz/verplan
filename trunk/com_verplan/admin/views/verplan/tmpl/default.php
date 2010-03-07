@@ -61,7 +61,7 @@ $version = $settings[version]['default'];
 ?>
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
-	<a href="<?php echo JURI::base() ?>index.php?option=com_verplan"><img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo/logo_beta_32.png" id="logo_verplan"/></a>
+	<a href="<?php echo JURI::base() ?>index.php?option=com_verplan"><img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/logo/logo_rc_32.png" id="logo_verplan"/></a>
 	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Backend" target="_blank" id="help_head"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p> 
 		Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 

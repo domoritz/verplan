@@ -32,7 +32,7 @@ $which = $this->which;
 <div id="wrapper_verplan">
 
 <div id="header_verplan">
-	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo/logo_beta_32.png" id="logo_verplan"/>
+	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo $this->baseurl;?>/components/com_verplan/includes/images/logo/logo_rc_32.png" id="logo_verplan"/>
 	<p>
 		Anzeige des Vertretungsplanes für mobile Geräte, wie Handys, Smartphones oder Subnotebooks. 
 		<a href="<?php echo JURI::base(); ?>?option=com_verplan&mobile=false">Zur normalen Ansicht.</a><br>
