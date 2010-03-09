@@ -36,6 +36,9 @@ function table_init(){
         is: function(s) {
     		//prüft mittels eines reguläres ausdrucks, ob der string eine klasse ist
     	
+	    	//entfernt klammern und anders störendes
+	    	s = s.replace(/[^a-zA-Z 0-9]+/g,'');
+    	
     	    //entfernt leerzeichen am anfang und ende
     		s = jQuery.trim(s);
     		//regulärer ausdruck zum erkennen, ob die spalte als "klasse" behandelt werden soll
@@ -56,8 +59,7 @@ function table_init(){
         	s = s.substring(0,komma);
         	
         	//entfernt klammern und anders störendes
-        	s = s.replace(/[^a-zA-Z 0-9]+/g,'');
-        	
+        	s = s.replace(/[^a-zA-Z 0-9]+/g,'');        	
         	
         	//entfernt leerzeichen
         	s = jQuery.trim(s);
