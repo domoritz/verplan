@@ -82,11 +82,23 @@
 	cursor: pointer;
 	width: 220px;
 	padding: 0em;
-	margin: 0.2em;
+	margin: 0.1em;
 	font-size: 1.1em;
 	font-weight: normal;
 	float: left;
 	vertical-align: middle;
+}
+
+/*********** refresh ***********/
+#refresh{
+	cursor: pointer;
+	margin: 0.1em 0 0 10px;
+	float: left;
+}
+
+#refresh span{
+	padding: 0;
+	margin: 6px 7px;
 }
 
 /*********** notification area / nachrichtenbereich ***********/

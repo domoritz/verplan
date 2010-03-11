@@ -63,6 +63,14 @@ jQuery(document).ready(function(){
 		jQuery(this).removeClass('ui-state-hover');
 	});
 	
+	//mouseover für refresh
+	jQuery('#refresh').mouseover(function(){
+		jQuery(this).addClass('ui-state-hover');
+	});
+	jQuery('#refresh').mouseout(function(){
+		jQuery(this).removeClass('ui-state-hover');
+	});
+	
 	
 	//mouseover für den expander (erweiterte optionen für das panel) für die optionen und den up button	(unten rechts)
 	jQuery('#up_btn, #expander_options').mouseenter(function(){

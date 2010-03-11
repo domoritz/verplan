@@ -74,7 +74,6 @@ if ($this->mobile == true) {
 <div class="panel ui-helper-clearfix">
 <div id="select_rahmen" class="ui-helper-clearfix ui-widget-header ui-corner-all">
 	<form id="select_form" method="get" enctype="multipart/form-data" action="#">
-	<label for="select_date"></label> 
 	
 	<span class="ui-state-default" style="border: none;">
 	<select size="1" id="select_date_verplan" name="date">
@@ -128,6 +127,10 @@ if ($this->mobile == true) {
 		?>
 	</select>
 	</span>
+	
+	<div class="ui-state-default ui-corner-all" id="refresh" title="Vertretungsplan neu laden">
+		<span class="ui-icon ui-icon-refresh"></span>
+	</div>
 	
 	<!-- Indikator alternativ für platzhalter: ui-widget-content-->
 	<div id="loading">&nbsp;</div>

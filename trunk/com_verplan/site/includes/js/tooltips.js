@@ -119,32 +119,6 @@ function createTooltips() {
 		}
 	});
 	
-	jQuery('#options_label').qtip( {
-		content : 'nicht beachten',
-		position : {
-			corner : {
-				target : 'topRight',
-				tooltip : 'bottomLeft'
-			}
-		},
-		style : {
-			name: 'domstyle'
-		}
-	});
-	
-	jQuery('#stand_label').qtip( {
-		content : 'nicht beachten',
-		position : {
-			corner : {
-				target : 'topRight',
-				tooltip : 'bottomLeft'
-			}
-		},
-		style : {
-			name: 'domstyle'
-		}
-	});
-	
 	jQuery('#filter_label').qtip( {
 		content : 'Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen.',
 		hide: {
@@ -219,6 +193,23 @@ function createTooltips() {
 	
 	jQuery('.ui-selectmenu-status').qtip( {
 		content : 'hier kannst du das Geltungsdatum wählen',
+		show : 'mouseover',
+		hide : 'mouseout',
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomLeft'
+			}
+		},
+		style : {
+			name: 'domstyle'
+		}
+	});
+	
+	jQuery('#refresh').qtip( {
+		content : {
+			//keit content, damit der text aus dem title attribut genutz wird
+		},
 		show : 'mouseover',
 		hide : 'mouseout',
 		position : {
