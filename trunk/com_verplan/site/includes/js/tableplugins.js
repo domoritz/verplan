@@ -15,7 +15,7 @@
  */
 
 /**
- * initialisiert die tabelle
+ * initialisiert die tabellenplugins
  * @return
  */
 function table_init(){	

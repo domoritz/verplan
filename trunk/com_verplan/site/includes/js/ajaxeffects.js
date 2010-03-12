@@ -1,4 +1,7 @@
 /**
+ * enthält funktionen für die effekte, die nach einem ajax request
+ * ausgeführt werden sollen (einblenden und so weiter)
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.de}
@@ -14,7 +17,9 @@ var effects_indi = true;
 //notification
 var note_loader;
 
-//diese funktionen werden bei jeder ajaxanfrage ausgelöst (mit global)
+/**
+ * diese funktionen werden bei jeder ajaxanfrage ausgelöst (mit global)
+ */
 jQuery(document).ajaxSend(function() {
 	jQuery('#loading').fadeIn('fast');
 	//showIndicator();
@@ -25,6 +30,10 @@ jQuery(document).ajaxStop(function() {
 	//hideIndicator();
 });
 
+/**
+ * versteckt panel in tabelle für inormationen, wenn
+ * keine datenbankeinträge existieren 
+ */
 function hideNoDB() {
 	if (jQuery('#no_db').css('display') != 'none') {
 		if (effects) {
@@ -35,6 +44,10 @@ function hideNoDB() {
 	}
 }
 
+/**
+ * zeigt panel in tabelle für inormationen, wenn
+ * keine datenbankeinträge existieren 
+ */
 function showNoDB() {
 	if (effects) {
 		jQuery('#no_db').show('blind', speed);
@@ -43,7 +56,9 @@ function showNoDB() {
 	}
 }
 
-//zeigt großen indikator bzw meldung, dass daten geladen werden
+/**
+ * zeigt großen indikator bzw meldung, dass daten geladen werden
+ */
 function showIndicator() {
 	if (effects_indi) {
 		//jQuery('#loading').fadeIn('fast');
@@ -81,7 +96,9 @@ function hideIndicator() {
 	}
 }
 
-//lässt tabelle einblenden
+/**
+ * lässt tabelle einblenden
+ */
 function showTable() {
 	if (effects) {
 		jQuery('#jquerytable tbody')
@@ -92,7 +109,9 @@ function showTable() {
 	}
 }
 
-//lässt tabelle ausblenden
+/**
+ * lässt tabelle ausblenden
+ */
 function hideTable() {
 	if (effects) {
 		jQuery('#jquerytable tbody')

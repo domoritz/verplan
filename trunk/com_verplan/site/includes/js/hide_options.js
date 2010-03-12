@@ -2,6 +2,8 @@
  * kümmert sich darum, dass die erweiterten optionen aus und eingeblendet werden können
  * beim starten wird der zustand aus dem cookie geladen
  * 
+ * diese funktionen sind unabhängig von der initialisierung in general.js
+ * 
  * @version		$Id$
  * @package		verplan
  * @author		Dominik Moritz {@link http://www.dmoritz.bplaced.de}

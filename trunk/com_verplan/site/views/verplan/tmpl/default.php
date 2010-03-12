@@ -45,8 +45,8 @@ if ($this->mobile == true) {
 
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
-	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_rc_32.png" id="logo_verplan"/>
-	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/help_contents_32.png"></a>
+	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_rc_32.png" id="logo_verplan"/ title="alles neu laden">
+	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head" title="Benutzerhandbuch und Hilfe"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p>
 		<?php echo $this->einltext?>
 	</p>
@@ -152,7 +152,9 @@ if ($this->mobile == true) {
 			<tbody>
 				<tr>
 					<td>
-						<label for="filter_input" id="filter_label"><span class="ui-icon ui-icon-lightbulb"></span><span>Filter nach einer Spalte</span></label>
+						<label for="filter_input" id="filter_label" title="Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen.">
+							<span class="ui-icon ui-icon-lightbulb"></span><span>Filter nach einer Spalte</span>
+						</label>
 					</td>
 					<td>
 						<input id="filter_input" type="text" size="20" maxlength="20" value="" name="filter_input" /> 
@@ -175,7 +177,9 @@ if ($this->mobile == true) {
 				</tr>
 				<tr>
 					<td>
-						<label for="klasse" id="filter_label_klassen"><span class="ui-icon ui-icon-lightbulb"></span><span>Filter nach Klasse</span></label>
+						<label for="klasse" id="filter_label_klassen" title="Filtere die Tabelle nach deiner Klasse. Die Eingabe bleibt auch erhalten, wenn du einen neuen Plan wählst oder sogar die Seite neu aufrufst.">
+							<span class="ui-icon ui-icon-lightbulb"></span><span>Filter nach Klasse</span>
+						</label>
 					</td>
 					<td>
 						<select id="klasse" style="width: 100px" name="klasse">
@@ -185,7 +189,9 @@ if ($this->mobile == true) {
 				</tr>
 				<tr>
 					<td>
-						<a href="<?php echo JURI::base() ?>?option=com_verplan&view=mobile" id="link_mobile" ><span class="ui-icon ui-icon-lightbulb"></span><span>Zur mobilen Ansicht</span></a>
+						<a href="<?php echo JURI::base() ?>?option=com_verplan&view=mobile" id="link_mobile" title="Zur mobilen Ansicht wechseln. Diese Ansicht ist für Handys, Smartphones und Subnoteboks optimiert.">
+							<span class="ui-icon ui-icon-lightbulb"></span><span>Zur mobilen Ansicht</span>
+						</a>
 					</td>
 					<td></td>
 				</tr>
@@ -197,7 +203,7 @@ if ($this->mobile == true) {
 <img style="margin-top: 6px; margin-left: 10px;" src="<?php echo $baseurl; ?>/components/com_verplan/includes/images/ajax/ajax-loader-spin_32.gif" id ="load_new"></img>
  -->
  
-<p id="expander_options" class="ui-state-default ui-corner-bottom">
+<p id="expander_options" class="ui-state-default ui-corner-bottom" title="Erweiterte Einstellungen und Funktionen. z.B. Filter und ein Link zur mobilen Ansicht">
 	<span id="icon_options" class="ui-icon ui-icon-circle-plus" style="float: left; margin-right: 0.3em;"></span>
 				erweiterte Funktionen
 </p>
@@ -264,12 +270,12 @@ if ($this->mobile == true) {
 <div id ="miniindi" style="display: block" class="miniloader"></div>
 
 <div id="table_footer" class="ui-widget-header ui-corner-bottom ui-helper-clearfix">
-	<span id="hpvvp" class="left_float"><a href="http://code.google.com/p/verplan/" target="_blank" id="link_project">Verplan Web Application | Version:  <?php echo $version;?></a></span>
+	<span class="left_float"><a href="http://code.google.com/p/verplan/" target="_blank" id="link_project_2" title="Zur Projektseite! Hier gibt es den gesamten Code, Anleitungen, Hilfe und das Programmm selber zum Downloaden.">Verplan Web Application | Version:  <?php echo $version;?></a></span>
 	
-	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all">
+	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all" title="nach oben">
 		<span class="ui-icon ui-icon-circle-arrow-n"></span>
 	</a>
-	<span id="hpvd" class="right_float">Code by <a href="http://www.dmoritz.bplaced.de/" target="_blank" id="link_homepage">Dominik Moritz, 2010</a></span>
+	<span class="right_float">Code by <a href="http://www.dmoritz.bplaced.de/" target="_blank" id="link_homepage" title="auf meine Website">Dominik Moritz, 2010</a></span>
 </div>
 
 </div>
