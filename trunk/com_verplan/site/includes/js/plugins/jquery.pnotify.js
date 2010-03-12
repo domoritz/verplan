@@ -8,7 +8,7 @@
  */
 
 (function($) {
-	var first_top, first_right, history_handle_top, timer;
+	var history_handle_top, timer;
 	var body;
 	var jwindow;
 	$.extend({
@@ -26,61 +26,181 @@
 			if (timer)
 				clearTimeout(timer);
 			timer = null;
-			var nexttop = first_top;
-			var nextright = first_right;
-			var addwidth = 0;
 			var body_data = body.data("pnotify");
 			if (!body_data || !body_data.length)
 				return;
 			$.each(body_data, function(){
+				var s = this.opts.pnotify_stack;
+				if (!s) return;
+				if (!s.nextpos1)
+					s.nextpos1 = s.firstpos1;
+				if (!s.nextpos2)
+					s.nextpos2 = s.firstpos2;
+				if (!s.addpos2)
+					s.addpos2 = 0;
 				if (this.css("display") != "none") {
-					var postop, posright;
+					var curpos1, curpos2;
 					var animate = {};
-					// Calculate the top value, disregarding the scroll, since position=fixed.
-					postop = this.offset().top - jwindow.scrollTop();
-					// Remember the topmost position, so the first visible notice goes there.
-					if (typeof first_top == "undefined") {
-						first_top = postop;
-						nexttop = first_top;
+					// Calculate the current pos1 value.
+					switch (s.dir1) {
+						case "down":
+							curpos1 = parseInt(this.css("top"));
+							break;
+						case "up":
+							curpos1 = parseInt(this.css("bottom"));
+							break;
+						case "left":
+							curpos1 = parseInt(this.css("right"));
+							break;
+						case "right":
+							curpos1 = parseInt(this.css("left"));
+							break;
 					}
-					if (typeof window.innerHeight != "undefined") {
-						posright = parseInt(this.css("right"));
-						if (isNaN(posright))
-							posright = 18;
-						// Remember the rightmost position, so the first visible notice goes there.
-						if (typeof first_right == "undefined") {
-							first_right = posright;
-							nextright = first_right;
+					if (isNaN(curpos1))
+						curpos1 = 0;
+					// Remember the first pos1, so the first visible notice goes there.
+					if (typeof s.firstpos1 == "undefined") {
+						s.firstpos1 = curpos1;
+						s.nextpos1 = s.firstpos1;
+					}
+					// Calculate the current pos2 value.
+					switch (s.dir2) {
+						case "down":
+							curpos2 = parseInt(this.css("top"));
+							break;
+						case "up":
+							curpos2 = parseInt(this.css("bottom"));
+							break;
+						case "left":
+							curpos2 = parseInt(this.css("right"));
+							break;
+						case "right":
+							curpos2 = parseInt(this.css("left"));
+							break;
+					}
+					if (isNaN(curpos2))
+						curpos2 = 0;
+					// Remember the first pos2, so the first visible notice goes there.
+					if (typeof s.firstpos2 == "undefined") {
+						s.firstpos2 = curpos2;
+						s.nextpos2 = s.firstpos2;
+					}
+					// Check that it's not beyond the viewport edge.
+					if ((s.dir1 == "down" && s.nextpos1 + this.height() > jwindow.height()) ||
+						(s.dir1 == "up" && s.nextpos1 + this.height() > jwindow.height()) ||
+						(s.dir1 == "left" && s.nextpos1 + this.width() > jwindow.width()) ||
+						(s.dir1 == "right" && s.nextpos1 + this.width() > jwindow.width()) ) {
+						// If it is, it needs to go back to the first pos1, and over on pos2.
+						s.nextpos1 = s.firstpos1;
+						s.nextpos2 += s.addpos2 + 10;
+						s.addpos2 = 0;
+					}
+					// Animate if we're moving on dir2.
+					if (this.pnotify_positioned && s.nextpos2 < curpos2) {
+						switch (s.dir2) {
+							case "down":
+								animate.top = s.nextpos2+"px";
+								break;
+							case "up":
+								animate.bottom = s.nextpos2+"px";
+								break;
+							case "left":
+								animate.right = s.nextpos2+"px";
+								break;
+							case "right":
+								animate.left = s.nextpos2+"px";
+								break;
 						}
-						// Check that we're not below the bottom of the page.
-						if (nexttop + this.height() > window.innerHeight) {
-							// If we are, we need to go back to the top, and over to the left.
-							nexttop = first_top;
-							nextright += addwidth + 10;
-							addwidth = 0;
+					} else {
+						switch (s.dir2) {
+							case "down":
+								this.css("top", s.nextpos2+"px");
+								break;
+							case "up":
+								this.css("bottom", s.nextpos2+"px");
+								break;
+							case "left":
+								this.css("right", s.nextpos2+"px");
+								break;
+							case "right":
+								this.css("left", s.nextpos2+"px");
+								break;
 						}
-						// Animate if we're moving to the right.
-						if (nextright < posright) {
-							animate.right = nextright+"px";
+					}
+					// Keep track of the widest/tallest notice in the column/row, so we can push the next column/row.
+					switch (s.dir2) {
+						case "down":
+						case "up":
+							if (this.outerHeight(true) > s.addpos2)
+								s.addpos2 = this.height();
+							break;
+						case "left":
+						case "right":
+							if (this.outerWidth(true) > s.addpos2)
+								s.addpos2 = this.width();
+							break;
+					}
+					// Move the notice on dir1.
+					if (s.nextpos1) {
+						// Animate if we're moving toward the first pos.
+						if (this.pnotify_positioned && (curpos1 > s.nextpos1 || animate.top || animate.bottom || animate.right || animate.left)) {
+							switch (s.dir1) {
+								case "down":
+									animate.top = s.nextpos1+"px";
+									break;
+								case "up":
+									animate.bottom = s.nextpos1+"px";
+									break;
+								case "left":
+									animate.right = s.nextpos1+"px";
+									break;
+								case "right":
+									animate.left = s.nextpos1+"px";
+									break;
+							}
 						} else {
-							this.css("right", nextright+"px");
+							switch (s.dir1) {
+								case "down":
+									this.css("top", s.nextpos1+"px");
+									break;
+								case "up":
+									this.css("bottom", s.nextpos1+"px");
+									break;
+								case "left":
+									this.css("right", s.nextpos1+"px");
+									break;
+								case "right":
+									this.css("left", s.nextpos1+"px");
+									break;
+							}
 						}
-						// Keep track of the widest notice in the column, so we can push the next column.
-						if (this.outerWidth(true) > addwidth)
-							addwidth = this.width();
 					}
-					if (nexttop) {
-						// Animate if we're moving up or to the right.
-						if (postop > nexttop || animate.right) {
-							animate.top = nexttop+"px";
-						} else {
-							this.css("top", nexttop+"px");
-						}
-					}
-					if (animate.top || animate.right)
+					if (animate.top || animate.bottom || animate.right || animate.left)
 						this.animate(animate, {duration: 500, queue: false});
-					nexttop += this.height() + 10;
+					// Calculate the next dir1 position.
+					switch (s.dir1) {
+						case "down":
+						case "up":
+							s.nextpos1 += this.height() + 10;
+							break;
+						case "left":
+						case "right":
+							s.nextpos1 += this.width() + 10;
+							break;
+					}
+					// Remember that this notice has been positioned. This
+					// prevents the notice from being animated the first time it
+					// is moved.
+					this.pnotify_positioned = true;
 				}
+			});
+			// Reset the next position data.
+			$.each(body_data, function(){
+				var s = this.opts.pnotify_stack;
+				if (!s) return;
+				s.nextpos1 = s.firstpos1;
+				s.nextpos2 = s.firstpos2;
+				s.addpos2 = 0;
 			});
 		},
 		pnotify: function(options) {
@@ -127,6 +247,9 @@
 				}
 			});
 			pnotify.opts = opts;
+			// Create a drop shadow.
+			if (opts.pnotify_shadow)
+				pnotify.shadow_container = $("<div />", {"class": "ui-widget-shadow ui-pnotify-shadow"}).prependTo(pnotify);
 			// Create a container for the notice contents.
 			pnotify.container = $("<div />", {"class": "ui-corner-all ui-pnotify-container "+(opts.pnotify_type == "error" ? "ui-state-error" : "ui-state-highlight")})
 			.appendTo(pnotify);
@@ -137,24 +260,28 @@
 			pnotify.pnotify = function(options) {
 				// Update the notice.
 				var old_opts = opts;
-				if (typeof options == "string") {
+				if (typeof options == "string")
 					opts.pnotify_text = options;
-				} else {
+				else
 					opts = $.extend({}, opts, options);
-				}
 				pnotify.opts = opts;
+				// Update the shadow.
+				if (opts.pnotify_shadow != old_opts.pnotify_shadow) {
+					if (opts.pnotify_shadow)
+						pnotify.shadow_container = $("<div />", {"class": "ui-widget-shadow ui-pnotify-shadow"}).prependTo(pnotify);
+					else
+						pnotify.children(".ui-pnotify-shadow").remove();
+				}
 				// Update the additional classes.
-				if (opts.pnotify_addclass === false) {
+				if (opts.pnotify_addclass === false)
 					pnotify.removeClass(old_opts.pnotify_addclass);
-				} else if (opts.pnotify_addclass !== old_opts.pnotify_addclass) {
+				else if (opts.pnotify_addclass !== old_opts.pnotify_addclass)
 					pnotify.removeClass(old_opts.pnotify_addclass).addClass(opts.pnotify_addclass);
-				}
 				// Update the title.
-				if (opts.pnotify_title === false) {
+				if (opts.pnotify_title === false)
 					pnotify.title_container.hide("fast");
-				} else if (opts.pnotify_title !== old_opts.pnotify_title) {
+				else if (opts.pnotify_title !== old_opts.pnotify_title)
 					pnotify.title_container.html(opts.pnotify_title).show("fast");
-				}
 				// Update the text.
 				if (opts.pnotify_text === false) {
 					pnotify.text_container.hide("fast");
@@ -188,11 +315,10 @@
 				// Update the opacity.
 				if (opts.pnotify_opacity !== old_opts.pnotify_opacity)
 					pnotify.fadeTo(opts.pnotify_animate_speed, opts.pnotify_opacity);
-				if (!opts.pnotify_hide) {
+				if (!opts.pnotify_hide)
 					pnotify.pnotify_cancel_remove();
-				} else if (!old_opts.pnotify_hide) {
+				else if (!old_opts.pnotify_hide)
 					pnotify.pnotify_queue_remove();
-				}
 				pnotify.pnotify_queue_position();
 				return pnotify;
 			};
@@ -265,26 +391,23 @@
 				// Declare that the notice is animating in. (Or has completed animating in.)
 				animating = "in";
 				var animation;
-				if (typeof opts.pnotify_animation.effect_in != "undefined") {
+				if (typeof opts.pnotify_animation.effect_in != "undefined")
 					animation = opts.pnotify_animation.effect_in;
-				} else {
+				else
 					animation = opts.pnotify_animation;
-				}
 				if (animation == "none") {
 					pnotify.show();
 					callback();
-				} else if (animation == "show") {
+				} else if (animation == "show")
 					pnotify.show(opts.pnotify_animate_speed, callback);
-				} else if (animation == "fade") {
+				else if (animation == "fade")
 					pnotify.show().fadeTo(opts.pnotify_animate_speed, opts.pnotify_opacity, callback);
-				} else if (animation == "slide") {
+				else if (animation == "slide")
 					pnotify.slideDown(opts.pnotify_animate_speed, callback);
-				} else if (typeof animation == "function") {
+				else if (typeof animation == "function")
 					animation("in", callback, pnotify);
-				} else {
-					if (pnotify.effect)
-						pnotify.effect(animation, {}, opts.pnotify_animate_speed, callback);
-				}
+				else if (pnotify.effect)
+					pnotify.effect(animation, {}, opts.pnotify_animate_speed, callback);
 			};
 
 			// Animate the notice out.
@@ -292,26 +415,23 @@
 				// Declare that the notice is animating out. (Or has completed animating out.)
 				animating = "out";
 				var animation;
-				if (typeof opts.pnotify_animation.effect_out != "undefined") {
+				if (typeof opts.pnotify_animation.effect_out != "undefined")
 					animation = opts.pnotify_animation.effect_out;
-				} else {
+				else
 					animation = opts.pnotify_animation;
-				}
 				if (animation == "none") {
 					pnotify.hide();
 					callback();
-				} else if (animation == "show") {
+				} else if (animation == "show")
 					pnotify.hide(opts.pnotify_animate_speed, callback);
-				} else if (animation == "fade") {
+				else if (animation == "fade")
 					pnotify.fadeOut(opts.pnotify_animate_speed, callback);
-				} else if (animation == "slide") {
+				else if (animation == "slide")
 					pnotify.slideUp(opts.pnotify_animate_speed, callback);
-				} else if (typeof animation == "function") {
+				else if (typeof animation == "function")
 					animation("out", callback, pnotify);
-				} else {
-					if (pnotify.effect)
-						pnotify.effect(animation, {}, opts.pnotify_animate_speed, callback);
-				}
+				else if (pnotify.effect)
+					pnotify.effect(animation, {}, opts.pnotify_animate_speed, callback);
 			};
 
 			// Cancel any pending removal timer.
@@ -349,7 +469,7 @@
 			}
 
 			// Add a title.
-			pnotify.title_container = $("<span />", {
+			pnotify.title_container = $("<div />", {
 				"class": "ui-pnotify-title",
 				"html": opts.pnotify_title
 			})
@@ -361,7 +481,7 @@
 			if (opts.pnotify_insert_brs && typeof opts.pnotify_text == "string")
 				opts.pnotify_text = opts.pnotify_text.replace("\n", "<br />");
 			// Add text.
-			pnotify.text_container = $("<span />", {
+			pnotify.text_container = $("<div />", {
 				"class": "ui-pnotify-text",
 				"html": opts.pnotify_text
 			})
@@ -381,7 +501,7 @@
 
 			// Add the notice to the notice array.
 			var body_data = body.data("pnotify");
-			if (typeof body_data != "object")
+			if (body_data == null || typeof body_data != "object")
 				body_data = [];
 			body_data = $.merge(body_data, [pnotify]);
 			body.data("pnotify", body_data);
@@ -483,6 +603,8 @@
 		pnotify_animate_speed: "slow",
 		// Opacity of the notice.
 		pnotify_opacity: 1,
+		// Display a drop shadow.
+		pnotify_shadow: false,
 		// Provide a button for the user to manually close the notice.
 		pnotify_closer: true,
 		// After a delay, remove the notice.
@@ -492,6 +614,8 @@
 		// Remove the notice's elements from the DOM after it is removed.
 		pnotify_remove: true,
 		// Change new lines to br tags.
-		pnotify_insert_brs: true
+		pnotify_insert_brs: true,
+		// The stack on which the notices will be placed. Also controls the direction the notices stack.
+		pnotify_stack: {"dir1": "down", "dir2": "left"}
 	};
 })(jQuery);

@@ -1,7 +1,8 @@
 /*!
  * jquery.qtip. The jQuery tooltip plugin
  *
- * Copyright (c) 2009 Craig Thompson
+ * Copyright (c) 2009 Craig Thompson, edited by Dominik Moritz
+ * fix from https://bugs.launchpad.net/qtip/+bug/528700
  * http://craigsworks.com
  *
  * Licensed under MIT
@@ -131,7 +132,9 @@
             $.fn.qtip.interfaces[id] = obj;
 
             // Check if element already has qTip data assigned
-            if(typeof $(this).data('qtip') == 'object')
+            //fix for jQuery 1.4.2
+            //if(typeof $(this).data('qtip') == 'object')
+            if($(this).data('qtip') !== null && typeof $(this).data('qtip') == 'object')
             {
                // Set new current interface id
                if(typeof $(this).attr('qtip') === 'undefined')
