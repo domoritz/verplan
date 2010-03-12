@@ -1,5 +1,5 @@
 /**
- * Installations SQL Script. Es werden nur die Tabellen ereugt, 
+ * Installations SQL Script. Es werden nur die Tabellen erzeugt, 
  * die nicht vorhanden sind und alte bleiben erhalten
  * 
  * @version		$Id$

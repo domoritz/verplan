@@ -1,7 +1,6 @@
 <?php
 /**
- * versorgt das template des frontends mit den nötigen daten
- * für mobile geräte
+ * versorgt das template des js settings views mit daten
  * 
  * @version		$Id$
  * @package		verplan

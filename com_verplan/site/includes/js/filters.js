@@ -170,7 +170,6 @@ function removeCookie(){
 /**
  * dies wird aufgerufen, wenn sich z.b. per ajax die tabelle ändert
  * oder am anfang die filterung geladen werden soll
- * @return
  */
 function updateFilters() {
 	
@@ -234,9 +233,8 @@ function updateFilters() {
 }
 
 /**
- * funktion ,die ausgeführt wird, wenn auf das rote icon
+ * funktion, die ausgeführt wird, wenn auf das rote icon
  * geklickt wird
- * @return
  */
 function clickOnClear() {
 	jQuery('#klasse').val('').change();

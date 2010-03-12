@@ -1,4 +1,4 @@
-/*
+/**
  * jQuery history plugin
  * 
  * sample page: http://www.mikage.to/jquery/jquery_history.html

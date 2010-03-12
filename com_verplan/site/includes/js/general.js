@@ -1,10 +1,17 @@
 /**
+ * dieses script enthält die grundlegenden funktionen
+ * von hier aus wird auch die initialisierung gestartet
+ * 
+ * sehr wichtig ist die funktion loadverplan, die durch das 
+ * jQuery history plugin aufgerufen wird
+ * mehr dazu: http://www.mikage.to/jquery/jquery_history.html
+ * 
  * @version $Id$
  * @package verplan
- * @author Dominik Moritz {@link http://www.dmoritz.bplaced.de}
- * @link http://code.google.com/p/verplan/
+ * @author  Dominik Moritz {@link http://www.dmoritz.bplaced.de}
+ * @link    http://code.google.com/p/verplan/
  * @license GNU/GPL
- * @author Created on 14-Nov-2009
+ * @author  Created on 14-Nov-2009
  */
 
 
@@ -98,7 +105,6 @@ function initiate_everything(){
 /**
  * initialisierung (aufgerufen von history)
  * @param hash
- * @return
  */
 function loadverplan(hash) {	
 	//die intervalle beenden, die darauf warten, dass eine nachricht ausgeblendet wird
@@ -197,7 +203,6 @@ function release_alert() {
 
 /**
  * zeigt benachrichtigungen bei klicks auf links
- * @return
  */
 function clicks_notice() {
 	//auf handbuch klicken
@@ -257,8 +262,7 @@ function clicks_notice() {
 /**
  * jQuery queue Funktion zur zeitverzögerung
  * 
- * @param zeit
- *            in ms
+ * @param zeit in ms
  */
 jQuery.fn.pause = function (n) {
 	return this.queue(function () {
@@ -324,14 +328,13 @@ var hintshown = false;
 
 
 /**
- * zeigt eine benachrichtigung
+ * zeigt eine benachrichtigung (own)
  * 
  * @param text Nachrichtentext
  * @param type warnung, info oder kritisch
  * @param width breite der nachricht
  * @param name name attribut
  * 
- * @return
  */
 function showHint(text, type, width, name) {
 	if (notify == 'own' || notify == 'both') {
@@ -362,8 +365,7 @@ function showHint(text, type, width, name) {
 }
 
 /**
- * lässt den hinweis hinausfahren
- * @return
+ * lässt den hinweis hinausfahren (own)
  */
 function hideHint(time) {
 	if (notify == 'own' || notify == 'both') {

@@ -1,5 +1,6 @@
 /**
  * qTips tooltips für das frontend
+ * http://craigsworks.com/projects/qtip/
  * 
  * @version		$Id$
  * @package		verplan
@@ -92,22 +93,10 @@ function createTooltips() {
 	 * tooltips http://craigsworks.com/projects/qtip/
 	 */	
 	
-	//tooltips für alle links
-	jQuery('a[title]').qtip({ 
-		style: { 
-			name: 'domstyle', 
-			tip: true 
-		},
-		position : {
-			corner : {
-				target : 'topMiddle',
-				tooltip : 'bottomLeft'
-			}
-		}
-	});
-	
 	jQuery('#help_head').qtip( {
-		content : 'Benutzerhandbuch und Hilfe',
+		content : {
+			//keit content, damit der text aus dem title attribut genutz wird
+		},
 		position : {
 			corner : {
 				target : 'leftMiddle',
@@ -120,7 +109,7 @@ function createTooltips() {
 	});
 	
 	jQuery('#filter_label').qtip( {
-		content : 'Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen.',
+		content : {},
 		hide: {
 			when: 'mouseout',
 			fixed: true
@@ -144,7 +133,7 @@ function createTooltips() {
 	
 	
 	jQuery('#filter_label_klassen').qtip( {
-		content : 'Filtere die Tabelle nach deiner Klasse. Die Eingabe bleibt auch erhalten, wenn du einen neuen Plan wählst oder sogar die Seite neu aufrufst. ',
+		content : {},
 		hide: {
 			when: 'mouseout',
 			fixed: true
@@ -168,7 +157,7 @@ function createTooltips() {
 	
 	
 	jQuery('#link_mobile').qtip( {
-		content : 'Zur mobilen Ansicht wechseln. Diese Ansicht ist für Handys, Smartphones und Subnoteboks optimiert.',
+		content : {},
 		hide: {
 			when: 'mouseout',
 			fixed: true
@@ -207,9 +196,7 @@ function createTooltips() {
 	});
 	
 	jQuery('#refresh').qtip( {
-		content : {
-			//keit content, damit der text aus dem title attribut genutz wird
-		},
+		content : {},
 		show : 'mouseover',
 		hide : 'mouseout',
 		position : {
@@ -224,7 +211,7 @@ function createTooltips() {
 	});
 	
 	jQuery('#expander_options').qtip( {
-		content : 'Erweiterte Einstellungen und Funktionen. z.B. Filter und ein Link zur mobilen Ansicht',
+		content : {},
 		show : 'mouseover',
 		hide : 'mouseout',
 		position : {
@@ -259,9 +246,7 @@ function createTooltips() {
 	
 	//spaltentitel, es werden beschreibungen angezeigt
 	jQuery('#jquerytable thead th[title]').qtip( {
-		content : {
-			//keit content, damit der text aus dem title attribut genutz wird
-		},
+		content : {},
 		show : 'mouseover',
 		hide: {
 			when: 'mouseout',
@@ -327,8 +312,8 @@ function createTooltips() {
 	});
 	
 	//meine website
-	jQuery('#hpvd').qtip( {
-		content : 'auf meine Website',
+	jQuery('#link_homepage').qtip( {
+		content : {},
 		show : 'mouseover',
 		hide : 'mouseout',
 		position : {
@@ -345,8 +330,8 @@ function createTooltips() {
 	});
 	
 	//projektseite
-	jQuery('#hpvvp').qtip( {
-		content : 'Zur Projektseite. Hier gibt es den gesamten Code, Anleitungen, Hilfe und das Programmm selber zum Downloaden. ',
+	jQuery('#link_project_2').qtip( {
+		content : {},
 		show : 'mouseover',
 		hide : 'mouseout',
 		position : {
@@ -365,7 +350,7 @@ function createTooltips() {
 	
 	//nach oben
 	jQuery('#up_btn').qtip( {
-		content : 'nach oben',
+		content : {},
 		show : 'mouseover',
 		hide : 'mouseout',
 		position : {
