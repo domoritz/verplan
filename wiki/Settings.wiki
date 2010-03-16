@@ -15,7 +15,7 @@ Nachdem du hier etwas geändert hast, musst du auf *"Speichern"* klicken, damit 
 Du kannst die Tabelle sortieren, indem du auf einen Tabellentitel klickst. 
 
 == version ==
-Version der Webapplication. Dieser Wert sollte normalerweise nicht geändert werden müssen und wird automatisch gesetzt, wenn das Backend aufgerufen wird.
+Version der Joomla Komponente. Dieser Wert sollte normalerweise nicht geändert werden müssen und wird automatisch gesetzt, wenn das Backend aufgerufen wird.
 
 == max_file_size ==
 Maximale Dateigröße eines Uploads in Byte. Dieser Wert muss nur höher gesetzt werden, wenn sich eine Datei nicht hochladen lässt. 
