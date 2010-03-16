@@ -1,0 +1,5 @@
+#summary Übersicht über die Klassen im Frontend
+
+<a href="http://www.bilderdmoritz.bplaced.de/Bilder/verplan/verplan_frontend_overview.png">
+<img alt="Klassenübersicht" width="100%" src="http://www.bilderdmoritz.bplaced.de/Bilder/verplan/verplan_frontend_overview.png"/>
+</a>
