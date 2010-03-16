@@ -1,4 +1,5 @@
 #summary Quelltext- und API-Dokumentation
+#labels Featured
 
 = Einleitung =
 Hier siehst du eine Übersicht über die Dokumentation der Joomla Vertretungsplankomponente. 
