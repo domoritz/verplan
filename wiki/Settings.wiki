@@ -10,9 +10,9 @@ Die meisten Parameter des Programms lassen sich zentral über das Bachend aufruf
 
 Parameter sind Einstellungen (Settings), die für das Programm gelten. Einige gelten für das Backend, andere für das Frontend. 
 
-Nachdem du hier etwas geändert hast, musst du auf *"Speichern"* klicken, damit die Einstellungen übernommen werden und nicht verloren gehen.vMit einem Klick auf *"Reset"* können die Änderungen rückgängig gemacht werden. 
+Nachdem du hier etwas geändert hast, musst du auf *"Speichern"* klicken, damit die Einstellungen übernommen werden und nicht verloren gehen. Mit einem Klick auf *"Reset"* kannst du die Änderungen rückgängig machen. 
 
-Die einzelnen Spalten lassen sich sortieren, indem man auf den Titel in der Tabelle klickt. 
+Du kannst die Tabelle sortieren, indem du auf einen Tabellentitel klickst. 
 
 == version ==
 Version der Webapplication. Dieser Wert sollte normalerweise nicht geändert werden müssen und wird automatisch gesetzt, wenn das Backend aufgerufen wird.
