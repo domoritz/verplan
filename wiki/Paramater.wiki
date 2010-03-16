@@ -5,7 +5,7 @@ Hier wird erklärt, wie die Einstellungen gespeichert werden und wie sie dann wi
 
 Die Speicherung der Spalteneinstellungen geschieht sehr ähnlich, nur dass die einzelnen Dateien anders heißen. 
 
-Hilfreich zum Verständnis sind auch diese Seiten: [overview_frontend] und [overview_backend]
+Hilfreich zum Verständnis sind auch diese Seiten: [overview_frontend] und [overview_admin]
 
 <wiki:toc max_depth="3" />
 
