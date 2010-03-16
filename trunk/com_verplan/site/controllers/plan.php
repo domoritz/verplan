@@ -30,7 +30,6 @@ class VerplanControllerPlan extends verplanController
 		parent::__construct();
 
 		// Register Extra tasks
-		$this->registerTask('getDatesAndStands','getDatesAndStands');
 		$this->registerTask('getUniques','getUniques');
 	}
 

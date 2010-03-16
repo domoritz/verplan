@@ -270,7 +270,7 @@ function createTooltips() {
 	jQuery('#feedy').qtip( {
 		content : {
             // Set the text to an image HTML string with the correct src URL to the loading image you want to use
-            text: 'Gib dein <strong>Feedback</strong> ab um Fehler zu melden und das Programm zu verbessern!<br><p id="closefeedy" style="cursor: pointer; font-weight: bold; float:right;">schließen</p>'
+            text: 'Gib dein <strong>Feedback</strong>, damit ich das Programm verbessern kann!<br><p id="closefeedy" style="cursor: pointer; font-weight: bold; float:right;">schließen</p>'
 		    //text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <strong>Feedback</strong> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß<br><p id="closefeedy" style="cursor: pointer; font-weight: bold; float:right;">schließen</p> '
             //url: jQuery(this).attr('href'), // Use the rel attribute of each element for the url to load
             /*title: {
