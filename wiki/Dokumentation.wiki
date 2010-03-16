@@ -3,9 +3,18 @@
 = Einleitung =
 Hier siehst du eine Übersicht über die Dokumentation der Joomla Vertretungsplankomponente. 
 
-  * [Installation]
-  * [com_verplan Allgemeines zur Komponente]
-  * [Verplan_API Verplan API]
-  * [Datenbank]
+    * [Installation]
+    * [com_verplan die Komponente]
+    * [Prinzip Allgemeines Funktionsprinzip]
+      * [overview_frontend Klassenübersicht Frontend] 
+      * [overview_admin Klassenübersicht des Adminbereichs] 
+    * [Weg_Verplan der Weg des Vertretungsplanes]
+      * [Einstellen Vertretungsplan einstellen]
+      * [Dateitypen Dateiformate zum Importieren]
+      * [Verplan_API Verplan API]
+    * [Frontend Das Frontend]
+    * [Backend Das Backend]
+    * [Paramater Parameter/Einstellungen]
+    * [Datenbank]
 
 Solltest du das Programm bearbeiten wollen, weil ein Problem aufgetaucht ist oder du ein neues Feature schreiben möchtest, beginne am besten hier: [com_verplan].
