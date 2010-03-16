@@ -37,9 +37,11 @@ Mehr dazu gibt es auf der Seite [Dateitypen].
 Meldung: `Senden erfolgreich, Vertretungsplan ist online`
 
 = Datenbank bereinigen =
-hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweise werden für jeden Upload die hochgeladenen Dateien und alle Daten gespeichert. Um Einträge zu löschen, musst du nur auf *"Datenbank bereinigen"* klicken. Vertretungspläne, die für die Zukunft gelten (Geltungsdatum > Jetzt), bleiben immer erhalten und werden nicht mitgezählt. 
+Hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweise werden für jeden Upload die hochgeladenen Dateien und alle Daten gespeichert. Um Einträge zu löschen, musst du nur auf *"Datenbank bereinigen"* klicken. Vertretungspläne, die für die Zukunft gelten (Geltungsdatum > Jetzt), bleiben immer erhalten und werden nicht mitgezählt. 
 
 Um alle Einträge zu löschen, musst du einen negativen Wert eingeben (z.B. -1).
+
+Es gibt eine [Einstellung], mit der sich die Speicherung von Dateien einstellen lässt. 
 
 = Einstellungen/ Parameter=
 [Settings zum Wikieintrag]
