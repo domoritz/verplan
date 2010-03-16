@@ -11,6 +11,8 @@
     * [Installation]
     * [com_verplan die Komponente]
     * [Prinzip Allgemeines Funktionsprinzip]
+      * [overview_frontend Klassenübersicht Frontend] 
+      * [overview_backend Klassenübersicht Backend] 
     * [Weg_Verplan der Weg des Vertretungsplanes]
       * [Einstellen Vertretungsplan einstellen]
       * [Dateitypen Dateiformate zum Importieren]
