@@ -12,7 +12,9 @@ Falls eine Datei angegeben wurde, wird diese hochgeladen. Dafür ist wiederum de
 
 Falls die Datei geparst werden kann (gpUntis Datei), wird sie geparst und die Daten werden in die Datenbank geschrieben. Weiterhin werden die Spalten der [Datenbank Datenbanktabelle] `plan` angepasst (es werden noch nicht vorhandenen Spalten hinzugefügt). Dafür ist wiederum das Model `data` zuständig, welches sich um den gesamten Speichervorgang der geparsten Vertretungsplandaten kümmert. 
 
-Nachdem die Daten verarbeitet wurden, weist der Controller `send` noch das Model `data` dazu an, die Daten zum Upload zu speichert (Datum ,Stand, URL, Typ..:). Diese Daten tauchen dann wieder beim Übertragen an das Frontend oder beim Löschen von Daten auf. 
+Nachdem die Daten verarbeitet wurden, weist der Controller `send` noch das Model `data` dazu an, die Daten zum Upload zu speichert (Datum ,Stand, URL, Typ..:). Diese Daten tauchen dann wieder beim Übertragen an das Frontend oder beim Löschen von Daten auf.
+
+Einen Überblick über die Klassen findest du [overview_admin hier]. 
 
 = Parsen =
 das Parsen der Vertretungsplandatei passiert nur, wenn es sich um eine passende Datei handelt (Erkennung im Controller `send`) und geschieht mit dem PHP Plugin [http://jacksleight.com/old/code JS_Extractor], welches die HTML Daten in ein PHP Array umwandelt. Eine ausführliche Anleitung gibt es [http://jacksleight.com/old/blog/2008/02/10/js-extractor-and-the-death-of-table-extractor hier]. Den Aufruf findest du im Controller `upload` in der Funktion `parse_file_to_array()`. 
