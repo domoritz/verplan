@@ -70,7 +70,7 @@ Hier geht es um den Namen der Datenspalte mit den Klassen, wie er auch in der Da
 Mit dieser Einstellung lässt sich die Anfangssortierung des normalen Frontends steuern. Die Syntax richtet sich nach der Vorgabe des [http://tablesorter.com/docs/example-option-sort-list.html jQuery Tablesorter 2.0 Plugin]. 
 
 == notify ==
-Auswahl des Notification (Benachrichtigungs) System. Es stehen mein eigenes own und das [http://pines.svn.sourceforge.net/viewvc/pines/sandbox/notify/notify.html pnotify] zur Auswahl.
+Auswahl des Notification (Benachrichtigungs) System. Es stehen mein eigenes (own) und das [http://pines.svn.sourceforge.net/viewvc/pines/sandbox/notify/notify.html pnotify] Plugin zur Auswahl.
 
 == head_text ==
 Text, der auf der Frontendseite ganz oben zwischen der Logo und dem Benutzerhandbuch-Icon steht. HTML ist möglich.
