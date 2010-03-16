@@ -1,6 +1,6 @@
 #summary Übersicht über die Klassen im Backend
 
-In dieser Übersicht findest du alle PHP Klassen, die im Adminbereich zusammenarbeiten. 
+In dieser Übersicht findest du alle PHP-Klassen, die im Adminbereich zusammenarbeiten. 
 
 <a href="http://www.bilderdmoritz.bplaced.de/Bilder/verplan/verplan_admin_overview.png">
 <img alt="Klassenübersicht" width="100%" src="http://www.bilderdmoritz.bplaced.de/Bilder/verplan/verplan_admin_overview.png"/>
