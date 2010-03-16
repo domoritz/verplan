@@ -1,3 +1,5 @@
 #summary Übersicht über die Klassen im Backend
 
-<a href="http://www.bilderdmoritz.bplaced.de/Bilder/verplan/verplan_admin_overview.png"><img alt="Klassenübersicht" width="100%" src="http://www.bilderdmoritz.bplaced.de/Bilder/verplan/verplan_admin_overview.png"></a>
+<a href="http://www.bilderdmoritz.bplaced.de/Bilder/verplan/verplan_admin_overview.png">
+<img alt="Klassenübersicht" style="max-width: 1123" src="http://www.bilderdmoritz.bplaced.de/Bilder/verplan/verplan_admin_overview.png"/>
+</a>
