@@ -26,9 +26,6 @@ class verplanViewData extends JView
 {
 	function display($tpl = null)
 	{		
-		//Model laden
-		$model =& $this->getModel();
-		
 		//daten aus POST/GET laden
 		$date = JRequest::getVar('date');
 		$stand = JRequest::getVar('stand');

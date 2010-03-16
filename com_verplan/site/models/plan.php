@@ -77,7 +77,7 @@ class VerplanModelPlan extends JModel
 	 * @param $lookForMe spalte, die zurückgegeben werden soll
 	 * @return array
 	 */
-	function getUniques ($lookForMe) {
+	function getUniques($lookForMe) {
 		$db =& JFactory::getDBO();
 		$query = 'SELECT DISTINCT '.$db->nameQuote($lookForMe).' FROM '.$db->nameQuote('#__com_verplan_plan').' WHERE 1';
 		$db->setQuery($query);
