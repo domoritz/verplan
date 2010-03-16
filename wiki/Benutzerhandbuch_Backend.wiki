@@ -41,7 +41,7 @@ Hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweis
 
 Um alle Einträge zu löschen, musst du einen negativen Wert eingeben (z.B. -1).
 
-Es gibt eine [Einstellung], mit der sich die Speicherung von Dateien einstellen lässt. 
+Es gibt eine [Settings#keep_files Einstellung], mit der sich die Speicherung von Dateien einstellen lässt. 
 
 = Einstellungen/ Parameter=
 [Settings zum Wikieintrag]
