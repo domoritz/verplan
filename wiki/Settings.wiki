@@ -27,8 +27,12 @@ Dateien mit diesen Endungen dürfen hochgeladen werden.
 Regulärer Ausdruck in PHP, der aus der hochgeladenen gp-Units Datei den Stand sucht. Normalerweise sollte sich dieser Ausdruck nicht ändern. Es kann jedoch erforderlich werden, den Ausdruck zu ändern, wenn sich die Exportdatei ändert. 
 Weitere Informationen: [http://php.net/manual/en/book.regex.php]
 
+Diese Einstellung ist für das [Dateitypen#gp-Untis gpUntis Dateiformat] wichtig.
+
 == format_stand ==
 Dieser Ausdruck ist wichtig, damit der String mit dem Stand korrekt in ein Datum umgewandelt wird. Weitere Informationen: [http://php.net/manual/en/function.date-parse-from-format.php]
+
+Diese Einstellung ist für das [Dateitypen#gp-Untis gpUntis Dateiformat] wichtig.
 
 == pattern_date ==
 Mit diesem Ausdruck wird der Datumsstring aus der Datei gesucht. 
@@ -36,11 +40,17 @@ Dieser Ausdruck ist ähnlich einem regulären Ausdruck, doch man erhält direkte
 
 Weitere Informationen: [http://jacksleight.com/old/blog/tags/js-extractor], [http://uk2.php.net/dom]
 
+Diese Einstellung ist für das [Dateitypen#gp-Untis gpUntis Dateiformat] wichtig.
+
 == format_date ==
 Siehe [#format_stand] nur nicht für den Stand, sondern das Geltungsdatum.
 
+Diese Einstellung ist für das [Dateitypen#gp-Untis gpUntis Dateiformat] wichtig.
+
 == pattern_date ==
-Siehe [#fpattern_date]. Dieses Mal wird die Tabelle mit den Vertretungen gesucht. 
+Siehe [#fpattern_date]. Dieses Mal wird die Tabelle mit den Vertretungen gesucht.
+
+Diese Einstellung ist für das [Dateitypen#gp-Untis gpUntis Dateiformat] wichtig. 
 
 == upload_dir_comp ==
 Verzeichnis, in das die Vertretungsplandateien geladen werden. Die URL bezieht sich auf den Server. 
