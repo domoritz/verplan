@@ -13,7 +13,7 @@
     * [Prinzip Allgemeines Funktionsprinzip]
       * [overview_frontend Klassenübersicht Frontend] 
       * [overview_admin Klassenübersicht des Adminbereichs] 
-    * [Weg_Verplan der Weg des Vertretungsplanes]
+    * [Weg_Verplan der Weg des Vertretungsplans]
       * [Einstellen Vertretungsplan einstellen]
       * [Dateitypen Dateiformate zum Importieren]
       * [Verplan_API Verplan API]
