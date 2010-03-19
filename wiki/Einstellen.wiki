@@ -22,7 +22,7 @@ das Parsen der Vertretungsplandatei passiert nur, wenn es sich um eine passende 
 Es besteht zurzeit nur die Möglichkeit, von gpUntis exportierte Dateien einzulesen. [Dateitypen Mehr dazu].
 
 == gpUntis ==
-Das Parsen umfasst das Einlesen des Geltungsdatum, des Standes und des Vertretungsplans. Mehr zu den ersten beiden Punkten findest du [Settings#pattern_stand hier] (auch die folgenden Punkte beachten). 
+Das Parsen umfasst das Einlesen des Geltungsdatum, des Stands und des Vertretungsplans. Außerdem muss vor dem Umwandeln eines Strings in ein anderes, verständliches Format (Datum, Array, Int...) erst einmal der richtige String aus dem Dateiinhalsstring extrahiert werden. Die zugehörigen Parameter findest du hier: [Settings#pattern_stand] bis [Settings#pattern_date].
 
 Das Parsen der Tabelle geschieht mit dem PHP Plugin [http://jacksleight.com/old/code JS_Extractor], welches die HTML Daten in ein PHP Array umwandelt. Eine ausführliche Anleitung gibt es [http://jacksleight.com/old/blog/2008/02/10/js-extractor-and-the-death-of-table-extractor hier]. Den Aufruf findest du im Controller `upload` in der Funktion `parse_file_to_array()`. 
 
@@ -33,7 +33,7 @@ $table = $extractor->query($pattern)->item(0);
 $data = $table->extract(array(".//tr", "th|td"));
 }}}
 
-In dieser Funktion werden auch die Informationen zum Stand und das Datum ausgelesen. Das geschieht mit regulären Ausdrücken und DOM Zugriffen. Weitere Informationen: [Benutzerhandbuch_Backend], [http://php.net/manual/en/book.regex.php], [http://jacksleight.com/old/blog/tags/js-extractor], [http://uk2.php.net/dom]
+In der Funktion `parse_file_to_array()` werden auch die Informationen zum Stand und das Datum ausgelesen. Das geschieht mit regulären Ausdrücken und DOM Zugriffen. Weitere Informationen: [Benutzerhandbuch_Backend], [http://php.net/manual/en/book.regex.php], [http://jacksleight.com/old/blog/tags/js-extractor], [http://uk2.php.net/dom]
 
 Nach dem Parsen werden die Daten in einer Klassenvariablen gespeichert. Der Controller `send` weist die Instanz der Klasse (des Controllers) `upload` an, etwas auszuführen. 
 
