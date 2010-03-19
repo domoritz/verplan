@@ -29,5 +29,8 @@ Wenn du nicht so gerne programmierst oder anders helfen möchtest, dann schreibe
 == Ich habe einen Fehler gefunden! Wo kann ich den Fehler melden? ==
 Bitte [http://code.google.com/p/verplan/issues/entry hier] melden oder mir eine Nachricht schreiben!
 
+== Der Import von gpUntis Dateien funktioniert nicht mehr! Was muss ich tun? ==
+Wahrscheinlich gibt es ein Problem mit dem Parsen des Geltungsdatums, des Standes oder dem Vertretungsplan selber. Mehr dazu gibt es [Einstellen#gpUntis hier].
+
 = Frage stellen! =
 Wenn du eine Frage stellen möchtest, dann stelle sie einfach [http://groups.google.com/group/verplan hier].
