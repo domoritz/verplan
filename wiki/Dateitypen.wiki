@@ -9,5 +9,7 @@ Damit die Daten einer Datei in die Datenbank gelesen werden können, müssen Sie
 = gp-Untis =
 Mit Hilfe des Moduls Info-Stundenplan lässt sich aus gp-Untis eine HTML-Datei exportieren. [untis_html zur Anleitung] 
 
+Damit die Erkennung richtig funktioniert, müssen verschiedene Parameter richtig eingestellt sein (Zu diesen Paramatern: [Settings#pattern_stand] bis [Settings#pattern_date]).
+
 = weitere Dateitypen =
-Zurzeit ist keine Unterstützung für weitere Dateitypen geplant, es sei denn, es kommen Vorschläge. 
+Zurzeit ist keine Unterstützung für weitere Dateitypen geplant, es sei denn, es kommen Vorschläge. Möglich wäre z.B. ein xml-Import o.ä.
