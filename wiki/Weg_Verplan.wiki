@@ -1,4 +1,4 @@
-#summary der Weg des Vertretungsplanes
+#summary der Weg des Vertretungsplans
 
 = Einleitung=
 Der generelle Weg der Daten geht über das [Einstellen] vom Backend aus über die [Datenbank] und die [Verplan_API API] ins [Frontend]. 
