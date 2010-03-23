@@ -188,4 +188,6 @@ Hier eine kurze Erklärung der Unterarrays
   * *rows* - Informationen der Zeilen (der einzelnen Vertretungen)
 
 = Woher kommen die Daten? =
-Die URL, welche aufgerufen wird, zeigt das View `data` angezeigt. Durch `format=json` wird dafür gesorgt, dass die JSOn Daten ihne Template angezeigt werden. Es wird die Datei `views/data/view.json.php` angezeigt, welche das Template `views/data/tmpl/default` lädt. Die Daten, die hier angezeigt werden, werden wiederum über den Controller `plan` und das Model `plan` aus der Datenbank geladen. 
+Die URL, welche aufgerufen wird, zeigt das View `data` angezeigt. Durch `format=json` wird dafür gesorgt, dass die JSON-Daten ohne Template angezeigt werden. Es wird die Datei `views/data/view.json.php` angezeigt, welche das Template `views/data/tmpl/default` lädt. Die Daten, die hier angezeigt werden, werden wiederum über den Controller `plan` und das Model `plan` aus der Datenbank geladen. 
+
+Eine Übersicht über die PHP-Klassen gibt es hier: [overview_frontend]
