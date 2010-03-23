@@ -52,6 +52,9 @@ class VerplanControllerPlan extends verplanController
 	 * @return	array
 	 */
 	function getVerplanarray($date,$stand,$options){
+		
+		//zeit für funktion
+		$time_start = microtime(true);
 
 		/*debug
 		 echo "controller plan";
@@ -199,19 +202,25 @@ class VerplanControllerPlan extends verplanController
 		 var_dump($assozArray_cols);
 		 echo "==================";
 		 //*/
-
+		
 		/*OPTIONS*/
 		switch ($options) {
 			case all:
-				$array[infos] = $infosarray;
-				$array[cols] = $assozArray_cols;
-				$array[rows] = $assozArray_rows;
+				$array['infos'] = $infosarray;
+				$array['cols'] = $assozArray_cols;
+				
+				//läuft durch alle Zeilen von cols und baut damit rows auf
+				foreach ($array['cols'] as $key => $subarray) {
+					for ($i = 0; $i < count($assozArray_rows); $i++) {
+						$array['rows'][$i][$subarray['name']] = $assozArray_rows[$i][$subarray['name']];
+					}
+				}
 				break;
 			
 			//nur infos und cols
 			case none:
-				$array[infos] = $infosarray;
-				$array[cols] = $assozArray_cols;
+				$array['infos'] = $infosarray;
+				$array['cols'] = $assozArray_cols;
 				break;
 				
 			//nur spalten, aber nur die richtigen
@@ -220,7 +229,7 @@ class VerplanControllerPlan extends verplanController
 				//erzeugt ein array mit den spaltennamen, die richtig sind
 				$richtigeSpaltenArray = array();
 				foreach ($assozArray_cols as $key => $subarray) {
-					if ($subarray[published] == 1) {
+					if ($subarray['published'] == 1) {
 						$richtigeSpaltenArray[] = $subarray[name];
 					}
 				}
@@ -229,17 +238,17 @@ class VerplanControllerPlan extends verplanController
 
 				//läuft durch alle spalten durch
 				foreach ($richtigeSpaltenArray as $key => $colname) {
-					$array[cols][$colname] = $assozArray_cols[$colname];
+					$array['cols'][$colname] = $assozArray_cols[$colname];
 				}
 				break;
 					
 			default:
-				$array[infos] = $infosarray;
+				$array['infos'] = $infosarray;
 				//nur bestimmte spalten sollen angezeigt werden
 				//erzeugt ein array mit den spaltennamen, die richtig sind
 				$richtigeSpaltenArray = array();
 				foreach ($assozArray_cols as $key => $subarray) {
-					if ($subarray[published] == 1) {
+					if ($subarray['published'] == 1) {
 						$richtigeSpaltenArray[] = $subarray[name];
 					}
 				}
@@ -248,13 +257,19 @@ class VerplanControllerPlan extends verplanController
 
 				//läuft durch alle spalten durch
 				foreach ($richtigeSpaltenArray as $key => $colname) {
-					$array[cols][$colname] = $assozArray_cols[$colname];
+					$array['cols'][$colname] = $assozArray_cols[$colname];
 					for ($i = 0; $i < count($assozArray_rows); $i++) {
-						$array[rows][$i][$colname] = $assozArray_rows[$i][$colname];
+						$array['rows'][$i][$colname] = $assozArray_rows[$i][$colname];
 					}
 				}
 				break;
 		}
+		
+		$time_end = microtime(true);
+		$time = $time_end - $time_start;
+		
+		//für debug
+		//echo "Time for Function:".$time;
 
 		//debug
 		//var_dump($array);
