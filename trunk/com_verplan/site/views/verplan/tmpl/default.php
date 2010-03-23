@@ -37,7 +37,7 @@ $which = $this->which;
 if ($this->mobile == true) {
 	//automatische weiterleitung
 	echo '
-	<script language ="JavaScript">
+	<script type="text/javascript">
 		window.location.replace("'.JURI::base().'?option=com_verplan&view=mobile&tmpl=component");
 	</script>';
 	}
