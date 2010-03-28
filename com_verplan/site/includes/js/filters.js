@@ -196,17 +196,9 @@ function updateFilters() {
 			}
 			note_filter = jQuery.pnotify({
 			    pnotify_title: 'Filter aktiv',
-			    pnotify_text: 'Es werden Spalten ausgeblendet, weil ein Filter aktiv ist. Wenn du wieder alle Spalten sehen möchtest, klicke bitte <a href="javascript: clickOnClear()">hier</a>',
+			    pnotify_text: 'Es werden Spalten ausgeblendet, weil ein Filter aktiv ist. Wenn du wieder alle Spalten sehen möchtest, klicke bitte <a href="javascript: clickOnClear()">hier</a><br><a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>',
 			    pnotify_error_icon: 'ui-icon ui-icon-search',
 			    pnotify_type: 'error',
-			    pnotify_hide: false
-			});
-			
-			note_filter_general = jQuery.pnotify({
-			    pnotify_text: 'Ein Filter ist aktiv. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>',
-			    pnotify_notice_icon: 'ui-icon ui-icon-search',
-			    pnotify_type: 'notice',
-			    pnotify_remove: true,
 			    pnotify_hide: false
 			});
 		}
