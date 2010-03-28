@@ -59,13 +59,15 @@ function initiate_everything(){
 	notify = settings.notify.value;
 	
 	if ((notify == 'pnotify' || notify == 'both') && settings.message_title.value != '') {
+		
 		//Meldung
 		jQuery.pnotify({
 			pnotify_title: settings.message_title.value,
 			pnotify_text: settings.message.value,
 			pnotify_notice_icon: 'ui-icon ui-icon-star',
 		    pnotify_type: 'notice',
-		    pnotify_hide: false
+		    pnotify_hide: true,
+		    pnotify_delay: 20000
 		});
 		
 		//alerts auf pnotify umleiten

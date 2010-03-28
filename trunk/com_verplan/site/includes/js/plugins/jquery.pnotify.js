@@ -42,20 +42,22 @@
 					var curpos1, curpos2;
 					var animate = {};
 					// Calculate the current pos1 value.
+					var csspos1;
 					switch (s.dir1) {
 						case "down":
-							curpos1 = parseInt(this.css("top"));
+							csspos1 = "top";
 							break;
 						case "up":
-							curpos1 = parseInt(this.css("bottom"));
+							csspos1 = "bottom";
 							break;
 						case "left":
-							curpos1 = parseInt(this.css("right"));
+							csspos1 = "right";
 							break;
 						case "right":
-							curpos1 = parseInt(this.css("left"));
+							csspos1 = "left";
 							break;
 					}
+					curpos1 = parseInt(this.css(csspos1));
 					if (isNaN(curpos1))
 						curpos1 = 0;
 					// Remember the first pos1, so the first visible notice goes there.
@@ -64,20 +66,22 @@
 						s.nextpos1 = s.firstpos1;
 					}
 					// Calculate the current pos2 value.
+					var csspos2;
 					switch (s.dir2) {
 						case "down":
-							curpos2 = parseInt(this.css("top"));
+							csspos2 = "top";
 							break;
 						case "up":
-							curpos2 = parseInt(this.css("bottom"));
+							csspos2 = "bottom";
 							break;
 						case "left":
-							curpos2 = parseInt(this.css("right"));
+							csspos2 = "right";
 							break;
 						case "right":
-							curpos2 = parseInt(this.css("left"));
+							csspos2 = "left";
 							break;
 					}
+					curpos2 = parseInt(this.css(csspos2));
 					if (isNaN(curpos2))
 						curpos2 = 0;
 					// Remember the first pos2, so the first visible notice goes there.
@@ -96,7 +100,7 @@
 						s.addpos2 = 0;
 					}
 					// Animate if we're moving on dir2.
-					if (this.pnotify_positioned && s.nextpos2 < curpos2) {
+					if (s.animation && s.nextpos2 < curpos2) {
 						switch (s.dir2) {
 							case "down":
 								animate.top = s.nextpos2+"px";
@@ -111,22 +115,8 @@
 								animate.left = s.nextpos2+"px";
 								break;
 						}
-					} else {
-						switch (s.dir2) {
-							case "down":
-								this.css("top", s.nextpos2+"px");
-								break;
-							case "up":
-								this.css("bottom", s.nextpos2+"px");
-								break;
-							case "left":
-								this.css("right", s.nextpos2+"px");
-								break;
-							case "right":
-								this.css("left", s.nextpos2+"px");
-								break;
-						}
-					}
+					} else
+						this.css(csspos2, s.nextpos2+"px");
 					// Keep track of the widest/tallest notice in the column/row, so we can push the next column/row.
 					switch (s.dir2) {
 						case "down":
@@ -143,7 +133,7 @@
 					// Move the notice on dir1.
 					if (s.nextpos1) {
 						// Animate if we're moving toward the first pos.
-						if (this.pnotify_positioned && (curpos1 > s.nextpos1 || animate.top || animate.bottom || animate.right || animate.left)) {
+						if (s.animation && (curpos1 > s.nextpos1 || animate.top || animate.bottom || animate.right || animate.left)) {
 							switch (s.dir1) {
 								case "down":
 									animate.top = s.nextpos1+"px";
@@ -158,22 +148,8 @@
 									animate.left = s.nextpos1+"px";
 									break;
 							}
-						} else {
-							switch (s.dir1) {
-								case "down":
-									this.css("top", s.nextpos1+"px");
-									break;
-								case "up":
-									this.css("bottom", s.nextpos1+"px");
-									break;
-								case "left":
-									this.css("right", s.nextpos1+"px");
-									break;
-								case "right":
-									this.css("left", s.nextpos1+"px");
-									break;
-							}
-						}
+						} else
+							this.css(csspos1, s.nextpos1+"px");
 					}
 					if (animate.top || animate.bottom || animate.right || animate.left)
 						this.animate(animate, {duration: 500, queue: false});
@@ -188,10 +164,6 @@
 							s.nextpos1 += this.width() + 10;
 							break;
 					}
-					// Remember that this notice has been positioned. This
-					// prevents the notice from being animated the first time it
-					// is moved.
-					this.pnotify_positioned = true;
 				}
 			});
 			// Reset the next position data.
@@ -201,6 +173,7 @@
 				s.nextpos1 = s.firstpos1;
 				s.nextpos2 = s.firstpos2;
 				s.addpos2 = 0;
+				s.animation = true;
 			});
 		},
 		pnotify: function(options) {
@@ -233,15 +206,15 @@
 				"css": {"display": "none"},
 				"mouseenter": function(){
 					// If it's animating out, animate back in really quick.
-					if (animating == "out") {
+					if (animating == "out" && opts.pnotify_mouse_reset) {
 						pnotify.stop(true);
 						pnotify.css("height", "auto").animate({"width": opts.pnotify_width, "opacity": opts.pnotify_opacity}, "fast");
 					}
-					if (opts.pnotify_hide) pnotify.pnotify_cancel_remove();
+					if (opts.pnotify_hide && opts.pnotify_mouse_reset) pnotify.pnotify_cancel_remove();
 					if (opts.pnotify_closer) pnotify.closer.show();
 				},
 				"mouseleave": function(){
-					if (opts.pnotify_hide) pnotify.pnotify_queue_remove();
+					if (opts.pnotify_hide && opts.pnotify_mouse_reset) pnotify.pnotify_queue_remove();
 					pnotify.closer.hide();
 					$.pnotify_position_all();
 				}
@@ -503,7 +476,10 @@
 			var body_data = body.data("pnotify");
 			if (body_data == null || typeof body_data != "object")
 				body_data = [];
-			body_data = $.merge(body_data, [pnotify]);
+			if (opts.pnotify_stack.push == "top")
+				body_data = $.merge([pnotify], body_data);
+			else
+				body_data = $.merge(body_data, [pnotify]);
 			body.data("pnotify", body_data);
 
 			// Run callback.
@@ -575,6 +551,9 @@
 				}
 			}
 
+			// Mark the stack so it won't animate the new notice.
+			opts.pnotify_stack.animation = false;
+
 			// Display the notice.
 			pnotify.pnotify_display();
 
@@ -611,11 +590,13 @@
 		pnotify_hide: true,
 		// Delay in milliseconds before the notice is removed.
 		pnotify_delay: 8000,
+		// Reset the hide timer if the mouse moves over the notice.
+		pnotify_mouse_reset: true,
 		// Remove the notice's elements from the DOM after it is removed.
 		pnotify_remove: true,
 		// Change new lines to br tags.
-		pnotify_insert_brs: true,
+		pnotify_insert_brs: false,
 		// The stack on which the notices will be placed. Also controls the direction the notices stack.
-		pnotify_stack: {"dir1": "down", "dir2": "left"}
+		pnotify_stack: {"dir1": "down", "dir2": "left", "push": "bottom"}
 	};
 })(jQuery);
