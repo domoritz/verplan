@@ -1,9 +1,9 @@
 /* 
 	Document   : jquery.pnotify.default.css
 	Created on : Nov 23, 2009, 3:14:10 PM
-	Author     : Hunter Perrin
+	Author     : Hunter Perrin edited by Dominik Moritz
 	Description:
-		Default styling for Pines Notify jQuery plugin.
+		Black Theme for pnotify
 */
 
 /* Notice
@@ -36,6 +36,8 @@ html > body .ui-pnotify {
 	background: #333 !important;
 	color: #fff !important;
 	border-color: #000 !important;
+	
+	text-align: left;
 }
 
 .ui-pnotify-closer {
