@@ -37,7 +37,7 @@ var settings = <?php echo json_encode($this->settings); ?>;
 <?php 
 //rooturl der joomlainstallation
 ?>
-var rooturl = "<?php echo JURI::root()?>";
+var rooturl = "<?php echo JURI::root(true)?>/";
 
 <?php 
 jimport( 'joomla.version' );
