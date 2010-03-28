@@ -30,12 +30,13 @@ class verplanViewverplan extends JView
 		require(JPATH_COMPONENT.DS.'includes'.DS.'php'.DS.'check_mobile.php');
 		
 		//wenn get mobile true oder false, dann dass beachten, sonst automatisch
+		$mobile = false;
 		if ((check_mobile() || JRequest::getVar('mobile') == 'true') && JRequest::getVar('mobile') != 'false'){
 			//$this->setRedirect( 'index.php?option=com_verplan&view=mobile', $msg );
 			//header( JURI::base().'/index.php?option=com_verplan&view=mobile' );
-			$mobile = true;
-			$this->assignRef('mobile',$mobile);			
+			$mobile = true;					
 		}
+		$this->assignRef('mobile',$mobile);	
 
 		//controller uploads laden
 		$name = 'uploads';

@@ -13,6 +13,17 @@
 //-- No direct access
 defined('_JEXEC') or die('=;)');
 
+
+//mobile ansicht
+if ($this->mobile == true) {
+	//automatische weiterleitung
+	echo '
+	<script type="text/javascript">
+		window.location.replace("'.JURI::base().'?option=com_verplan&view=mobile&tmpl=component");
+	</script>';
+} else {
+
+
 //fügt die gesamten scripts und stylesheets hinzu
 require_once('inc/scripts.inc.php');
 
@@ -31,18 +42,6 @@ $version = $this->version;
 $dates = $this->dates;
 $which = $this->which;			
 ?>
-
-<?php 
-//mobile ansicht
-if ($this->mobile == true) {
-	//automatische weiterleitung
-	echo '
-	<script type="text/javascript">
-		window.location.replace("'.JURI::base().'?option=com_verplan&view=mobile&tmpl=component");
-	</script>';
-	}
-?>
-
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
 	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_rc_32.png" id="logo_verplan"/ title="alles neu laden">
@@ -283,3 +282,5 @@ if ($this->mobile == true) {
 <div id="syncFnHolder"></div>
 
 </div>
+
+<?php } ?>
