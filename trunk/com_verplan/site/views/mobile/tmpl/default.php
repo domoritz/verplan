@@ -18,7 +18,7 @@ defined('_JEXEC') or die('=;)');
 <?php 
 $document =& JFactory::getDocument();
 
-$baseurl = JURI::base().'components/com_verplan/';
+$baseurl = JURI::base(true).'/components/com_verplan/';
 $document->addStylesheet($baseurl.'includes/css/mobile.css');
 
 
