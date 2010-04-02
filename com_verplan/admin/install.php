@@ -70,9 +70,8 @@ function com_install() {
 	?>
 
 <p>Falls die Komponente schon einmal installiert war, wurden die alten
-Daten (bis auf die Einstellungen, diese wurden auf den Ursprungszustand
-zurückgesetzt) übernommen. Sollte es zu Fehlern bei der Installation
-gekommen sein, entferne bitte alle Tabellen mit, die mit '<?php echo $db->getPrefix();?>com_verplan'
+Daten übernommen. Sollte es zu Fehlern bei der Installation
+gekommen sein, entferne bitte alle Tabellen, die mit '<?php echo $db->getPrefix();?>com_verplan'
 beginnen aus der Datenbank und versuche die Instrallation danach erneut.</p>
 <br>
 <p>Direkt zum <a
