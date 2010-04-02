@@ -32,3 +32,7 @@ $version = $this->settings[version]['default'];
 <br>
 <a href="http://code.google.com/p/verplan/wiki/About">Mehr auf der Projektseite</a>
 <br>
+
+<br>
+Fehler melden: <a href="http://code.google.com/p/verplan/issues/entry">Bugreport</a>
+<br>
