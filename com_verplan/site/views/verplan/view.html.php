@@ -27,16 +27,28 @@ class verplanViewverplan extends JView
 	{
 		
 		//prüfen, ob die Seite mit einem Mobilen Endgerät aufgerufen wurde
-		require(JPATH_COMPONENT.DS.'includes'.DS.'php'.DS.'check_mobile.php');
+		//require(JPATH_COMPONENT.DS.'includes'.DS.'php'.DS.'check_mobile.php');
+		require(JPATH_COMPONENT.DS.'includes'.DS.'php'.DS.'detect.php');
 		
 		//wenn get mobile true oder false, dann dass beachten, sonst automatisch
 		$mobile = false;
-		if ((check_mobile() || JRequest::getVar('mobile') == 'true') && JRequest::getVar('mobile') != 'false'){
+		
+		//$mobile_browser = check_mobile();
+		$mobile_browser = $Browser != "OTHER";
+		
+		if (($mobile_browser || JRequest::getVar('mobile') == 'true') && JRequest::getVar('mobile') != 'false'){
 			//$this->setRedirect( 'index.php?option=com_verplan&view=mobile', $msg );
 			//header( JURI::base().'/index.php?option=com_verplan&view=mobile' );
 			$mobile = true;					
+		}			
+		
+		//direkt per php weiterleiten
+		if ($mobile){
+			header("Location: ".JURI::base()."?option=com_verplan&view=mobile&tmpl=component"); exit;
 		}
-		$this->assignRef('mobile',$mobile);	
+		
+		//oder mobil an template weitergeben
+		$this->assignRef('mobile',$mobile);
 
 		//controller uploads laden
 		$name = 'uploads';

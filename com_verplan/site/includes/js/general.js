@@ -35,8 +35,12 @@ var _alert;
 //initialisiert alles, nachdem das dokument fertig geladen wurde
 jQuery(document).ready(function(){
 	
+	//weiterleitung, wenn unter ie7
 	if (browserLessThanIE7()) {
-		alert("Du benutzt den völlig veralteten Internetexplorer 6. Diser Browser wird offiziell nicht unterstützt.\nBitte update deinen Browser!")
+		var redirect = confirm("Du benutzt den völlig veralteten Internetexplorer 6. Diser Browser wird offiziell nicht unterstützt.\nBitte update deinen Browser oder nutze die eingeschränkte Seite. \nWillst du auf die eingeschränkte Seite weitergeleitet werden?");
+		if (redirect) {
+			window.location.replace(rooturl+'?option=com_verplan&view=mobile');
+		}
 	}
 	
 	// setzt den hashwert, falls er noch nicht gesetzt ist
