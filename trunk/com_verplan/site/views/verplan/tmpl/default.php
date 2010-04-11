@@ -17,6 +17,7 @@ defined('_JEXEC') or die('=;)');
 //mobile ansicht
 if ($this->mobile == true) {
 	//automatische weiterleitung
+	echo 'Du benutzt einen mobilen Browser! Diese Seite könnte für dich interessant sein: <a href="'.JURI::base().'?option=com_verplan&view=mobile&tmpl=component"><strong>Link</strong></a>';
 	echo '
 	<script type="text/javascript">
 		window.location.replace("'.JURI::base().'?option=com_verplan&view=mobile&tmpl=component");
