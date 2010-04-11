@@ -5,7 +5,7 @@
 = Über das Programm =
 Das Programm ist eine Joomlakomponente, bestehend aus einem Backend- und einem Frontendbereich. Im Frontend kann man sich den Vertretungsplan ansehen, welcher über das Backend hochgeladen wurde. Im Backend hat man Zugang zu verschiedenen Einstellungsmöglichkeiten. 
 
-    * Lizenz: [http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL]
+    * Lizenz: [http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL] (in Teilen MIT sowie CC)
     * Autor: [http://www.dmoritz.bplaced.net/ Dominik Moritz]
     * Code: [http://code.google.com/p/verplan/]
 
@@ -25,6 +25,7 @@ Das Programm ist eine Joomlakomponente, bestehend aus einem Backend- und einem F
         * [http://plugins.jquery.com/project/cookie cookie]
         * [http://plugins.jquery.com/project/pnotify pnotify]
     * [http://jacksleight.com/old/code JS Extractor]
+    * Mobile Browser Detection Kit von Eugenia Loli-Queru (Updated code: Adam Scheinberg)
     * Icons aus dem [http://www.oxygen-icons.org/ Oxygen Package]
     * [http://www.preloaders.net/ Ajax Indikatoren]
 
