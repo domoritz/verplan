@@ -32,5 +32,9 @@ Bitte [http://code.google.com/p/verplan/issues/entry hier] melden oder mir eine 
 == Der Import von gpUntis Dateien funktioniert nicht mehr! Was muss ich tun? ==
 Wahrscheinlich gibt es ein Problem mit dem Parsen des Geltungsdatums, des Standes oder dem Vertretungsplan selber. Mehr dazu gibt es [Einstellen#gpUntis hier].
 
+== Why is there no English Version? ==
+Unfortunately I don't have the time to implement the translation yet. The problem is not the language itself or the ini-files but the implementation into the code. Maybe there is a developer outside who wants to implement the translation now but I can't accomplish it just now.
+However, it's on the ToDo list and you are not the first who wants a translation :-)
+
 = Frage stellen! =
 Wenn du eine Frage stellen möchtest, dann stelle sie einfach [http://groups.google.com/group/verplan hier].
