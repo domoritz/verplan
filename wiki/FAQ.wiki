@@ -34,7 +34,7 @@ Wahrscheinlich gibt es ein Problem mit dem Parsen des Geltungsdatums, des Stande
 
 == Why is there no English Version? ==
 Unfortunately I don't have the time to implement the translation yet. The problem is not the language itself or the ini-files but the implementation into the code. Maybe there is a developer outside who wants to implement the translation now but I can't accomplish it just now.
-However, it's on the ToDo list and you are not the first who wants a translation :-)
+However, it's on the to-do list and you are not the first who wants a translation :-)
 
 = Frage stellen! =
 Wenn du eine Frage stellen möchtest, dann stelle sie einfach [http://groups.google.com/group/verplan hier].
