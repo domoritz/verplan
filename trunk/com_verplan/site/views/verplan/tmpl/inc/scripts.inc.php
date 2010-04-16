@@ -38,7 +38,7 @@ $document->addStylesheet($baseurl.'includes/css/prettyPhoto.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.pnotify.black.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.clearableTextField.css');
 
-$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/themes/ui-darkness/jquery-ui.css');
+$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css');
 
 /*
  * scripts
@@ -56,7 +56,7 @@ if ($this->load_jquery == 'true') {
 $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 
 if ($this->load_jqueryui == 'true') {
-	$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.7/jquery-ui.min.js');
+	$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js');
 }
 
 

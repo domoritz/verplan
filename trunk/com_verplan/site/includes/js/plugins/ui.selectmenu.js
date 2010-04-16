@@ -11,7 +11,19 @@
 (function($) {
 
 $.widget("ui.selectmenu", {
-	_init: function() {
+		widgetEventPrefix: "selectmenu",
+		options: {
+		transferClasses: true,
+		style: 'popup',
+		width: null,
+		menuWidth: null,
+		handleWidth: 26,
+		maxHeight: null,
+		icons: null,
+		format: null,
+		errorClass: 'ui-state-error ui-selectmenu-error'
+	},
+	_create: function() {
 		var self = this, o = this.options;
 		
 		//quick array of button and menu id's
@@ -431,7 +443,7 @@ $.widget("ui.selectmenu", {
 		numPerPage = (direction == 'up') ? -numPerPage : numPerPage;
 		this._moveFocus(numPerPage);
 	},
-	_setData: function(key, value) {
+	_setOption: function(key, value) {
 		this.options[key] = value;
 		if (key == 'disabled') {
 			this.element
@@ -501,19 +513,7 @@ $.widget("ui.selectmenu", {
 });
 
 $.extend($.ui.selectmenu, {
-	getter: "value",
-	version: "@VERSION",
-	eventPrefix: "selectmenu",
-	defaults: {
-		transferClasses: true,
-		style: 'popup', 
-		width: null, 
-		menuWidth: null, 
-		handleWidth: 26, 
-		maxHeight: null,
-		icons: null, 
-		format: null
-	}
-});
+	version: "@VERSION"
+}); 
 
 })(jQuery);
