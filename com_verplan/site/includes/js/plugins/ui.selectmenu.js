@@ -5,6 +5,8 @@
  * Dual licensed under the MIT (MIT-LICENSE.txt)
  * and GPL (GPL-LICENSE.txt) licenses.
  *
+ * Edited by Dominik
+ *
  * http://docs.jquery.com/UI
  */
 
