@@ -85,6 +85,7 @@ if (!$min) {
 	$document->addScript($baseurl.'includes/js/debug.js');
 
 	//andere scripts
+	$document->addScript($baseurl.'includes/js/tooltip_style.js');
 	$document->addScript($baseurl.'includes/js/filters.js');
 	$document->addScript($baseurl.'includes/js/tableplugins.js');
 	$document->addScript($baseurl.'includes/js/hide_options.js');

@@ -183,6 +183,27 @@ function table_update() {
 	 * filter update
 	 */
 	updateFilters();
-
+	
+	/*
+	 * tooltips für tabellenzellen
+	 * resourcenverbrauch
+	 */
+	/*console.time('tooltips');
+	jQuery('#jquerytable tbody td').qtip( {
+		content : {
+			//keit content, damit der text aus dem title attribut genutz wird
+		},
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomMiddle'
+			}
+		},
+		style : {
+			name: 'domstyle'
+		}
+	});
+	console.timeEnd('tooltips');*/
+	
 	/**/
 }

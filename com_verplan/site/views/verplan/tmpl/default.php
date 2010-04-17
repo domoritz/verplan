@@ -152,8 +152,9 @@ $which = $this->which;
 			<tbody>
 				<tr>
 					<td>
-						<label for="filter_input" id="filter_label" title="Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen.">
-							<span class="ui-icon ui-icon-lightbulb"></span><span>Filter nach einer Spalte</span>
+						<label for="filter_input" id="filter_label">
+							<span class="ui-icon ui-icon-lightbulb" title="Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen."></span>
+							<span>Filter nach einer Spalte</span>
 						</label>
 					</td>
 					<td>
@@ -177,8 +178,9 @@ $which = $this->which;
 				</tr>
 				<tr>
 					<td>
-						<label for="klasse" id="filter_label_klassen" title="Filtere die Tabelle nach deiner Klasse. Die Eingabe bleibt auch erhalten, wenn du einen neuen Plan wählst oder sogar die Seite neu aufrufst.">
-							<span class="ui-icon ui-icon-lightbulb"></span><span>Filter nach Klasse</span>
+						<label for="klasse" id="filter_label_klassen">
+							<span class="ui-icon ui-icon-lightbulb" title="Filtere die Tabelle nach deiner Klasse. Die Eingabe bleibt auch erhalten, wenn du einen neuen Plan wählst oder sogar die Seite neu aufrufst."></span>
+							<span>Filter nach Klasse</span>
 						</label>
 					</td>
 					<td>
@@ -189,8 +191,9 @@ $which = $this->which;
 				</tr>
 				<tr>
 					<td>
-						<a href="<?php echo JURI::base() ?>?option=com_verplan&view=mobile" id="link_mobile" title="Zur mobilen Ansicht wechseln. Diese Ansicht ist für Handys, Smartphones und Subnoteboks optimiert.">
-							<span class="ui-icon ui-icon-lightbulb"></span><span>Zur mobilen Ansicht</span>
+						<a href="<?php echo JURI::base() ?>?option=com_verplan&view=mobile" id="link_mobile">
+							<span class="ui-icon ui-icon-lightbulb" title="Zur mobilen Ansicht wechseln. Diese Ansicht ist für Handys, Smartphones und Subnoteboks optimiert."></span>
+							<span>Zur mobilen Ansicht</span>
 						</a>
 					</td>
 					<td></td>
