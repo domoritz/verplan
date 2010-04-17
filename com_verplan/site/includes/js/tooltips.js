@@ -21,7 +21,7 @@ function createTooltips() {
 	 * tooltips http://craigsworks.com/projects/qtip/
 	 */	
 	
-	jQuery('#header_verplan a').qtip( {
+	jQuery('#header_verplan a').not('#help_head').qtip( {
 		content : {
 			//keit content, damit der text aus dem title attribut genutz wird
 		},
@@ -42,8 +42,8 @@ function createTooltips() {
 		},
 		position : {
 			corner : {
-				target : 'topMiddle',
-				tooltip : 'bottomMiddle'
+				target : 'leftMiddle',
+				tooltip : 'rightMiddle'
 			}
 		},
 		style : {
