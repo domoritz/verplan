@@ -28,7 +28,7 @@
 #verplanwrapper {
 	display: inline-block;
 	font-family: arial,sans-serif;
-	font-size: 12px;
+	font-size: small;
 }
 
 #table_footer a, #select_rahmen a{
@@ -282,7 +282,7 @@ div.qtip-wrapper {
 
 div.qtip-tip {
 	z-index: 10;
-	border-top: 1px solid white !important;
+	margin:0 auto 1px -7px !important;
 }
 
 

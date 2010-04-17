@@ -120,7 +120,7 @@
 	padding: 1.5px 0px 1.5px 2px;
 	/*border-bottom: transparent 1px solid;*/
 	font-weight: normal;
-	font-size: 12px;
+	font-size: small;
 }
 
 #jquerytable tbody .ui-state-hover { 

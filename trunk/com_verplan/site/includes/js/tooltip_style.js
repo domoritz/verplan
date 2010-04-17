@@ -52,7 +52,7 @@ function defaultStyle() {
 	};
 	
 	
-	/*jQuery('#verplanwrapper').qtip( {
+	jQuery('#verplanwrapper').qtip( {
 		content : {
             // Set the text to an image HTML string with the correct src URL to the loading image you want to use
             text: 'Dies ist ein langer Testtext, damit ich das Design testen kann.',
@@ -77,6 +77,6 @@ function defaultStyle() {
 	});
 	//show test as default
 	jQuery('#verplanwrapper').focus();
-	*/
+	
 	
 }
