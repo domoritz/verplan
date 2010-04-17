@@ -10,82 +10,10 @@
  * @author      Created on 14-Nov-2009
  */
 
-
-var style = '';
-
-/**
- * diese funktion sorgt dafür, dass der tooltipstyle
- * passen zum template ist
- * 
- */
-function updateTooltipStyle() {
-	var theme = jQuery.cookie('jquery-ui-theme');
-	
-	console.log('jQuery UI theme: '+theme);
-	
-	switch (theme) {
-	case 'UI darkness':
-		style = "own";
-		break;
-		
-	case 'UI lightness':
-		style = "dark";
-		break;
-		
-	case 'Start':
-		style = "dark";
-		break;
-
-	default:
-		style = "own";
-		break;
-	}
-	
-	console.log('Tooltipstyle: '+style);
-}
-
-jQuery(document).ready(function() {
-	updateTooltipStyle();
-	
-	defaultStyle();
+defaultStyle();
+jQuery(document).ready(function() {	
 	createTooltips();
 });
-
-function defaultStyle() {
-	
-	jQuery.fn.qtip.styles.domstyle = { // Last part is the name of the style
-	   tip: { 
-	      corner: true, 
-	      background: null 
-	   }, 
-	   'font-size': 'small',
-	   border: { 
-	      width: 3, 
-	      radius: 2 
-	   },
-//	   classes: { 
-//	      tooltip: 'ui-widget', 
-//	      tip: 'ui-widget', 
-//	      title: 'ui-widget-header', 
-//	      content: 'ui-widget-content' 
-//	   },
-	   
-	   //style ist eine variable
-	   name: style // Inherit the rest of the attributes from the preset style
-	};
-	
-	jQuery.fn.qtip.styles.own = { // Last part is the name of the style
-		color: '#000',
-		background: '#DCEDFF',
-		//background: '#ffffff',
-	   	border: {
-			color: '#59B4D4'
-			//color: '#CCCCCC'
-		},
-	   
-	   	name: 'blue' // Inherit the rest of the attributes from the preset style
-	};
-}
 
 function createTooltips() {
 
@@ -93,14 +21,29 @@ function createTooltips() {
 	 * tooltips http://craigsworks.com/projects/qtip/
 	 */	
 	
+	jQuery('#header_verplan a').qtip( {
+		content : {
+			//keit content, damit der text aus dem title attribut genutz wird
+		},
+		position : {
+			corner : {
+				target : 'topMiddle',
+				tooltip : 'bottomMiddle'
+			}
+		},
+		style : {
+			name: 'domstyle'
+		}
+	});
+	
 	jQuery('#help_head').qtip( {
 		content : {
 			//keit content, damit der text aus dem title attribut genutz wird
 		},
 		position : {
 			corner : {
-				target : 'leftMiddle',
-				tooltip : 'rightMiddle'
+				target : 'topMiddle',
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
@@ -108,7 +51,7 @@ function createTooltips() {
 		}
 	});
 	
-	jQuery('#filter_label').qtip( {
+	jQuery('#filter_label span.ui-icon').qtip( {
 		content : {},
 		hide: {
 			when: 'mouseout',
@@ -117,8 +60,8 @@ function createTooltips() {
 		show: 'mouseover',
 		position : {
 			corner : {
-				target : 'topRight',
-				tooltip : 'bottomLeft'
+				target : 'topMiddle',
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
@@ -127,12 +70,12 @@ function createTooltips() {
 	});
 	
 	//schließen bei click
-	jQuery('#filter_label').click(function(){
+	jQuery('#filter_label span.ui-icon').click(function(){
 		jQuery(this).qtip("hide");
 	});
 	
 	
-	jQuery('#filter_label_klassen').qtip( {
+	jQuery('#filter_label_klassen span.ui-icon').qtip( {
 		content : {},
 		hide: {
 			when: 'mouseout',
@@ -141,8 +84,8 @@ function createTooltips() {
 		show: 'mouseover',
 		position : {
 			corner : {
-				target : 'topRight',
-				tooltip : 'bottomLeft'
+				target : 'topMiddle',
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
@@ -151,12 +94,12 @@ function createTooltips() {
 	});
 	
 	//schließen bei click
-	jQuery('#filter_label_klassen').click(function(){
+	jQuery('#filter_label_klassen span.ui-icon').click(function(){
 		jQuery(this).qtip("hide");
 	});
 	
 	
-	jQuery('#link_mobile').qtip( {
+	jQuery('#link_mobile span.ui-icon').qtip( {
 		content : {},
 		hide: {
 			when: 'mouseout',
@@ -165,8 +108,8 @@ function createTooltips() {
 		show: 'mouseover',
 		position : {
 			corner : {
-				target : 'topRight',
-				tooltip : 'bottomLeft'
+				target : 'topMiddle',
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
@@ -175,8 +118,9 @@ function createTooltips() {
 	});
 	
 	//schließen bei click
-	jQuery('#link_mobile').click(function(){
+	jQuery('#link_mobile span.ui-icon').click(function(){
 		jQuery(this).qtip("hide");
+		return false;
 	});
 	
 	
@@ -187,7 +131,7 @@ function createTooltips() {
 		position : {
 			corner : {
 				target : 'topMiddle',
-				tooltip : 'bottomLeft'
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
@@ -202,7 +146,7 @@ function createTooltips() {
 		position : {
 			corner : {
 				target : 'topMiddle',
-				tooltip : 'bottomLeft'
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
@@ -216,14 +160,14 @@ function createTooltips() {
 		hide : 'mouseout',
 		position : {
 			corner : {
-				target : 'bottomMiddle',
-				tooltip : 'topRight'
+				target : 'topMiddle',
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
 			name: 'domstyle',
 			textAlign: 'left',
-			tip: 'topRight'
+			tip: 'bottomMiddle'
 		}
 	});
 	
@@ -234,13 +178,13 @@ function createTooltips() {
 		position : {
 			corner : {
 				target : 'topMiddle',
-				tooltip : 'bottomRight'
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
 			name: 'domstyle',
 			textAlign: 'left',
-			tip: 'bottomRight'
+			tip: 'bottomMiddle'
 		}
 	});
 	
@@ -255,14 +199,14 @@ function createTooltips() {
 		},
 		position : {
 			corner : {
-				target : 'bottomMiddle',
-				tooltip : 'topMiddle'
+				target : 'topMiddle',
+				tooltip : 'bottomMiddle'
 			}
 		},
 		style : {
 			name: 'domstyle',
 			textAlign: 'center',
-			tip: 'topMiddle'
+			tip: 'bottomMiddle'
 		}
 	});
 	
@@ -294,7 +238,7 @@ function createTooltips() {
 			padding: 5,
 		    border: {
 		        width: 4,
-		        radius: 5,
+		        radius: 1,
 		        color: '#A00000'
 		    } , 
 			width: 220,	  
@@ -304,6 +248,9 @@ function createTooltips() {
 	});
 	//show feedy as default
 	jQuery('#feedy').focus();
+	
+	//focus verschieben
+	jQuery('#refresh').focus();
 	
 	
 	//schließen bei click

@@ -27,9 +27,8 @@
 /*********** wichtig für z.b beez template ***********/
 #verplanwrapper {
 	display: inline-block;
-	color: black;
 	font-family: arial,sans-serif;
-	font-size: small;
+	font-size: 12px;
 }
 
 #table_footer a, #select_rahmen a{
@@ -271,9 +270,21 @@
 }*/
 
 .ui-pnotify-container {
-	-moz-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
+	-moz-box-shadow: 1px 3px 4px rgba(0, 0, 0, 0.6);
 	-webkit-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
 }
+
+/*qtip shadow geht nur richtig, wenn radius klein (0 oder 1)*/
+div.qtip-wrapper {
+	-moz-box-shadow: 1px 7px 6px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 1px 7px 6px rgba(0, 0, 0, 0.6);
+}
+
+div.qtip-tip {
+	z-index: 10;
+	border-top: 1px solid white !important;
+}
+
 
 /*#select_rahmen{
 	-moz-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.6);
