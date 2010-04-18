@@ -247,7 +247,6 @@ function JSONfail(json, textStatus){
  * @return
  */
 function buildTableFromJSON(tbody, json) {
-	console.time('tablebuild');
 	// tabelle leeren
 	tbody.html('');
 
@@ -264,8 +263,6 @@ function buildTableFromJSON(tbody, json) {
 	
 	// tabelle in DOM setzen
 	tbody.append(table);
-	
-	console.timeEnd('tablebuild');
 }
 
 /**
@@ -277,9 +274,7 @@ function buildTableFromJSON(tbody, json) {
  * @param rows
  * @return
  */
-function filterKlassen(rows) {
-	console.time('filterklassen');
-	
+function filterKlassen(rows) {	
 	//select leeren
 	jQuery('#klasse').html('');
 	
@@ -310,8 +305,6 @@ function filterKlassen(rows) {
 	jQuery.each(klassenArray, function(id, klasse) {
 		jQuery('#klasse').append('<option value="'+klasse+'">' + klasse + '</option>');
 	});
-	
-	console.timeEnd('filterklassen');
 }
 
 function sortfunction(first, second) {
