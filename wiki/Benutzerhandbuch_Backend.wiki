@@ -3,7 +3,7 @@
 #sidebar Sidebar
 
 = Einleitung =
-In dieser Anleitung findest du alle wichtigen Informationen, die du brauchst, um einen Vertretungsplan hochzuladen oder das Programm vom Backend aus zu verwalten. Falls du ein Problem hast, schau doch mal im [FAQ FAQ] nach. Das Backend ist der Administratorbereich des Programms. 
+In dieser Anleitung findesn Sie alle wichtigen Informationen, die Sie brauchen, um einen Vertretungsplan hochzuladen oder das Programm vom Backend aus zu verwalten. Falls Sie ein Problem haben sollten, schauen Sie doch einmal im [FAQ FAQ] nach. Das Backend ist der Administratorbereich des Programms. 
 
 <wiki:toc max_depth="3" />
 
@@ -18,17 +18,17 @@ Es gibt zurzeit drei verschiedenen Möglichkeiten, einen Vertretungsplan hochzul
 Die einzelnen Arten lassen sich nicht auswählen, sondern werden einzeln erkannt, nachdem die Daten abgeschickt wurden. Die Daten werden mit einem Klick auf "Abschicken" gesendet. 
 
 == keine Vertretungen ==
-Trage bitte das Geltungsdatum und den Stand ein, lasse aber die Datei leer. Das Datum sollte jeweils das Format 'YYYY-MM-DD' haben. Du kannst auch einfach auf das kleine Kalendericon rechts neben den Eingabefeldern klicken. Dann öffnet sich ein Kalender. 
+Tragen Sie bitte das Geltungsdatum und den Stand ein, lassen Sie aber die Datei leer. Das Datum sollte jeweils das Format 'YYYY-MM-DD' haben. Sie können auch einfach auf das kleine Kalendericon rechts neben den Eingabefeldern klicken um das Datum festzulegen. 
 
 Meldung: `Senden erfolgreich, keine Vertretungen`
 
 == eine beliebige Datei  ==
-Hier werden im Prinzip alle Dateitypen unterstützt. Bitte bedenke doch, dass die Benutzer nicht alle Dateitypen öffnen können. Empfehlenswert sind: _htm, html, pfd, png, jpg, bmp, gif, txt, doc und xls_
+Hier werden im Prinzip alle Dateitypen unterstützt. Bitte bedenken Sie doch, dass die Benutzer nicht alle Dateitypen öffnen können. Empfehlenswert sind: _htm, html, pfd, png, jpg, bmp, gif, txt, doc und xls_
 
 Meldung: `Senden erfolgreich, Datei als Vertretungsplan, Dateityp: <DATEITYP>`
 
 == Datenbank ==
-Wenn du die Daten in die Datenbank eintragen möchtest, dann lade einfach eine Unterstützte Datei hoch. Die Daten für den Stand, das Geltungsdatum und die Vertretungsplandaten selber sollten dann automatisch erkannt werden. 
+Wenn Sie die Daten in die Datenbank eintragen möchten, dann laden Sie einfach eine Unterstützte Datei hoch. Die Daten für den Stand, das Geltungsdatum und die Vertretungsplandaten selber sollten dann automatisch erkannt werden. 
 
 Zurzeit werden nur gp-untis Dateien erkannt, welche mit dem Info-Stundenplan Modul exportiert wurden. XML Dateien werden noch nicht unterstützt. 
 
@@ -37,9 +37,9 @@ Mehr dazu gibt es auf der Seite [Dateitypen].
 Meldung: `Senden erfolgreich, Vertretungsplan ist online`
 
 = Datenbank bereinigen =
-Hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweise werden für jeden Upload die hochgeladenen Dateien und alle Daten gespeichert. Um Einträge zu löschen, musst du nur auf *"Datenbank bereinigen"* klicken. Vertretungspläne, die für die Zukunft gelten (Geltungsdatum > Jetzt), bleiben immer erhalten und werden nicht mitgezählt. 
+Hier lassen sich veraltete Datenbankeinträge und Dateien löschen. Normalerweise werden für jeden Upload die hochgeladenen Dateien und alle Daten gespeichert. Um Einträge zu löschen, müssen Sie nur auf *"Datenbank bereinigen"* klicken. Vertretungspläne, die für die Zukunft gelten (Geltungsdatum > Jetzt), bleiben immer erhalten und werden nicht mitgezählt. 
 
-Um alle Einträge zu löschen, musst du einen negativen Wert eingeben (z.B. -1).
+Um alle Einträge zu löschen, müssen Sie einen negativen Wert eingeben (z.B. -1).
 
 Es gibt eine [Settings#keep_files Einstellung], mit der sich die Speicherung von Dateien einstellen lässt. 
 
