@@ -1,7 +1,7 @@
 #summary FAQ - Frequently Asked Questions (Häufig gestellte Fragen)
 
 = Einleitung =
-Hier siehst du häufig gestellte Fragen, vielleicht wurde deine Frage schon einmal gestellt. 
+Dies hier ist eine Aufstellung der am häufigsten gestellten Fragen. Vielleicht ist ihre Frage dabei. 
 
 <wiki:toc max_depth="3" />
 
@@ -22,9 +22,9 @@ Zurzeit ist es nicht möglich, den Unterricht ferngesteuert ausfallen zu lassen.
 Das Programm wurde im Rahmen einer 5.Prüfungskomponente von [http://www.dmoritz.bplaced.de Dominik Moritz] entwickelt.
 
 == Kann ich mithelfen, dass Programm zu verbessern? ==
-Natürlich! Wenn du richtig mit programmieren willst, dann gehe bitte auf [http://code.google.com/p/verplan/source/checkout diese Seite] und schau dir an, wie du an den Code kommst. Du kannst mir (Dominik) auch gerne eine Nachricht schicken.
+Natürlich! Wenn Sie richtig mit programmieren wollen, dann gehen Sie bitte auf [http://code.google.com/p/verplan/source/checkout diese Seite]. Sie können mir (Dominik Moritz) auch gerne eine Nachricht schreiben. 
 
-Wenn du nicht so gerne programmierst oder anders helfen möchtest, dann schreibe mir ein [http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA Feedback]! Die Feedbacks helfen mir sehr das Programm ständig zu verbessern.
+Wenn Sie nicht so gerne programmieren oder anders helfen wollen, dann schreiben Sie mir doch ein [http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA Feedback]! Die Feedbacks helfen mir sehr das Programm ständig zu verbessern.
 
 == Ich habe einen Fehler gefunden! Wo kann ich den Fehler melden? ==
 Bitte [http://code.google.com/p/verplan/issues/entry hier] melden oder mir eine Nachricht schreiben!
@@ -37,4 +37,4 @@ Unfortunately I don't have the time to implement the translation yet. The proble
 However, it's on the to-do list and you are not the first who wants a translation :-)
 
 = Frage stellen! =
-Wenn du eine Frage stellen möchtest, dann stelle sie einfach [http://groups.google.com/group/verplan hier].
+Wenn Sie eine Frage stellen möchten, dann stellen Sie sie einfach [http://groups.google.com/group/verplan hier].
