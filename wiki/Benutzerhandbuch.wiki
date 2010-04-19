@@ -4,4 +4,4 @@ Wähle bitte das Handbuch aus:
      * [Benutzerhandbuch_Frontend_mobile Mobile Frontend]
   * [Benutzerhandbuch_Backend Backend]
 
-Falls Sie wissen möchten, wie man das Programm benutzt und Sie den Vertretungsplan sehen wollen, dann schauen Sie sich doch das [Benutzerhandbuch_Frontend Frontendhandbuch] an. Wollen Sie einen Vertretungsplan hochladen oder Einstellungen der Programms verändern, dann sehen Sie sich bitte das [Benutzerhandbuch_Backend Backendhandbuch] an. 
+Informationen zur Benutzung des Programms und zur Anzeige des Vertretungsplans gibt es im [Benutzerhandbuch_Frontend Frontendhandbuch]. Das Hochladen von Vertretungsplänen und Verändern von Einstellungen geschieht über das Backend. Eine Anleitung dazu gibt es hier: [Benutzerhandbuch_Backend Backendhandbuch]. 
