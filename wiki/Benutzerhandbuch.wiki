@@ -1,5 +1,5 @@
 #summary Handbuch wählen
-Wähle bitte das Handbuch aus:
+Wählen Sie bitte das Handbuch aus:
   * [Benutzerhandbuch_Frontend Frontend]
      * [Benutzerhandbuch_Frontend_mobile Mobile Frontend]
   * [Benutzerhandbuch_Backend Backend]
