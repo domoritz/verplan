@@ -1,7 +1,11 @@
 #summary Handbuch wählen
 Wählen Sie bitte das Handbuch aus:
-  * [Benutzerhandbuch_Frontend Frontend]
-     * [Benutzerhandbuch_Frontend_mobile Mobile Frontend]
-  * [Benutzerhandbuch_Backend Backend]
+    * [Benutzerhandbuch_Frontend Frontend]
+      * [Benutzerhandbuch_Frontend_mobile Mobil]
+    * [Benutzerhandbuch_Backend Backend]
+      * [Settings Einstellungen]
+      * [Columns Spalten]
+    * [untis_html Daten aus Untis exportieren]
+    * [Installation] 
 
 Informationen zur Benutzung des Programms und zur Anzeige des Vertretungsplans gibt es im [Benutzerhandbuch_Frontend Frontendhandbuch]. Das Hochladen von Vertretungsplänen und Verändern von Einstellungen geschieht über das Backend. Eine Anleitung dazu gibt es hier: [Benutzerhandbuch_Backend Backendhandbuch]. 
