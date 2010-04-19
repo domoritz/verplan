@@ -3,7 +3,7 @@
 
 = Einleitung =
 
-Dies ist die Anleitung für die mobile Ansicht des Vertretungsplans. Das Benutzerhandbuch für das normale Frontend findest du [Benutzerhandbuch_Frontend hier].
+Dies ist die Anleitung für die mobile Ansicht des Vertretungsplans. Das Benutzerhandbuch für das normale Frontend finden Sie [Benutzerhandbuch_Frontend hier].
 
 <wiki:toc max_depth="3" />
 = Besonderheiten der Ansicht =
