@@ -7,7 +7,7 @@ Hier wird erklärt, was es mit den Spalteneinstellungen auf sich hat.
 
 = Spalten =
 
-Hier lassen sich alle Einstellungen der Spalten der Vertretungsplantabelle des Frontends verändern. Die Spalten kommen auch so in der Datenbank vor.  Wenn du hier etwas geändert hast, musst du die Änderungen speichern. Klicke dazu auf dem Button *"Speichern"*. Mit einem Klick auf *"Reset"* können die Änderungen rückgängig gemacht werden. 
+Hier lassen sich alle Einstellungen der Spalten der Vertretungsplantabelle des Frontends verändern. Die Spalten kommen auch so in der Datenbank vor.  Wenn Sie hier etwas geändert haben, müssen Sie die Änderungen speichern. Klicken Sie dazu auf dem Button *"Speichern"*. Mit einem Klick auf *"Reset"* können die Änderungen rückgängig gemacht werden. 
 
 Die einzelnen Spalten lassen sich sortieren, indem man auf den Titel in der Tabelle klickt. 
 
@@ -24,9 +24,9 @@ Hier eine kurze Erläuterung der einzelnen Einstellungen:
 
 Das verändern der Sortierung/ Reihenfolge der Spalten im Frontend über das Backend ist nicht immer ganz einfach. Normalerweise sollte man versuchen, die Zahlen in einer aufsteigenden Reihenfolge einzutragen. Dabei kann die Sortierfunktion sehr hilfreich sein, um z.B. die Spalten die angezeigt werden, von denen zu trennen, die nicht angezeigt werden. Wichtig ist es, alle Änderungen zu speichern!
 
-Hast du einen Reihenfolge aufgestellt kann es sein, dass Lücken entstanden sind. Hier hilft die Funktion *"Sortierung neu aufbauen"*. Diese sogt dafür, dass jede Zahl nur einmal vorkommt und setzt die zahlen so, dass keine Lücken mehr vorhanden sind. Ein Beispiel:
+Haben Sie einen Reihenfolge aufgestellt kann es sein, dass Lücken entstanden sind. Hier hilft die Funktion *"Sortierung neu aufbauen"*. Diese sorgt dafür, dass jede Zahl nur einmal vorkommt und setzt die Zahlen so, dass keine Lücken mehr vorhanden sind. Ein Beispiel:
 
   * Vor dem neu Aufbauen: 1,2,3,6,7,99,345
   * Nach dem neu Aufbauen: 1,2,3,4,5,6,7
 
-Wichtig: bevor du die Sortierung neu aufbaust, solltest du eventuelle Änderungen speichern.
+Wichtig: bevor Sie die Sortierung neu aufbauen, sollten Sie eventuelle Änderungen speichern.
