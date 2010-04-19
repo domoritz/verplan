@@ -8,7 +8,7 @@ In dieser Anleitung sind alle Informationen gesammelt, die nötig sind, um das V
 <wiki:toc max_depth="3" />
 
 = Datum wählen =
-Damit Sie sich einen bestimmten Vertretungsplan ansehen können, müssen Sie dessen Datum wählen. Das Datum wählen Sie, indem Sie auf das Feld links im oberen Block klicken. Daraufhin öffnet sich ein Popup, in dem Sie das gewünschte Datum (wieder mit einem Klick) auswählen können. Danach wird automatisch der Vertretungsplan geladen und angezeigt.  
+Damit Sie sich einen bestimmten Vertretungsplan ansehen können, müssen Sie dessen Datum wählen. Das Datum wählen Sie, indem Sie auf das Feld links im oberen Block klicken. Darauf hin öffnet sich ein Popup, in dem Sie das gewünschte Datum (wieder mit einem Klick) auswählen können. Danach wird automatisch der Vertretungsplan geladen und angezeigt.  
 
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192412.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192412.png" width="450px" /></a>
 
@@ -23,30 +23,29 @@ Diese Funktion gibt es in diesem Programm bewusst nicht mehr.
 
 = Erweiterte Funktionen=
 
-Um die erweiterten Funktionen anzuzeigen, musst du auf den entsprechenden Button klicken. Danach öffnet sich eine Box mit mit den Funktionen. 
+Um die erweiterten Funktionen anzuzeigen, müssen Sie auf den entsprechenden Button klicken. Danach öffnet sich eine Box mit mit den Funktionen. 
 
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192538.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192538.png" width="450px" /></a>
 
-Diese Funktionen kannst du nur benutzen, wenn eine Tabelle angezeigt wird
+Diese Funktionen können Sie nur benutzen, wenn eine Tabelle angezeigt wird
 
 == Filter ==
+Hier haben Sie die Möglichkeit, die Vertretungsplantabelle zu filtern. Um die Tabelle zu filtern, müssen Sie den Text, der gesucht werden soll, in das entsprechende Feld eingeben. danach werden automatisch nur die Zeilen angezeigt werden, die das gesuchte Wort enthalten. 
 
-Hier hast du die Möglichkeit, die Vertretungsplantabelle zu filtern. Um die Tabelle zu filtern, musst du einen Text, der gesucht werden soll, in das entsprechende Feld eingeben. Nachdem du ein paar Zeichen eingegeben hast, wirst du sehen, dass automatisch nur die Zeilen angezeigt werden, die das gesuchte Wort enthalten. 
+In das Suchfeld können Sie beliebige Zeichen eingeben. Ein Leerzeichen bedeutet `ODER`. 
 
-In das Suchfeld kannst du beliebige Zeichen eingeben. Ein Leerzeichen bedeutet `ODER`. 
+Sie können in dem Auswahlfeld rechts neben dem Eingabefeld festlegen, in welcher Spalte der Text gesucht werden soll. Es ist nicht möglich, mehrere Spalten auf einmal zu wählen.
 
-Du kannst in dem Auswahlfeld rechts neben dem Eingabefeld festlegen, in welcher Spalte der Text gesucht werden soll. Es ist nicht möglich, mehrere Spalten auf einmal zu wählen.
-
-Wenn du eine Spalte gewählt hast, und ein Wort zum Filtern eingegeben hast, werden nur noch die Zeilen angezeigt, in denen in der gewählten Spalte das gesuchte Wort vorkommt. 
+Wenn Sie eine Spalte gewählt haben, und ein Wort zum Filtern eingegeben haben, werden nur noch die Zeilen angezeigt, in denen in der gewählten Spalte das gesuchte Wort vorkommt. 
 
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193738.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193738.png" width="300px" /></a>
 
 == Filter - Klassen ==
 
-Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filtern]. Du musst nur eine Klasse (wahrscheinlich deine eigene) aus der Liste auswählen und schon werden nur noch die Spalten angezeigt, die für die gewählte Klasse gelten. 
-Nachdem du eine Klasse gewählt hast, kannst du die Filterung noch bearbeiten, indem du den Text in dem Eingabefeld für den Filter veränderst. 
+Dies ist ein schnellerer Weg, die Vertretungsplantabelle zu [#Filter filtern]. Sie müssen nur eine Klasse (wahrscheinlich Ihre eigene) aus der Liste auswählen und schon werden nur noch die Spalten angezeigt, die für die gewählte Klasse gelten. 
+Nachdem Sie eine Klasse gewählt haben, können Sie die Filterung noch bearbeiten, indem Sie den Text in dem Eingabefeld für den Filter verändern. 
 
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193925.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_193925.png" width="300px" /></a>
 
 == mobile Ansicht ==
-Hier kannst du zur [Benutzerhandbuch_Frontend_mobile mobilen Ansicht] des Vertretungsplanes für Handys, Smartphones oder Subnotebooks wechseln. 
+Hier können Sie zur [Benutzerhandbuch_Frontend_mobile mobilen Ansicht] des Vertretungsplans für Handys, Smartphones oder Subnotebooks wechseln. 
