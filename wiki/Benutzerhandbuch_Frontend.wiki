@@ -8,7 +8,7 @@ In dieser Anleitung sind alle Informationen gesammelt, die nötig sind, um das V
 <wiki:toc max_depth="3" />
 
 = Datum wählen =
-Damit du dir einen bestimmten Vertretungsplan ansehen kannst, musst du dessen Datum wählen. Das Datum wählst du, indem du auf das Feld links im oberen Block klickst. Dann öffnet sich ein Popup, in dem du das gewünschte Datum (wieder  mit einem Klick) auswählen kannst. Danach wird automatisch der Vertretungsplan geladen und angezeigt. 
+Damit Sie sich einen bestimmten Vertretungsplan ansehen können, müssen Sie dessen Datum wählen. Das Datum wählen Sie, indem Sie auf das Feld links im oberen Block klicken. Daraufhin öffnet sich ein Popup, in dem Sie das gewünschte Datum (wieder mit einem Klick) auswählen können. Danach wird automatisch der Vertretungsplan geladen und angezeigt.  
 
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192412.png"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/2009-12-03_192412.png" width="450px" /></a>
 
