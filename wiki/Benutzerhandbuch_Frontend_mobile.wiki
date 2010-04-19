@@ -7,7 +7,7 @@ Dies ist die Anleitung für die mobile Ansicht des Vertretungsplans. Das Benutze
 
 <wiki:toc max_depth="3" />
 = Besonderheiten der Ansicht =
-Diese Ansicht ist für Handy, Smartphones und Subnotebooks gedacht. Sie ist auch auf kleinen Displays gut nutzbar, sehr klein und kompatibel. Dafür hat man in dieser Ansicht nur sehr begrenzte Möglichkeiten, was z.B. Filter usw. angeht. Diese Ansicht kommt ohne JavaScript aus. 
+Diese Ansicht ist für Handy, Smartphones und Subnotebooks gedacht. Sie ist auch auf kleinen Displays gut nutzbar, sehr klein und kompatibel. Dafür hat man in dieser Ansicht nur sehr begrenzte Möglichkeiten, was z.B. Filter usw. angeht. Diese Ansicht kommt ohne Java Script aus. 
 
 = Wie kann ich den Vertretungsplan sehen? =
 Sie müssen nur das Datum, für das Sie den Vertretungsplan sehen wollen aus dem Auswahlfeld auswählen. Danach müssen Sie noch auf "Anzeigen" klicken. 
