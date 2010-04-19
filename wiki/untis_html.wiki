@@ -28,10 +28,10 @@ Es empfiehlt sich, eine eigene Ansicht für den Export zu erstellen, um Probleme
 
 == Export vorbereiten ==
   * gehe in  *Module*->*Info-Stundenplan*
-  * Im Tab *Monitor HTML* kannst du über *Bearbeiten* die zu exportierende Ansicht (wahrscheinlich die neu erstellte) auswählen. Klicke dazu auf den Button oben rechts und wähle dann die entsprechende Ansicht. Die ausgewählte Ansicht wird dann auf dem Button angezeigt (hier "Website").
-  * In den Einstellungen kannst du verschiedene Parameter der Exportdatei verändern (siehe Screenshot).
+  * Im Tab *Monitor HTML* kann man über *Bearbeiten* die zu exportierende Ansicht (wahrscheinlich die neu erstellte) auswählen. Klicke dazu auf den Button oben rechts und wähle dann die entsprechende Ansicht. Die ausgewählte Ansicht wird dann auf dem Button angezeigt (hier "Website").
+  * In den Einstellungen kann man verschiedene Parameter der Exportdatei verändern (siehe Screenshot).
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_6.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_6.jpg"/></a> 
-  * im Tab Monitor HTML musst du nun noch das erstellte Exportprofil (hier "Einstellung genannt") aktivieren indem du den Haken bei *aktiv* setzt.
+  * im Tab Monitor HTML muss noch das erstellte Exportprofil (hier "Einstellung genannt") aktiviert werden, indem man den Haken bei *aktiv* setzt.
 <a href="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_7.jpg"><img src="http://bilderdmoritz.bplaced.de/Bilder/verplan/admin_7.jpg"/></a>
 
 = Exportieren =
