@@ -34,7 +34,6 @@ $document->addStylesheet($baseurl.'includes/css/general.css');
 $document->addStylesheet($baseurl.'includes/css/table.css');
 //$document->addStylesheet($baseurl.'includes/css/jquery.kiketable.colsizable.css');
 $document->addStylesheet($baseurl.'includes/css/ui.selectmenu.css');
-$document->addStylesheet($baseurl.'includes/css/prettyPhoto.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.pnotify.black.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.clearableTextField.css');
 
@@ -69,7 +68,6 @@ $document->addScript($baseurl.'includes/js/plugins/jquery.colorize-2.0.0.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.qtip-1.0.0-rc3.min.js');
 $document->addScript($baseurl.'includes/js/plugins/ui.selectmenu.js');
 $document->addScript($baseurl.'includes/js/plugins/themeswitchertool.js');
-$document->addScript($baseurl.'includes/js/plugins/jquery.prettyPhoto.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.pnotify.min.js');
 $document->addScript($baseurl.'includes/js/plugins/jquery.clearableTextField.js');
 
@@ -89,7 +87,6 @@ if (!$min) {
 	$document->addScript($baseurl.'includes/js/filters.js');
 	$document->addScript($baseurl.'includes/js/tableplugins.js');
 	$document->addScript($baseurl.'includes/js/hide_options.js');
-	$document->addScript($baseurl.'includes/js/boxes.js');
 	$document->addScript($baseurl.'includes/js/general.js');
 	$document->addScript($baseurl.'includes/js/ajaxjson.js'); //ajax nach general, da hash
 	$document->addScript($baseurl.'includes/js/ajaxeffects.js');
