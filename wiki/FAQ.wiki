@@ -27,7 +27,7 @@ Natürlich! Wenn Sie richtig mit programmieren wollen, dann gehen Sie bitte auf 
 Wenn Sie nicht so gerne programmieren oder anders helfen wollen, dann schreiben Sie mir doch ein [http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA Feedback]! Die Feedbacks helfen mir sehr das Programm ständig zu verbessern.
 
 == Ich habe einen Fehler gefunden! Wo kann ich den Fehler melden? ==
-Bitte melden Sie den Fehler [http://code.google.com/p/verplan/issues/entry hier] oder schreiben Sie mir eine Nachricht! Falls Sie möchten, können Sie den Fehler auch selber beheben (siehe [hier]). 
+Bitte melden Sie den Fehler [http://code.google.com/p/verplan/issues/entry hier] oder schreiben Sie mir eine Nachricht! Falls Sie möchten, können Sie den Fehler auch selber beheben (siehe [FAQ#Kann_ich_mithelfen,_dass_Programm_zu_verbessern? hier]). 
 
 == Der Import von gpUntis Dateien funktioniert nicht mehr! Was muss ich tun? ==
 Wahrscheinlich gibt es ein Problem mit dem Parsen des Geltungsdatums, des Standes oder dem Vertretungsplan selber. Mehr dazu gibt es [Einstellen#gpUntis hier].
