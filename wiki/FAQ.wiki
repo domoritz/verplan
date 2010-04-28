@@ -1,7 +1,7 @@
 #summary FAQ - Frequently Asked Questions (Häufig gestellte Fragen)
 
 = Einleitung =
-Dies hier ist eine Aufstellung der am häufigsten gestellten Fragen. Vielleicht ist ihre Frage dabei. 
+Dies hier ist eine Aufstellung der am häufigsten gestellten Fragen. Vielleicht ist Ihre Frage dabei. 
 
 <wiki:toc max_depth="3" />
 
