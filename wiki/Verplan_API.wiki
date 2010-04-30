@@ -38,6 +38,8 @@ Optionen für das Model, also welche Daten angezeigt werden. Es sind folgende Op
 Code: plan.php (Controller Frontend)
 
 *<VIEW>*
+Solltest du nur diese Option verwenden, schreibe trotzdem das Komma!
+
 Optionen für das View, also wie die Daten ausgegeben werden. Es sind folgende Optionen möglich:
 
   * nichts angeben - Ausgabe als JSON, formatiert
@@ -46,8 +48,6 @@ Optionen für das View, also wie die Daten ausgegeben werden. Es sind folgende O
   * *min* - Ausgabe als JSON ohne Zeilenumbrüche und Einrückungen. 
 
 [http://www.json.org/ Was ist JSON?]
-
-Solltest du nur diese Option verwenden, schreibe trotzdem das Komma!
 
 Code: default_json.php
 
