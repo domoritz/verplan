@@ -49,7 +49,7 @@ Optionen für das View, also wie die Daten ausgegeben werden. Es sind folgende O
 
 [http://www.json.org/ Was ist JSON?]
 
-Code: default_json.php
+Du findest die Implementierung in: default_json.php
 
 = Die Daten =
 Die zurückgegebene Datei besteht aus drei Elementen, `infos`, `cols` und `rows`. 
