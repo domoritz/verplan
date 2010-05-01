@@ -45,7 +45,7 @@ $which = $this->which;
 ?>
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
-	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_final_32.png" id="logo_verplan"/ title="alles neu laden">
+	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_final_11_32.png" id="logo_verplan"/ title="alles neu laden">
 	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head" title="Benutzerhandbuch<br> und Hilfe"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p>
 		<?php echo $this->einltext?>
