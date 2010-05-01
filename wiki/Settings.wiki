@@ -81,6 +81,7 @@ Mit dieser Einstellung lässt sich die Anfangssortierung des normalen Frontends 
 
 == notify ==
 Auswahl des Notification (Benachrichtigungs) System. Es stehen mein eigenes (own) und das [http://pines.svn.sourceforge.net/viewvc/pines/sandbox/notify/notify.html pnotify] Plugin zur Auswahl.
+Achtung: ab Version 1.1 gibt es das eigene nicht mehr!
 
 == head_text ==
 Text, der auf der Frontendseite ganz oben zwischen der Logo und dem Benutzerhandbuch-Icon steht. HTML ist möglich.
