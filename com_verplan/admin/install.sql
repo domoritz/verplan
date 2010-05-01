@@ -125,7 +125,7 @@ VALUES
 ('class_col', 'Klasse(n)', 'Klasse(n)','Spaltenname der Klassenspalte'),
 ('class_name', 'Klasse(n)', 'Klasse(n)','Variablenname der Klassenspalte in JSON'),
 ('init_sort', '[[0,0]]', '[[0,0]]','Anfangssortierung (<a href="http://tablesorter.com/docs/example-option-sort-list.html">http://tablesorter.com/docs/example-option-sort-list.html</a>)'),
-('notify', 'pnotify', 'pnotify', 'Notificationsystem: own, pnotify, both oder none'),
+('notify', 'pnotify', 'pnotify', 'Notificationsystem: pnotify oder none'),
 ('head_text', 'Mit diesem Programm kannst du dir den Vertretungsplan ansehen. Wähle dazu das Datum aus. Mehr Informationen: <a href="http://verplan.googlecode.com" target="_blank" id="link_project" title="Projektseite">verplan.googlecode.com</a>. Bitte gib dein <a id="feedy" title="Feedbackbogen"  href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA" target="_blank">Feedback</a> ab und melde <a href="http://code.google.com/p/verplan/issues/entry" title="Fehler melden - report a bug">Fehler</a>!', '', 'Text, der im Frontend erscheint'),
 ('message_title', 'Finale Version', '', 'Überschrift der Benachrichtigung im Frontend. Nur mit pnotify (leer lassen für keine)'),
 ('message', 'Dies ist die finale Version des Vertretungsplanprogramms. Bitte gib dein <a href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA" target="_blank"><strong>Feedback</strong></a> ab und <a href="http://code.google.com/p/verplan/issues/entry" target="_blank">melde Fehler</a>!<br> Vielen Dank und viel Spaß', '', 'Benachrichtigung');

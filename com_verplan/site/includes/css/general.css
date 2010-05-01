@@ -112,44 +112,6 @@
 	margin-left: -40px;
 }
 
-#notify{
-	z-index: 3;
-	display: none;
-	float: right;
-	height: 32px;
-	width: 400px;
-	padding-left: 1em;
-	color: #000;
-	background-color: #fff;	
-	font-weight: normal;
-	line-height: 2.4em;
-	position: relative;
-}
-
-.icon_verplan {
-	width: 16px;
-	height: 16px;
-	display: block;
-	text-indent: -99999px;
-	float: left;
-	margin-top: 0.5em;
-	margin-right: 0.2em;
-}
-
-.icon_warn {
-	background: transparent url(../images/messagebox_warning.png) no-repeat 50% 50%;
-}
-
-.icon_info {
-	background: transparent url(../images/messagebox_info.png) no-repeat 50% 50%;
-}
-
-.icon_critical {
-	background: transparent url(../images/messagebox_critical.png) no-repeat 50% 50%;
-}
-
-
-
 /*********** indicators ***********/
 
 #loading {

@@ -1,5 +1,5 @@
  /*
-  * Clearable Text Field - jQuery plugin version 0.2.1
+  * Clearable Text Field - jQuery plugin version 0.1
   * Copyright (c) 2009 Tatsuya Ono
   *
   * http://github.com/ono/clearable_text_field
@@ -8,16 +8,14 @@
   *   http://www.opensource.org/licenses/mit-license.php
   *   http://www.gnu.org/licenses/gpl.html
   *   
-  *  verändert!!!
+  * modified!!!
   */
 (function($) {
   $.fn.clearableTextField = function() {
     if ($(this).length>0) {
       $(this).bind('keyup change paste cut', onSomethingChanged);
     
-      for (var i=0; i<$(this).length; i++) {
-        trigger($($(this)[i]));
-      }
+      trigger($(this));
     }
   }
   
@@ -34,15 +32,20 @@
   }
   
   function add_clear_button(input) {
-    if (!input.next().hasClass('text_clear_button')) {
+    if (input.parent().children('div.text_clear_button').length==0) {
       // appends div
-      input.after("<div class='text_clear_button'></div>");
+      input.parent().append("<div class='text_clear_button'></div>");
     
-      var clear_button = input.next();
+      var clear_button = input.parent().children('div.text_clear_button');
       var w = clear_button.outerHeight(), h = clear_button.outerHeight();
       
+      /*       
       input.css('padding-right', parseInt(input.css('padding-right')) + w + 1);
       input.width(input.width() - w - 1);
+       */
+      
+      input.css('padding-right', parseInt(input.css('padding-right')) + 1);
+      input.width(input.width() - 1);
           
       var pos = input.position();
       var style = {};  
@@ -56,7 +59,7 @@
         input.val('');
         
         //filter updaten 
-        //modifikation von dominik
+        //modification von dominik
         clickOnClear();
         
         trigger(input);
@@ -65,9 +68,9 @@
   }
   
   function remove_clear_button(input) {
-    var clear_button = input.next();
+    var clear_button = input.parent().children('div.text_clear_button');
     
-    if (clear_button.hasClass('text_clear_button')) {
+    if (clear_button.length>0) {
       clear_button.remove();
       var w = clear_button.width();
 

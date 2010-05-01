@@ -119,6 +119,12 @@ function JSONsuccess(json, textStatus) {
 	switch (json.infos[length].type) {
 	case 'no_access':
 		
+		//filternachricht ausblenden und elemente abschalten		
+		jQuery('#nachrichtenbereich_tabelle:visible').slideUp('fast');
+		jQuery('#filter_input').attr('disabled', 'disabled');
+		jQuery('#filter_this').attr('disabled', 'disabled');
+		jQuery('#klasse').attr('disabled', 'disabled');
+		
 		//sucht die richtige loginkomponente für joomla 1.5 oder 1.6
 		var component = "com_users";		
 		if (joomlaversion == 1.5) {
@@ -141,6 +147,11 @@ function JSONsuccess(json, textStatus) {
 		break;
 	case 'db':
 		// wenn der typ datenbank ist
+		
+		//elemente anschalten		
+		jQuery('#filter_input').removeAttr('disabled');
+		jQuery('#filter_this').removeAttr('disabled');
+		jQuery('#klasse').removeAttr('disabled');
 		
 		// falls bisher der link zum plan angezeigt wurde
 		hideNoDB();
@@ -169,6 +180,12 @@ function JSONsuccess(json, textStatus) {
 	case 'none':
 		//keine vertretungen
 		
+		//filternachricht ausblenden und elemente abschalten		
+		jQuery('#nachrichtenbereich_tabelle:visible').slideUp('fast');
+		jQuery('#filter_input').attr('disabled', 'disabled');
+		jQuery('#filter_this').attr('disabled', 'disabled');
+		jQuery('#klasse').attr('disabled', 'disabled');
+		
 		jQuery('#no_db')
 		.html('<p>Hurra! Keine Vertretungen für diesen Tag </p>(Stand: '+ json.infos[length].Stand +')');
 		showNoDB();
@@ -186,6 +203,12 @@ function JSONsuccess(json, textStatus) {
 		break;
 	default:
 		//es wurde eine datei hochgeladen
+		
+		//filternachricht ausblenden und elemente abschalten		
+		jQuery('#nachrichtenbereich_tabelle:visible').slideUp('fast');
+		jQuery('#filter_input').attr('disabled', 'disabled');
+		jQuery('#filter_this').attr('disabled', 'disabled');
+		jQuery('#klasse').attr('disabled', 'disabled');
 		
 		jQuery('#no_db')
 		.html('<p><a href="' + json.infos[length].url + '">zum Vertretungsplan...</a> </p>(Stand: '+ json.infos[length].Stand +')');
@@ -226,22 +249,6 @@ function JSONfail(json, textStatus){
 		    pnotify_type: 'error',
 		    pnotify_hide: false
 		});
-	}
-	
-	if (notify == 'own' || notify == 'both') {
-		//intervall, warten, dass nachricht angezeigt werden kann
-		
-		clearInterval(myInterval2);
-		
-		console.log('start listener');
-		myInterval2 = setInterval(function() {
-			console.log('wait for hint');
-			if (hintshown == false) {
-				clearInterval(myInterval2);
-				hintshown == true;
-				setTimeout("showHint('Fehler. Es existiert kein Plan für das gewählte Datum.', 'warn', '400px', 'noplan');", 200);
-			}
-		},100);
 	}
 }
 
