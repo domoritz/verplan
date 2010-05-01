@@ -33,9 +33,16 @@ var note_filter, note_filter_general, note_klasse;
 
 function iniFilters() {
 	
-	//clearable input
-	jQuery('#filter_input').clearableTextField();
+	//behebt problem, dass kreuz an falscher stelle ist, indem das panel
+	//mit den erweiterten einstellungen geöffnet wird, wenn es so sein soll
+	if (filterKlasse != '') {
+		if (!jQuery('#options_panel').is(':visible')) {
+			jQuery('#options_panel').show();
+		}
+	}
 	
+	//clearable input
+	jQuery('#filter_input').clearableTextField();	
 	
 	/*
 	 * tablefilter
@@ -77,6 +84,7 @@ function iniFilters() {
 	jQuery('#klasse').change(function(){
 		//console.log('klasse change ' + this.value);
 		
+		
 		//note ausblenden
 		if (note_klasse) {
 			note_klasse.pnotify_remove();
@@ -93,7 +101,7 @@ function iniFilters() {
 			filterKlasse = this.value;
 			console.log('cookie gespeichert: ' + this.value);
 			
-			if (notify == 'pnotify' || notify == 'both') {
+			/*if (notify == 'pnotify' || notify == 'both') {
 				note_klasse = jQuery.pnotify({
 				    pnotify_title: 'Klasse',
 				    pnotify_text: 'Es werden nur die Spalten der Klasse '+this.value+' angezeigt. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter_-_Klassen" target="_blank">Hilfe</a>',
@@ -102,7 +110,7 @@ function iniFilters() {
 				    pnotify_remove: true,
 				    pnotify_hide: false
 				});
-			}
+			}*/
 		}
 		
 		//zeigt das rote icon und schreibt die klasse
@@ -110,6 +118,8 @@ function iniFilters() {
 		
 		//filtern
 		filterTable();
+		
+		jQuery('#nachrichtenbereich_tabelle_nachricht').html("Es werden nur die Zeilen der Klasse "+this.value+" angezeigt");
 		
 	});
 }
@@ -130,7 +140,7 @@ function filterTable() {
 	//tabelle filtern
 	jQuery.uiTableFilter(jQuery('#jquerytable'), input, filter_this);
 	
-	if (notify == 'pnotify' || notify == 'both') {
+	/*if (notify == 'pnotify' || notify == 'both') {
 		if (input != '' & !(note_filter_general)) {
 			note_filter_general = jQuery.pnotify({
 			    pnotify_text: 'Ein Filter ist aktiv. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>',
@@ -147,8 +157,22 @@ function filterTable() {
 				note_filter_general = null;
 			}	
 		}
-	}
+	}*/
 	
+	var size = jQuery('#jquerytable tbody tr:visible').size();
+	if (input != '' && (size < num_cols)){
+
+		if (num_cols - size == 1) {
+			var werden_wird = "wird";
+		} else {
+			var werden_wird = "werden";
+		}
+		jQuery('#nachrichtenbereich_tabelle_nachricht').html("Es "+werden_wird+" "+(num_cols - size)+" von "+num_cols+" Zeilen nicht angezeigt");
+		jQuery('#nachrichtenbereich_tabelle').not(':visible').slideDown('fast');
+		
+	} else {
+		jQuery('#nachrichtenbereich_tabelle:visible').slideUp('fast');
+	}
 	
 	hideHint(0);
 	
@@ -184,12 +208,18 @@ function updateFilters() {
 	//zeigt das rote icon und schreibt die klasse
 	jQuery('#filter_input').change();
 	
-	//filtern
-	var filter_this = jQuery('#filter_this').val();
+	//filtern, ersetzt
+	/*var filter_this = jQuery('#filter_this').val();
 	var input = jQuery('#filter_input').val();
-	jQuery.uiTableFilter(jQuery('#jquerytable'), input, filter_this);
+	jQuery.uiTableFilter(jQuery('#jquerytable'), input, filter_this);*/
 	
-	if (notify == 'pnotify' || notify == 'both') {
+	filterTable();
+	
+	if (filterKlasse!= "") {
+		jQuery('#nachrichtenbereich_tabelle_nachricht').html("Es werden nur die Zeilen der Klasse "+filterKlasse+" angezeigt");
+	}
+	
+	/*if (notify == 'pnotify' || notify == 'both') {
 		if (jQuery('#filter_input').val() != '') {	
 			if (note_filter) {
 				note_filter.pnotify_remove();
@@ -221,7 +251,7 @@ function updateFilters() {
 				}
 			},100);
 		}
-	}
+	}*/
 }
 
 /**

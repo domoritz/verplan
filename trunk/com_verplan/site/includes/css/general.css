@@ -262,6 +262,10 @@
 	clear: both;
 }
 
+/*********** sonstiges ************/
+#nachrichtenbereich_tabelle {
+	padding: 0.5em;	
+}
 
 /*********** schatten test ***********/
 /*.qtip-wrapper {
