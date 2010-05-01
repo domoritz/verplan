@@ -54,11 +54,6 @@ function iniFilters() {
 		jQuery('#klasse').val('');
 		removeCookie();
 		
-		//note ausblenden
-		if (note_klasse) {
-			note_klasse.pnotify_remove();
-		}
-		
 		//ruft die funktion filter auf
 		filterTable();
 	});
@@ -69,12 +64,7 @@ function iniFilters() {
 		//console.log('filter_this change');
 		
 		jQuery('#klasse').val('');
-		removeCookie();
-		
-		//note ausblenden
-		if (note_klasse) {
-			note_klasse.pnotify_remove();
-		}		
+		removeCookie();	
 		
 		jQuery('#filter_input').val(null).change();
 		filterTable();
@@ -83,12 +73,6 @@ function iniFilters() {
 	//falls sich etwas in der select klasse ändert
 	jQuery('#klasse').change(function(){
 		//console.log('klasse change ' + this.value);
-		
-		
-		//note ausblenden
-		if (note_klasse) {
-			note_klasse.pnotify_remove();
-		}
 		
 		//bei all soll nichts gefiltert werden
 		if (this.value == '') {
@@ -100,17 +84,6 @@ function iniFilters() {
 			jQuery.cookie('Klasse', this.value, {expires: 7});
 			filterKlasse = this.value;
 			console.log('cookie gespeichert: ' + this.value);
-			
-			/*if (notify == 'pnotify' || notify == 'both') {
-				note_klasse = jQuery.pnotify({
-				    pnotify_title: 'Klasse',
-				    pnotify_text: 'Es werden nur die Spalten der Klasse '+this.value+' angezeigt. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter_-_Klassen" target="_blank">Hilfe</a>',
-				    pnotify_notice_icon: 'ui-icon ui-icon-search',
-				    pnotify_type: 'notice',
-				    pnotify_remove: true,
-				    pnotify_hide: false
-				});
-			}*/
 		}
 		
 		//zeigt das rote icon und schreibt die klasse
@@ -140,25 +113,6 @@ function filterTable() {
 	//tabelle filtern
 	jQuery.uiTableFilter(jQuery('#jquerytable'), input, filter_this);
 	
-	/*if (notify == 'pnotify' || notify == 'both') {
-		if (input != '' & !(note_filter_general)) {
-			note_filter_general = jQuery.pnotify({
-			    pnotify_text: 'Ein Filter ist aktiv. <a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>',
-			    pnotify_notice_icon: 'ui-icon ui-icon-search',
-			    pnotify_type: 'notice',
-			    pnotify_remove: true,
-			    pnotify_hide: false
-			});
-		}
-		
-		if (input == '') {
-			if (note_filter_general) {
-				note_filter_general.pnotify_remove();
-				note_filter_general = null;
-			}	
-		}
-	}*/
-	
 	var size = jQuery('#jquerytable tbody tr:visible').size();
 	if (input != '' && (size < num_cols)){
 
@@ -173,12 +127,6 @@ function filterTable() {
 	} else {
 		jQuery('#nachrichtenbereich_tabelle:visible').slideUp('fast');
 	}
-	
-	hideHint(0);
-	
-	if (note_filter) {
-		note_filter.pnotify_remove();
-	}	
 }
 
 /**
@@ -218,40 +166,6 @@ function updateFilters() {
 	if (filterKlasse!= "") {
 		jQuery('#nachrichtenbereich_tabelle_nachricht').html("Es werden nur die Zeilen der Klasse "+filterKlasse+" angezeigt");
 	}
-	
-	/*if (notify == 'pnotify' || notify == 'both') {
-		if (jQuery('#filter_input').val() != '') {	
-			if (note_filter) {
-				note_filter.pnotify_remove();
-			}
-			note_filter = jQuery.pnotify({
-			    pnotify_title: 'Filter aktiv',
-			    pnotify_text: 'Es werden Spalten ausgeblendet, weil ein Filter aktiv ist. Wenn du wieder alle Spalten sehen möchtest, klicke bitte <a href="javascript: clickOnClear()">hier</a><br><a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>',
-			    pnotify_error_icon: 'ui-icon ui-icon-search',
-			    pnotify_type: 'error',
-			    pnotify_hide: false
-			});
-		}
-	}
-	
-	//falls spalten gefiltert werden, soll darauf gewartet werden, dass kein hinweis 
-	//angezeigt wird und dann soll der eigene hinweis angezeigt werden
-	
-	if (jQuery('#filter_input').val() != '') {	
-		if (notify == 'own' || notify == 'both') {
-			clearInterval(myInterval);
-			
-			console.log('start listener');
-			myInterval = setInterval(function() {
-				console.log('wait for hint');
-				if (hintshown == false) {
-					clearInterval(myInterval);
-					hintshown == true;
-					setTimeout("showHint('Es werden Spalten ausgeblendet, weil ein Filter aktiv ist', 'warn', '420px', 'filty');",500);
-				}
-			},100);
-		}
-	}*/
 }
 
 /**

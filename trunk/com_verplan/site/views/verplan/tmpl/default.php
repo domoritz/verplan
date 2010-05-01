@@ -136,10 +136,6 @@ $which = $this->which;
 	<div id="loading">&nbsp;</div>
 	<div id="platzhalter" class="ui-corner-all">
 	</div>
-	<div id="notify" class="ui-corner-all">
-		<span id="text">loading...</span>
-	</div>
-	
 	
 	</form>
 		
@@ -222,7 +218,7 @@ $which = $this->which;
 	<a style="float: right" href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter">Hilfe</a>
 	<span class="ui-icon ui-icon-info" style="float: left; margin-right: 0.3em;"></span>
 	<span id="nachrichtenbereich_tabelle_nachricht"></span>
-    <br><a href="javascript: clickOnClear()">Alle Filter zurücksetzen.</a> 
+    <br><a href="javascript: clickOnClear()">Alles anzeigen.</a> 
 </div>
 
 <table id="jquerytable" class="ui-widget full_width">

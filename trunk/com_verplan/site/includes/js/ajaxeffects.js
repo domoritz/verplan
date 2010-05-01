@@ -64,9 +64,7 @@ function showIndicator() {
 		//jQuery('#loading').fadeIn('fast');
 		//jQuery('#loader_overlay').fadeIn('fast');
 		
-		showHint('Lade Daten...', 'info', '250px', 'loady');
-		
-		if (notify == 'pnotify' || notify == 'both') {
+		/*if (notify == 'pnotify' || notify == 'both') {
 			note_loader = jQuery.pnotify({
 				pnotify_title: "Lade Daten...",
 				pnotify_text: "Daten des Vertretungsplanes werden geladen. Bitte warten.",
@@ -74,7 +72,7 @@ function showIndicator() {
 				pnotify_hide: false,
 				pnotify_history: false
 			});
-		}
+		}*/
 
 	}
 }
@@ -83,8 +81,6 @@ function hideIndicator() {
 	if (effects_indi) {
 		//jQuery('#loading').pause(500).fadeOut(1000);
 		//jQuery('#loader_overlay').pause(0).fadeOut(1500);		
-		
-		hideHint(1500);
 		
 		setTimeout(function(){
 			// Remove the loader.
