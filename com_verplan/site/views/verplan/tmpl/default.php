@@ -218,6 +218,13 @@ $which = $this->which;
 	<div id="ui_themeswitcher"></div>
 </div>
 
+<div id="nachrichtenbereich_tabelle" style="display: none;" class="ui-widget ui-state-highlight">
+	<a style="float: right" href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter">Hilfe</a>
+	<span class="ui-icon ui-icon-info" style="float: left; margin-right: 0.3em;"></span>
+	<span id="nachrichtenbereich_tabelle_nachricht"></span>
+    <br><a href="javascript: clickOnClear()">Alle Filter zurücksetzen.</a> 
+</div>
+
 <table id="jquerytable" class="ui-widget full_width">
 	<colgroup>
 	<?php
@@ -249,6 +256,7 @@ $which = $this->which;
 		</tr>
 	</thead>
 	<tbody>
+	
 	<?php
 	//leere zellen, da es sonst fehler mit den plugins geben könnte
 	echo "<tr>";

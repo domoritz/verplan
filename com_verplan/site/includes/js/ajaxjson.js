@@ -14,6 +14,12 @@
 var ajax_date, ajax_stand, ajax_options;
 
 /**
+ * anzahl der zeilen, wichtig für änderungen
+ */
+var num_cols = 0;
+
+
+/**
  * notifications
  */
 var note_noplan, note_error_load, note_nodb, note_db;
@@ -263,6 +269,10 @@ function buildTableFromJSON(tbody, json) {
 	
 	// tabelle in DOM setzen
 	tbody.append(table);
+	
+	//anzahl der zeilen setzen
+	num_cols = json.length;
+
 }
 
 /**
