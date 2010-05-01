@@ -17,6 +17,8 @@ jQuery(document).ready(function(){
 	/*Themeswitcher, Design wechseln */
 	jQuery('#ui_themeswitcher').themeswitcher({
 		width: 200,
+		loadTheme: 'UI darkness',
+		
 		onSelect: function() {
 			if ((notify == 'pnotify' || notify == 'both') && counter > 0) {
 				jQuery.pnotify({
@@ -32,9 +34,14 @@ jQuery(document).ready(function(){
 		initialText: 'Theme wechseln'
 	}); 
 	
-	jQuery('#ui_themeswitcher').append('');
+	//jQuery('#ui_themeswitcher').append('');
 	
 	counter = 1;
+	
+	if (jQuery.cookie('jquery-ui-theme') == null) {
+		alert('setze theme');
+		//jQuery('#ui_themeswitcher').select();
+	}
 	
 	/*
 	 * selectmenu plugin, auswahlfeld im jqueryui style
