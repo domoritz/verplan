@@ -37,7 +37,9 @@ $document->addStylesheet($baseurl.'includes/css/ui.selectmenu.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.pnotify.black.css');
 $document->addStylesheet($baseurl.'includes/css/jquery.clearableTextField.css');
 
-$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css');
+//$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css');
+//$document->addStylesheet('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css');
+
 
 /*
  * scripts
