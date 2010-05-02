@@ -45,7 +45,7 @@ $which = $this->which;
 ?>
 
 <div id="header_verplan" class="ui-helper-clearfix panel">
-	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_final_11_32.png" id="logo_verplan"/ title="alles neu laden">
+	<img alt="logo vertretungsplan" style="width: 152" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/logo/logo_final_11_32.png" id="logo_verplan" title="Alles zurücksetzen">
 	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend" target="_blank" id="help_head" title="Benutzerhandbuch<br> und Hilfe"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>/components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p>
 		<?php echo $this->einltext?>
@@ -58,13 +58,16 @@ $which = $this->which;
 //kein js
 ?>
 <noscript class="panel">
+	<?php //stylesheet wird nur geladen, wenn js deaktiviert ist ?>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css"/>
+	
 	<div class="ui-widget">
 		<div class="ui-state-error ui-corner-all" style="padding: 0pt 0.7em; margin-top: 2em; margin-bottom: 2em;">
 			<p>
 			<span class="ui-icon ui-icon-alert" style="float: left; margin-right: 0.3em; margin-top: 0.3em;"></span>
 				<strong>Achtung:</strong><br>
 				Du musst JavaScript aktivieren, um den Vertretungsplan sehen zu können.<br>
-				Falls du Javascript nicht aktivieren möchtest oder kannst, klicke bitte <a href="<?php echo JURI::base()?>?option=com_verplan&view=mobile">hier</a>
+				Falls Du Javascript nicht aktivieren möchtest oder kannst, klicke bitte <a href="<?php echo JURI::base()?>?option=com_verplan&view=mobile">hier</a>
 			</p>
 		</div>
 	</div>
@@ -149,7 +152,7 @@ $which = $this->which;
 				<tr>
 					<td>
 						<label for="filter_input" id="filter_label">
-							<span class="ui-icon ui-icon-lightbulb" title="Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst du in der Auswahlbox rechts neben dem Textfeld auswählen."></span>
+							<span class="ui-icon ui-icon-lightbulb" title="Daten nach einer bestimmten Spalte filtern. Die Spalte, nach der gefiltert werden soll, kannst Du in der Auswahlbox rechts neben dem Textfeld auswählen."></span>
 							<span>Filter nach einer Spalte</span>
 						</label>
 					</td>
@@ -175,7 +178,7 @@ $which = $this->which;
 				<tr>
 					<td>
 						<label for="klasse" id="filter_label_klassen">
-							<span class="ui-icon ui-icon-lightbulb" title="Filtere die Tabelle nach deiner Klasse. Die Eingabe bleibt auch erhalten, wenn du einen neuen Plan wählst oder sogar die Seite neu aufrufst."></span>
+							<span class="ui-icon ui-icon-lightbulb" title="Filtere die Tabelle nach Deiner Klasse. Die Eingabe bleibt auch erhalten, wenn Du einen neuen Plan wählst oder sogar die Seite neu aufrufst."></span>
 							<span>Filter nach Klasse</span>
 						</label>
 					</td>
@@ -215,7 +218,7 @@ $which = $this->which;
 </div>
 
 <div id="nachrichtenbereich_tabelle" style="display: none;" class="ui-widget ui-state-highlight">
-	<a style="float: right" href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter">Hilfe</a>
+	<a style="float: right" href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Frontend#Filter" target="_blank">Hilfe</a>
 	<span class="ui-icon ui-icon-info" style="float: left; margin-right: 0.3em;"></span>
 	<span id="nachrichtenbereich_tabelle_nachricht"></span>
     <br><a href="javascript: clickOnClear()">Alles anzeigen.</a> 
@@ -274,10 +277,10 @@ $which = $this->which;
 <div id="table_footer" class="ui-widget-header ui-corner-bottom ui-helper-clearfix">
 	<span class="left_float"><a href="http://code.google.com/p/verplan/" target="_blank" id="link_project_2" title="Zur Projektseite! Hier gibt es den gesamten Code, Anleitungen, Hilfe und das Programmm selber zum Downloaden.">Verplan Web Application | Version:  <?php echo $version;?></a></span>
 	
-	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all" title="nach oben">
+	<a href="javascript:scroll(0,0)" id="up_btn" style="float: right; margin-left: 5px; margin-top: -2px;" class="ui-state-default ui-corner-all" title="Nach oben">
 		<span class="ui-icon ui-icon-circle-arrow-n"></span>
 	</a>
-	<span class="right_float">Code by <a href="http://www.dmoritz.bplaced.de/" target="_blank" id="link_homepage" title="auf meine Website">Dominik Moritz, 2010</a></span>
+	<span class="right_float">Code by <a href="http://www.dmoritz.bplaced.de/" target="_blank" id="link_homepage" title="Auf meine Website">Dominik Moritz, 2010</a></span>
 </div>
 
 </div>

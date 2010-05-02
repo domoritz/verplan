@@ -21,9 +21,9 @@ function createTooltips() {
 	 * tooltips http://craigsworks.com/projects/qtip/
 	 */	
 	
-	jQuery('#header_verplan a').not('#help_head').qtip( {
+	jQuery('#header_verplan a, #logo_verplan').not('#help_head').qtip( {
 		content : {
-			//keit content, damit der text aus dem title attribut genutz wird
+			//keit content, damit der text aus dem title attribut genutzt wird
 		},
 		position : {
 			corner : {
@@ -38,12 +38,12 @@ function createTooltips() {
 	
 	jQuery('#help_head').qtip( {
 		content : {
-			//keit content, damit der text aus dem title attribut genutz wird
+			//keit content, damit der text aus dem title attribut genutzt wird
 		},
 		position : {
 			corner : {
-				target : 'leftMiddle',
-				tooltip : 'rightMiddle'
+				target : 'topMiddle',
+				tooltip : 'bottomRight'
 			}
 		},
 		style : {
@@ -125,7 +125,7 @@ function createTooltips() {
 	
 	
 	jQuery('.ui-selectmenu-status').qtip( {
-		content : 'hier kannst du das Geltungsdatum wählen',
+		content : 'Hier kannst Du das Geltungsdatum wählen',
 		show : 'mouseover',
 		hide : 'mouseout',
 		position : {
@@ -172,7 +172,7 @@ function createTooltips() {
 	});
 	
 	jQuery('#ui_themeswitcher').qtip( {
-		content : 'Wähle ein Design aus, das dir gefällt.',
+		content : 'Wähle ein Design aus, das Dir gefällt.',
 		show : 'mouseover',
 		hide : 'mouseout',
 		position : {
@@ -214,7 +214,7 @@ function createTooltips() {
 	jQuery('#feedy').qtip( {
 		content : {
             // Set the text to an image HTML string with the correct src URL to the loading image you want to use
-            text: 'Gib dein <strong>Feedback</strong>, damit ich das Programm verbessern kann!<br><p id="closefeedy" style="cursor: pointer; font-weight: bold; float:right;">schließen</p>'
+            text: 'Gib Dein <strong>Feedback</strong>, damit ich das Programm verbessern kann!<br><p id="closefeedy" style="cursor: pointer; font-weight: bold; float:right;">schließen</p>'
 		    //text: 'Hey, du benutzt eine <strong>Vorabversion</strong>. Damit Fehler behoben werden und das Programm verbessert wird, gib bitte dein <strong>Feedback</strong> ab. Jedes einzelne ist wichtig für mich. <br>Vielen Dank und viel Spaß<br><p id="closefeedy" style="cursor: pointer; font-weight: bold; float:right;">schließen</p> '
             //url: jQuery(this).attr('href'), // Use the rel attribute of each element for the url to load
             /*title: {

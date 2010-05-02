@@ -13,6 +13,11 @@
 jQuery(document).ready(function(){
 	//counter verhindert, dass die nachricht über themewechsel beim start angezeigt wird
 	var counter = 0;
+	
+	//setzt cookie, falls nciht gesetzt, um probleme beim laden des themes zu vermeinden
+	if (jQuery.cookie('jquery-ui-theme') == null) {
+		jQuery.cookie('jquery-ui-theme','UI%20darkness');
+	}
 		
 	/*Themeswitcher, Design wechseln */
 	jQuery('#ui_themeswitcher').themeswitcher({
@@ -37,11 +42,6 @@ jQuery(document).ready(function(){
 	//jQuery('#ui_themeswitcher').append('');
 	
 	counter = 1;
-	
-	if (jQuery.cookie('jquery-ui-theme') == null) {
-		alert('setze theme');
-		//jQuery('#ui_themeswitcher').select();
-	}
 	
 	/*
 	 * selectmenu plugin, auswahlfeld im jqueryui style
