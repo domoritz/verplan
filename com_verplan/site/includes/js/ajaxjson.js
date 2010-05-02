@@ -78,7 +78,7 @@ function ajaxCall() {
 			//fehler bei ajax
 			switch (textStatus) {
 			case 'timeout':
-				var load = confirm('Timeout Fehler beim Laden des Vertretungsplans.\n Willst du auf eine alternative Seite weitergeleitet werden?');
+				var load = confirm('Timeout Fehler beim Laden des Vertretungsplans.\n Willst Du auf eine alternative Seite weitergeleitet werden?');
 				if (load) {
 					window.location.replace(rooturl+'?option=com_verplan&view=mobile');
 				}
@@ -132,13 +132,13 @@ function JSONsuccess(json, textStatus) {
 		}
 		
 		jQuery('#no_db')
-		.html('<p>Zugang verweigert! Bitte logge dich ein. </p>zum <a href="'+rooturl+'index.php?option='+component+'&view=login&return=aW5kZXgucGhwP29wdGlvbj1jb21fdmVycGxhbiZ2aWV3PXZlcnBsYW4=">Login</a>');
+		.html('<p>Zugang verweigert! Bitte logge Dich ein. </p>zum <a href="'+rooturl+'index.php?option='+component+'&view=login&return=aW5kZXgucGhwP29wdGlvbj1jb21fdmVycGxhbiZ2aWV3PXZlcnBsYW4=">Login</a>');
 		showNoDB();
 		
 		if (notify == 'pnotify' || notify == 'both') {
 			note_db = jQuery.pnotify({
 			    pnotify_title: 'Zugang verweigert',
-			    pnotify_text: 'Der Vertretungsplan ist nicht öffentlich. Bitte logge dich ein. ',
+			    pnotify_text: 'Der Vertretungsplan ist nicht öffentlich. Bitte logge Dich ein. ',
 			    pnotify_notice_icon: 'ui-icon ui-icon-error',
 			    pnotify_type: 'error',
 			    pnotify_hide: false
@@ -217,7 +217,7 @@ function JSONsuccess(json, textStatus) {
 		if (notify == 'pnotify' || notify == 'both') {
 			note_nodb = jQuery.pnotify({
 			    pnotify_title: 'Datei',
-			    pnotify_text: 'Für den gewählten Tag wurde ein Vertretungsplan hochgeladen. Dieser liegt als "'+ json.infos[length].type +'" vor. Um den Vertretungsplan zu sehen, musst du die Datei öffnen. Klicke dazu auf den <a href="' + json.infos[length].url + '">Link</a>.',
+			    pnotify_text: 'Für den gewählten Tag wurde ein Vertretungsplan hochgeladen. Dieser liegt als "'+ json.infos[length].type +'" vor. Um den Vertretungsplan zu sehen, musst Du die Datei öffnen. Klicke dazu auf den <a href="' + json.infos[length].url + '">Link</a>.',
 			    pnotify_notice_icon: 'ui-icon ui-icon-lightbulb',
 			    pnotify_type: 'notice',
 			    pnotify_hide: false
