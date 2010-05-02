@@ -14,9 +14,10 @@ jQuery(document).ready(function(){
 	//counter verhindert, dass die nachricht über themewechsel beim start angezeigt wird
 	var counter = 0;
 	
-	//setzt cookie, falls nciht gesetzt, um probleme beim laden des themes zu vermeinden
+	//falls kein theme cookie gesetzt wurde, kann hier etwas getan werden
 	if (jQuery.cookie('jquery-ui-theme') == null) {
-		jQuery.cookie('jquery-ui-theme','UI%20darkness');
+		//jQuery.cookie('jquery-ui-theme','UI%20darkness');
+		console.log('kein Theme Cookie');
 	}
 		
 	/*Themeswitcher, Design wechseln */

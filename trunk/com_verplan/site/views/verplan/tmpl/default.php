@@ -285,8 +285,6 @@ $which = $this->which;
 
 </div>
 
-<div id="syncFnHolder"></div>
-
 </div>
 
 <?php } ?>
