@@ -85,6 +85,7 @@ default:
 === Notification System ===
 ==== own ====
 _seit 1.1 nicht mehr enthalten_
+
 Es ist möglich eigene Benachrichtigungen anzuzeigen. Dazu gibt es in der Datei `general.js` die Funktionen `showHint()` und `hideHint()`. Um eine Nachricht erst nach einer gerade noch angezeigt anzuzeigen sollte man ein Intervall starten, welches wartet, bis eine Nachricht ausgeblendet ist. Ein Bsp kann so aussehen:
 {{{
 clearInterval(myInterval2);
