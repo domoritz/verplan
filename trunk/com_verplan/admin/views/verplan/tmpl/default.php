@@ -65,7 +65,7 @@ $version = $settings[version]['default'];
 	<a href="http://code.google.com/p/verplan/wiki/Benutzerhandbuch_Backend" target="_blank" id="help_head"><img alt="Benutzerhandbuch" src="<?php echo JURI::base();?>../components/com_verplan/includes/images/help_contents_32.png"></a>
 	<p> 
 		Informationen: <a href="http://code.google.com/p/verplan/">http://code.google.com/p/verplan/</a>. 
-		Bitte sende dein <a id="feedy" title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA">Feedback</a>!
+		Bitte sende Dein <a id="feedy" title="Feedbackbogen" href="http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA">Feedback</a>!
 		<br>Version: <?php echo $version;?><br>
 		Zur <a target="_blank" href="../index.php?option=com_verplan" target="_blank">Frontpage</a>
 	</p>
