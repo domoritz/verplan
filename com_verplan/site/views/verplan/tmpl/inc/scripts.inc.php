@@ -57,7 +57,7 @@ if ($this->load_jquery == 'true') {
 $document->addCustomTag( '<script type="text/javascript">jQuery.noConflict();</script>' );
 
 if ($this->load_jqueryui == 'true') {
-	$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js');
+	$document->addScript('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js');
 }
 
 
