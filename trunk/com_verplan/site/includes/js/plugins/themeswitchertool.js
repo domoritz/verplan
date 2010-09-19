@@ -47,7 +47,7 @@
 			updateCSS( $(this).attr('href') );
 			var themeName = $(this).find('span').text();
 			button.find('.jquery-ui-themeswitcher-title').text( options.buttonPreText + themeName );
-			$.cookie(options.cookieName, themeName);
+			$.cookie(options.cookieName, themeName, options);
 			options.onSelect();
 			if(options.closeOnSelect && switcherpane.is(':visible')){ switcherpane.spHide(); }
 			return false;
