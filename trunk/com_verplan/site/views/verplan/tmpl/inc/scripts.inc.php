@@ -50,7 +50,7 @@ $document->addStylesheet($baseurl.'includes/css/jquery.clearableTextField.css');
 
 //jQuery hinzufügen
 if ($this->load_jquery == 'true') {
-	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js');
+	$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js');
 }
 
 //no conflict mode für jQuery (http://docs.jquery.com/Using_jQuery_with_Other_Libraries)
