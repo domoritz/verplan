@@ -26,6 +26,9 @@ Natürlich! Wenn Sie richtig mit programmieren wollen, dann gehen Sie bitte auf 
 
 Wenn Sie nicht so gerne programmieren oder anders helfen wollen, dann schreiben Sie mir doch ein [http://spreadsheets.google.com/viewform?formkey=dGdDanZxa2k4RHhKbHJaS1RxT0Q2eWc6MA Feedback]! Die Feedbacks helfen mir sehr das Programm ständig zu verbessern.
 
+== Der Upload macht Probleme ==
+Am besten Versuchen Sie den Debugmodus zu aktivieren, indem Sie `&debug=true` and die URL anhängen, die Seite laden und dann einen Upload versuchen. 
+
 == Ich habe einen Fehler gefunden! Wo kann ich den Fehler melden? ==
 Bitte melden Sie den Fehler [http://code.google.com/p/verplan/issues/entry hier] oder schreiben Sie mir eine Nachricht! Falls Sie möchten, können Sie den Fehler auch selber beheben (siehe [FAQ#Kann_ich_mithelfen,_dass_Programm_zu_verbessern? hier]). 
 
