@@ -17,6 +17,8 @@ Es gibt zurzeit drei verschiedenen Möglichkeiten, einen Vertretungsplan hochzul
 
 Die einzelnen Arten lassen sich nicht auswählen, sondern werden einzeln erkannt, nachdem die Daten abgeschickt wurden. Die Daten werden mit einem Klick auf "Abschicken" gesendet. 
 
+Sollte Es Probleme geben, versuchen Sie den Debugmodus zu aktivieren. Dieser lässt sich mit aktivieren, indem Sie `&debug=true` and die URL anhängen, die Seite laden und dann einen Upload versuchen. 
+
 == keine Vertretungen ==
 Tragen Sie bitte das Geltungsdatum und den Stand ein, lassen Sie aber die Datei leer. Das Datum sollte jeweils das Format 'YYYY-MM-DD' haben. Sie können auch einfach auf das kleine Kalendericon rechts neben den Eingabefeldern klicken um das Datum festzulegen. 
 
